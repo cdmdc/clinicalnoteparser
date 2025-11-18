@@ -1,110 +1,110 @@
 # Plan Generation Prompt
 
-You are a medical recommendation system. Generate problem-oriented recommendations based on extracted facts from a clinical note.
+You are a medical recommendation system. Generate a prioritized treatment plan based on the clinical note.
 
 ## Critical Instructions
 
-**PHI Protection**: Do not add, infer, or fabricate any Protected Health Information (PHI). Only use information from the provided facts.
+**PHI Protection**: Do not add, infer, or fabricate any Protected Health Information (PHI). Only use information from the provided text.
 
-**Anti-Fabrication**: Do not invent facts, diagnoses, or recommendations. Only generate recommendations based on the provided facts.
+**Anti-Fabrication**: Do not invent facts, diagnoses, or recommendations. Only generate recommendations based on the provided text.
 
-**Citation Requirements**: Every recommendation must be tied to specific source facts. If you cannot find evidence for a recommendation, do not include it.
+**Citation Requirements**: Every recommendation must be tied to specific source text with explicit citations (chunk IDs and character spans or section/paragraph references).
 
-**Uncertainty Handling**: If evidence is weak or ambiguous, use low confidence scores and include a note explaining the uncertainty.
+**Confidence Scoring**: Assign confidence scores [0, 1] based on evidence strength. Include hallucination guard notes for weak evidence.
 
 ## Task
 
-Generate problem-oriented recommendations based on the following extracted facts. For each problem, provide:
-1. The problem name
-2. Recommendations with rationale
-3. Confidence score [0, 1]
-4. Citations to source facts (use fact IDs provided)
+Generate a prioritized treatment plan based on the following clinical note. The plan should include:
+1. **Diagnostics**: Tests, imaging, procedures needed
+2. **Therapeutics**: Medications, treatments, interventions
+3. **Follow-ups**: Monitoring, appointments, re-evaluations
+4. **Risks/Benefits**: For each recommendation where applicable
 
 ## Input Format
 
-Facts (with fact IDs):
-{facts_with_ids}
+The clinical note is provided in sections with chunk IDs:
+
+{chunks_with_headers}
 
 ## Output Format
 
-Return a JSON object with this structure:
+Provide a structured treatment plan with the following sections:
 
-```json
-{{
-  "problem_plans": [
-    {{
-      "problem": "Problem name",
-      "recommendations": [
-        {{
-          "recommendation": "Recommendation text",
-          "rationale": "Why this recommendation is made",
-          "confidence": 1.0,
-          "fact_ids": ["fact_001", "fact_002"],
-          "uncertainty_note": null
-        }}
-      ]
-    }}
-  ],
-  "global_followup": [
-    {{
-      "recommendation": "General follow-up recommendation",
-      "rationale": "Why this is recommended",
-      "confidence": 1.0,
-      "fact_ids": ["fact_003"],
-      "uncertainty_note": null
-    }}
-  ]
-}}
-```
+**Prioritized Treatment Plan**
+
+**1. Diagnostics**
+[Recommendation 1]
+- Source: [Explicit citation: chunk_ID:start-end or "Section Name, paragraph X"]
+- Confidence: [0.0-1.0]
+- Risks/Benefits: [If applicable]
+- Hallucination Guard Note: [Required if confidence < 0.8 or evidence is weak/ambiguous]
+
+[Recommendation 2]
+...
+
+**2. Therapeutics**
+[Recommendation 1]
+- Source: [Explicit citation: chunk_ID:start-end or "Section Name, paragraph X"]
+- Confidence: [0.0-1.0]
+- Risks/Benefits: [If applicable]
+- Hallucination Guard Note: [If needed]
+
+[Recommendation 2]
+...
+
+**3. Follow-ups**
+[Recommendation 1]
+- Source: [Explicit citation: chunk_ID:start-end or "Section Name, paragraph X"]
+- Confidence: [0.0-1.0]
+- Risks/Benefits: [If applicable]
+- Hallucination Guard Note: [If needed]
+
+[Recommendation 2]
+...
+
+## Citation Format
+
+When citing sources, use one of these formats:
+- `chunk_X:start_char-end_char` (e.g., "chunk_3:123-456")
+- `Section Name, paragraph X` (e.g., "PLAN section, paragraph 2")
+- `Section Name, line X` (e.g., "MEDICATIONS section, line 3")
+
+## Confidence Score Guidelines
+
+- **1.0**: Recommendation is explicitly stated in the source text
+- **0.8-0.9**: Recommendation is strongly implied or clearly follows from stated information
+- **0.6-0.7**: Recommendation is reasonably inferred but not explicitly stated
+- **0.4-0.5**: Recommendation is weakly supported, requires assumptions
+- **<0.4**: Very weak evidence, should include strong hallucination guard note
+
+## Hallucination Guard Notes
+
+Include a hallucination guard note if:
+- Confidence score < 0.8
+- Evidence is ambiguous or requires significant inference
+- Recommendation is based on limited information
+- Multiple interpretations are possible
+
+The note should explain:
+- Why the evidence is weak or ambiguous
+- What assumptions or inferences were made
+- What information is missing that would strengthen the recommendation
+
+## Prioritization
+
+Order recommendations by:
+1. Clinical urgency/importance
+2. Evidence strength (higher confidence first within each category)
+3. Logical sequence (diagnostics → therapeutics → follow-ups)
 
 ## Important Notes
 
-- Use the fact IDs provided to cite source facts
-- Each recommendation must have at least one fact_id citation
-- Confidence scores:
-  - 1.0: Strong evidence, clear recommendation
-  - 0.7-0.9: Good evidence, reasonable recommendation
-  - 0.5-0.6: Weak evidence, tentative recommendation
-  - <0.5: Very uncertain, consider excluding
-- If no evidence exists for a recommendation, do not include it
-- Global followup recommendations apply to the overall case, not specific problems
+- Extract information only from the provided text
+- If no recommendations can be made for a category, write "None identified based on available information"
+- Use clear, professional medical language
+- Be specific with citations - include chunk IDs and character positions or section/paragraph references
+- Every recommendation must have a source with explicit citation
+- Every recommendation must have a confidence score
+- Include hallucination guard notes when confidence < 0.8 or evidence is weak
 
-## Example
-
-Input:
-Facts:
-- fact_001: Patient has diabetes (confidence: 1.0)
-- fact_002: HbA1c is 8.5% (confidence: 1.0)
-- fact_003: Patient is on metformin (confidence: 1.0)
-
-Output:
-```json
-{{
-  "problem_plans": [
-    {{
-      "problem": "Diabetes",
-      "recommendations": [
-        {{
-          "recommendation": "Consider intensifying diabetes management",
-          "rationale": "HbA1c of 8.5% is above target, current metformin may need adjustment",
-          "confidence": 0.9,
-          "fact_ids": ["fact_001", "fact_002", "fact_003"],
-          "uncertainty_note": null
-        }}
-      ]
-    }}
-  ],
-  "global_followup": [
-    {{
-      "recommendation": "Schedule follow-up in 3 months to recheck HbA1c",
-      "rationale": "Monitor diabetes control after treatment adjustment",
-      "confidence": 0.8,
-      "fact_ids": ["fact_002"],
-      "uncertainty_note": null
-    }}
-  ]
-}}
-```
-
-Now generate recommendations based on the provided facts.
-
+Now generate the prioritized treatment plan based on the provided clinical note.

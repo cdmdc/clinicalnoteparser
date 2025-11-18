@@ -275,21 +275,33 @@ tests/
 ### 4. Plan Generation & Evaluation
 
 **Plan Generation (`app/planner.py`):**
-- For each problem in summary, gather relevant facts
-- **Citation Linking Strategy**: 
-  - Assign unique fact IDs to all facts in the prompt using format: `fact_001`, `fact_002`, `fact_003`, etc. (zero-padded, sequential)
-  - Include fact IDs in the prompt alongside fact text
-  - Have LLM reference fact IDs when generating recommendations
-  - Match LLM-selected fact IDs back to source facts
-  - Alternative: Use text matching with fuzzy similarity if fact IDs not provided or LLM doesn't use them
-- Call LLM with plan generation prompt (include fact IDs)
-- Parse `ProblemPlan` response, link recommendations to source facts by ID or text matching
-- Copy citation spans from matched source facts
-- Generate global_followup recommendations
-- Save to `results/{note_id}/plan.json` with all recommendations and citations
-- **Output Validation**: Validate plan JSON structure using Pydantic `Plan` model before saving
-- Ensure all required fields are present, citations are valid, confidence scores are in [0, 1], and types are correct
-- **Constraint**: No evidence → no recommendation (empty list or low confidence with hallucination_note)
+- **Input**: All chunks from the document (processed at once, similar to summarizer)
+- **LLM Processing**: Feed all chunks to LLM in a single call with section headers preserved
+- **Output**: Prioritized treatment plan including:
+  - Diagnostics (tests, imaging, procedures)
+  - Therapeutics (medications, treatments, interventions)
+  - Follow-ups (monitoring, appointments, re-evaluations)
+  - Risks/Benefits (for each recommendation)
+- **Recommendation Requirements**:
+  1. **Rationale**: Must be grounded in source with explicit citations
+     - Use chunk IDs and character spans (e.g., "chunk_3:123-456" or "PLAN section, paragraph 2")
+     - Reference specific sections and text spans from the source chunks
+  2. **Confidence Score**: 0-1 scale indicating strength of evidence
+     - 1.0: Strong, explicit evidence in source
+     - 0.7-0.9: Good evidence, clearly implied
+     - 0.5-0.6: Weak evidence, tentative
+     - <0.5: Very weak, consider excluding
+  3. **Hallucination Guard Note**: Required if confidence < 0.8 or evidence is weak/ambiguous
+     - Explain why evidence is weak
+     - Note any assumptions or inferences made
+     - Flag if recommendation is based on limited information
+- **Prioritization**: Recommendations should be ordered by:
+  - Clinical urgency/importance
+  - Evidence strength (higher confidence first)
+  - Logical sequence (diagnostics → therapeutics → follow-ups)
+- Save to `results/{note_id}/plan.txt` as structured text (similar to summary.txt format)
+- **Output Validation**: Ensure all recommendations have citations, confidence scores, and hallucination notes when needed
+- **Constraint**: No evidence → no recommendation (exclude or mark with very low confidence and explicit hallucination note)
 
 **Evaluation (`app/evaluation.py`):**
 - **Citation Coverage**: 
@@ -322,22 +334,32 @@ tests/
 
 **Main Pipeline (`app/pipeline.py`):**
 - **Pre-flight Checks**: 
-  - Verify Ollama is running and model is available
+  - Verify Ollama is running and model is available (only if LLM steps are required)
   - Validate configuration values
   - Check input file exists and is readable (supports both PDF and .txt)
   - Detect file type from extension (.pdf or .txt)
-- Orchestrate all steps: ingestion → sections → chunks → summarization → planning → evaluation
+- **Conditional Execution**: Pipeline supports selective execution based on required outputs:
+  - **TOC only**: Run ingestion → sections → break (skip chunking, summarization, planning, evaluation)
+  - **Summary only**: Run ingestion → sections → chunks → summarization → break (skip planning, evaluation)
+  - **Plan only**: Run ingestion → sections → chunks → planning → break (skip summarization, evaluation)
+  - **TOC + Summary + Plan** (no evaluation): Run ingestion → sections → chunks → summarization → planning → break (skip evaluation)
+  - **Full pipeline** (all outputs including evaluation): Run ingestion → sections → chunks → summarization → planning → evaluation
+- **Dependency Management**: 
+  - Summarization requires chunks (must run chunking first)
+  - Planning requires chunks (must run chunking first)
+  - Evaluation requires summary and plan (must run both first)
+  - TOC can be generated independently (no dependencies)
 - Create output directory structure: `results/{note_id}/`
 - **Comprehensive Logging**: Set up file logger to `results/{note_id}/pipeline.log`
   - Use Python `logging` module with clear formatting
   - Include timestamps, log levels, and module names
-  - Log all major steps with clear labels:
-    - `[STEP 1/6] PDF Ingestion`
-    - `[STEP 2/6] Section Detection`
-    - `[STEP 3/6] Chunking`
-    - `[STEP 4/6] Fact Extraction`
-    - `[STEP 5/6] Plan Generation`
-    - `[STEP 6/6] Evaluation`
+  - Log all major steps with clear labels (step numbers adjust based on what's being run):
+    - `[STEP 1/X] PDF Ingestion`
+    - `[STEP 2/X] Section Detection`
+    - `[STEP 3/X] Chunking` (if chunks, summary, or plan required)
+    - `[STEP 4/X] Summarization` (if summary required)
+    - `[STEP 5/X] Plan Generation` (if plan required)
+    - `[STEP 6/X] Evaluation` (if evaluation required)
   - **LLM Call Logging**: For every LLM call, log:
     - Input prompt (full text or summary if very long)
     - Model name and parameters (temperature, etc.)
@@ -361,22 +383,28 @@ tests/
 
 **CLI (`app/cli.py`):**
 - Use Typer for CLI interface
-- Command: `process <input_path> [--output-dir] [--model] [--verbose]`
+- Command: `process <input_path> [--output-dir] [--model] [--verbose] [--toc-only] [--summary-only] [--plan-only] [--no-evaluation]`
   - `input_path`: Path to PDF or .txt file
   - `--output-dir`: Output directory (default: `results/`)
   - `--model`: Ollama model name (default: `llama3`)
   - `--verbose`: Enable DEBUG logging
-- **Progress Indicators**: Print simple progress to stdout:
-  - `[1/6] Loading document...` (PDF or .txt)
-  - `[2/6] Detecting sections...` (with section count)
-  - `[3/6] Chunking text...` (with chunk count)
-  - `[4/6] Extracting facts...` (with progress: chunk X/Y)
-  - `[5/6] Generating plan...`
-  - `[6/6] Evaluating results...`
-- Run full pipeline, create per-document output folder
-- Print evaluation metrics summary at end (citation coverage, hallucination rate, etc.)
+  - `--toc-only`: Only generate TOC (skip chunking, summarization, planning, evaluation)
+  - `--summary-only`: Only generate summary (skip planning, evaluation)
+  - `--plan-only`: Only generate plan (skip summarization, evaluation)
+  - `--no-evaluation`: Generate TOC, summary, and plan but skip evaluation
+  - If no flags specified, run full pipeline (all outputs including evaluation)
+- **Progress Indicators**: Print simple progress to stdout (step numbers adjust based on selected outputs):
+  - `[1/X] Loading document...` (PDF or .txt)
+  - `[2/X] Detecting sections...` (with section count)
+  - `[3/X] Chunking text...` (if chunks, summary, or plan required; with chunk count)
+  - `[4/X] Generating summary...` (if summary required)
+  - `[5/X] Generating plan...` (if plan required)
+  - `[6/X] Evaluating results...` (if evaluation required)
+- Create per-document output folder
+- Print evaluation metrics summary at end (if evaluation was run)
 - Handle errors gracefully with informative messages
 - Use verbose flag to control logging level (INFO vs DEBUG)
+- **Flag Validation**: Ensure mutually exclusive flags are not used together (e.g., `--toc-only` and `--summary-only` cannot both be set)
 
 ### 6. Testing & Documentation
 
