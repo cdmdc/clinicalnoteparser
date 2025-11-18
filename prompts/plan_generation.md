@@ -18,6 +18,21 @@ You are a medical recommendation system. Generate a prioritized treatment plan b
 - If the summary mentions a treatment, do NOT add dosage or administration details unless they're in the summary
 - Use ONLY the exact words, phrases, and details that appear in the summary text
 
+**CRITICAL - Exact Names and Spellings**: 
+- Use EXACT names, spellings, and terms from the summary - do NOT modify, abbreviate, or misspell any names
+- If the summary says "Clarinex", write "Clarinex" - do NOT write "Clarince" or any variation
+- If the summary says "Veramyst", write "Veramyst" - do NOT write "Veramist" or any variation
+- Copy medication names, procedure names, and all proper nouns EXACTLY as they appear in the summary
+- Do NOT correct, modernize, or change any names or terms - use them exactly as written in the summary
+- If you are unsure of a spelling, copy it character-by-character from the summary
+
+**CRITICAL - Exact Wording**: 
+- Use the EXACT wording from the summary - do NOT add verbs like "ordered", "prescribed", "recommended", "given", etc. unless they appear in the summary
+- If the summary says "ENG examination to evaluate vestibular function", write exactly that - do NOT write "ENG examination ordered to evaluate vestibular function"
+- If the summary says "Medrol Dosepak as directed", write exactly that - do NOT write "Medrol Dosepak prescribed as directed"
+- If the summary says "Clarinex 5 mg daily", write exactly that - do NOT write "Clarinex 5 mg daily recommended"
+- Copy the recommendation text EXACTLY as it appears in the summary, word-for-word
+
 **Citation Requirements**: Every recommendation must be tied to specific source text with explicit citations. Use the EXACT citations from the summary provided below - preserve the original `section_title` field values from the chunks (e.g., "MEDICAL DECISION MAKING section, chunk_11:2192-2922"). Do NOT use summary section names like "CONCISE ASSESSMENT section" - use the original chunk section titles.
 
 **Confidence Scoring**: Assign confidence scores [0, 1] based on evidence strength. Include hallucination guard notes for weak evidence.
@@ -51,7 +66,7 @@ Provide a structured treatment plan with the following sections:
 [Recommendation 1 - use ONLY information explicitly stated in the summary, do NOT add timing, frequency, or other details]
 - Source: [Use the EXACT citation from the summary - preserve the original section_title field value, e.g., "MEDICAL DECISION MAKING section, chunk_11:2192-2922"]
 - Confidence: [0.0-1.0]
-- Risks/Benefits: [If applicable]
+- Risks/Benefits: [Only include if explicitly stated in the summary - do NOT add inferred medical knowledge or general risks/benefits]
 - Hallucination Guard Note: [Required if confidence < 0.8 or evidence is weak/ambiguous]
 
 [Recommendation 2]
@@ -61,7 +76,7 @@ Provide a structured treatment plan with the following sections:
 [Recommendation 1 - use ONLY information explicitly stated in the summary, do NOT add dosages, timing, or other details]
 - Source: [Use the EXACT citation from the summary - preserve the original section_title field value, e.g., "MEDICAL DECISION MAKING section, chunk_11:2192-2922"]
 - Confidence: [0.0-1.0]
-- Risks/Benefits: [If applicable]
+- Risks/Benefits: [Only include if explicitly stated in the summary - do NOT add inferred medical knowledge or general risks/benefits]
 - Hallucination Guard Note: [If needed]
 
 [Recommendation 2]
@@ -71,8 +86,10 @@ Provide a structured treatment plan with the following sections:
 [Recommendation 1 - use ONLY information explicitly stated in the summary, do NOT add timing, frequency, or other details]
 - Source: [Use the EXACT citation from the summary - preserve the original section_title field value, e.g., "MEDICAL DECISION MAKING section, chunk_11:2192-2922"]
 - Confidence: [0.0-1.0]
-- Risks/Benefits: [If applicable]
+- Risks/Benefits: [Only include if explicitly stated in the summary - do NOT add inferred medical knowledge or general risks/benefits]
 - Hallucination Guard Note: [If needed]
+
+**CRITICAL**: If the summary does NOT explicitly mention any follow-up recommendations, monitoring instructions, or re-evaluation plans, write "None identified based on available information" - do NOT invent or infer follow-up recommendations.
 
 [Recommendation 2]
 ...
@@ -119,14 +136,20 @@ Order recommendations by:
 
 - **Extract information ONLY from the provided text** - do NOT add any details, specifics, or information that is not explicitly stated
 - **Do NOT add timing, frequency, dosages, or other specifics** unless they are explicitly mentioned in the summary
+- **Use EXACT names, spellings, and terms from the summary** - copy medication names, procedure names, and all proper nouns character-by-character exactly as they appear
 - If the summary says "monitor" without specifying frequency, write "monitor" - do NOT add "every X hours" or similar
 - If the summary mentions a treatment without dosage, write the treatment name - do NOT add dosage information
 - If no recommendations can be made for a category, write "None identified based on available information"
+- **Do NOT invent follow-up recommendations** - if the summary does not explicitly mention follow-ups, monitoring, or re-evaluations, write "None identified based on available information" for the Follow-ups section
+- **Do NOT add verbs or action words** - use the exact wording from the summary (e.g., if summary says "ENG examination to evaluate", do NOT write "ENG examination ordered to evaluate")
+- **Do NOT add inferred risks/benefits** - only include risks/benefits if they are explicitly stated in the summary, otherwise write "None identified based on available information"
 - Use clear, professional medical language, but use ONLY the words and details from the summary
+- **Do NOT modify, abbreviate, or misspell any names or terms** - if the summary says "Clarinex", write "Clarinex" exactly, not "Clarince" or any variation
 - Be specific with citations - include chunk IDs and character positions or section/paragraph references
 - Every recommendation must have a source with explicit citation
 - Every recommendation must have a confidence score
 - Include hallucination guard notes when confidence < 0.8 or evidence is weak
 - **If you find yourself adding details not in the summary, STOP and use only what's explicitly stated**
+- **If you are unsure of a spelling, copy it character-by-character from the summary**
 
 Now generate the prioritized treatment plan based on the provided clinical note.
