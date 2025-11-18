@@ -6,6 +6,7 @@ ingestion, section detection, chunking, summarization, planning, and evaluation.
 
 import logging
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Optional
 
@@ -523,4 +524,94 @@ def run_pipeline(
     except Exception as e:
         logger.error(f"✗ Error: {e}", exc_info=True)
         return 1
+
+
+def run_pipeline_batch(
+    input_paths: list[Path],
+    output_base_dir: Optional[Path] = None,
+    config: Optional[Config] = None,
+    workers: int = 4,
+    toc_only: bool = False,
+    summary_only: bool = False,
+    plan_only: bool = False,
+    no_evaluation: bool = False,
+    verbose: bool = False,
+) -> dict[Path, tuple[int, Optional[str]]]:
+    """Run pipeline for multiple documents in parallel.
+    
+    Args:
+        input_paths: List of paths to input PDF or .txt files
+        output_base_dir: Base output directory (default: results/)
+        config: Configuration object (default: from environment)
+        workers: Number of parallel workers (default: 4)
+        toc_only: Only generate TOC (skip chunking, summarization, planning, evaluation)
+        summary_only: Only generate summary (skip planning, evaluation)
+        plan_only: Only generate plan (requires summary generation first, skips evaluation)
+        no_evaluation: Generate TOC, summary, and plan but skip evaluation
+        verbose: Enable verbose logging
+        
+    Returns:
+        dict mapping input_path -> (exit_code, error_message)
+            - exit_code: 0 for success, 1 for failure
+            - error_message: None if successful, error string if failed
+    """
+    # Set up root logger for batch processing
+    root_logger = logging.getLogger()
+    root_logger.setLevel(logging.DEBUG if verbose else logging.INFO)
+    
+    # Remove existing handlers to avoid duplicate logs
+    for handler in root_logger.handlers[:]:
+        root_logger.removeHandler(handler)
+    
+    # Console handler for batch progress
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(logging.INFO)
+    console_formatter = logging.Formatter("%(levelname)s - %(message)s")
+    console_handler.setFormatter(console_formatter)
+    root_logger.addHandler(console_handler)
+    
+    results: dict[Path, tuple[int, Optional[str]]] = {}
+    total = len(input_paths)
+    
+    def process_one(input_path: Path) -> tuple[Path, int, Optional[str]]:
+        """Wrapper to process a single document."""
+        try:
+            exit_code = run_pipeline(
+                input_path=input_path,
+                output_dir=output_base_dir,  # Will use default results/{note_id} if None
+                config=config,
+                toc_only=toc_only,
+                summary_only=summary_only,
+                plan_only=plan_only,
+                no_evaluation=no_evaluation,
+                verbose=verbose,
+            )
+            return (input_path, exit_code, None)
+        except Exception as e:
+            return (input_path, 1, str(e))
+    
+    # Process documents in parallel
+    completed = 0
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        # Submit all tasks
+        future_to_path = {
+            executor.submit(process_one, path): path 
+            for path in input_paths
+        }
+        
+        # Process as they complete
+        for future in as_completed(future_to_path):
+            path, exit_code, error = future.result()
+            results[path] = (exit_code, error)
+            completed += 1
+            
+            # Log progress
+            status = "✓" if exit_code == 0 else "✗"
+            filename = path.name
+            if error:
+                root_logger.info(f"[{completed}/{total}] {status} {filename} - Error: {error}")
+            else:
+                root_logger.info(f"[{completed}/{total}] {status} {filename}")
+    
+    return results
 

@@ -184,7 +184,69 @@ PYTHONPATH=src python -m app.cli process 570.pdf --plan-only
 PYTHONPATH=src python -m app.cli process 570.pdf --no-evaluation
 ```
 
+### Batch Processing (Parallel Execution)
+
+Process multiple documents in parallel for faster throughput:
+
+#### Process multiple files with glob pattern:
+
+```bash
+# Process all PDFs in current directory with 4 workers (default)
+PYTHONPATH=src python -m app.cli process-batch "*.pdf" --workers 4
+
+# Process all PDFs in a specific directory
+PYTHONPATH=src python -m app.cli process-batch "data/archive/mtsamples_pdf/*.pdf" --workers 4
+```
+
+#### Process specific files (comma-separated):
+
+```bash
+# Process specific files with 2 workers
+PYTHONPATH=src python -m app.cli process-batch "0.pdf,1.pdf,2.pdf" --workers 2
+
+# Process with summary-only mode
+PYTHONPATH=src python -m app.cli process-batch "0.pdf,1.pdf,2.pdf" --workers 2 --summary-only
+```
+
+#### Advanced batch processing:
+
+```bash
+# Process with custom model and verbose logging
+PYTHONPATH=src python -m app.cli process-batch "*.pdf" --workers 8 --model llama3.2 --verbose
+
+# Process with custom output directory
+PYTHONPATH=src python -m app.cli process-batch "*.pdf" --workers 4 --output-dir my_results
+```
+
+#### Batch Processing Features:
+
+- **Parallel Execution**: Uses `ThreadPoolExecutor` for efficient I/O-bound LLM calls
+- **Progress Tracking**: Real-time progress updates showing `[X/Total] ✓ filename` as tasks complete
+- **Error Isolation**: Each document's failure doesn't affect others
+- **Summary Report**: Final summary showing succeeded/failed counts with error details
+- **Configurable Workers**: Adjust `--workers` based on system capacity (default: 4)
+- **All Flags Supported**: Works with all existing flags (`--toc-only`, `--summary-only`, `--plan-only`, `--no-evaluation`, `--verbose`, `--model`)
+
+**Why Threading?** LLM calls are I/O-bound (network requests to Ollama), making threading optimal for parallelization. The default of 4 workers prevents overwhelming Ollama while providing significant speedup.
+
+**Example Output:**
+```
+Processing 10 file(s) with 4 worker(s)...
+
+[1/10] ✓ 0.pdf
+[2/10] ✓ 1.pdf
+[3/10] ✓ 2.pdf
+[4/10] ✓ 3.pdf
+...
+
+======================================================================
+Batch processing complete: ✓ 10 succeeded, ✗ 0 failed
+======================================================================
+```
+
 ### CLI Options
+
+#### Single Document Processing (`process` command)
 
 | Option | Short | Description |
 |--------|-------|-------------|
@@ -195,6 +257,18 @@ PYTHONPATH=src python -m app.cli process 570.pdf --no-evaluation
 | `--summary-only` | | Only generate summary |
 | `--plan-only` | | Only generate treatment plan |
 | `--no-evaluation` | | Skip evaluation metrics |
+
+#### Batch Processing (`process-batch` command)
+
+All options from `process` command, plus:
+
+| Option | Short | Description |
+|--------|-------|-------------|
+| `--workers` | `-w` | Number of parallel workers (default: `4`) |
+
+**Input Pattern**: The first argument can be:
+- A glob pattern: `"*.pdf"`, `"data/archive/mtsamples_pdf/*.pdf"`
+- Comma-separated filenames: `"0.pdf,1.pdf,2.pdf"` (searches common locations automatically)
 
 ## Output Structure
 
@@ -401,9 +475,21 @@ Or ensure you're in the project root and the virtual environment is activated.
 
 **Solution**:
 - Reduce `chunk_size` in configuration
-- Process documents one at a time
+- Process documents one at a time (use `process` instead of `process-batch`)
+- Reduce `--workers` count in batch processing
 - Use `--toc-only` or `--summary-only` to process in stages
 - For PDFs >30 pages, the system will log a warning
+
+#### 8. Batch Processing Issues
+
+**Problem**: Batch processing fails or is slow.
+
+**Solution**:
+- Reduce `--workers` count if Ollama is overwhelmed (try 2 instead of 4)
+- Check system resources (CPU, RAM, network)
+- Process smaller batches if memory is limited
+- Use `--toc-only` for faster batch processing without LLM calls
+- Check individual `pipeline.log` files in each document's output directory
 
 ### Getting Help
 

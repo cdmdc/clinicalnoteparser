@@ -406,6 +406,43 @@ tests/
 - Use verbose flag to control logging level (INFO vs DEBUG)
 - **Flag Validation**: Ensure mutually exclusive flags are not used together (e.g., `--toc-only` and `--summary-only` cannot both be set)
 
+**Batch Processing (Parallelization):**
+- Add `process-batch` command to CLI for processing multiple documents in parallel
+- Use Python's built-in `concurrent.futures.ThreadPoolExecutor` for lightweight parallelization
+- **Implementation Details**:
+  - New function `run_pipeline_batch()` in `pipeline.py`:
+    - Accepts list of input paths
+    - Uses `ThreadPoolExecutor` with configurable `max_workers` (default: 4)
+    - Each document processed independently in separate thread
+    - Returns dict mapping input_path -> (exit_code, error_message)
+  - New CLI command `process-batch`:
+    - Accepts glob pattern (e.g., `"*.pdf"`) or comma-separated filenames (e.g., `"0.pdf,1.pdf,2.pdf"`)
+    - `--workers N` flag to control parallelism (default: 4)
+    - Supports all existing flags (`--toc-only`, `--summary-only`, `--plan-only`, `--no-evaluation`, `--verbose`, `--model`)
+    - Progress tracking: Show `[3/10] Processing 2.pdf...` as tasks complete
+    - Summary report at end: `✓ 8 succeeded, ✗ 2 failed` with list of failed files
+  - **Why Threading**: LLM calls are I/O-bound (network requests to Ollama), so threading is optimal
+  - **Resource Management**: Default 4 workers prevents overwhelming Ollama; users can adjust based on system capacity
+  - **Error Isolation**: Each document's failure doesn't affect others; errors collected and reported at end
+  - **Logging**: Each document logs to its own `results/{note_id}/pipeline.log` (thread-safe)
+- **Example Usage**:
+  ```bash
+  # Process all PDFs with 4 workers
+  python -m app.cli process-batch "data/archive/mtsamples_pdf/*.pdf" --workers 4
+  
+  # Process specific files with 2 workers
+  python -m app.cli process-batch "0.pdf,1.pdf,2.pdf" --workers 2 --summary-only
+  
+  # Process with custom model and verbose logging
+  python -m app.cli process-batch "*.pdf" --workers 8 --model llama3.2 --verbose
+  ```
+- **Advantages**:
+  - Lightweight: Uses only standard library (`concurrent.futures`)
+  - Simple: Minimal code changes, backward compatible
+  - Flexible: Configurable worker count
+  - Robust: Isolated errors per document
+  - Efficient: Significant speedup for I/O-bound LLM calls
+
 ### 6. Testing & Documentation
 
 **Logging Setup:**
