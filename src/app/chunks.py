@@ -262,3 +262,45 @@ def save_chunks(chunks: List[Chunk], output_path: Path) -> None:
     
     logger.info(f"Saved {len(chunks)} chunks to {output_path}")
 
+
+def load_chunks(chunks_path: Path) -> List[Chunk]:
+    """Load chunks from JSON file.
+    
+    Args:
+        chunks_path: Path to chunks JSON file
+        
+    Returns:
+        List[Chunk]: List of loaded chunks
+        
+    Raises:
+        FileNotFoundError: If chunks file doesn't exist
+        ValueError: If chunks file is invalid or cannot be parsed
+    """
+    if not chunks_path.exists():
+        raise FileNotFoundError(f"Chunks file not found: {chunks_path}")
+    
+    try:
+        with open(chunks_path, "r", encoding="utf-8") as f:
+            chunks_data = json.load(f)
+        
+        # Validate structure
+        if "chunks" not in chunks_data:
+            raise ValueError("Invalid chunks file: missing 'chunks' key")
+        
+        # Load chunks
+        chunks = []
+        for chunk_data in chunks_data["chunks"]:
+            try:
+                chunk = Chunk(**chunk_data)
+                chunks.append(chunk)
+            except Exception as e:
+                raise ValueError(f"Invalid chunk data: {e}") from e
+        
+        logger.info(f"Loaded {len(chunks)} chunks from {chunks_path}")
+        return chunks
+    
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON in chunks file: {e}") from e
+    except Exception as e:
+        raise ValueError(f"Error loading chunks: {e}") from e
+

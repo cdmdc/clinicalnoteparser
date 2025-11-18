@@ -200,3 +200,38 @@ def ingest_document(file_path: Path, config: Config | None = None) -> Tuple[Cano
 
     return canonical_note, note_id
 
+
+def load_canonical_note(canonical_text_path: Path) -> CanonicalNote:
+    """Load canonical note from saved canonical text file.
+    
+    Note: This function reconstructs a CanonicalNote from the saved text file.
+    Since we don't save page spans separately, this assumes a single page.
+    For more accurate page mapping, use the original ingestion.
+    
+    Args:
+        canonical_text_path: Path to canonical_text.txt file
+        
+    Returns:
+        CanonicalNote: Reconstructed canonical note
+        
+    Raises:
+        FileNotFoundError: If canonical text file doesn't exist
+        ValueError: If file cannot be read
+    """
+    if not canonical_text_path.exists():
+        raise FileNotFoundError(f"Canonical text file not found: {canonical_text_path}")
+    
+    try:
+        text = canonical_text_path.read_text(encoding="utf-8")
+        
+        # Reconstruct page spans (assume single page for simplicity)
+        # In practice, if you need accurate page mapping, you should re-ingest
+        page_spans = [PageSpan(start_char=0, end_char=len(text), page_index=0)]
+        
+        canonical_note = CanonicalNote(text=text, page_spans=page_spans)
+        logger.info(f"Loaded canonical note: {len(text)} characters, {len(page_spans)} pages")
+        return canonical_note
+    
+    except Exception as e:
+        raise ValueError(f"Error loading canonical note: {e}") from e
+

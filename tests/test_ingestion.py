@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from app.ingestion import generate_note_id, ingest_document, normalize_text
+from app.ingestion import generate_note_id, ingest_document, load_canonical_note, normalize_text
 from app.schemas import CanonicalNote
 
 
@@ -116,4 +116,28 @@ class TestIngestDocument:
         empty_file.write_text("")
         with pytest.raises(ValueError, match="Text file is empty"):
             ingest_document(empty_file, sample_config)
+
+
+class TestLoadCanonicalNote:
+    """Tests for loading canonical note from file."""
+
+    def test_load_canonical_note_success(self, sample_canonical_note, tmp_path):
+        """Test loading canonical note from a valid text file."""
+        canonical_text_path = tmp_path / "canonical_text.txt"
+        canonical_text_path.write_text(sample_canonical_note.text, encoding="utf-8")
+        
+        loaded_note = load_canonical_note(canonical_text_path)
+        
+        assert isinstance(loaded_note, CanonicalNote)
+        assert loaded_note.text == sample_canonical_note.text
+        assert len(loaded_note.page_spans) == 1
+        assert loaded_note.page_spans[0].start_char == 0
+        assert loaded_note.page_spans[0].end_char == len(loaded_note.text)
+
+    def test_load_canonical_note_file_not_found(self, tmp_path):
+        """Test loading canonical note when file doesn't exist."""
+        canonical_text_path = tmp_path / "nonexistent.txt"
+        
+        with pytest.raises(FileNotFoundError):
+            load_canonical_note(canonical_text_path)
 

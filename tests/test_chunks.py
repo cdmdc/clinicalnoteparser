@@ -1,8 +1,11 @@
 """Tests for text chunking."""
 
+import json
+from pathlib import Path
+
 import pytest
 
-from app.chunks import create_chunks_from_sections
+from app.chunks import create_chunks_from_sections, load_chunks, save_chunks
 from app.schemas import Chunk
 
 
@@ -104,4 +107,46 @@ class TestCreateChunksFromSections:
         chunks = create_chunks_from_sections([section], long_note, sample_config)
         # Long sections should be split into multiple chunks
         assert len(chunks) >= 1
+
+
+class TestLoadChunks:
+    """Tests for loading chunks from JSON."""
+
+    def test_load_chunks_success(self, sample_chunks, tmp_path):
+        """Test loading chunks from a valid JSON file."""
+        chunks_path = tmp_path / "chunks.json"
+        save_chunks(sample_chunks, chunks_path)
+        
+        loaded_chunks = load_chunks(chunks_path)
+        
+        assert len(loaded_chunks) == len(sample_chunks)
+        for i, (loaded, original) in enumerate(zip(loaded_chunks, sample_chunks)):
+            assert loaded.chunk_id == original.chunk_id
+            assert loaded.text == original.text
+            assert loaded.start_char == original.start_char
+            assert loaded.end_char == original.end_char
+
+    def test_load_chunks_file_not_found(self, tmp_path):
+        """Test loading chunks when file doesn't exist."""
+        chunks_path = tmp_path / "nonexistent.json"
+        
+        with pytest.raises(FileNotFoundError):
+            load_chunks(chunks_path)
+
+    def test_load_chunks_invalid_json(self, tmp_path):
+        """Test loading chunks from invalid JSON."""
+        chunks_path = tmp_path / "invalid.json"
+        chunks_path.write_text("invalid json content")
+        
+        with pytest.raises(ValueError, match="Invalid JSON"):
+            load_chunks(chunks_path)
+
+    def test_load_chunks_missing_chunks_key(self, tmp_path):
+        """Test loading chunks when 'chunks' key is missing."""
+        chunks_path = tmp_path / "invalid.json"
+        invalid_data = {"not_chunks": []}
+        chunks_path.write_text(json.dumps(invalid_data))
+        
+        with pytest.raises(ValueError, match="missing 'chunks' key"):
+            load_chunks(chunks_path)
 

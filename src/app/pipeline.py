@@ -18,13 +18,13 @@ if str(_src_dir) not in sys.path:
 if str(_project_root) not in sys.path:
     sys.path.insert(0, str(_project_root))
 
-from app.chunks import Chunk, create_chunks_from_sections, save_chunks
+from app.chunks import Chunk, create_chunks_from_sections, load_chunks, save_chunks
 from app.config import Config, get_config
 from app.evaluation import evaluate_summary_and_plan, save_evaluation
-from app.ingestion import CanonicalNote, generate_note_id, ingest_document
+from app.ingestion import CanonicalNote, generate_note_id, ingest_document, load_canonical_note
 from app.llm import LLMClient
 from app.planner import create_treatment_plan_from_chunks, save_plan
-from app.sections import Section, detect_sections, save_toc
+from app.sections import Section, detect_sections, load_toc, save_toc
 from app.summarizer import create_text_summary_from_chunks
 
 logger = logging.getLogger(__name__)
@@ -221,31 +221,82 @@ def run_pipeline(
                 return 1
             logger.info("✓ Ollama is available")
         
-        # Step 1: Ingest document
-        logger.info(f"[STEP 1] Ingesting document: {input_path}")
-        canonical_note, note_id = ingest_document(input_path, config)
-        logger.info(f"✓ Ingested: {len(canonical_note.text)} chars, {len(canonical_note.page_spans)} pages, note_id: {note_id}")
-        
-        # Determine output directory
+        # Determine note_id and output directory early (before ingestion)
+        # This allows us to check for existing chunks
+        note_id = generate_note_id(input_path)
         if output_dir is None:
             output_dir = config.output_dir / note_id
         else:
             output_dir = output_dir / note_id
         output_dir.mkdir(parents=True, exist_ok=True)
         
-        # Set up logging to file
+        # Set up logging to file early
         setup_logging(output_dir, verbose)
         logger.info(f"Processing document: {input_path}")
         logger.info(f"Output directory: {output_dir}")
         logger.info(f"Configuration: model={config.model_name}, temperature={config.temperature}")
         logger.info(f"Execution mode: toc_only={toc_only}, summary_only={summary_only}, plan_only={plan_only}, no_evaluation={no_evaluation}")
         
-        # Save canonical text
-        canonical_text_path = output_dir / "canonical_text.txt"
-        canonical_text_path.write_text(canonical_note.text, encoding="utf-8")
-        logger.info(f"Saved canonical text to: {canonical_text_path}")
+        # Check if chunks already exist (for skipping ingestion/chunking)
+        chunks_path = output_dir / "chunks.json"
+        chunks_exist = chunks_path.exists() and needs_chunks
         
-        # Step 2: Detect sections
+        if chunks_exist:
+            try:
+                logger.info("Found existing chunks.json - attempting to load...")
+                chunks = load_chunks(chunks_path)
+                logger.info(f"✓ Loaded {len(chunks)} existing chunks from {chunks_path}")
+                logger.info("Skipping ingestion and chunking steps (using cached chunks)")
+                
+                # Load canonical_note and sections if needed (for downstream processing)
+                canonical_text_path = output_dir / "canonical_text.txt"
+                toc_path = output_dir / "toc.json"
+                
+                if canonical_text_path.exists():
+                    try:
+                        canonical_note = load_canonical_note(canonical_text_path)
+                        logger.info(f"✓ Loaded canonical note from {canonical_text_path}")
+                    except Exception as e:
+                        logger.warning(f"Could not load canonical note: {e}. Will re-ingest.")
+                        chunks_exist = False  # Force re-ingestion
+                        chunks = None  # Clear chunks so we re-create them
+                        canonical_note = None
+                
+                if toc_path.exists():
+                    try:
+                        sections = load_toc(toc_path)
+                        logger.info(f"✓ Loaded {len(sections)} sections from {toc_path}")
+                    except Exception as e:
+                        logger.warning(f"Could not load ToC: {e}. Will re-detect sections.")
+                        sections = None
+                else:
+                    sections = None
+                
+            except Exception as e:
+                logger.warning(f"Could not load existing chunks: {e}. Will re-create chunks.")
+                chunks_exist = False
+                chunks = None
+                canonical_note = None
+                sections = None
+        else:
+            chunks = None
+            canonical_note = None
+            sections = None
+        
+        # Step 1: Ingest document (if chunks don't exist)
+        if not chunks_exist:
+            logger.info(f"[STEP 1] Ingesting document: {input_path}")
+            canonical_note, note_id = ingest_document(input_path, config)
+            logger.info(f"✓ Ingested: {len(canonical_note.text)} chars, {len(canonical_note.page_spans)} pages, note_id: {note_id}")
+            
+            # Save canonical text
+            canonical_text_path = output_dir / "canonical_text.txt"
+            canonical_text_path.write_text(canonical_note.text, encoding="utf-8")
+            logger.info(f"Saved canonical text to: {canonical_text_path}")
+        else:
+            logger.info("[STEP 1] Skipped (using existing chunks)")
+        
+        # Step 2: Detect sections (if chunks don't exist or sections not loaded)
         total_steps = 2  # ingestion + sections
         if needs_chunks:
             total_steps += 1  # chunking
@@ -256,16 +307,19 @@ def run_pipeline(
         if needs_evaluation:
             total_steps += 1  # evaluation
         
-        logger.info(f"[STEP 2/{total_steps}] Detecting sections...")
-        sections = detect_sections(canonical_note, input_path, config)
-        logger.info(f"✓ Detected {len(sections)} sections")
-        for i, section in enumerate(sections, 1):
-            logger.info(f"  {i}. {section.title} (pages {section.start_page + 1}-{section.end_page + 1}, chars {section.start_char}-{section.end_char})")
-        
-        # Save ToC
-        toc_path = output_dir / "toc.json"
-        save_toc(sections, toc_path)
-        logger.info(f"✓ Saved ToC to: {toc_path}")
+        if not chunks_exist or sections is None:
+            logger.info(f"[STEP 2/{total_steps}] Detecting sections...")
+            sections = detect_sections(canonical_note, input_path, config)
+            logger.info(f"✓ Detected {len(sections)} sections")
+            for i, section in enumerate(sections, 1):
+                logger.info(f"  {i}. {section.title} (pages {section.start_page + 1}-{section.end_page + 1}, chars {section.start_char}-{section.end_char})")
+            
+            # Save ToC
+            toc_path = output_dir / "toc.json"
+            save_toc(sections, toc_path)
+            logger.info(f"✓ Saved ToC to: {toc_path}")
+        else:
+            logger.info(f"[STEP 2/{total_steps}] Skipped (using existing ToC)")
         
         # Break if TOC only
         if toc_only:
@@ -275,16 +329,18 @@ def run_pipeline(
             logger.info(f"  - toc.json")
             return 0
         
-        # Step 3: Create chunks
+        # Step 3: Create chunks (if chunks don't exist)
         step_num = 3
-        logger.info(f"[STEP {step_num}/{total_steps}] Creating chunks...")
-        chunks = create_chunks_from_sections(sections, canonical_note, config)
-        logger.info(f"✓ Created {len(chunks)} chunks")
-        
-        # Save chunks
-        chunks_path = output_dir / "chunks.json"
-        save_chunks(chunks, chunks_path)
-        logger.info(f"✓ Saved chunks to: {chunks_path}")
+        if not chunks_exist:
+            logger.info(f"[STEP {step_num}/{total_steps}] Creating chunks...")
+            chunks = create_chunks_from_sections(sections, canonical_note, config)
+            logger.info(f"✓ Created {len(chunks)} chunks")
+            
+            # Save chunks
+            save_chunks(chunks, chunks_path)
+            logger.info(f"✓ Saved chunks to: {chunks_path}")
+        else:
+            logger.info(f"[STEP {step_num}/{total_steps}] Skipped (using existing chunks)")
         
         # Initialize LLM client if needed
         llm_client = None

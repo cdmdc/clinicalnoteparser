@@ -424,3 +424,47 @@ def save_toc(sections: List[Section], output_path: Path) -> None:
 
     logger.info(f"Saved ToC to {output_path} with {len(sections)} sections")
 
+
+def load_toc(toc_path: Path) -> List[Section]:
+    """Load table of contents from JSON file.
+    
+    Args:
+        toc_path: Path to ToC JSON file
+        
+    Returns:
+        List[Section]: List of loaded sections
+        
+    Raises:
+        FileNotFoundError: If ToC file doesn't exist
+        ValueError: If ToC file is invalid or cannot be parsed
+    """
+    import json
+    
+    if not toc_path.exists():
+        raise FileNotFoundError(f"ToC file not found: {toc_path}")
+    
+    try:
+        with open(toc_path, "r", encoding="utf-8") as f:
+            toc_data = json.load(f)
+        
+        # Validate structure
+        if "sections" not in toc_data:
+            raise ValueError("Invalid ToC file: missing 'sections' key")
+        
+        # Load sections
+        sections = []
+        for section_data in toc_data["sections"]:
+            try:
+                section = Section(**section_data)
+                sections.append(section)
+            except Exception as e:
+                raise ValueError(f"Invalid section data: {e}") from e
+        
+        logger.info(f"Loaded {len(sections)} sections from {toc_path}")
+        return sections
+    
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON in ToC file: {e}") from e
+    except Exception as e:
+        raise ValueError(f"Error loading ToC: {e}") from e
+

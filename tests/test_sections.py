@@ -1,10 +1,11 @@
 """Tests for section detection."""
 
+import json
 from pathlib import Path
 
 import pytest
 
-from app.sections import detect_sections, find_section_headers_in_text, save_toc
+from app.sections import detect_sections, find_section_headers_in_text, load_toc, save_toc
 from app.schemas import Section
 
 
@@ -114,4 +115,47 @@ class TestSaveToc:
             assert "end_char" in section_data
             assert "start_page" in section_data
             assert "end_page" in section_data
+
+
+class TestLoadToc:
+    """Tests for loading ToC from JSON."""
+
+    def test_load_toc_success(self, sample_sections, tmp_path):
+        """Test loading ToC from a valid JSON file."""
+        toc_path = tmp_path / "toc.json"
+        save_toc(sample_sections, toc_path)
+        
+        loaded_sections = load_toc(toc_path)
+        
+        assert len(loaded_sections) == len(sample_sections)
+        for i, (loaded, original) in enumerate(zip(loaded_sections, sample_sections)):
+            assert loaded.title == original.title
+            assert loaded.start_char == original.start_char
+            assert loaded.end_char == original.end_char
+            assert loaded.start_page == original.start_page
+            assert loaded.end_page == original.end_page
+
+    def test_load_toc_file_not_found(self, tmp_path):
+        """Test loading ToC when file doesn't exist."""
+        toc_path = tmp_path / "nonexistent.json"
+        
+        with pytest.raises(FileNotFoundError):
+            load_toc(toc_path)
+
+    def test_load_toc_invalid_json(self, tmp_path):
+        """Test loading ToC from invalid JSON."""
+        toc_path = tmp_path / "invalid.json"
+        toc_path.write_text("invalid json content")
+        
+        with pytest.raises(ValueError, match="Invalid JSON"):
+            load_toc(toc_path)
+
+    def test_load_toc_missing_sections_key(self, tmp_path):
+        """Test loading ToC when 'sections' key is missing."""
+        toc_path = tmp_path / "invalid.json"
+        invalid_data = {"not_sections": []}
+        toc_path.write_text(json.dumps(invalid_data))
+        
+        with pytest.raises(ValueError, match="missing 'sections' key"):
+            load_toc(toc_path)
 
