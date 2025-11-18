@@ -1,6 +1,6 @@
 """Pydantic models for clinical note parsing pipeline."""
 
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -64,4 +64,58 @@ class Chunk(BaseModel):
         if "start_char" in info.data and v <= info.data["start_char"]:
             raise ValueError("end_char must be greater than start_char")
         return v
+
+
+class Citation(BaseModel):
+    """Represents a citation linking a fact to source text."""
+
+    start_char: int = Field(..., description="Starting character position (inclusive, global)")
+    end_char: int = Field(..., description="Ending character position (exclusive, global)")
+    page: int = Field(..., description="Page number (one-based)")
+
+    @field_validator("end_char")
+    @classmethod
+    def validate_end_after_start(cls, v: int, info) -> int:
+        """Ensure end_char is greater than start_char."""
+        if "start_char" in info.data and v <= info.data["start_char"]:
+            raise ValueError("end_char must be greater than start_char")
+        return v
+
+
+class SpanFact(BaseModel):
+    """Represents a fact extracted from text with citation spans."""
+
+    fact_text: str = Field(..., description="The extracted fact text")
+    category: str = Field(..., description="Category of fact (e.g., 'problem', 'medication', 'allergy')")
+    citations: List[Citation] = Field(default_factory=list, description="List of citations linking to source text")
+    confidence: float = Field(default=1.0, ge=0.0, le=1.0, description="Confidence score [0, 1]")
+    uncertainty_note: Optional[str] = Field(default=None, description="Note explaining uncertainty if confidence is low")
+
+
+class ChunkExtraction(BaseModel):
+    """Represents facts extracted from a single chunk."""
+
+    chunk_id: str = Field(..., description="ID of the chunk this extraction is from")
+    facts: List[SpanFact] = Field(default_factory=list, description="List of facts extracted from the chunk")
+
+
+class PatientSnapshot(BaseModel):
+    """Represents a patient snapshot with basic demographics."""
+
+    age: Optional[str] = Field(default=None, description="Patient age (as string, e.g., '45', 'unknown')")
+    sex: Optional[str] = Field(default=None, description="Patient sex/gender (e.g., 'M', 'F', 'unknown')")
+    summary: Optional[str] = Field(default=None, description="Brief patient summary")
+
+
+class Summary(BaseModel):
+    """Represents the complete summary of a clinical note."""
+
+    patient_snapshot: PatientSnapshot = Field(..., description="Patient demographics and summary")
+    problems: List[SpanFact] = Field(default_factory=list, description="List of problems/diagnoses")
+    medications: List[SpanFact] = Field(default_factory=list, description="List of medications")
+    allergies: List[SpanFact] = Field(default_factory=list, description="List of allergies")
+    history: List[SpanFact] = Field(default_factory=list, description="List of historical facts")
+    exam: List[SpanFact] = Field(default_factory=list, description="List of examination findings")
+    labs_imaging: List[SpanFact] = Field(default_factory=list, description="List of lab results and imaging findings")
+    other_facts: List[SpanFact] = Field(default_factory=list, description="Other facts that don't fit above categories")
 
