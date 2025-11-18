@@ -423,13 +423,123 @@ tests/
 - Handle log file creation errors gracefully
 
 **Testing:**
-- `test_ingestion.py`: Synthetic PDF with known page structure
-- `test_sections.py`: Text with clear section headings
-- `test_citations.py`: Known phrases and positions
-- `test_no_evidence.py`: Edge case handling
-- Mock LLM responses for deterministic testing
-- Integration test with sample PDF from data/archive
-- Test logging: Verify logs are created and contain expected information
+
+**Unit Tests** (one test file per module):
+- `tests/test_ingestion.py`: Test PDF and .txt file ingestion
+  - Test `ingest_document()` with valid PDF
+  - Test `ingest_document()` with valid .txt file
+  - Test `generate_note_id()` with various filename formats
+  - Test `normalize_text()` with various encoding issues and line endings
+  - Test error handling for missing files, invalid formats
+  - Verify canonical text structure and page span mapping
+  
+- `tests/test_sections.py`: Test section detection
+  - Test `detect_sections()` with PDF containing bold headers
+  - Test `detect_sections()` with .txt file (pattern-based only)
+  - Test section detection with LLM fallback when few sections found
+  - Test Overview section detection (first section)
+  - Test edge cases: no sections, single section, overlapping sections
+  - Verify section character spans and page indices
+  
+- `tests/test_chunks.py`: Test text chunking
+  - Test `create_chunks_from_sections()` with various section sizes
+  - Test chunking with long paragraphs (sentence boundary splitting)
+  - Test chunk overlap handling
+  - Test chunk merging and boundary preservation
+  - Verify chunk character spans are correct and non-overlapping (except intended overlap)
+  - Test edge cases: empty sections, very short sections, very long sections
+  
+- `tests/test_summarizer.py`: Test summarization
+  - Test `create_text_summary_from_chunks()` with mock LLM responses
+  - Test summary structure (all required sections present)
+  - Test citation format (chunk IDs with character spans)
+  - Test handling of empty chunks or chunks with no relevant information
+  - Mock LLM responses for deterministic testing
+  - Verify summary includes all required sections with proper formatting
+  
+- `tests/test_planner.py`: Test plan generation
+  - Test `create_treatment_plan_from_chunks()` with mock LLM responses
+  - Test plan structure (Diagnostics, Therapeutics, Follow-ups)
+  - Test recommendation requirements (source citations, confidence scores, hallucination guard notes)
+  - Test prioritization logic
+  - Mock LLM responses for deterministic testing
+  - Verify all recommendations have required fields
+  
+- `tests/test_evaluation.py`: Test evaluation metrics
+  - Test `evaluate_summary_and_plan()` with known inputs
+  - Test citation coverage calculation
+  - Test citation validity checking
+  - Test orphan claims (hallucination rate) calculation
+  - Test Jaccard similarity calculation for citation overlap
+  - Test span consistency validation
+  - Test confidence score distribution statistics
+  - Verify all metrics are calculated correctly
+  
+- `tests/test_llm.py`: Test LLM client wrapper
+  - Test `LLMClient` initialization and Ollama availability checks
+  - Test `call()` method with mock responses
+  - Test JSON parsing (including markdown code blocks)
+  - Test retry logic with mock failures
+  - Test `return_text` parameter for plain text responses
+  - Test error handling for unavailable Ollama or missing models
+  - Test prompt loading from prompts directory
+  
+- `tests/test_config.py`: Test configuration management
+  - Test `Config.from_env()` with various environment variables
+  - Test configuration validation (chunk_overlap < chunk_size, etc.)
+  - Test default values
+  - Test `get_config()` singleton pattern
+  
+- `tests/test_schemas.py`: Test Pydantic models
+  - Test all schema models (CanonicalNote, Section, Chunk, Citation, etc.)
+  - Test field validators (end_char > start_char, etc.)
+  - Test serialization to/from JSON
+  - Test required fields and optional fields
+  - Test type validation
+
+**Integration Tests:**
+- `tests/test_pipeline.py`: Test full pipeline integration
+  - Test full pipeline with sample PDF from data/archive
+  - Test conditional execution modes (toc-only, summary-only, plan-only, no-evaluation)
+  - Test pipeline with .txt file input
+  - Test error handling and graceful failures
+  - Verify all output files are created correctly
+  - Test logging: Verify logs are created and contain expected information
+  - Test pre-flight checks (Ollama availability, file validation)
+  - Test output directory structure creation
+  - Verify data flow between modules
+
+**Test Utilities:**
+- Create `tests/conftest.py` with shared fixtures:
+  - Sample PDF fixture
+  - Sample .txt fixture
+  - Mock LLM client fixture
+  - Sample chunks fixture
+  - Sample sections fixture
+  - Temporary output directory fixture
+- Use `pytest` for test framework
+- Use `pytest-mock` for mocking LLM calls
+- Use `pytest-cov` for coverage reporting
+
+**Test Runner:**
+- Create `tests/run_all_tests.py` script:
+  - Run all unit tests and integration tests
+  - Generate coverage report
+  - Display test summary and coverage statistics
+  - Exit with appropriate code (0 for success, 1 for failures)
+  - Support optional flags:
+    - `--verbose`: Show detailed test output
+    - `--coverage`: Generate and display coverage report
+    - `--unit-only`: Run only unit tests
+    - `--integration-only`: Run only integration tests
+    - `--module <name>`: Run tests for specific module (e.g., `--module ingestion`)
+  - Usage: `python tests/run_all_tests.py [options]` or `python -m tests.run_all_tests [options]`
+
+**Test Coverage Goals:**
+- Unit test coverage >80% for all core modules
+- Integration test coverage for all pipeline execution paths
+- Edge case testing for error conditions
+- Mock LLM responses for deterministic, fast unit tests
 
 **Documentation:**
 - **README.md** (comprehensive setup and usage guide):

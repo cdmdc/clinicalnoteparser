@@ -7,7 +7,11 @@ import time
 from pathlib import Path
 from typing import Any, Dict, Optional
 
-from langchain_community.chat_models import ChatOllama
+try:
+    from langchain_ollama import ChatOllama
+except ImportError:
+    # Fallback to deprecated import for backward compatibility
+    from langchain_community.chat_models import ChatOllama
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from app.config import Config, get_config
