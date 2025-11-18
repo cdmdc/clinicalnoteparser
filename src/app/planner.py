@@ -1,23 +1,52 @@
-"""Plan generation from chunks with prioritized treatment recommendations."""
+"""Plan generation from text summary with prioritized treatment recommendations."""
 
+import json
 import logging
 from pathlib import Path
 from typing import List
 
-from app.chunks import Chunk
 from app.llm import LLMClient
 
 logger = logging.getLogger(__name__)
 
 
-def create_treatment_plan_from_chunks(
-    chunks: List[Chunk],
+def load_text_summary(summary_txt_path: Path) -> str:
+    """Load text summary from file.
+    
+    Args:
+        summary_txt_path: Path to summary.txt file
+        
+    Returns:
+        str: Text summary content
+        
+    Raises:
+        FileNotFoundError: If summary file doesn't exist
+        ValueError: If summary file is empty or cannot be read
+    """
+    if not summary_txt_path.exists():
+        raise FileNotFoundError(f"Summary file not found: {summary_txt_path}")
+    
+    try:
+        summary_text = summary_txt_path.read_text(encoding="utf-8")
+        
+        if not summary_text or not summary_text.strip():
+            raise ValueError("Summary file is empty")
+        
+        logger.info(f"Loaded text summary from {summary_txt_path} ({len(summary_text)} characters)")
+        return summary_text
+    
+    except Exception as e:
+        raise ValueError(f"Error loading text summary: {e}") from e
+
+
+def create_treatment_plan_from_summary(
+    summary_text: str,
     llm_client: LLMClient,
 ) -> str:
-    """Create a prioritized treatment plan from all chunks.
+    """Create a prioritized treatment plan from text summary.
 
     Args:
-        chunks: List of chunks to generate plan from
+        summary_text: Text summary content to generate plan from
         llm_client: LLM client instance
 
     Returns:
@@ -26,26 +55,18 @@ def create_treatment_plan_from_chunks(
     Raises:
         LLMError: If LLM call fails
     """
-    # Combine chunks with section headers and chunk IDs for citation
-    chunks_text = []
-    for chunk in chunks:
-        # Add section header with chunk ID for citation
-        # chunk.chunk_id is already in format "chunk_0", "chunk_1", etc.
-        chunks_text.append(f"## {chunk.section_title} ({chunk.chunk_id})")
-        chunks_text.append(chunk.text)
-        chunks_text.append("")  # Empty line between sections
-
-    combined_text = "\n".join(chunks_text)
+    # Use the text summary directly - it already has the proper format with sections and citations
+    combined_text = summary_text
 
     # Load prompt template
     try:
         prompt_template = llm_client.load_prompt("plan_generation.md")
-        prompt = prompt_template.format(chunks_with_headers=combined_text)
+        prompt = prompt_template.format(summary_sections=combined_text)
     except FileNotFoundError:
         # Fallback prompt if template doesn't exist
-        prompt = f"""Generate a prioritized treatment plan based on the following clinical note.
+        prompt = f"""Generate a prioritized treatment plan based on the following clinical summary.
 
-The note is organized into sections with chunk IDs for citation:
+The summary is organized into sections with source citations:
 
 {combined_text}
 
@@ -55,7 +76,7 @@ Provide a structured treatment plan with:
 3. Follow-ups (monitoring, appointments, re-evaluations)
 
 For each recommendation, include:
-- Rationale with explicit citations (chunk_ID:start-end or "Section Name, paragraph X")
+- Source with explicit citations (use the source citations provided in the summary, e.g., "chunk_0:10-50" or "Section Name, paragraph X")
 - Confidence score [0, 1]
 - Risks/Benefits (if applicable)
 - Hallucination Guard Note (if confidence < 0.8 or evidence is weak)
@@ -91,4 +112,68 @@ def save_plan(plan_text: str, output_path: Path) -> None:
     output_path.write_text(plan_text, encoding="utf-8")
 
     logger.info(f"Saved treatment plan to {output_path}")
+
+
+def create_treatment_plan_from_chunks(
+    chunks: List,
+    llm_client: LLMClient,
+) -> str:
+    """Create a prioritized treatment plan from chunks (DEPRECATED - use create_treatment_plan_from_summary instead).
+    
+    This function is kept for backward compatibility. It formats chunks and calls
+    create_treatment_plan_from_summary internally.
+
+    Args:
+        chunks: List of chunks to generate plan from
+        llm_client: LLM client instance
+
+    Returns:
+        str: Structured treatment plan text
+
+    Raises:
+        LLMError: If LLM call fails
+    """
+    from app.chunks import Chunk
+    
+    # Format chunks as a simple summary structure for backward compatibility
+    # This is a simplified conversion - ideally use structured summary
+    chunks_text = []
+    for chunk in chunks:
+        chunks_text.append(f"## {chunk.section_title} ({chunk.chunk_id})")
+        chunks_text.append(chunk.text)
+        chunks_text.append("")
+    
+    combined_text = "\n".join(chunks_text)
+    
+    # Use the same prompt as summary-based planning
+    try:
+        prompt_template = llm_client.load_prompt("plan_generation.md")
+        prompt = prompt_template.format(summary_sections=combined_text)
+    except FileNotFoundError:
+        prompt = f"""Generate a prioritized treatment plan based on the following clinical note.
+
+The note is organized into sections with chunk IDs for citation:
+
+{combined_text}
+
+Provide a structured treatment plan with:
+1. Diagnostics (tests, imaging, procedures)
+2. Therapeutics (medications, treatments, interventions)
+3. Follow-ups (monitoring, appointments, re-evaluations)
+
+For each recommendation, include:
+- Source with explicit citations (chunk_ID:start-end or "Section Name, paragraph X")
+- Confidence score [0, 1]
+- Risks/Benefits (if applicable)
+- Hallucination Guard Note (if confidence < 0.8 or evidence is weak)
+
+Order recommendations by clinical urgency, evidence strength, and logical sequence."""
+
+    # Call LLM - return plain text
+    response = llm_client.call(prompt, logger_instance=logger, return_text=True)
+
+    if isinstance(response, str):
+        return response
+
+    return str(response)
 

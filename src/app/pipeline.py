@@ -23,9 +23,14 @@ from app.config import Config, get_config
 from app.evaluation import evaluate_summary_and_plan, save_evaluation
 from app.ingestion import CanonicalNote, generate_note_id, ingest_document, load_canonical_note
 from app.llm import LLMClient
-from app.planner import create_treatment_plan_from_chunks, save_plan
+from app.planner import create_treatment_plan_from_summary, load_text_summary, save_plan
 from app.sections import Section, detect_sections, load_toc, save_toc
-from app.summarizer import create_text_summary_from_chunks
+from app.summarizer import (
+    create_text_summary_from_chunks,
+    parse_text_summary_to_structured,
+    save_structured_summary,
+    save_text_summary,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -143,18 +148,6 @@ def validate_input_file(file_path: Path) -> tuple[bool, Optional[str]]:
     return True, None
 
 
-def save_text_summary(summary_text: str, output_path: Path) -> None:
-    """Save text summary to file.
-    
-    Args:
-        summary_text: Summary text content
-        output_path: Path to save summary text file
-    """
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(summary_text, encoding="utf-8")
-    logger.info(f"Saved summary to: {output_path}")
-
-
 def run_pipeline(
     input_path: Path,
     output_dir: Optional[Path] = None,
@@ -173,7 +166,7 @@ def run_pipeline(
         config: Configuration object (default: from environment)
         toc_only: Only generate TOC (skip chunking, summarization, planning, evaluation)
         summary_only: Only generate summary (skip planning, evaluation)
-        plan_only: Only generate plan (skip summarization, evaluation)
+        plan_only: Only generate plan (requires summary generation first, skips evaluation)
         no_evaluation: Generate TOC, summary, and plan but skip evaluation
         verbose: Enable verbose logging
         
@@ -192,9 +185,11 @@ def run_pipeline(
             return 1
         
         # Determine execution mode
+        # Note: plan_only now requires summary generation (since planner uses summary.json)
         needs_llm = summary_only or plan_only or (not toc_only and not no_evaluation)
         needs_chunks = summary_only or plan_only or (not toc_only and not no_evaluation)
-        needs_summary = summary_only or (not toc_only and not plan_only and not no_evaluation)
+        # Plan generation requires summary, so if plan_only is True, we also need summary
+        needs_summary = summary_only or plan_only or (not toc_only and not no_evaluation)
         needs_plan = plan_only or (not toc_only and not summary_only and not no_evaluation)
         needs_evaluation = not toc_only and not summary_only and not plan_only and not no_evaluation
         
@@ -351,6 +346,7 @@ def run_pipeline(
         
         # Step 4: Generate summary (if needed)
         summary_text = None
+        structured_summary = None
         if needs_summary:
             step_num += 1
             logger.info(f"[STEP {step_num}/{total_steps}] Generating summary...")
@@ -358,10 +354,27 @@ def run_pipeline(
             summary_text = create_text_summary_from_chunks(chunks, llm_client)
             logger.info(f"✓ Generated summary ({len(summary_text)} characters)")
             
-            # Save summary
-            summary_path = output_dir / "summary.txt"
-            save_text_summary(summary_text, summary_path)
-            logger.info(f"✓ Saved summary to: {summary_path}")
+            # Parse text summary into structured format
+            try:
+                structured_summary = parse_text_summary_to_structured(summary_text)
+                logger.info(f"✓ Parsed structured summary with {len(structured_summary.patient_snapshot)} patient snapshot items, "
+                          f"{len(structured_summary.key_problems)} problems, {len(structured_summary.pertinent_history)} history items, "
+                          f"{len(structured_summary.medicines_allergies)} medicines/allergies, "
+                          f"{len(structured_summary.objective_findings)} findings, {len(structured_summary.labs_imaging)} labs/imaging, "
+                          f"{len(structured_summary.concise_assessment)} assessment items")
+            except Exception as e:
+                logger.warning(f"Could not parse structured summary: {e}. Will save text summary only.")
+            
+            # Save text summary
+            summary_txt_path = output_dir / "summary.txt"
+            save_text_summary(summary_text, summary_txt_path)
+            logger.info(f"✓ Saved text summary to: {summary_txt_path}")
+            
+            # Save structured summary JSON
+            if structured_summary:
+                summary_json_path = output_dir / "summary.json"
+                save_structured_summary(structured_summary, summary_json_path)
+                logger.info(f"✓ Saved structured summary to: {summary_json_path}")
         
         # Break if summary only
         if summary_only:
@@ -374,12 +387,38 @@ def run_pipeline(
             return 0
         
         # Step 5: Generate plan (if needed)
+        # Note: Plan generation now requires summary.txt, so summary must be generated first
         plan_text = None
         if needs_plan:
             step_num += 1
             logger.info(f"[STEP {step_num}/{total_steps}] Generating treatment plan...")
-            logger.info(f"  Processing {len(chunks)} chunks at once...")
-            plan_text = create_treatment_plan_from_chunks(chunks, llm_client)
+            
+            # Plan generation requires summary.txt - check if it exists
+            summary_txt_path = output_dir / "summary.txt"
+            
+            # If summary_text was just created, use it
+            if summary_text is None:
+                # Try to load from file if it exists
+                if summary_txt_path.exists():
+                    try:
+                        summary_text = load_text_summary(summary_txt_path)
+                        logger.info(f"✓ Loaded text summary from {summary_txt_path}")
+                    except Exception as e:
+                        logger.error(f"Could not load text summary: {e}")
+                        logger.error("Plan generation requires summary.txt. Please generate summary first.")
+                        return 1
+                else:
+                    # Summary.txt doesn't exist - this shouldn't happen if needs_summary was True
+                    # but handle it gracefully
+                    logger.error(f"summary.txt not found at {summary_txt_path}")
+                    logger.error("Plan generation requires summary.txt. Please generate summary first.")
+                    logger.error("Hint: Run with --summary-only first, or run full pipeline without --plan-only")
+                    return 1
+            
+            # Generate plan from text summary
+            logger.info(f"  Using text summary ({len(summary_text)} characters)...")
+            plan_text = create_treatment_plan_from_summary(summary_text, llm_client)
+            
             logger.info(f"✓ Generated plan ({len(plan_text)} characters)")
             
             # Save plan
@@ -394,6 +433,8 @@ def run_pipeline(
             logger.info(f"  - canonical_text.txt")
             logger.info(f"  - toc.json")
             logger.info(f"  - chunks.json")
+            logger.info(f"  - summary.txt")
+            logger.info(f"  - summary.json")
             logger.info(f"  - plan.txt")
             return 0
         

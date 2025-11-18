@@ -119,3 +119,36 @@ class Summary(BaseModel):
     labs_imaging: List[SpanFact] = Field(default_factory=list, description="List of lab results and imaging findings")
     other_facts: List[SpanFact] = Field(default_factory=list, description="Other facts that don't fit above categories")
 
+
+class SummaryItem(BaseModel):
+    """Represents a single item in a summary section with its source citation."""
+
+    text: str = Field(..., description="The item text/content")
+    source: str = Field(..., description="Source citation (e.g., 'chunk_0:10-50' or 'Section Name, paragraph X')")
+
+
+class StructuredSummary(BaseModel):
+    """Structured summary matching the text summary format with 7 sections."""
+
+    patient_snapshot: List[SummaryItem] = Field(
+        default_factory=list, description="Patient snapshot items (age, sex, overview)"
+    )
+    key_problems: List[SummaryItem] = Field(
+        default_factory=list, description="Key problems, diagnoses, or chief complaints"
+    )
+    pertinent_history: List[SummaryItem] = Field(
+        default_factory=list, description="Relevant medical, family, and social history"
+    )
+    medicines_allergies: List[SummaryItem] = Field(
+        default_factory=list, description="Current medications and known allergies"
+    )
+    objective_findings: List[SummaryItem] = Field(
+        default_factory=list, description="Physical examination findings, vital signs, clinical observations"
+    )
+    labs_imaging: List[SummaryItem] = Field(
+        default_factory=list, description="Laboratory results or imaging findings"
+    )
+    concise_assessment: List[SummaryItem] = Field(
+        default_factory=list, description="Assessment, diagnosis, treatment plans, follow-ups, and next steps"
+    )
+

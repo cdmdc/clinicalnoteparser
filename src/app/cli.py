@@ -35,7 +35,7 @@ def process(
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable DEBUG logging"),
     toc_only: bool = typer.Option(False, "--toc-only", help="Only generate TOC (skip chunking, summarization, planning, evaluation)"),
     summary_only: bool = typer.Option(False, "--summary-only", help="Only generate summary (skip planning, evaluation)"),
-    plan_only: bool = typer.Option(False, "--plan-only", help="Only generate plan (skip summarization, evaluation)"),
+    plan_only: bool = typer.Option(False, "--plan-only", help="Only generate plan (requires summary generation first, skips evaluation)"),
     no_evaluation: bool = typer.Option(False, "--no-evaluation", help="Generate TOC, summary, and plan but skip evaluation"),
 ):
     """Process a clinical note (PDF or .txt) and extract structured information.

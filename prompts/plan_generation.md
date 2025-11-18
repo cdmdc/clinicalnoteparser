@@ -22,9 +22,9 @@ Generate a prioritized treatment plan based on the following clinical note. The 
 
 ## Input Format
 
-The clinical note is provided in sections with chunk IDs:
+The clinical summary is provided in sections with source citations:
 
-{chunks_with_headers}
+{summary_sections}
 
 ## Output Format
 

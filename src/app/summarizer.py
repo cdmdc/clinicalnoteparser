@@ -16,7 +16,9 @@ from app.schemas import (
     Citation,
     PatientSnapshot,
     SpanFact,
+    StructuredSummary,
     Summary,
+    SummaryItem,
 )
 
 logger = logging.getLogger(__name__)
@@ -503,6 +505,112 @@ Start your response with the section headers and provide summaries under each.""
     return str(response)
 
 
+def parse_text_summary_to_structured(text_summary: str) -> StructuredSummary:
+    """Parse text summary into structured JSON format.
+    
+    Extracts items from each section with their source citations.
+    
+    Args:
+        text_summary: Text summary with section headers and items
+        
+    Returns:
+        StructuredSummary: Structured summary with all sections
+    """
+    # Section headers to look for (case-insensitive)
+    section_patterns = {
+        "patient_snapshot": r"\*\*Patient Snapshot\*\*",
+        "key_problems": r"\*\*Key Problems\*\*",
+        "pertinent_history": r"\*\*Pertinent History\*\*",
+        "medicines_allergies": r"\*\*Medicines/Allergies\*\*",
+        "objective_findings": r"\*\*Objective Findings\*\*",
+        "labs_imaging": r"\*\*Labs/Imaging\*\*",
+        "concise_assessment": r"\*\*Concise Assessment\*\*",
+    }
+    
+    # Find section boundaries
+    sections = {}
+    lines = text_summary.split("\n")
+    
+    current_section = None
+    current_items = []
+    current_item_text = []
+    current_source = None
+    
+    for i, line in enumerate(lines):
+        line_stripped = line.strip()
+        
+        # Check if this is a section header
+        found_section = None
+        for section_key, pattern in section_patterns.items():
+            if re.search(pattern, line, re.IGNORECASE):
+                # Save previous section if exists
+                if current_section and current_items:
+                    sections[current_section] = current_items
+                
+                # Start new section
+                current_section = section_key
+                current_items = []
+                current_item_text = []
+                current_source = None
+                found_section = True
+                break
+        
+        if found_section:
+            continue
+        
+        # If we're in a section, parse items
+        if current_section:
+            # Check for source line
+            if line_stripped.startswith("- Source:") or line_stripped.startswith("Source:"):
+                source_text = re.sub(r"^[- ]*Source:\s*", "", line_stripped, flags=re.IGNORECASE)
+                current_source = source_text.strip()
+                
+                # If we have accumulated item text, save the item
+                if current_item_text:
+                    item_text = "\n".join(current_item_text).strip()
+                    if item_text and current_source:
+                        current_items.append(SummaryItem(text=item_text, source=current_source))
+                    current_item_text = []
+                    current_source = None
+            elif line_stripped and not line_stripped.startswith("-"):
+                # This is item text (not a source line)
+                current_item_text.append(line_stripped)
+            elif not line_stripped and current_item_text:
+                # Empty line - if we have item text, save it (may not have source yet)
+                item_text = "\n".join(current_item_text).strip()
+                if item_text:
+                    # Save without source if we don't have one yet
+                    if current_source:
+                        current_items.append(SummaryItem(text=item_text, source=current_source))
+                        current_item_text = []
+                        current_source = None
+                    # Otherwise keep accumulating
+    
+    # Save last section
+    if current_section:
+        if current_item_text:
+            item_text = "\n".join(current_item_text).strip()
+            if item_text:
+                if current_source:
+                    current_items.append(SummaryItem(text=item_text, source=current_source))
+                else:
+                    # Try to find source in the text or use empty
+                    current_items.append(SummaryItem(text=item_text, source=""))
+        if current_items:
+            sections[current_section] = current_items
+    
+    # Create StructuredSummary with all sections
+    return StructuredSummary(
+        patient_snapshot=sections.get("patient_snapshot", []),
+        key_problems=sections.get("key_problems", []),
+        pertinent_history=sections.get("pertinent_history", []),
+        medicines_allergies=sections.get("medicines_allergies", []),
+        objective_findings=sections.get("objective_findings", []),
+        labs_imaging=sections.get("labs_imaging", []),
+        concise_assessment=sections.get("concise_assessment", []),
+    )
+
+
 def save_summary(summary: Summary, output_path: Path) -> None:
     """Save summary to JSON file.
 
@@ -530,4 +638,52 @@ def save_summary(summary: Summary, output_path: Path) -> None:
         json.dump(summary_data, f, indent=2, ensure_ascii=False)
 
     logger.info(f"Saved summary to {output_path}")
+
+
+def save_structured_summary(structured_summary: StructuredSummary, output_path: Path) -> None:
+    """Save structured summary to JSON file.
+
+    Args:
+        structured_summary: StructuredSummary to save
+        output_path: Path to save summary JSON file
+
+    Raises:
+        ValueError: If summary cannot be validated
+    """
+    # Validate summary
+    try:
+        # Pydantic validation happens automatically on model creation
+        pass
+    except Exception as e:
+        raise ValueError(f"Invalid structured summary: {e}") from e
+
+    # Convert to dict for JSON serialization
+    summary_data = structured_summary.model_dump()
+
+    # Save to file
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(summary_data, f, indent=2, ensure_ascii=False)
+
+    logger.info(f"Saved structured summary to {output_path}")
+
+
+def save_text_summary(summary_text: str, output_path: Path) -> None:
+    """Save text summary to file.
+
+    Args:
+        summary_text: Text summary content
+        output_path: Path to save summary text file
+
+    Raises:
+        ValueError: If summary text is empty
+    """
+    if not summary_text or not summary_text.strip():
+        raise ValueError("Summary text is empty")
+
+    # Save to file
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(summary_text, encoding="utf-8")
+
+    logger.info(f"Saved text summary to {output_path}")
 
