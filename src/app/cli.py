@@ -123,6 +123,27 @@ def process(
     if model:
         config.model_name = model
     
+    # Check if LLM is needed and if Ollama is available
+    needs_llm = not toc_only  # TOC-only doesn't need LLM
+    if needs_llm:
+        typer.echo("Checking Ollama availability...", err=False)
+        from app.pipeline import check_ollama_availability
+        is_available, error_msg = check_ollama_availability(config)
+        if not is_available:
+            typer.echo("\n" + "="*70, err=True)
+            typer.echo("ERROR: Ollama is not available or model is not installed", err=True)
+            typer.echo("="*70, err=True)
+            typer.echo(f"\n{error_msg}", err=True)
+            typer.echo("\nTo fix this issue:", err=True)
+            typer.echo("  1. Ensure Ollama is installed: https://ollama.ai", err=True)
+            typer.echo("  2. Start Ollama service (if not running)", err=True)
+            typer.echo(f"  3. Install the model: ollama pull {config.model_name}", err=True)
+            typer.echo("\nTo check available models, run: ollama list", err=True)
+            typer.echo("\nNote: Use --toc-only to generate only the table of contents (no LLM required)", err=True)
+            typer.echo("="*70 + "\n", err=True)
+            raise typer.Exit(1)
+        typer.echo("✓ Ollama is available\n", err=False)
+    
     # Run pipeline
     exit_code = run_pipeline(
         input_path=input_file,

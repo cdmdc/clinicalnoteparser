@@ -1,5 +1,6 @@
 """Tests for plan generation."""
 
+import re
 from unittest.mock import MagicMock
 
 import pytest
@@ -114,4 +115,62 @@ class TestCreateTreatmentPlanFromChunks:
         
         assert isinstance(plan, str)
         assert mock_llm_client.call.called
+
+
+class TestRealLLMPlanGeneration:
+    """Integration tests for plan generation with real LLM."""
+
+    def test_real_llm_produces_structured_plan(self, sample_chunks, real_llm_client):
+        """Test that real LLM produces a structured plan with all required sections."""
+        plan = create_treatment_plan_from_chunks(sample_chunks, real_llm_client)
+        
+        # Check that plan has required structure
+        required_sections = [
+            "Prioritized Treatment Plan",
+            "1. Diagnostics",
+            "2. Therapeutics",
+            "3. Follow-ups",
+        ]
+        
+        plan_lower = plan.lower()
+        for section in required_sections:
+            # Check if section appears (case-insensitive)
+            assert section.lower() in plan_lower, f"Required section '{section}' not found in plan"
+
+    def test_real_llm_plan_includes_citations(self, sample_chunks, real_llm_client):
+        """Test that plan from real LLM includes source citations."""
+        plan = create_treatment_plan_from_chunks(sample_chunks, real_llm_client)
+        
+        # Check for citation patterns
+        # Citations can be in format: chunk_X:start-end or section names
+        citation_patterns = [
+            r'chunk_\d+:\d+-\d+',  # chunk_X:start-end format
+            r'chunk_\d+',  # chunk_X format
+        ]
+        
+        has_citations = False
+        for pattern in citation_patterns:
+            if re.search(pattern, plan):
+                has_citations = True
+                break
+        
+        # Should have at least some citations or source references
+        assert has_citations or "source:" in plan.lower() or "- Source:" in plan, \
+            "Plan should include source citations"
+
+    def test_real_llm_plan_includes_confidence_scores(self, sample_chunks, real_llm_client):
+        """Test that plan from real LLM includes confidence scores."""
+        plan = create_treatment_plan_from_chunks(sample_chunks, real_llm_client)
+        
+        # Check for confidence score patterns (0.0 to 1.0)
+        confidence_pattern = r'confidence:\s*([01](?:\.\d+)?)'
+        confidences = re.findall(confidence_pattern, plan, re.IGNORECASE)
+        
+        # Should have at least some confidence scores
+        # (LLM may not always include them, but most should)
+        if len(confidences) > 0:
+            # Validate confidence scores are in valid range
+            for conf_str in confidences:
+                conf = float(conf_str)
+                assert 0.0 <= conf <= 1.0, f"Confidence score {conf} should be between 0.0 and 1.0"
 

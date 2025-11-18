@@ -71,18 +71,18 @@ def setup_logging(output_dir: Path, verbose: bool = False) -> None:
     logger.info(f"Logging configured: file={log_file}, level={logging.getLevelName(log_level)}")
 
 
-def check_ollama_availability(config: Config) -> bool:
+def check_ollama_availability(config: Config) -> tuple[bool, Optional[str]]:
     """Check if Ollama is available and model exists.
     
     Args:
         config: Configuration object
         
     Returns:
-        bool: True if Ollama is available and model exists
+        tuple[bool, Optional[str]]: (is_available, error_message)
+            - is_available: True if Ollama is available and model exists
+            - error_message: Human-readable error message if not available, None otherwise
     """
     try:
-        # Create a temporary client just to check availability
-        # We'll create the real client later when needed
         import subprocess
         
         result = subprocess.run(
@@ -93,16 +93,26 @@ def check_ollama_availability(config: Config) -> bool:
         )
         
         if result.returncode != 0:
-            return False
+            return False, "Ollama is not running. Please start Ollama service."
         
         # Check if model exists
         if config.model_name not in result.stdout:
-            return False
+            available_models = result.stdout.strip().split('\n')[1:] if result.stdout.strip() else []
+            available_list = ', '.join([m.split()[0] for m in available_models if m.strip()]) if available_models else "none"
+            return False, (
+                f"Model '{config.model_name}' not found. "
+                f"Available models: {available_list if available_list else 'none'}. "
+                f"Install it with: ollama pull {config.model_name}"
+            )
         
-        return True
+        return True, None
+    except FileNotFoundError:
+        return False, "Ollama command not found. Please install Ollama from https://ollama.ai"
+    except subprocess.TimeoutExpired:
+        return False, "Ollama is not responding. Please ensure Ollama is running."
     except Exception as e:
         logger.debug(f"Ollama check failed: {e}")
-        return False
+        return False, f"Error checking Ollama availability: {e}"
 
 
 def validate_input_file(file_path: Path) -> tuple[bool, Optional[str]]:
@@ -191,9 +201,23 @@ def run_pipeline(
         # Pre-flight checks
         if needs_llm:
             logger.info("Checking Ollama availability...")
-            if not check_ollama_availability(config):
-                logger.error("✗ Ollama is not available or model is not installed.")
-                logger.error(f"Please ensure Ollama is running and install the model with: ollama pull {config.model_name}")
+            is_available, error_msg = check_ollama_availability(config)
+            if not is_available:
+                error_display = (
+                    f"\n{'='*70}\n"
+                    f"ERROR: Ollama is not available or model '{config.model_name}' is not installed\n"
+                    f"{'='*70}\n"
+                    f"\n{error_msg}\n"
+                    f"\nTo fix this issue:\n"
+                    f"  1. Ensure Ollama is installed: https://ollama.ai\n"
+                    f"  2. Start Ollama service (if not running)\n"
+                    f"  3. Install the model: ollama pull {config.model_name}\n"
+                    f"\nTo check available models, run: ollama list\n"
+                    f"\nNote: Use --toc-only to generate only the table of contents (no LLM required)\n"
+                    f"{'='*70}\n"
+                )
+                logger.error(error_display)
+                print(error_display, file=sys.stderr)
                 return 1
             logger.info("✓ Ollama is available")
         

@@ -18,7 +18,7 @@ if str(_src_dir) not in sys.path:
 from app.chunks import Chunk
 from app.config import Config
 from app.ingestion import CanonicalNote, PageSpan
-from app.llm import LLMClient
+from app.llm import LLMClient, OllamaNotAvailableError
 from app.schemas import Section
 
 
@@ -181,6 +181,21 @@ def mock_llm_client(monkeypatch) -> MagicMock:
     mock_client.load_prompt = MagicMock(return_value="Mock prompt template")
     
     return mock_client
+
+
+@pytest.fixture
+def real_llm_client(sample_config) -> LLMClient:
+    """Create a real LLM client for integration testing.
+    
+    Skips test if Ollama is not available.
+    """
+    try:
+        client = LLMClient(sample_config)
+        if not client.check_ollama_available():
+            pytest.skip("Ollama is not available or model not found")
+        return client
+    except OllamaNotAvailableError:
+        pytest.skip("Ollama is not available or model not found")
 
 
 @pytest.fixture

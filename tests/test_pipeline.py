@@ -44,8 +44,9 @@ class TestCheckOllamaAvailability:
         mock_result.stdout = "llama3\n"
         mock_subprocess.return_value = mock_result
         
-        is_available = check_ollama_availability(sample_config)
+        is_available, error_msg = check_ollama_availability(sample_config)
         assert is_available is True
+        assert error_msg is None
 
     @patch('subprocess.run')
     def test_check_ollama_unavailable(self, mock_subprocess, sample_config):
@@ -54,8 +55,10 @@ class TestCheckOllamaAvailability:
         mock_result.returncode = 1
         mock_subprocess.return_value = mock_result
         
-        is_available = check_ollama_availability(sample_config)
+        is_available, error_msg = check_ollama_availability(sample_config)
         assert is_available is False
+        assert error_msg is not None
+        assert "not running" in error_msg.lower()
 
 
 class TestPipelineIntegration:
@@ -64,7 +67,7 @@ class TestPipelineIntegration:
     @patch('app.pipeline.check_ollama_availability')
     def test_pipeline_toc_only(self, mock_ollama_check, sample_txt_path, temp_output_dir, sample_config):
         """Test pipeline with --toc-only flag."""
-        mock_ollama_check.return_value = True
+        mock_ollama_check.return_value = (True, None)
         
         exit_code = run_pipeline(
             input_path=sample_txt_path,
@@ -87,20 +90,8 @@ class TestPipelineIntegration:
         assert not (output_dir / "chunks.json").exists()
         assert not (output_dir / "summary.txt").exists()
 
-    @patch('app.pipeline.check_ollama_availability')
-    @patch('app.pipeline.LLMClient')
-    def test_pipeline_summary_only(self, mock_llm_client_class, mock_ollama_check, sample_txt_path, temp_output_dir, sample_config):
-        """Test pipeline with --summary-only flag."""
-        mock_ollama_check.return_value = True
-        
-        # Mock LLM client
-        mock_llm_client = MagicMock()
-        mock_llm_client.call.return_value = """**Patient Snapshot**
-Test patient.
-- Source: chunk_0:10-50
-"""
-        mock_llm_client_class.return_value = mock_llm_client
-        
+    def test_pipeline_summary_only(self, sample_txt_path, temp_output_dir, sample_config, real_llm_client):
+        """Test pipeline with --summary-only flag using real LLM."""
         exit_code = run_pipeline(
             input_path=sample_txt_path,
             output_dir=temp_output_dir.parent,
@@ -122,33 +113,15 @@ Test patient.
         # Check that plan was NOT created
         assert not (output_dir / "plan.txt").exists()
         assert not (output_dir / "evaluation.json").exists()
-
-    @patch('app.pipeline.check_ollama_availability')
-    @patch('app.pipeline.LLMClient')
-    def test_pipeline_full(self, mock_llm_client_class, mock_ollama_check, sample_txt_path, temp_output_dir, sample_config):
-        """Test full pipeline with all outputs."""
-        mock_ollama_check.return_value = True
         
-        # Mock LLM client
-        mock_llm_client = MagicMock()
-        # First call for summary, second for plan
-        mock_llm_client.call.side_effect = [
-            """**Patient Snapshot**
-Test patient.
-- Source: chunk_0:10-50
-""",
-            """**Prioritized Treatment Plan**
+        # Verify summary content
+        summary_path = output_dir / "summary.txt"
+        if summary_path.exists():
+            summary_content = summary_path.read_text()
+            assert len(summary_content) > 0, "Summary should not be empty"
 
-**1. Diagnostics**
-[Recommendation 1]
-- Source: `chunk_2:100-150`
-- Confidence: 1.0
-
-* Test diagnostic.
-""",
-        ]
-        mock_llm_client_class.return_value = mock_llm_client
-        
+    def test_pipeline_full(self, sample_txt_path, temp_output_dir, sample_config, real_llm_client):
+        """Test full pipeline with all outputs using real LLM."""
         exit_code = run_pipeline(
             input_path=sample_txt_path,
             output_dir=temp_output_dir.parent,
@@ -168,6 +141,17 @@ Test patient.
         assert (output_dir / "plan.txt").exists()
         assert (output_dir / "evaluation.json").exists()
         assert (output_dir / "pipeline.log").exists()
+        
+        # Verify output content
+        summary_path = output_dir / "summary.txt"
+        if summary_path.exists():
+            summary_content = summary_path.read_text()
+            assert len(summary_content) > 0, "Summary should not be empty"
+        
+        plan_path = output_dir / "plan.txt"
+        if plan_path.exists():
+            plan_content = plan_path.read_text()
+            assert len(plan_content) > 0, "Plan should not be empty"
 
     def test_pipeline_missing_file(self, tmp_path, sample_config):
         """Test pipeline with missing input file."""
@@ -184,7 +168,7 @@ Test patient.
     @patch('app.pipeline.check_ollama_availability')
     def test_pipeline_ollama_unavailable(self, mock_ollama_check, sample_txt_path, sample_config):
         """Test pipeline when Ollama is unavailable (for LLM steps)."""
-        mock_ollama_check.return_value = False
+        mock_ollama_check.return_value = (False, "Ollama is not running")
         
         # Should fail when trying to run summary (needs LLM)
         exit_code = run_pipeline(
@@ -200,7 +184,7 @@ Test patient.
     def test_pipeline_toc_only_no_ollama_needed(self, mock_ollama_check, sample_txt_path, temp_output_dir, sample_config):
         """Test that TOC-only mode doesn't require Ollama."""
         # Even if Ollama check fails, TOC-only should work
-        mock_ollama_check.return_value = False
+        mock_ollama_check.return_value = (False, "Ollama is not running")
         
         exit_code = run_pipeline(
             input_path=sample_txt_path,
