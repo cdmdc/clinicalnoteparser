@@ -111,6 +111,18 @@ class LLMClient:
             if isinstance(e, OllamaNotAvailableError):
                 raise
             raise OllamaNotAvailableError(f"Error checking Ollama availability: {e}") from e
+    
+    def check_ollama_available(self) -> bool:
+        """Check if Ollama is available and model exists (non-raising version).
+        
+        Returns:
+            bool: True if Ollama is available and model exists, False otherwise
+        """
+        try:
+            self._check_ollama_availability()
+            return True
+        except OllamaNotAvailableError:
+            return False
 
     def load_prompt(self, prompt_name: str) -> str:
         """Load a prompt template from the prompts directory.

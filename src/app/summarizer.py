@@ -460,12 +460,13 @@ def create_text_summary_from_chunks(
     Raises:
         LLMError: If LLM call fails
     """
-    # Combine chunks with section headers and chunk IDs for citation
+    # Combine chunks with section headers, chunk IDs, and character spans for citation
     chunks_text = []
     for chunk in chunks:
-        # Add section header with chunk ID for citation
+        # Add section header with chunk ID and character spans for citation
         # chunk.chunk_id is already in format "chunk_0", "chunk_1", etc.
-        chunks_text.append(f"## {chunk.section_title} ({chunk.chunk_id})")
+        # Include character spans so LLM can cite specific ranges
+        chunks_text.append(f"## {chunk.section_title} ({chunk.chunk_id}, chars {chunk.start_char}-{chunk.end_char})")
         chunks_text.append(chunk.text)
         chunks_text.append("")  # Empty line between sections
 
