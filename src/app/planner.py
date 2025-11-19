@@ -3,10 +3,10 @@
 import json
 import logging
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 from app.llm import LLMClient
-from app.schemas import PlanField, PlanRecommendation, StructuredPlan
+from app.schemas import PlanField, PlanRecommendation, StructuredPlan, StructuredSummary
 from app.summarizer import format_structured_summary_as_text
 
 logger = logging.getLogger(__name__)
@@ -44,12 +44,14 @@ def load_text_summary(summary_txt_path: Path) -> str:
 def create_treatment_plan_from_summary(
     summary_text: str,
     llm_client: LLMClient,
+    structured_summary: Optional[StructuredSummary] = None,
 ) -> StructuredPlan:
     """Create a prioritized treatment plan from text summary.
 
     Args:
         summary_text: Text summary content to generate plan from
         llm_client: LLM client instance
+        structured_summary: Optional StructuredSummary object (if available, will be included as JSON in prompt)
 
     Returns:
         StructuredPlan: Structured treatment plan with recommendations
@@ -58,13 +60,41 @@ def create_treatment_plan_from_summary(
         LLMError: If LLM call fails
         ValueError: If plan cannot be parsed or validated
     """
-    # Use the text summary directly - it already has the proper format with sections and citations
-    combined_text = summary_text
+    # Format summary for prompt - include both text and JSON if available
+    section_titles_text = "(extract from summary sources)"
+    
+    if structured_summary:
+        # Extract all unique section titles from source fields
+        import re
+        section_titles = set()
+        for section_items in [
+            structured_summary.patient_snapshot,
+            structured_summary.key_problems,
+            structured_summary.pertinent_history,
+            structured_summary.medicines_allergies,
+            structured_summary.objective_findings,
+            structured_summary.labs_imaging,
+            structured_summary.concise_assessment,
+        ]:
+            for item in section_items:
+                # Extract section title from source (format: "SECTION_NAME section, chunk_X:Y-Z")
+                match = re.match(r'^([^,]+?)\s+section,', item.source)
+                if match:
+                    section_titles.add(match.group(1))
+        
+        section_titles_list = sorted(list(section_titles))
+        section_titles_text = "\n".join([f"- \"{title} section\"" for title in section_titles_list])
+        
+        # Include JSON representation so LLM can see exact structure and source fields
+        summary_json = json.dumps(structured_summary.model_dump(), indent=2, ensure_ascii=False)
+        combined_text = f"{summary_text}\n\n**Summary JSON (for reference):**\n```json\n{summary_json}\n```"
+    else:
+        combined_text = summary_text
 
     # Load prompt template
     try:
         prompt_template = llm_client.load_prompt("plan_generation.md")
-        prompt = prompt_template.format(summary_sections=combined_text)
+        prompt = prompt_template.format(summary_sections=combined_text, section_titles_list=section_titles_text)
     except FileNotFoundError:
         # Fallback prompt if template doesn't exist
         prompt = f"""Generate a prioritized treatment plan based on the following clinical summary in JSON format.

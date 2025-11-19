@@ -157,7 +157,9 @@ class PlanField(BaseModel):
     """Represents a field in a plan recommendation with its source."""
 
     content: str = Field(..., description="The field content/text")
-    source: str = Field(..., description="Source citation (e.g., 'MEDICAL DECISION MAKING section, chunk_11:2192-2922')")
+    source: Optional[str] = Field(
+        default=None, description="Source citation (e.g., 'MEDICAL DECISION MAKING section, chunk_11:2192-2922'). Use 'None mentioned' if no source is available."
+    )
 
 
 class PlanRecommendation(BaseModel):

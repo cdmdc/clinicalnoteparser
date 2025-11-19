@@ -406,7 +406,7 @@ def run_pipeline(
             # Format structured summary as text for plan generation
             summary_text = format_structured_summary_as_text(structured_summary)
             logger.info(f"  Using structured summary ({len(summary_text)} characters)...")
-            structured_plan = create_treatment_plan_from_summary(summary_text, llm_client)
+            structured_plan = create_treatment_plan_from_summary(summary_text, llm_client, structured_summary=structured_summary)
             
             logger.info(f"✓ Generated structured plan with {len(structured_plan.recommendations)} prioritized recommendations")
             
