@@ -32,7 +32,7 @@ app = typer.Typer(help="Clinical Note Parser - Extract structured information fr
 def process(
     input_path: str = typer.Argument(..., help="PDF or .txt filename (e.g., '570.pdf') or path to file"),
     output_dir: str = typer.Option(None, "--output-dir", "-o", help="Output directory (default: results/)"),
-    model: str = typer.Option(None, "--model", "-m", help="Ollama model name (default: llama3)"),
+    model: str = typer.Option(None, "--model", "-m", help="Ollama model name (default: qwen2.5:7b)"),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable DEBUG logging"),
     toc_only: bool = typer.Option(False, "--toc-only", help="Only generate TOC (skip chunking, summarization, planning, evaluation)"),
     summary_only: bool = typer.Option(False, "--summary-only", help="Only generate summary (skip planning, evaluation)"),
@@ -165,7 +165,7 @@ def process(
 def process_batch(
     input_pattern: str = typer.Argument(..., help="Glob pattern (e.g., '*.pdf') or comma-separated filenames (e.g., '0.pdf,1.pdf,2.pdf')"),
     output_dir: str = typer.Option(None, "--output-dir", "-o", help="Base output directory (default: results/)"),
-    model: str = typer.Option(None, "--model", "-m", help="Ollama model name (default: llama3)"),
+    model: str = typer.Option(None, "--model", "-m", help="Ollama model name (default: qwen2.5:7b)"),
     workers: int = typer.Option(4, "--workers", "-w", help="Number of parallel workers (default: 4)"),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable DEBUG logging"),
     toc_only: bool = typer.Option(False, "--toc-only", help="Only generate TOC (skip chunking, summarization, planning, evaluation)"),

@@ -16,9 +16,9 @@ All outputs include explicit citations linking back to the source text, enabling
 - **Python 3.11+**: Required for modern Python features
 - **uv**: Modern Python package manager ([installation guide](https://github.com/astral-sh/uv))
 - **Ollama**: Local LLM runtime ([installation guide](https://ollama.ai))
-- **Ollama Model**: The default model is `llama3`. Install it with:
+- **Ollama Model**: The default model is `qwen2.5:7b`. Install it with:
   ```bash
-  ollama pull llama3
+  ollama pull qwen2.5:7b
   ```
 
 ## Setup Instructions
@@ -62,8 +62,8 @@ Ensure Ollama is running and the model is available:
 # Check if Ollama is running
 ollama list
 
-# If llama3 is not listed, install it
-ollama pull llama3
+# If qwen2.5:7b is not listed, install it
+ollama pull qwen2.5:7b
 ```
 
 ### 5. Verify Installation
@@ -251,7 +251,7 @@ Batch processing complete: ✓ 10 succeeded, ✗ 0 failed
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--output-dir` | `-o` | Output directory (default: `results/`) |
-| `--model` | `-m` | Ollama model name (default: `llama3`) |
+| `--model` | `-m` | Ollama model name (default: `qwen2.5:7b`) |
 | `--verbose` | `-v` | Enable DEBUG logging |
 | `--toc-only` | | Only generate TOC |
 | `--summary-only` | | Only generate summary |
@@ -362,7 +362,7 @@ Configuration can be customized via environment variables or a `.env` file:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `CLINICAL_NOTE_MODEL` | `llama3` | Ollama model name |
+| `CLINICAL_NOTE_MODEL` | `qwen2.5:7b` | Ollama model name |
 | `CLINICAL_NOTE_TEMPERATURE` | `0.1` | LLM temperature (0.0-2.0) |
 | `CLINICAL_NOTE_CHUNK_SIZE` | `1500` | Target chunk size in characters |
 | `CLINICAL_NOTE_CHUNK_OVERLAP` | `200` | Overlap between chunks |
@@ -411,7 +411,7 @@ ollama serve
 # Install Ollama from https://ollama.ai
 ```
 
-#### 2. "Model 'llama3' not found" Error
+#### 2. "Model 'qwen2.5:7b' not found" Error
 
 **Problem**: The specified Ollama model is not installed.
 
@@ -421,7 +421,7 @@ ollama serve
 ollama list
 
 # Install the model
-ollama pull llama3
+ollama pull qwen2.5:7b
 
 # Or use a different model with --model flag
 python -m app.cli process 570.pdf --model llama3.2
@@ -464,7 +464,7 @@ Or ensure you're in the project root and the virtual environment is activated.
 
 **Solution**:
 - Check if Ollama is running: `ollama list`
-- Verify model is installed: `ollama pull llama3`
+- Verify model is installed: `ollama pull qwen2.5:7b`
 - Try a smaller model or reduce `chunk_size` in configuration
 - Check system resources (CPU, RAM, GPU if using MPS)
 - Review `pipeline.log` for specific error messages

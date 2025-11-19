@@ -13,7 +13,7 @@ load_dotenv()
 class Config(BaseModel):
     """Configuration settings for the clinical note parser pipeline."""
 
-    model_name: str = Field(default="llama3", description="Ollama model name")
+    model_name: str = Field(default="qwen2.5:7b", description="Ollama model name")
     temperature: float = Field(default=0.1, ge=0.0, le=2.0, description="Temperature for LLM")
     chunk_size: int = Field(default=1500, gt=0, description="Target chunk size")
     chunk_overlap: int = Field(default=200, ge=0, description="Overlap between chunks")
@@ -45,7 +45,7 @@ class Config(BaseModel):
     def from_env(cls) -> "Config":
         """Create Config instance from environment variables with defaults."""
         return cls(
-            model_name=os.getenv("CLINICAL_NOTE_MODEL", "llama3"),
+            model_name=os.getenv("CLINICAL_NOTE_MODEL", "qwen2.5:7b"),
             temperature=float(os.getenv("CLINICAL_NOTE_TEMPERATURE", "0.1")),
             chunk_size=int(os.getenv("CLINICAL_NOTE_CHUNK_SIZE", "1500")),
             chunk_overlap=int(os.getenv("CLINICAL_NOTE_CHUNK_OVERLAP", "200")),
