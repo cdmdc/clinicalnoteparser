@@ -97,6 +97,9 @@ Start your response immediately with the summary. Use this structure:
 [Additional recommendations if any]
 - Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
 
+[For each recommended treatment or follow-up, include ANY stated risks, benefits, side effects, contraindications, warnings, or special considerations mentioned in the source text - be comprehensive and include all relevant details]
+- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
+
 [Important clinical context, warnings, medication interactions, special instructions if mentioned]
 - Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
 
@@ -108,6 +111,7 @@ Start your response immediately with the summary. Use this structure:
 - Use clear, professional medical language
 - Be concise but comprehensive
 - For Concise Assessment: Include EVERY diagnosis and EVERY recommendation - be thorough and do not omit details
+- For Concise Assessment: When summarizing recommended treatments or follow-ups, explicitly include ANY stated risks, benefits, side effects, contraindications, warnings, or special considerations mentioned in the source text - extract and summarize these details comprehensively
 - Every item must have a source citation with the exact `section_title`, `chunk_id`, and character range from the chunk headers
 
 **Now read the clinical note sections below and output your summary:**
