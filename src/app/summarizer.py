@@ -446,21 +446,22 @@ def extract_summary(
     return summary
 
 
-def create_text_summary_from_chunks(
+def create_structured_summary_from_chunks(
     chunks: List[Chunk],
     llm_client: LLMClient,
-) -> str:
-    """Create a text summary from all chunks, preserving section headers.
+) -> StructuredSummary:
+    """Create a structured JSON summary from all chunks.
 
     Args:
         chunks: List of chunks to summarize
         llm_client: LLM client instance
 
     Returns:
-        str: Text summary with preserved section headers
+        StructuredSummary: Structured summary with all sections
 
     Raises:
         LLMError: If LLM call fails
+        ValueError: If summary cannot be parsed or validated
     """
     # Combine chunks with section headers, chunk IDs, and character spans for citation
     chunks_text = []
@@ -480,29 +481,44 @@ def create_text_summary_from_chunks(
         prompt = prompt_template.format(chunks_with_headers=combined_text)
     except FileNotFoundError:
         # Fallback prompt if template doesn't exist
-        prompt = f"""Create a comprehensive summary of the following clinical note while preserving all section headers.
+        prompt = f"""Create a comprehensive structured summary of the following clinical note in JSON format.
 
 The note is organized into sections:
 
 {combined_text}
 
-Provide a well-structured summary that:
-1. Preserves all section headers from the original document
-2. Summarizes the content under each section
-3. Maintains clinical accuracy and completeness
-4. Uses clear, professional medical language
+Provide a JSON object with the following structure:
+{{
+  "patient_snapshot": [{{"text": "...", "source": "..."}}],
+  "key_problems": [{{"text": "...", "source": "..."}}],
+  "pertinent_history": [{{"text": "...", "source": "..."}}],
+  "medicines_allergies": [{{"text": "...", "source": "..."}}],
+  "objective_findings": [{{"text": "...", "source": "..."}}],
+  "labs_imaging": [{{"text": "...", "source": "..."}}],
+  "concise_assessment": [{{"text": "...", "source": "..."}}]
+}}
 
-Start your response with the section headers and provide summaries under each."""
+Each item must include "text" and "source" fields. Source should use format: "[section_title] section, [chunk_id]:[start_char]-[end_char]"."""
 
-    # Call LLM - this time we want plain text, not JSON
-    response = llm_client.call(prompt, logger_instance=logger, return_text=True)
+    # Call LLM - request JSON output (return_text=False will parse JSON)
+    response = llm_client.call(prompt, logger_instance=logger, return_text=False)
     
-    # Response should be a string when return_text=True
+    # Response should be a dict when return_text=False
+    if isinstance(response, dict):
+        try:
+            return StructuredSummary(**response)
+        except Exception as e:
+            raise ValueError(f"Could not parse LLM response as StructuredSummary: {e}. Response: {response}") from e
+    
+    # Fallback: try to parse as string
     if isinstance(response, str):
-        return response
+        try:
+            data = json.loads(response)
+            return StructuredSummary(**data)
+        except (json.JSONDecodeError, ValueError) as e:
+            raise ValueError(f"Could not parse LLM response as StructuredSummary: {e}") from e
     
-    # Fallback: convert to string
-    return str(response)
+    raise ValueError(f"Unexpected response type from LLM: {type(response)}")
 
 
 def parse_text_summary_to_structured(text_summary: str) -> StructuredSummary:
@@ -668,6 +684,42 @@ def save_structured_summary(structured_summary: StructuredSummary, output_path: 
     logger.info(f"Saved structured summary to {output_path}")
 
 
+def format_structured_summary_as_text(structured_summary: StructuredSummary) -> str:
+    """Format structured summary as readable text for display or LLM input.
+    
+    Args:
+        structured_summary: StructuredSummary to format
+        
+    Returns:
+        str: Formatted text summary
+    """
+    lines = []
+    
+    sections = [
+        ("Patient Snapshot", structured_summary.patient_snapshot),
+        ("Key Problems", structured_summary.key_problems),
+        ("Pertinent History", structured_summary.pertinent_history),
+        ("Medicines/Allergies", structured_summary.medicines_allergies),
+        ("Objective Findings", structured_summary.objective_findings),
+        ("Labs/Imaging", structured_summary.labs_imaging),
+        ("Concise Assessment", structured_summary.concise_assessment),
+    ]
+    
+    for section_name, items in sections:
+        lines.append(f"**{section_name}**")
+        if not items:
+            lines.append("None documented.")
+            lines.append("")
+            continue
+        
+        for item in items:
+            lines.append(item.text)
+            lines.append(f"- Source: {item.source}")
+            lines.append("")
+    
+    return "\n".join(lines)
+
+
 def save_text_summary(summary_text: str, output_path: Path) -> None:
     """Save text summary to file.
 
@@ -686,4 +738,34 @@ def save_text_summary(summary_text: str, output_path: Path) -> None:
     output_path.write_text(summary_text, encoding="utf-8")
 
     logger.info(f"Saved text summary to {output_path}")
+
+
+def load_structured_summary(summary_json_path: Path) -> StructuredSummary:
+    """Load structured summary from JSON file.
+    
+    Args:
+        summary_json_path: Path to summary.json file
+        
+    Returns:
+        StructuredSummary: Structured summary object
+        
+    Raises:
+        FileNotFoundError: If summary file doesn't exist
+        ValueError: If summary file cannot be parsed or validated
+    """
+    if not summary_json_path.exists():
+        raise FileNotFoundError(f"Summary file not found: {summary_json_path}")
+    
+    try:
+        with open(summary_json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        
+        structured_summary = StructuredSummary(**data)
+        logger.info(f"Loaded structured summary from {summary_json_path}")
+        return structured_summary
+    
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON in summary file: {e}") from e
+    except Exception as e:
+        raise ValueError(f"Error loading structured summary: {e}") from e
 

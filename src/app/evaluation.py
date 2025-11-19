@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 from app.ingestion import CanonicalNote
-from app.schemas import Citation
+from app.schemas import Citation, StructuredPlan, StructuredSummary
 
 logger = logging.getLogger(__name__)
 
@@ -52,8 +52,40 @@ def parse_citation_from_text(citation_text: str) -> Optional[Tuple[str, Optional
     return None
 
 
+def extract_items_from_structured_summary(structured_summary: StructuredSummary) -> List[Dict]:
+    """Extract items (facts) from structured summary with their sources.
+    
+    Args:
+        structured_summary: StructuredSummary object
+        
+    Returns:
+        List[Dict]: List of items with text and source information
+    """
+    items = []
+    
+    # Extract items from all sections
+    sections = [
+        structured_summary.patient_snapshot,
+        structured_summary.key_problems,
+        structured_summary.pertinent_history,
+        structured_summary.medicines_allergies,
+        structured_summary.objective_findings,
+        structured_summary.labs_imaging,
+        structured_summary.concise_assessment,
+    ]
+    
+    for section_items in sections:
+        for item in section_items:
+            items.append({
+                "text": item.text,
+                "source": item.source,
+            })
+    
+    return items
+
+
 def extract_items_from_summary(summary_text: str) -> List[Dict]:
-    """Extract items (facts) from summary.txt with their sources.
+    """Extract items (facts) from summary.txt with their sources (DEPRECATED - use extract_items_from_structured_summary).
     
     Args:
         summary_text: Content of summary.txt
@@ -143,8 +175,52 @@ def extract_items_from_summary(summary_text: str) -> List[Dict]:
     return items
 
 
+def extract_recommendations_from_structured_plan(structured_plan: StructuredPlan) -> List[Dict]:
+    """Extract recommendations from structured plan with their sources.
+    
+    Args:
+        structured_plan: StructuredPlan object
+        
+    Returns:
+        List[Dict]: List of recommendations with text and source information
+    """
+    recommendations = []
+    
+    # Extract from prioritized recommendations list
+    for rec in structured_plan.recommendations:
+        # Combine all fields into a single text representation
+        parts = []
+        sources = []
+        
+        if rec.diagnostics:
+            parts.append(f"Diagnostics: {rec.diagnostics.content}")
+            sources.append(rec.diagnostics.source)
+        if rec.therapeutics:
+            parts.append(f"Therapeutics: {rec.therapeutics.content}")
+            sources.append(rec.therapeutics.source)
+        if rec.risks_benefits:
+            parts.append(f"Risks/Benefits: {rec.risks_benefits.content}")
+            sources.append(rec.risks_benefits.source)
+        if rec.follow_ups:
+            parts.append(f"Follow-ups: {rec.follow_ups.content}")
+            sources.append(rec.follow_ups.source)
+        
+        recommendation_text = " | ".join(parts) if parts else "No specific details"
+        # Combine all sources
+        combined_source = "; ".join(sources) if sources else "No source"
+        
+        recommendations.append({
+            "text": recommendation_text,
+            "source": combined_source,
+            "number": rec.number,
+            "confidence": rec.confidence,
+        })
+    
+    return recommendations
+
+
 def extract_recommendations_from_plan(plan_text: str) -> List[Dict]:
-    """Extract recommendations from plan.txt with their sources and confidence.
+    """Extract recommendations from plan.txt with their sources and confidence (DEPRECATED - use extract_recommendations_from_structured_plan).
     
     Args:
         plan_text: Content of plan.txt
@@ -295,16 +371,16 @@ def calculate_jaccard_similarity(span1: Tuple[int, int], span2: Tuple[int, int])
 
 
 def evaluate_summary_and_plan(
-    summary_text: str,
-    plan_text: str,
+    structured_summary: StructuredSummary,
+    structured_plan: StructuredPlan,
     canonical_note: CanonicalNote,
     chunks: List,
 ) -> Dict:
     """Evaluate summary and plan quality metrics.
     
     Args:
-        summary_text: Content of summary.txt
-        plan_text: Content of plan.txt
+        structured_summary: StructuredSummary object
+        structured_plan: StructuredPlan object
         canonical_note: CanonicalNote for text validation
         chunks: List of Chunk objects for citation mapping
         
@@ -313,11 +389,11 @@ def evaluate_summary_and_plan(
     """
     text_length = len(canonical_note.text)
     
-    # Extract items from summary
-    summary_items = extract_items_from_summary(summary_text)
+    # Extract items from structured summary
+    summary_items = extract_items_from_structured_summary(structured_summary)
     
-    # Extract recommendations from plan
-    plan_recommendations = extract_recommendations_from_plan(plan_text)
+    # Extract recommendations from structured plan
+    plan_recommendations = extract_recommendations_from_structured_plan(structured_plan)
     
     # Create chunk mapping for citation validation
     chunk_map = {chunk.chunk_id: chunk for chunk in chunks}

@@ -39,13 +39,19 @@ You are a medical recommendation system. Generate a prioritized treatment plan b
 
 ## Task
 
-Generate a comprehensive, detailed, and prioritized treatment plan based on the following clinical summary. **Look across ALL sections of the summary** (Patient Snapshot, Key Problems, Pertinent History, Medicines/Allergies, Objective Findings, Labs/Imaging, and Concise Assessment) to identify pertinent information for each category.
+Generate a comprehensive, detailed, and prioritized treatment plan based on the following clinical summary. **Look across ALL sections of the summary** (Patient Snapshot, Key Problems, Pertinent History, Medicines/Allergies, Objective Findings, Labs/Imaging, and Concise Assessment) to identify pertinent information.
 
-The plan should be detailed and comprehensive, including:
-1. **Diagnostics**: Tests, imaging, procedures needed - extract from all relevant sections
+**Prioritization**: Create a numbered list of recommendations (1, 2, 3, ...) in **decreasing order of importance/urgency** based on medical necessity. The most urgent and critical recommendations should be numbered 1, 2, etc., with less urgent items appearing later.
+
+**Multiple Recommendations**: If the summary contains multiple distinct treatment needs, diagnostic requirements, or follow-up plans, create separate numbered recommendations for each. Do NOT combine unrelated items into a single recommendation. Each recommendation should focus on a specific clinical need or intervention.
+
+**Each Recommendation Should Include** (if applicable and mentioned in the summary):
+1. **Diagnostics**: Patient diagnosis information - usually found in the concise_assessment section of the summary. This should include the diagnoses, not diagnostic tests/procedures.
 2. **Therapeutics**: Medications, treatments, interventions - extract from all relevant sections
-3. **Follow-ups**: Monitoring, appointments, re-evaluations - extract from all relevant sections
-4. **Risks/Benefits**: For each recommendation, include detailed information on stated risks, benefits, side effects, contraindications, warnings, or special considerations mentioned in the summary
+3. **Risks/Benefits**: Detailed information on stated risks, benefits, side effects, contraindications, warnings, or special considerations mentioned in the summary
+4. **Follow-ups**: Recommendations, next steps, monitoring, appointments, re-evaluations - usually found in the concise_assessment section of the summary
+
+**Important**: Each field (diagnostics, therapeutics, risks_benefits, follow_ups) must have its own source citation. Use the source citations from the summary for each piece of information.
 
 **Comprehensiveness**: Do not limit yourself to only the "Concise Assessment" section. Review ALL sections of the summary to identify:
 - Diagnostic needs mentioned in Key Problems, Objective Findings, Labs/Imaging, or Concise Assessment
@@ -67,41 +73,70 @@ The clinical summary is provided in sections with source citations. Each citatio
 
 ## Output Format
 
-Provide a structured treatment plan with the following sections:
+**CRITICAL**: You MUST output a valid JSON object (not markdown, not plain text). The JSON must match this exact structure:
 
-**Prioritized Treatment Plan**
+```json
+{{
+  "recommendations": [
+    {{
+      "number": 1,
+      "diagnostics": {{
+        "content": "Patient diagnosis information - usually from concise_assessment section. Use ONLY information explicitly stated in the summary.",
+        "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922"
+      }},
+      "therapeutics": {{
+        "content": "Medications, treatments, or interventions - use ONLY information explicitly stated in the summary.",
+        "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922"
+      }},
+      "risks_benefits": {{
+        "content": "Detailed information on ANY stated risks, benefits, side effects, contraindications, warnings, medication interactions, or special considerations mentioned in the summary.",
+        "source": "DISCUSSION section, chunk_3:1414-4377"
+      }},
+      "follow_ups": {{
+        "content": "Recommendations, next steps, monitoring, appointments, or re-evaluations - usually from concise_assessment section. Use ONLY information explicitly stated in the summary.",
+        "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922"
+      }},
+      "confidence": 0.9,
+      "hallucination_guard_note": "Required if confidence < 0.8 or evidence is weak/ambiguous. Otherwise use null."
+    }},
+    {{
+      "number": 2,
+      "diagnostics": null,
+      "therapeutics": {{
+        "content": "Next most urgent medication or treatment",
+        "source": "DISCUSSION section, chunk_3:1414-4377"
+      }},
+      "risks_benefits": null,
+      "follow_ups": {{
+        "content": "Follow-up instructions if mentioned",
+        "source": "DISCUSSION section, chunk_3:1414-4377"
+      }},
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    }}
+  ]
+}}
+```
 
-**1. Diagnostics**
-[Recommendation 1 - use ONLY information explicitly stated in the summary, do NOT add timing, frequency, or other details. Look across ALL summary sections for diagnostic needs.]
-- Source: [Use the EXACT citation from the summary - preserve the original section_title field value, e.g., "MEDICAL DECISION MAKING section, chunk_11:2192-2922"]
-- Confidence: [0.0-1.0]
-- Risks/Benefits: [Include detailed information on ANY stated risks, benefits, side effects, contraindications, warnings, or special considerations mentioned in the summary for this diagnostic test/procedure. Be comprehensive - extract all relevant details from the source text. If none are mentioned, write "None identified based on available information"]
-- Hallucination Guard Note: [Required if confidence < 0.8 or evidence is weak/ambiguous]
-
-[Recommendation 2]
-...
-
-**2. Therapeutics**
-[Recommendation 1 - use ONLY information explicitly stated in the summary, do NOT add dosages, timing, or other details. Look across ALL summary sections for treatment recommendations, including medications, interventions, and therapies.]
-- Source: [Use the EXACT citation from the summary - preserve the original section_title field value, e.g., "MEDICAL DECISION MAKING section, chunk_11:2192-2922"]
-- Confidence: [0.0-1.0]
-- Risks/Benefits: [Include detailed information on ANY stated risks, benefits, side effects, contraindications, warnings, medication interactions, or special considerations mentioned in the summary for this treatment. Be comprehensive - extract all relevant details from the source text, including information from the Concise Assessment section about risks/benefits. If none are mentioned, write "None identified based on available information"]
-- Hallucination Guard Note: [If needed]
-
-[Recommendation 2]
-...
-
-**3. Follow-ups**
-[Recommendation 1 - use ONLY information explicitly stated in the summary, do NOT add timing, frequency, or other details. Look across ALL summary sections for follow-up needs, monitoring requirements, or re-evaluation plans.]
-- Source: [Use the EXACT citation from the summary - preserve the original section_title field value, e.g., "MEDICAL DECISION MAKING section, chunk_11:2192-2922"]
-- Confidence: [0.0-1.0]
-- Risks/Benefits: [Include detailed information on ANY stated risks, benefits, warnings, or special considerations mentioned in the summary for this follow-up or monitoring plan. Be comprehensive - extract all relevant details from the source text, including information from the Concise Assessment section about risks/benefits of follow-ups. If none are mentioned, write "None identified based on available information"]
-- Hallucination Guard Note: [If needed]
-
-**CRITICAL**: If the summary does NOT explicitly mention any follow-up recommendations, monitoring instructions, or re-evaluation plans, write "None identified based on available information" - do NOT invent or infer follow-up recommendations.
-
-[Recommendation 2]
-...
+**Important Notes for JSON Output**:
+- "recommendations" is an array of recommendation objects, numbered 1, 2, 3, ... in **decreasing order of importance/urgency** (most urgent = 1)
+- **Create multiple recommendations** when there are multiple distinct treatment needs, diagnostic requirements, or follow-up plans - do NOT combine unrelated items
+- Each recommendation object has exactly 6 fields: "number", "diagnostics", "therapeutics", "risks_benefits", "follow_ups", "confidence", "hallucination_guard_note"
+- "number" is an integer (1, 2, 3, ...) indicating priority (1 = most urgent/important)
+- "diagnostics", "therapeutics", "risks_benefits", "follow_ups" are objects with "content" and "source" fields, or null if not applicable or not mentioned
+- Each field object has:
+  - "content": string with the relevant information
+  - "source": string with the EXACT citation from the summary (preserve original section_title field value, e.g., "MEDICAL DECISION MAKING section, chunk_11:2192-2922")
+- **"diagnostics" field should contain patient diagnosis information** (not diagnostic tests/procedures) - usually from concise_assessment section
+- **"follow_ups" field should contain recommendations, next steps, monitoring, appointments** - usually from concise_assessment section
+- **Populate all applicable fields** - if a recommendation involves diagnostics, therapeutics, risks_benefits, or follow-ups, include them in the appropriate fields
+- Use ONLY information explicitly stated in the summary - do NOT add any details, specifics, or information that is not explicitly stated
+- "confidence" is a number between 0.0 and 1.0
+- "hallucination_guard_note" is a string if needed (confidence < 0.8 or weak evidence), or null otherwise
+- If no recommendations can be made, use an empty array: []
+- **CRITICAL**: Do NOT invent or infer recommendations - only include what is explicitly stated in the summary
+- **CRITICAL**: Each field must have its own source citation - use the source from the summary for each piece of information
+- Output ONLY the JSON object - no markdown formatting, no code blocks, no explanatory text
 
 ## Citation Format
 
@@ -136,10 +171,15 @@ The note should explain:
 
 ## Prioritization
 
-Order recommendations by:
-1. Clinical urgency/importance
-2. Evidence strength (higher confidence first within each category)
-3. Logical sequence (diagnostics → therapeutics → follow-ups)
+Order recommendations by **decreasing medical necessity/urgency**:
+1. **Most urgent/important first** (number 1): Life-threatening conditions, critical diagnostics, urgent treatments
+2. **High priority** (number 2, 3, ...): Important but less urgent diagnostics, treatments, or interventions
+3. **Standard priority** (later numbers): Routine monitoring, standard follow-ups, preventive measures
+
+Within each priority level, consider:
+- Clinical urgency/importance
+- Evidence strength (higher confidence first)
+- Logical sequence (diagnostics → therapeutics → follow-ups)
 
 ## Important Notes
 

@@ -6,6 +6,8 @@ from pathlib import Path
 from typing import List
 
 from app.llm import LLMClient
+from app.schemas import PlanField, PlanRecommendation, StructuredPlan
+from app.summarizer import format_structured_summary_as_text
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +44,7 @@ def load_text_summary(summary_txt_path: Path) -> str:
 def create_treatment_plan_from_summary(
     summary_text: str,
     llm_client: LLMClient,
-) -> str:
+) -> StructuredPlan:
     """Create a prioritized treatment plan from text summary.
 
     Args:
@@ -50,10 +52,11 @@ def create_treatment_plan_from_summary(
         llm_client: LLM client instance
 
     Returns:
-        str: Structured treatment plan text
+        StructuredPlan: Structured treatment plan with recommendations
 
     Raises:
         LLMError: If LLM call fails
+        ValueError: If plan cannot be parsed or validated
     """
     # Use the text summary directly - it already has the proper format with sections and citations
     combined_text = summary_text
@@ -64,54 +67,144 @@ def create_treatment_plan_from_summary(
         prompt = prompt_template.format(summary_sections=combined_text)
     except FileNotFoundError:
         # Fallback prompt if template doesn't exist
-        prompt = f"""Generate a prioritized treatment plan based on the following clinical summary.
+        prompt = f"""Generate a prioritized treatment plan based on the following clinical summary in JSON format.
 
 The summary is organized into sections with source citations:
 
 {combined_text}
 
-Provide a structured treatment plan with:
+Provide a structured treatment plan as JSON with:
 1. Diagnostics (tests, imaging, procedures)
 2. Therapeutics (medications, treatments, interventions)
 3. Follow-ups (monitoring, appointments, re-evaluations)
 
 For each recommendation, include:
-- Source with explicit citations (use the source citations provided in the summary, e.g., "chunk_0:10-50" or "Section Name, paragraph X")
+- Source with explicit citations (use the source citations provided in the summary)
 - Confidence score [0, 1]
 - Risks/Benefits (if applicable)
 - Hallucination Guard Note (if confidence < 0.8 or evidence is weak)
 
 Order recommendations by clinical urgency, evidence strength, and logical sequence."""
 
-    # Call LLM - return plain text
-    response = llm_client.call(prompt, logger_instance=logger, return_text=True)
+    # Call LLM - request JSON output (return_text=False will parse JSON)
+    response = llm_client.call(prompt, logger_instance=logger, return_text=False)
 
-    # Response should be a string when return_text=True
+    # Response should be a dict when return_text=False
+    if isinstance(response, dict):
+        try:
+            return StructuredPlan(**response)
+        except Exception as e:
+            raise ValueError(f"Could not parse LLM response as StructuredPlan: {e}. Response: {response}") from e
+
+    # Fallback: try to parse as string
     if isinstance(response, str):
-        return response
+        try:
+            data = json.loads(response)
+            return StructuredPlan(**data)
+        except (json.JSONDecodeError, ValueError) as e:
+            raise ValueError(f"Could not parse LLM response as StructuredPlan: {e}") from e
 
-    # Fallback: convert to string
-    return str(response)
+    raise ValueError(f"Unexpected response type from LLM: {type(response)}")
 
 
-def save_plan(plan_text: str, output_path: Path) -> None:
-    """Save treatment plan to text file.
+def save_plan(structured_plan: StructuredPlan, output_path: Path) -> None:
+    """Save structured treatment plan to JSON file.
 
     Args:
-        plan_text: Treatment plan text
-        output_path: Path to save plan text file
+        structured_plan: StructuredPlan to save
+        output_path: Path to save plan JSON file
 
     Raises:
-        ValueError: If plan text is empty
+        ValueError: If plan cannot be validated
     """
-    if not plan_text or not plan_text.strip():
-        raise ValueError("Plan text is empty")
+    # Validate plan
+    try:
+        # Pydantic validation happens automatically on model creation
+        pass
+    except Exception as e:
+        raise ValueError(f"Invalid structured plan: {e}") from e
+
+    # Convert to dict for JSON serialization
+    plan_data = structured_plan.model_dump()
 
     # Save to file
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(plan_text, encoding="utf-8")
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(plan_data, f, indent=2, ensure_ascii=False)
 
-    logger.info(f"Saved treatment plan to {output_path}")
+    logger.info(f"Saved structured plan to {output_path}")
+
+
+def load_plan(plan_json_path: Path) -> StructuredPlan:
+    """Load structured plan from JSON file.
+
+    Args:
+        plan_json_path: Path to plan.json file
+
+    Returns:
+        StructuredPlan: Structured plan object
+
+    Raises:
+        FileNotFoundError: If plan file doesn't exist
+        ValueError: If plan file cannot be parsed or validated
+    """
+    if not plan_json_path.exists():
+        raise FileNotFoundError(f"Plan file not found: {plan_json_path}")
+
+    try:
+        with open(plan_json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        structured_plan = StructuredPlan(**data)
+        logger.info(f"Loaded structured plan from {plan_json_path}")
+        return structured_plan
+
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON in plan file: {e}") from e
+    except Exception as e:
+        raise ValueError(f"Error loading structured plan: {e}") from e
+
+
+def format_plan_as_text(structured_plan: StructuredPlan) -> str:
+    """Format structured plan as readable text for display.
+
+    Args:
+        structured_plan: StructuredPlan to format
+
+    Returns:
+        str: Formatted text plan
+    """
+    lines = []
+    lines.append("**Prioritized Treatment Plan**")
+    lines.append("")
+
+    if not structured_plan.recommendations:
+        lines.append("No recommendations identified.")
+        lines.append("")
+    else:
+        for rec in structured_plan.recommendations:
+            lines.append(f"**Recommendation {rec.number}**")
+            lines.append("")
+            
+            if rec.diagnostics:
+                lines.append(f"Diagnostics: {rec.diagnostics.content}")
+                lines.append(f"  Source: {rec.diagnostics.source}")
+            if rec.therapeutics:
+                lines.append(f"Therapeutics: {rec.therapeutics.content}")
+                lines.append(f"  Source: {rec.therapeutics.source}")
+            if rec.risks_benefits:
+                lines.append(f"Risks/Benefits: {rec.risks_benefits.content}")
+                lines.append(f"  Source: {rec.risks_benefits.source}")
+            if rec.follow_ups:
+                lines.append(f"Follow-ups: {rec.follow_ups.content}")
+                lines.append(f"  Source: {rec.follow_ups.source}")
+            
+            lines.append(f"Confidence: {rec.confidence}")
+            if rec.hallucination_guard_note:
+                lines.append(f"Hallucination Guard Note: {rec.hallucination_guard_note}")
+            lines.append("")
+
+    return "\n".join(lines)
 
 
 def create_treatment_plan_from_chunks(

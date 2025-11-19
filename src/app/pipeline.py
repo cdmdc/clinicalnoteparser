@@ -24,13 +24,13 @@ from app.config import Config, get_config
 from app.evaluation import evaluate_summary_and_plan, save_evaluation
 from app.ingestion import CanonicalNote, generate_note_id, ingest_document, load_canonical_note
 from app.llm import LLMClient
-from app.planner import create_treatment_plan_from_summary, load_text_summary, save_plan
+from app.planner import create_treatment_plan_from_summary, format_plan_as_text, load_plan, save_plan
 from app.sections import Section, detect_sections, load_toc, save_toc
 from app.summarizer import (
-    create_text_summary_from_chunks,
-    parse_text_summary_to_structured,
+    create_structured_summary_from_chunks,
+    format_structured_summary_as_text,
+    load_structured_summary,
     save_structured_summary,
-    save_text_summary,
 )
 
 logger = logging.getLogger(__name__)
@@ -346,36 +346,22 @@ def run_pipeline(
             logger.info(f"✓ LLM client initialized (model: {config.model_name})")
         
         # Step 4: Generate summary (if needed)
-        summary_text = None
         structured_summary = None
         if needs_summary:
             step_num += 1
             logger.info(f"[STEP {step_num}/{total_steps}] Generating summary...")
             logger.info(f"  Processing {len(chunks)} chunks at once...")
-            summary_text = create_text_summary_from_chunks(chunks, llm_client)
-            logger.info(f"✓ Generated summary ({len(summary_text)} characters)")
-            
-            # Parse text summary into structured format
-            try:
-                structured_summary = parse_text_summary_to_structured(summary_text)
-                logger.info(f"✓ Parsed structured summary with {len(structured_summary.patient_snapshot)} patient snapshot items, "
-                          f"{len(structured_summary.key_problems)} problems, {len(structured_summary.pertinent_history)} history items, "
-                          f"{len(structured_summary.medicines_allergies)} medicines/allergies, "
-                          f"{len(structured_summary.objective_findings)} findings, {len(structured_summary.labs_imaging)} labs/imaging, "
-                          f"{len(structured_summary.concise_assessment)} assessment items")
-            except Exception as e:
-                logger.warning(f"Could not parse structured summary: {e}. Will save text summary only.")
-            
-            # Save text summary
-            summary_txt_path = output_dir / "summary.txt"
-            save_text_summary(summary_text, summary_txt_path)
-            logger.info(f"✓ Saved text summary to: {summary_txt_path}")
+            structured_summary = create_structured_summary_from_chunks(chunks, llm_client)
+            logger.info(f"✓ Generated structured summary with {len(structured_summary.patient_snapshot)} patient snapshot items, "
+                      f"{len(structured_summary.key_problems)} problems, {len(structured_summary.pertinent_history)} history items, "
+                      f"{len(structured_summary.medicines_allergies)} medicines/allergies, "
+                      f"{len(structured_summary.objective_findings)} findings, {len(structured_summary.labs_imaging)} labs/imaging, "
+                      f"{len(structured_summary.concise_assessment)} assessment items")
             
             # Save structured summary JSON
-            if structured_summary:
-                summary_json_path = output_dir / "summary.json"
-                save_structured_summary(structured_summary, summary_json_path)
-                logger.info(f"✓ Saved structured summary to: {summary_json_path}")
+            summary_json_path = output_dir / "summary.json"
+            save_structured_summary(structured_summary, summary_json_path)
+            logger.info(f"✓ Saved structured summary to: {summary_json_path}")
         
         # Break if summary only
         if summary_only:
@@ -384,47 +370,49 @@ def run_pipeline(
             logger.info(f"  - canonical_text.txt")
             logger.info(f"  - toc.json")
             logger.info(f"  - chunks.json")
-            logger.info(f"  - summary.txt")
+            logger.info(f"  - summary.json")
             return 0
         
         # Step 5: Generate plan (if needed)
-        # Note: Plan generation now requires summary.txt, so summary must be generated first
-        plan_text = None
+        # Note: Plan generation now requires summary.json, so summary must be generated first
+        structured_plan = None
         if needs_plan:
             step_num += 1
             logger.info(f"[STEP {step_num}/{total_steps}] Generating treatment plan...")
             
-            # Plan generation requires summary.txt - check if it exists
-            summary_txt_path = output_dir / "summary.txt"
+            # Plan generation requires summary.json - check if it exists
+            summary_json_path = output_dir / "summary.json"
             
-            # If summary_text was just created, use it
-            if summary_text is None:
+            # If structured_summary was just created, use it
+            if structured_summary is None:
                 # Try to load from file if it exists
-                if summary_txt_path.exists():
+                if summary_json_path.exists():
                     try:
-                        summary_text = load_text_summary(summary_txt_path)
-                        logger.info(f"✓ Loaded text summary from {summary_txt_path}")
+                        from app.summarizer import load_structured_summary
+                        structured_summary = load_structured_summary(summary_json_path)
+                        logger.info(f"✓ Loaded structured summary from {summary_json_path}")
                     except Exception as e:
-                        logger.error(f"Could not load text summary: {e}")
-                        logger.error("Plan generation requires summary.txt. Please generate summary first.")
+                        logger.error(f"Could not load structured summary: {e}")
+                        logger.error("Plan generation requires summary.json. Please generate summary first.")
                         return 1
                 else:
-                    # Summary.txt doesn't exist - this shouldn't happen if needs_summary was True
+                    # Summary.json doesn't exist - this shouldn't happen if needs_summary was True
                     # but handle it gracefully
-                    logger.error(f"summary.txt not found at {summary_txt_path}")
-                    logger.error("Plan generation requires summary.txt. Please generate summary first.")
+                    logger.error(f"summary.json not found at {summary_json_path}")
+                    logger.error("Plan generation requires summary.json. Please generate summary first.")
                     logger.error("Hint: Run with --summary-only first, or run full pipeline without --plan-only")
                     return 1
             
-            # Generate plan from text summary
-            logger.info(f"  Using text summary ({len(summary_text)} characters)...")
-            plan_text = create_treatment_plan_from_summary(summary_text, llm_client)
+            # Format structured summary as text for plan generation
+            summary_text = format_structured_summary_as_text(structured_summary)
+            logger.info(f"  Using structured summary ({len(summary_text)} characters)...")
+            structured_plan = create_treatment_plan_from_summary(summary_text, llm_client)
             
-            logger.info(f"✓ Generated plan ({len(plan_text)} characters)")
+            logger.info(f"✓ Generated structured plan with {len(structured_plan.recommendations)} prioritized recommendations")
             
             # Save plan
-            plan_path = output_dir / "plan.txt"
-            save_plan(plan_text, plan_path)
+            plan_path = output_dir / "plan.json"
+            save_plan(structured_plan, plan_path)
             logger.info(f"✓ Saved plan to: {plan_path}")
         
         # Break if plan only
@@ -434,9 +422,8 @@ def run_pipeline(
             logger.info(f"  - canonical_text.txt")
             logger.info(f"  - toc.json")
             logger.info(f"  - chunks.json")
-            logger.info(f"  - summary.txt")
             logger.info(f"  - summary.json")
-            logger.info(f"  - plan.txt")
+            logger.info(f"  - plan.json")
             return 0
         
         # Break if no evaluation
@@ -446,10 +433,10 @@ def run_pipeline(
             logger.info(f"  - canonical_text.txt")
             logger.info(f"  - toc.json")
             logger.info(f"  - chunks.json")
-            if summary_text:
-                logger.info(f"  - summary.txt")
-            if plan_text:
-                logger.info(f"  - plan.txt")
+            if structured_summary:
+                logger.info(f"  - summary.json")
+            if structured_plan:
+                logger.info(f"  - plan.json")
             return 0
         
         # Step 6: Evaluation (if needed)
@@ -458,22 +445,22 @@ def run_pipeline(
             logger.info(f"[STEP {step_num}/{total_steps}] Evaluating results...")
             
             # Load summary and plan if not already loaded
-            if summary_text is None:
-                summary_path = output_dir / "summary.txt"
-                if not summary_path.exists():
-                    logger.error(f"✗ Summary file not found: {summary_path}")
+            if structured_summary is None:
+                summary_json_path = output_dir / "summary.json"
+                if not summary_json_path.exists():
+                    logger.error(f"✗ Summary file not found: {summary_json_path}")
                     return 1
-                summary_text = summary_path.read_text(encoding="utf-8")
+                structured_summary = load_structured_summary(summary_json_path)
             
-            if plan_text is None:
-                plan_path = output_dir / "plan.txt"
-                if not plan_path.exists():
-                    logger.error(f"✗ Plan file not found: {plan_path}")
+            if structured_plan is None:
+                plan_json_path = output_dir / "plan.json"
+                if not plan_json_path.exists():
+                    logger.error(f"✗ Plan file not found: {plan_json_path}")
                     return 1
-                plan_text = plan_path.read_text(encoding="utf-8")
+                structured_plan = load_plan(plan_json_path)
             
-            # Run evaluation
-            evaluation = evaluate_summary_and_plan(summary_text, plan_text, canonical_note, chunks)
+            # Run evaluation (use structured_summary and structured_plan)
+            evaluation = evaluate_summary_and_plan(structured_summary, structured_plan, canonical_note, chunks)
             
             # Save evaluation
             evaluation_path = output_dir / "evaluation.json"
@@ -508,10 +495,10 @@ def run_pipeline(
         logger.info(f"  - canonical_text.txt")
         logger.info(f"  - toc.json")
         logger.info(f"  - chunks.json")
-        if summary_text:
-            logger.info(f"  - summary.txt")
-        if plan_text:
-            logger.info(f"  - plan.txt")
+        if structured_summary:
+            logger.info(f"  - summary.json")
+        if structured_plan:
+            logger.info(f"  - plan.json")
         if needs_evaluation:
             logger.info(f"  - evaluation.json")
         logger.info(f"  - pipeline.log")

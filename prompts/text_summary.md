@@ -43,65 +43,43 @@ Example: "MEDICAL DECISION MAKING section, chunk_11:2192-2922"
 
 ## Output Format
 
-Start your response immediately with the summary. Use this structure:
+**CRITICAL**: You MUST output a valid JSON object (not markdown, not plain text). The JSON must match this exact structure:
 
-**Patient Snapshot**
-[Summarize actual patient information from the note - age, sex, overview]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
+```json
+{{
+  "patient_snapshot": [
+    {{"text": "Patient information here", "source": "section_title section, chunk_id:start_char-end_char"}}
+  ],
+  "key_problems": [
+    {{"text": "Problem 1", "source": "section_title section, chunk_id:start_char-end_char"}},
+    {{"text": "Problem 2", "source": "section_title section, chunk_id:start_char-end_char"}}
+  ],
+  "pertinent_history": [
+    {{"text": "History item", "source": "section_title section, chunk_id:start_char-end_char"}}
+  ],
+  "medicines_allergies": [
+    {{"text": "Medication or allergy", "source": "section_title section, chunk_id:start_char-end_char"}}
+  ],
+  "objective_findings": [
+    {{"text": "Finding", "source": "section_title section, chunk_id:start_char-end_char"}}
+  ],
+  "labs_imaging": [
+    {{"text": "Lab or imaging result", "source": "section_title section, chunk_id:start_char-end_char"}}
+  ],
+  "concise_assessment": [
+    {{"text": "Diagnosis or recommendation", "source": "section_title section, chunk_id:start_char-end_char"}}
+  ]
+}}
+```
 
-**Key Problems**
-[Summarize actual problems/diagnoses from the note]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-[Additional problems if any]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-**Pertinent History**
-[Summarize actual history from the note]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-[Additional history if any]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-**Medicines/Allergies**
-[Summarize actual medications/allergies from the note, or "None documented"]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-[Additional medications/allergies if any]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-**Objective Findings**
-[Summarize actual examination findings from the note]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-[Additional findings if any]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-**Labs/Imaging**
-[Summarize actual lab/imaging results from the note, or "None documented"]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-[Additional results if any]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-**Concise Assessment**
-[Summarize ALL diagnoses from IMPRESSION sections - list each separately]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-[Additional diagnoses if any]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-[Summarize ALL recommendations/treatment plans from RECOMMENDATIONS/PLAN sections - include every recommendation, medication change, test order, follow-up instruction]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-[Additional recommendations if any]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-[For each recommended treatment or follow-up, include ANY stated risks, benefits, side effects, contraindications, warnings, or special considerations mentioned in the source text - be comprehensive and include all relevant details]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
-
-[Important clinical context, warnings, medication interactions, special instructions if mentioned]
-- Source: [section_title] section, [chunk_id]:[start_char]-[end_char]
+**Important Notes for JSON Output**:
+- Each section is an array of objects
+- Each object has exactly two fields: "text" and "source"
+- "text" contains the summarized information (do NOT copy verbatim, summarize in your own words)
+- "source" uses format: "[section_title] section, [chunk_id]:[start_char]-[end_char]"
+- If a section has no information, use an empty array: []
+- For "concise_assessment", include ALL diagnoses, ALL recommendations, and ALL stated risks/benefits/side effects/contraindications/warnings for treatments and follow-ups
+- Output ONLY the JSON object - no markdown formatting, no code blocks, no explanatory text
 
 ## Important Instructions
 
@@ -114,4 +92,4 @@ Start your response immediately with the summary. Use this structure:
 - For Concise Assessment: When summarizing recommended treatments or follow-ups, explicitly include ANY stated risks, benefits, side effects, contraindications, warnings, or special considerations mentioned in the source text - extract and summarize these details comprehensively
 - Every item must have a source citation with the exact `section_title`, `chunk_id`, and character range from the chunk headers
 
-**Now read the clinical note sections below and output your summary:**
+**Now read the clinical note sections below and output your JSON summary:**
