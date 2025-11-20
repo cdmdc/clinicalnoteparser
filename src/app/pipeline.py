@@ -460,7 +460,10 @@ def run_pipeline(
                 structured_plan = load_plan(plan_json_path)
             
             # Run evaluation (use structured_summary and structured_plan)
-            evaluation = evaluate_summary_and_plan(structured_summary, structured_plan, canonical_note, chunks)
+            evaluation = evaluate_summary_and_plan(
+                structured_summary, structured_plan, canonical_note, chunks,
+                config=config
+            )
             
             # Save evaluation
             evaluation_path = output_dir / "evaluation.json"

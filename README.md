@@ -16,9 +16,17 @@ All outputs include explicit citations linking back to the source text, enabling
 - **Python 3.11+**: Required for modern Python features
 - **uv**: Modern Python package manager ([installation guide](https://github.com/astral-sh/uv))
 - **Ollama**: Local LLM runtime ([installation guide](https://ollama.ai))
-- **Ollama Model**: The default model is `qwen2.5:7b`. Install it with:
+- **Ollama Models**: Two models are required:
+  - **Main LLM Model** (default: `qwen2.5:7b`): Used for text generation, summarization, and plan generation
+  - **Embedding Model** (default: `nomic-embed-text`): Used for semantic accuracy evaluation (optional, only needed if using `--semantic-accuracy` flag)
+  
+  Install both models with:
   ```bash
+  # Main LLM model (required)
   ollama pull qwen2.5:7b
+  
+  # Embedding model (optional, for semantic accuracy evaluation)
+  ollama pull nomic-embed-text
   ```
 
 ## Setup Instructions
@@ -56,15 +64,18 @@ pip install -r requirements.txt
 
 ### 4. Verify Ollama Installation
 
-Ensure Ollama is running and the model is available:
+Ensure Ollama is running and the required models are available:
 
 ```bash
 # Check if Ollama is running
 ollama list
 
-# If qwen2.5:7b is not listed, install it
-ollama pull qwen2.5:7b
+# Install required models if not listed
+ollama pull qwen2.5:7b          # Main LLM model (required)
+ollama pull nomic-embed-text    # Embedding model (optional, for semantic accuracy)
 ```
+
+**Note**: The embedding model (`nomic-embed-text`) is only needed if you plan to use the `--semantic-accuracy` flag for evaluation. The main pipeline works without it.
 
 ### 5. Verify Installation
 
@@ -109,51 +120,76 @@ You can process any PDF or .txt file:
 
 ## How to Run
 
-### Basic Usage
+### Running Commands
 
-The CLI accepts a PDF or .txt filename or path:
+There are two ways to run the CLI:
 
+**Method 1: Direct Script (Recommended - No PYTHONPATH needed)**
+```bash
+# From project root with virtual environment activated
+python3 src/app/cli.py process <input_path>
+```
+
+**Method 2: Module Style (Requires PYTHONPATH)**
 ```bash
 # From project root with virtual environment activated
 PYTHONPATH=src python -m app.cli process <input_path>
 ```
+
+**Note**: Method 1 is simpler and doesn't require setting PYTHONPATH. The CLI script automatically handles the Python path configuration.
+
+### Basic Usage
+
+The CLI accepts a PDF or .txt filename or path:
 
 ### Examples
 
 #### Process a PDF by filename (searches common locations):
 
 ```bash
-PYTHONPATH=src python -m app.cli process 570.pdf
+python3 src/app/cli.py process 570.pdf
 ```
 
 #### Process a PDF with full path:
 
 ```bash
-PYTHONPATH=src python -m app.cli process data/archive/mtsamples_pdf/mtsamples_pdf/570.pdf
+python3 src/app/cli.py process data/archive/mtsamples_pdf/mtsamples_pdf/570.pdf
 ```
 
 #### Process a .txt file:
 
 ```bash
-PYTHONPATH=src python -m app.cli process note.txt
+python3 src/app/cli.py process note.txt
 ```
 
 #### Process with custom output directory:
 
 ```bash
-PYTHONPATH=src python -m app.cli process 570.pdf --output-dir my_results
+python3 src/app/cli.py process 570.pdf --output-dir my_results
 ```
 
 #### Process with different Ollama model:
 
 ```bash
-PYTHONPATH=src python -m app.cli process 570.pdf --model llama3.2
+python3 src/app/cli.py process 570.pdf --model llama3.2
+```
+
+#### Process with semantic accuracy evaluation:
+
+**Note**: Semantic accuracy evaluation is now enabled by default. No flag needed!
+
+```bash
+# First, ensure the embedding model is installed
+ollama pull nomic-embed-text
+
+# Semantic accuracy is now enabled by default - no flag needed!
+python3 src/app/cli.py process 570.pdf
 ```
 
 #### Enable verbose logging:
 
 ```bash
-PYTHONPATH=src python -m app.cli process 570.pdf --verbose
+python3 src/app/cli.py process 570.pdf --verbose
 ```
 
 ### Conditional Execution Modes
@@ -163,59 +199,59 @@ The pipeline supports running only specific parts:
 #### Generate only TOC (fast, no LLM needed):
 
 ```bash
-PYTHONPATH=src python -m app.cli process 570.pdf --toc-only
+python3 src/app/cli.py process 570.pdf --toc-only
 ```
 
 #### Generate only summary:
 
 ```bash
-PYTHONPATH=src python -m app.cli process 570.pdf --summary-only
+python3 src/app/cli.py process 570.pdf --summary-only
 ```
 
 #### Generate only treatment plan:
 
 ```bash
-PYTHONPATH=src python -m app.cli process 570.pdf --plan-only
+python3 src/app/cli.py process 570.pdf --plan-only
 ```
 
 #### Generate TOC, summary, and plan (skip evaluation):
 
 ```bash
-PYTHONPATH=src python -m app.cli process 570.pdf --no-evaluation
+python3 src/app/cli.py process 570.pdf --no-evaluation
 ```
 
 ### Batch Processing (Parallel Execution)
 
 Process multiple documents in parallel for faster throughput:
 
-#### Process multiple files with glob pattern:
+#### Process all files in a directory:
 
 ```bash
-# Process all PDFs in current directory with 4 workers (default)
-PYTHONPATH=src python -m app.cli process-batch "*.pdf" --workers 4
+# Process all PDFs in a directory with 2 workers (recommended)
+python3 src/app/cli.py process-batch "data/archive/mtsamples_pdf/mtsamples_pdf/*.pdf" --workers 2
 
-# Process all PDFs in a specific directory
-PYTHONPATH=src python -m app.cli process-batch "data/archive/mtsamples_pdf/*.pdf" --workers 4
+# Process all PDFs in current directory with 4 workers
+python3 src/app/cli.py process-batch "*.pdf" --workers 4
 ```
 
 #### Process specific files (comma-separated):
 
 ```bash
 # Process specific files with 2 workers
-PYTHONPATH=src python -m app.cli process-batch "0.pdf,1.pdf,2.pdf" --workers 2
+python3 src/app/cli.py process-batch "0.pdf,1.pdf,2.pdf" --workers 2
 
 # Process with summary-only mode
-PYTHONPATH=src python -m app.cli process-batch "0.pdf,1.pdf,2.pdf" --workers 2 --summary-only
+python3 src/app/cli.py process-batch "0.pdf,1.pdf,2.pdf" --workers 2 --summary-only
 ```
 
 #### Advanced batch processing:
 
 ```bash
 # Process with custom model and verbose logging
-PYTHONPATH=src python -m app.cli process-batch "*.pdf" --workers 8 --model llama3.2 --verbose
+python3 src/app/cli.py process-batch "*.pdf" --workers 8 --model llama3.2 --verbose
 
 # Process with custom output directory
-PYTHONPATH=src python -m app.cli process-batch "*.pdf" --workers 4 --output-dir my_results
+python3 src/app/cli.py process-batch "*.pdf" --workers 4 --output-dir my_results
 ```
 
 #### Batch Processing Features:
@@ -258,6 +294,8 @@ Batch processing complete: ✓ 10 succeeded, ✗ 0 failed
 | `--plan-only` | | Only generate treatment plan |
 | `--no-evaluation` | | Skip evaluation metrics |
 
+**Note**: Semantic accuracy evaluation is now enabled by default (no flag needed). It requires the `nomic-embed-text` model to be installed.
+
 #### Batch Processing (`process-batch` command)
 
 All options from `process` command, plus:
@@ -267,8 +305,28 @@ All options from `process` command, plus:
 | `--workers` | `-w` | Number of parallel workers (default: `4`) |
 
 **Input Pattern**: The first argument can be:
-- A glob pattern: `"*.pdf"`, `"data/archive/mtsamples_pdf/*.pdf"`
+- A glob pattern: `"*.pdf"`, `"data/archive/mtsamples_pdf/mtsamples_pdf/*.pdf"`
 - Comma-separated filenames: `"0.pdf,1.pdf,2.pdf"` (searches common locations automatically)
+
+#### Evaluation Summary (`eval-summary` command)
+
+Generate aggregate evaluation statistics and visualizations across multiple documents:
+
+```bash
+# Summarize evaluations for documents 0-10
+python3 src/app/cli.py eval-summary "0-10"
+
+# Summarize specific documents
+python3 src/app/cli.py eval-summary "0,1,2,3,4,5"
+
+# Summarize with custom results directory
+python3 src/app/cli.py eval-summary "0-100" --results-dir my_results
+```
+
+**Output**: Creates `results/eval_summary/` with:
+- `evaluation_summary.json` - Aggregate statistics
+- `evaluation_summary.txt` - Human-readable summary
+- `plots/` - Visualization PNGs (citation coverage, validity, semantic accuracy, etc.)
 
 ## Output Structure
 
@@ -341,10 +399,16 @@ results/
 - Evaluation metrics for quality assessment
 - Includes:
   - Citation coverage and validity
+  - Section name mismatches (validates cited section names match actual sections)
+  - Span out of chunk bounds (validates citation spans are within chunk boundaries)
   - Hallucination rate (orphan claims)
   - Span consistency
   - Confidence score distribution
   - Citation overlap (Jaccard similarity)
+  - **Semantic accuracy** (optional, when `--semantic-accuracy` flag is used):
+    - Average similarity score between recommendations and cited text
+    - Count of well-supported vs. poorly-supported recommendations
+    - Per-recommendation similarity scores
 
 #### `pipeline.log`
 - Detailed execution log
@@ -373,6 +437,7 @@ Configuration can be customized via environment variables or a `.env` file:
 | `CLINICAL_NOTE_MAX_CHUNK_FAILURE_RATE` | `0.3` | Max chunk processing failure rate (0.0-1.0) |
 | `CLINICAL_NOTE_MAX_PAGES_WARNING` | `30` | Page count warning threshold |
 | `CLINICAL_NOTE_OUTPUT_DIR` | `results` | Output directory path |
+| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434` | Ollama API base URL (for embeddings API) |
 
 ### Example `.env` File
 
@@ -427,11 +492,34 @@ ollama pull qwen2.5:7b
 python -m app.cli process 570.pdf --model llama3.2
 ```
 
+#### 3. "Failed to get embedding from Ollama" Error (when using `--semantic-accuracy`)
+
+**Problem**: The embedding model is not installed or Ollama is not accessible.
+
+**Solution**:
+```bash
+# Install the embedding model
+ollama pull nomic-embed-text
+
+# Verify it's installed
+ollama list | grep nomic-embed-text
+
+# If using a custom Ollama base URL, set the environment variable
+export OLLAMA_BASE_URL=http://your-ollama-url:11434
+```
+
+**Note**: Semantic accuracy evaluation is now enabled by default. If you don't have the embedding model installed, the evaluation will skip semantic accuracy metrics.
+
 #### 3. "ModuleNotFoundError: No module named 'app'"
 
-**Problem**: Python path is not set correctly.
+**Problem**: Python path is not set correctly when using module style.
 
-**Solution**: Always run commands with `PYTHONPATH=src`:
+**Solution**: Use the direct script method (recommended - no PYTHONPATH needed):
+```bash
+python3 src/app/cli.py process 570.pdf
+```
+
+Or if using module style, set PYTHONPATH:
 ```bash
 PYTHONPATH=src python -m app.cli process 570.pdf
 ```

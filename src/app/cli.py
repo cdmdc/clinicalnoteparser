@@ -162,6 +162,73 @@ def process(
 
 
 @app.command()
+def eval_summary(
+    document_ids: str = typer.Argument(..., help="Comma-separated document IDs (e.g., '0,1,2,3,4,5,6,7,8,9,10') or range (e.g., '0-10')"),
+    results_dir: str = typer.Option("results", "--results-dir", help="Base results directory (default: results)"),
+):
+    """Generate aggregate evaluation summary across multiple documents with visualizations.
+    
+    Examples:
+        # Summarize evaluations for documents 0-10
+        python -m app.cli eval-summary "0,1,2,3,4,5,6,7,8,9,10"
+        
+        # Summarize with range syntax
+        python -m app.cli eval-summary "0-10"
+        
+        # Summarize specific documents
+        python -m app.cli eval-summary "0,2,5,10"
+    """
+    from app.evaluation_summary import generate_evaluation_summary
+    from pathlib import Path
+    
+    # Parse document IDs
+    doc_ids = []
+    if "-" in document_ids and "," not in document_ids:
+        # Range syntax: "0-10"
+        try:
+            start, end = document_ids.split("-")
+            doc_ids = [str(i) for i in range(int(start), int(end) + 1)]
+        except ValueError:
+            typer.echo(f"Error: Invalid range format '{document_ids}'. Use 'start-end' (e.g., '0-10')", err=True)
+            raise typer.Exit(1)
+    else:
+        # Comma-separated: "0,1,2,3"
+        doc_ids = [d.strip() for d in document_ids.split(",")]
+    
+    if not doc_ids:
+        typer.echo("Error: No document IDs provided", err=True)
+        raise typer.Exit(1)
+    
+    results_path = Path(results_dir)
+    if not results_path.exists():
+        typer.echo(f"Error: Results directory not found: {results_path}", err=True)
+        raise typer.Exit(1)
+    
+    typer.echo(f"Generating evaluation summary for {len(doc_ids)} document(s)...")
+    typer.echo(f"Document IDs: {', '.join(doc_ids)}")
+    
+    try:
+        summary = generate_evaluation_summary(
+            document_ids=doc_ids,
+            results_dir=results_path,
+        )
+        
+        if summary:
+            output_dir = results_path / "eval_summary"
+            typer.echo(f"\n✓ Evaluation summary generated successfully!")
+            typer.echo(f"  Output directory: {output_dir}")
+            typer.echo(f"  - evaluation_summary.json")
+            typer.echo(f"  - evaluation_summary.txt")
+            typer.echo(f"  - plots/ (visualizations)")
+        else:
+            typer.echo("Error: Failed to generate evaluation summary", err=True)
+            raise typer.Exit(1)
+    except Exception as e:
+        typer.echo(f"Error: {e}", err=True)
+        raise typer.Exit(1)
+
+
+@app.command()
 def process_batch(
     input_pattern: str = typer.Argument(..., help="Glob pattern (e.g., '*.pdf') or comma-separated filenames (e.g., '0.pdf,1.pdf,2.pdf')"),
     output_dir: str = typer.Option(None, "--output-dir", "-o", help="Base output directory (default: results/)"),
