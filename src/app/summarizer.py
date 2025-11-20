@@ -495,7 +495,7 @@ Provide a JSON object with the following structure:
   "medicines_allergies": [{{"text": "...", "source": "..."}}],
   "objective_findings": [{{"text": "...", "source": "..."}}],
   "labs_imaging": [{{"text": "...", "source": "..."}}],
-  "concise_assessment": [{{"text": "...", "source": "..."}}]
+  "assessment": [{{"text": "...", "source": "..."}}]
 }}
 
 Each item must include "text" and "source" fields. Source should use format: "[section_title] section, [chunk_id]:[start_char]-[end_char]"."""
@@ -540,7 +540,7 @@ def parse_text_summary_to_structured(text_summary: str) -> StructuredSummary:
         "medicines_allergies": r"\*\*Medicines/Allergies\*\*",
         "objective_findings": r"\*\*Objective Findings\*\*",
         "labs_imaging": r"\*\*Labs/Imaging\*\*",
-        "concise_assessment": r"\*\*Concise Assessment\*\*",
+        "assessment": r"\*\*Assessment\*\*",
     }
     
     # Find section boundaries
@@ -623,7 +623,7 @@ def parse_text_summary_to_structured(text_summary: str) -> StructuredSummary:
         medicines_allergies=sections.get("medicines_allergies", []),
         objective_findings=sections.get("objective_findings", []),
         labs_imaging=sections.get("labs_imaging", []),
-        concise_assessment=sections.get("concise_assessment", []),
+        assessment=sections.get("assessment", []),
     )
 
 
@@ -702,7 +702,7 @@ def format_structured_summary_as_text(structured_summary: StructuredSummary) -> 
         ("Medicines/Allergies", structured_summary.medicines_allergies),
         ("Objective Findings", structured_summary.objective_findings),
         ("Labs/Imaging", structured_summary.labs_imaging),
-        ("Concise Assessment", structured_summary.concise_assessment),
+        ("Assessment", structured_summary.assessment),
     ]
     
     for section_name, items in sections:

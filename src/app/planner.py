@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import List, Optional
 
 from app.llm import LLMClient
-from app.schemas import PlanField, PlanRecommendation, StructuredPlan, StructuredSummary
+from app.schemas import PlanRecommendation, StructuredPlan, StructuredSummary
 from app.summarizer import format_structured_summary_as_text
 
 logger = logging.getLogger(__name__)
@@ -74,7 +74,7 @@ def create_treatment_plan_from_summary(
             structured_summary.medicines_allergies,
             structured_summary.objective_findings,
             structured_summary.labs_imaging,
-            structured_summary.concise_assessment,
+            structured_summary.assessment,
         ]:
             for item in section_items:
                 # Extract section title from source (format: "SECTION_NAME section, chunk_X:Y-Z")
@@ -215,20 +215,8 @@ def format_plan_as_text(structured_plan: StructuredPlan) -> str:
         for rec in structured_plan.recommendations:
             lines.append(f"**Recommendation {rec.number}**")
             lines.append("")
-            
-            if rec.diagnostics:
-                lines.append(f"Diagnostics: {rec.diagnostics.content}")
-                lines.append(f"  Source: {rec.diagnostics.source}")
-            if rec.therapeutics:
-                lines.append(f"Therapeutics: {rec.therapeutics.content}")
-                lines.append(f"  Source: {rec.therapeutics.source}")
-            if rec.risks_benefits:
-                lines.append(f"Risks/Benefits: {rec.risks_benefits.content}")
-                lines.append(f"  Source: {rec.risks_benefits.source}")
-            if rec.follow_ups:
-                lines.append(f"Follow-ups: {rec.follow_ups.content}")
-                lines.append(f"  Source: {rec.follow_ups.source}")
-            
+            lines.append(f"{rec.recommendation}")
+            lines.append(f"  Source: {rec.source}")
             lines.append(f"Confidence: {rec.confidence}")
             if rec.hallucination_guard_note:
                 lines.append(f"Hallucination Guard Note: {rec.hallucination_guard_note}")

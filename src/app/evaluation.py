@@ -71,7 +71,7 @@ def extract_items_from_structured_summary(structured_summary: StructuredSummary)
         structured_summary.medicines_allergies,
         structured_summary.objective_findings,
         structured_summary.labs_imaging,
-        structured_summary.concise_assessment,
+        structured_summary.assessment,
     ]
     
     for section_items in sections:
@@ -188,30 +188,9 @@ def extract_recommendations_from_structured_plan(structured_plan: StructuredPlan
     
     # Extract from prioritized recommendations list
     for rec in structured_plan.recommendations:
-        # Combine all fields into a single text representation
-        parts = []
-        sources = []
-        
-        if rec.diagnostics:
-            parts.append(f"Diagnostics: {rec.diagnostics.content}")
-            sources.append(rec.diagnostics.source)
-        if rec.therapeutics:
-            parts.append(f"Therapeutics: {rec.therapeutics.content}")
-            sources.append(rec.therapeutics.source)
-        if rec.risks_benefits:
-            parts.append(f"Risks/Benefits: {rec.risks_benefits.content}")
-            sources.append(rec.risks_benefits.source)
-        if rec.follow_ups:
-            parts.append(f"Follow-ups: {rec.follow_ups.content}")
-            sources.append(rec.follow_ups.source)
-        
-        recommendation_text = " | ".join(parts) if parts else "No specific details"
-        # Combine all sources
-        combined_source = "; ".join(sources) if sources else "No source"
-        
         recommendations.append({
-            "text": recommendation_text,
-            "source": combined_source,
+            "text": rec.recommendation,
+            "source": rec.source,
             "number": rec.number,
             "confidence": rec.confidence,
         })

@@ -356,7 +356,7 @@ def run_pipeline(
                       f"{len(structured_summary.key_problems)} problems, {len(structured_summary.pertinent_history)} history items, "
                       f"{len(structured_summary.medicines_allergies)} medicines/allergies, "
                       f"{len(structured_summary.objective_findings)} findings, {len(structured_summary.labs_imaging)} labs/imaging, "
-                      f"{len(structured_summary.concise_assessment)} assessment items")
+                      f"{len(structured_summary.assessment)} assessment items")
             
             # Save structured summary JSON
             summary_json_path = output_dir / "summary.json"

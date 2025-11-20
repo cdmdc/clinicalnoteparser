@@ -148,17 +148,8 @@ class StructuredSummary(BaseModel):
     labs_imaging: List[SummaryItem] = Field(
         default_factory=list, description="Laboratory results or imaging findings"
     )
-    concise_assessment: List[SummaryItem] = Field(
-        default_factory=list, description="Assessment, diagnosis, treatment plans, follow-ups, and next steps"
-    )
-
-
-class PlanField(BaseModel):
-    """Represents a field in a plan recommendation with its source."""
-
-    content: str = Field(..., description="The field content/text")
-    source: Optional[str] = Field(
-        default=None, description="Source citation (e.g., 'MEDICAL DECISION MAKING section, chunk_11:2192-2922'). Use 'None mentioned' if no source is available."
+    assessment: List[SummaryItem] = Field(
+        default_factory=list, description="What's wrong with the patient, recommended treatments, procedures, follow-on care, and next steps"
     )
 
 
@@ -166,17 +157,11 @@ class PlanRecommendation(BaseModel):
     """Represents a single prioritized treatment plan recommendation."""
 
     number: int = Field(..., description="Recommendation number (1, 2, 3, ...) in decreasing order of importance/urgency")
-    diagnostics: Optional[PlanField] = Field(
-        default=None, description="Patient diagnosis information (usually from concise_assessment section)"
+    recommendation: str = Field(
+        ..., description="Comprehensive recommendation text including all required diagnostics, therapeutics, follow-ups, and risks/benefits if mentioned"
     )
-    therapeutics: Optional[PlanField] = Field(
-        default=None, description="Medications, treatments, interventions (if applicable)"
-    )
-    risks_benefits: Optional[PlanField] = Field(
-        default=None, description="Risks, benefits, side effects, contraindications, warnings, or special considerations"
-    )
-    follow_ups: Optional[PlanField] = Field(
-        default=None, description="Recommendations, next steps, monitoring, appointments, re-evaluations (usually from concise_assessment section)"
+    source: str = Field(
+        ..., description="Source citation (e.g., 'RECOMMENDATIONS section, chunk_11:4648-5547')"
     )
     confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score [0, 1]")
     hallucination_guard_note: Optional[str] = Field(
