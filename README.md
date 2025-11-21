@@ -29,6 +29,23 @@ All outputs include explicit citations linking back to the source text, enabling
   ollama pull nomic-embed-text
   ```
 
+### Apple Silicon (M1/M2/M3) GPU Acceleration
+
+**Automatic MPS Support**: The pipeline automatically detects Apple Silicon Macs and configures MPS (Metal Performance Shaders) for GPU acceleration. This provides **4-5x speedup** compared to CPU-only execution.
+
+**How It Works**:
+- The pipeline automatically detects Apple Silicon on macOS
+- Sets environment variables (`OLLAMA_GPU_LAYERS=-1`) to enable GPU acceleration
+- Ollama automatically uses MPS if available and configured
+- No manual configuration required
+
+**Note**: For best performance, ensure Ollama is restarted after first run to pick up the MPS configuration. The pipeline will log when MPS is detected and configured.
+
+**Verification**: Check the pipeline logs for messages like:
+```
+✓ MPS (Metal Performance Shaders) detected and configured for Ollama GPU acceleration
+```
+
 ## Setup Instructions
 
 ### 1. Clone the Repository

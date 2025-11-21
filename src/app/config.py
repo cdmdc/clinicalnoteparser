@@ -15,6 +15,7 @@ class Config(BaseModel):
 
     model_name: str = Field(default="qwen2.5:7b", description="Ollama model name")
     temperature: float = Field(default=0.1, ge=0.0, le=2.0, description="Temperature for LLM")
+    ollama_base_url: Optional[str] = Field(default="http://localhost:11434", description="Ollama base URL")
     chunk_size: int = Field(default=1500, gt=0, description="Target chunk size")
     chunk_overlap: int = Field(default=200, ge=0, description="Overlap between chunks")
     max_paragraph_size: int = Field(default=3000, gt=0, description="Max paragraph size")
@@ -47,6 +48,7 @@ class Config(BaseModel):
         return cls(
             model_name=os.getenv("CLINICAL_NOTE_MODEL", "qwen2.5:7b"),
             temperature=float(os.getenv("CLINICAL_NOTE_TEMPERATURE", "0.1")),
+            ollama_base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
             chunk_size=int(os.getenv("CLINICAL_NOTE_CHUNK_SIZE", "1500")),
             chunk_overlap=int(os.getenv("CLINICAL_NOTE_CHUNK_OVERLAP", "200")),
             max_paragraph_size=int(os.getenv("CLINICAL_NOTE_MAX_PARAGRAPH_SIZE", "3000")),

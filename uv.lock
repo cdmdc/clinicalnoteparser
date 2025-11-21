@@ -260,7 +260,7 @@ wheels = [
 [[package]]
 name = "clinicalnoteparser"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "langchain-community" },
     { name = "langchain-core" },

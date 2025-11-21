@@ -360,16 +360,26 @@ def process_batch(
     
     # Print summary
     succeeded = sum(1 for exit_code, _ in results.values() if exit_code == 0)
-    failed = len(results) - succeeded
+    skipped = sum(1 for exit_code, _ in results.values() if exit_code == 2)
+    failed = sum(1 for exit_code, _ in results.values() if exit_code == 1)
     
     typer.echo("\n" + "="*70, err=False)
-    typer.echo(f"Batch processing complete: ✓ {succeeded} succeeded, ✗ {failed} failed", err=False)
+    status_parts = []
+    if succeeded > 0:
+        status_parts.append(f"✓ {succeeded} succeeded")
+    if skipped > 0:
+        status_parts.append(f"⏭️  {skipped} skipped")
+    if failed > 0:
+        status_parts.append(f"✗ {failed} failed")
+    
+    status_msg = "Batch processing complete: " + ", ".join(status_parts) if status_parts else "Batch processing complete: No documents processed"
+    typer.echo(status_msg, err=False)
     typer.echo("="*70, err=False)
     
     if failed > 0:
         typer.echo("\nFailed files:", err=True)
         for path, (exit_code, error) in results.items():
-            if exit_code != 0:
+            if exit_code == 1:  # Only show actual failures, not skipped
                 typer.echo(f"  ✗ {path.name}", err=True)
                 if error:
                     typer.echo(f"    Error: {error}", err=True)

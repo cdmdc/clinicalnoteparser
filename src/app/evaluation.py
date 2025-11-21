@@ -23,9 +23,14 @@ except ImportError:
 
 from app.config import Config, get_config
 from app.ingestion import CanonicalNote
+from app.llm import _configure_mps_for_ollama
 from app.schemas import Citation, StructuredPlan, StructuredSummary
 
 logger = logging.getLogger(__name__)
+
+# Configure MPS for Ollama at module import time (for embedding calls)
+# This ensures environment variables are set before any Ollama API calls
+_configure_mps_for_ollama()
 
 
 def parse_citation_from_text(citation_text: str) -> Optional[Tuple[str, Optional[int], Optional[int], Optional[str]]]:
@@ -433,6 +438,10 @@ def calculate_jaccard_similarity(span1: Tuple[int, int], span2: Tuple[int, int])
 
 def _get_ollama_embedding(text: str, model: str = "nomic-embed-text", base_url: str = "http://127.0.0.1:11434") -> Optional[List[float]]:
     """Get embedding for text using Ollama embeddings API.
+    
+    Note: MPS/GPU acceleration is automatically used by Ollama if configured.
+    The _configure_mps_for_ollama() function should be called at module import
+    or before first use to ensure environment variables are set.
     
     Args:
         text: Text to embed

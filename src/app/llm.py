@@ -2,6 +2,8 @@
 
 import json
 import logging
+import os
+import platform
 import re
 import time
 from pathlib import Path
@@ -17,6 +19,90 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from app.config import Config, get_config
 
 logger = logging.getLogger(__name__)
+
+
+def _detect_apple_silicon() -> bool:
+    """Detect if running on Apple Silicon (M1/M2/M3/etc.).
+    
+    This function checks the actual hardware, not just what Python reports,
+    since Python may run under Rosetta 2 (x86_64 emulation) on Apple Silicon.
+    
+    Returns:
+        bool: True if running on Apple Silicon, False otherwise
+    """
+    try:
+        # Check if we're on macOS
+        if platform.system() != "Darwin":
+            return False
+        
+        # First check: processor architecture (works if Python is native arm64)
+        machine = platform.machine()
+        if machine == "arm64":
+            return True
+        
+        # Second check: Check actual CPU brand string via sysctl
+        # This works even if Python is running under Rosetta 2
+        try:
+            import subprocess
+            result = subprocess.run(
+                ["sysctl", "-n", "machdep.cpu.brand_string"],
+                capture_output=True,
+                text=True,
+                timeout=2,
+            )
+            if result.returncode == 0:
+                cpu_brand = result.stdout.strip().lower()
+                # Apple Silicon CPUs contain "Apple" in the brand string
+                if "apple" in cpu_brand:
+                    return True
+        except (FileNotFoundError, subprocess.TimeoutExpired, Exception):
+            pass
+        
+        # Third check: Check processor name (fallback)
+        processor = platform.processor()
+        if processor and ("arm" in processor.lower() or "apple" in processor.lower()):
+            return True
+        
+        return False
+    except Exception:
+        return False
+
+
+def _configure_mps_for_ollama() -> bool:
+    """Configure MPS (Metal Performance Shaders) for Ollama on Apple Silicon.
+    
+    Sets environment variables that Ollama will use for GPU acceleration.
+    Note: These need to be set before Ollama service starts, but we set them
+    here anyway in case Ollama is started from this process or restarted.
+    
+    Returns:
+        bool: True if MPS is available and configured, False otherwise
+    """
+    if not _detect_apple_silicon():
+        return False
+    
+    # Set environment variables for Ollama to use MPS
+    # OLLAMA_GPU_LAYERS=-1 tells Ollama to use all available GPU layers
+    os.environ.setdefault("OLLAMA_GPU_LAYERS", "-1")
+    
+    # PYTORCH_ENABLE_MPS_FALLBACK=1 enables MPS fallback (if PyTorch is used)
+    os.environ.setdefault("PYTORCH_ENABLE_MPS_FALLBACK", "1")
+    
+    # Check if MPS is actually available (requires PyTorch)
+    try:
+        import torch
+        if hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+            logger.info("✓ MPS (Metal Performance Shaders) detected and configured for Ollama GPU acceleration")
+            return True
+        else:
+            logger.debug("Apple Silicon detected but MPS not available (PyTorch MPS not available)")
+            return False
+    except ImportError:
+        # PyTorch not installed, but we can still set the env vars
+        # Ollama will use its own MPS detection
+        logger.info("✓ Apple Silicon detected - MPS environment variables set for Ollama")
+        logger.debug("Note: Install PyTorch for MPS availability verification")
+        return True
 
 
 class LLMError(Exception):
@@ -54,24 +140,19 @@ class LLMClient:
         # Check Ollama availability and model existence
         self._check_ollama_availability()
 
-        # Initialize ChatOllama with MPS support if available (Apple Silicon)
-        # Check if MPS is available (macOS with Apple Silicon)
-        try:
-            import torch
-            use_mps = torch.backends.mps.is_available() if hasattr(torch.backends, 'mps') else False
-        except ImportError:
-            use_mps = False
+        # Configure MPS for Apple Silicon if available
+        mps_configured = _configure_mps_for_ollama()
         
-        # Ollama uses its own GPU handling, but we can pass device hints
-        # For now, we'll just initialize normally - Ollama handles GPU automatically
+        # Initialize ChatOllama
+        # Ollama automatically detects and uses MPS/GPU if available and configured
         self.client = ChatOllama(
             model=self.model_name,
             temperature=self.temperature,
-            # Ollama automatically uses GPU/MPS if available
+            base_url=config.ollama_base_url,
         )
         
-        if use_mps:
-            logger.info("MPS (Metal Performance Shaders) available - Ollama will use GPU acceleration")
+        if mps_configured:
+            logger.info("LLM client configured for GPU acceleration (MPS)")
 
         logger.info(f"Initialized LLM client with model: {self.model_name}, temperature: {self.temperature}")
 

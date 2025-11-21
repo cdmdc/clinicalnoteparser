@@ -23,7 +23,7 @@ from app.chunks import Chunk, create_chunks_from_sections, load_chunks, save_chu
 from app.config import Config, get_config
 from app.evaluation import evaluate_summary_and_plan, save_evaluation
 from app.ingestion import CanonicalNote, generate_note_id, ingest_document, load_canonical_note
-from app.llm import LLMClient
+from app.llm import LLMClient, _configure_mps_for_ollama
 from app.planner import create_treatment_plan_from_summary, format_plan_as_text, load_plan, save_plan
 from app.sections import Section, detect_sections, load_toc, save_toc
 from app.summarizer import (
@@ -34,6 +34,10 @@ from app.summarizer import (
 )
 
 logger = logging.getLogger(__name__)
+
+# Configure MPS for Ollama at module import time
+# This ensures environment variables are set before any Ollama clients are created
+_configure_mps_for_ollama()
 
 
 def setup_logging(output_dir: Path, verbose: bool = False) -> None:
@@ -349,19 +353,36 @@ def run_pipeline(
         structured_summary = None
         if needs_summary:
             step_num += 1
-            logger.info(f"[STEP {step_num}/{total_steps}] Generating summary...")
-            logger.info(f"  Processing {len(chunks)} chunks at once...")
-            structured_summary = create_structured_summary_from_chunks(chunks, llm_client)
-            logger.info(f"✓ Generated structured summary with {len(structured_summary.patient_snapshot)} patient snapshot items, "
-                      f"{len(structured_summary.key_problems)} problems, {len(structured_summary.pertinent_history)} history items, "
-                      f"{len(structured_summary.medicines_allergies)} medicines/allergies, "
-                      f"{len(structured_summary.objective_findings)} findings, {len(structured_summary.labs_imaging)} labs/imaging, "
-                      f"{len(structured_summary.assessment)} assessment items")
-            
-            # Save structured summary JSON
             summary_json_path = output_dir / "summary.json"
-            save_structured_summary(structured_summary, summary_json_path)
-            logger.info(f"✓ Saved structured summary to: {summary_json_path}")
+            
+            # Check if summary already exists
+            if summary_json_path.exists():
+                try:
+                    logger.info(f"[STEP {step_num}/{total_steps}] Loading existing summary...")
+                    structured_summary = load_structured_summary(summary_json_path)
+                    logger.info(f"✓ Loaded existing structured summary with {len(structured_summary.patient_snapshot)} patient snapshot items, "
+                              f"{len(structured_summary.key_problems)} problems, {len(structured_summary.pertinent_history)} history items, "
+                              f"{len(structured_summary.medicines_allergies)} medicines/allergies, "
+                              f"{len(structured_summary.objective_findings)} findings, {len(structured_summary.labs_imaging)} labs/imaging, "
+                              f"{len(structured_summary.assessment)} assessment items")
+                except Exception as e:
+                    logger.warning(f"Could not load existing summary: {e}. Will regenerate.")
+                    structured_summary = None
+            
+            # Generate summary if it doesn't exist or couldn't be loaded
+            if structured_summary is None:
+                logger.info(f"[STEP {step_num}/{total_steps}] Generating summary...")
+                logger.info(f"  Processing {len(chunks)} chunks at once...")
+                structured_summary = create_structured_summary_from_chunks(chunks, llm_client)
+                logger.info(f"✓ Generated structured summary with {len(structured_summary.patient_snapshot)} patient snapshot items, "
+                          f"{len(structured_summary.key_problems)} problems, {len(structured_summary.pertinent_history)} history items, "
+                          f"{len(structured_summary.medicines_allergies)} medicines/allergies, "
+                          f"{len(structured_summary.objective_findings)} findings, {len(structured_summary.labs_imaging)} labs/imaging, "
+                          f"{len(structured_summary.assessment)} assessment items")
+                
+                # Save structured summary JSON
+                save_structured_summary(structured_summary, summary_json_path)
+                logger.info(f"✓ Saved structured summary to: {summary_json_path}")
         
         # Break if summary only
         if summary_only:
@@ -378,42 +399,54 @@ def run_pipeline(
         structured_plan = None
         if needs_plan:
             step_num += 1
-            logger.info(f"[STEP {step_num}/{total_steps}] Generating treatment plan...")
-            
-            # Plan generation requires summary.json - check if it exists
-            summary_json_path = output_dir / "summary.json"
-            
-            # If structured_summary was just created, use it
-            if structured_summary is None:
-                # Try to load from file if it exists
-                if summary_json_path.exists():
-                    try:
-                        from app.summarizer import load_structured_summary
-                        structured_summary = load_structured_summary(summary_json_path)
-                        logger.info(f"✓ Loaded structured summary from {summary_json_path}")
-                    except Exception as e:
-                        logger.error(f"Could not load structured summary: {e}")
-                        logger.error("Plan generation requires summary.json. Please generate summary first.")
-                        return 1
-                else:
-                    # Summary.json doesn't exist - this shouldn't happen if needs_summary was True
-                    # but handle it gracefully
-                    logger.error(f"summary.json not found at {summary_json_path}")
-                    logger.error("Plan generation requires summary.json. Please generate summary first.")
-                    logger.error("Hint: Run with --summary-only first, or run full pipeline without --plan-only")
-                    return 1
-            
-            # Format structured summary as text for plan generation
-            summary_text = format_structured_summary_as_text(structured_summary)
-            logger.info(f"  Using structured summary ({len(summary_text)} characters)...")
-            structured_plan = create_treatment_plan_from_summary(summary_text, llm_client, structured_summary=structured_summary)
-            
-            logger.info(f"✓ Generated structured plan with {len(structured_plan.recommendations)} prioritized recommendations")
-            
-            # Save plan
             plan_path = output_dir / "plan.json"
-            save_plan(structured_plan, plan_path)
-            logger.info(f"✓ Saved plan to: {plan_path}")
+            
+            # Check if plan already exists
+            if plan_path.exists():
+                try:
+                    logger.info(f"[STEP {step_num}/{total_steps}] Loading existing plan...")
+                    structured_plan = load_plan(plan_path)
+                    logger.info(f"✓ Loaded existing structured plan with {len(structured_plan.recommendations)} prioritized recommendations")
+                except Exception as e:
+                    logger.warning(f"Could not load existing plan: {e}. Will regenerate.")
+                    structured_plan = None
+            
+            # Generate plan if it doesn't exist or couldn't be loaded
+            if structured_plan is None:
+                logger.info(f"[STEP {step_num}/{total_steps}] Generating treatment plan...")
+                
+                # Plan generation requires summary.json - check if it exists
+                summary_json_path = output_dir / "summary.json"
+                
+                # If structured_summary was just created, use it
+                if structured_summary is None:
+                    # Try to load from file if it exists
+                    if summary_json_path.exists():
+                        try:
+                            structured_summary = load_structured_summary(summary_json_path)
+                            logger.info(f"✓ Loaded structured summary from {summary_json_path}")
+                        except Exception as e:
+                            logger.error(f"Could not load structured summary: {e}")
+                            logger.error("Plan generation requires summary.json. Please generate summary first.")
+                            return 1
+                    else:
+                        # Summary.json doesn't exist - this shouldn't happen if needs_summary was True
+                        # but handle it gracefully
+                        logger.error(f"summary.json not found at {summary_json_path}")
+                        logger.error("Plan generation requires summary.json. Please generate summary first.")
+                        logger.error("Hint: Run with --summary-only first, or run full pipeline without --plan-only")
+                        return 1
+                
+                # Format structured summary as text for plan generation
+                summary_text = format_structured_summary_as_text(structured_summary)
+                logger.info(f"  Using structured summary ({len(summary_text)} characters)...")
+                structured_plan = create_treatment_plan_from_summary(summary_text, llm_client, structured_summary=structured_summary)
+                
+                logger.info(f"✓ Generated structured plan with {len(structured_plan.recommendations)} prioritized recommendations")
+                
+                # Save plan
+                save_plan(structured_plan, plan_path)
+                logger.info(f"✓ Saved plan to: {plan_path}")
         
         # Break if plan only
         if plan_only:
@@ -440,58 +473,75 @@ def run_pipeline(
             return 0
         
         # Step 6: Evaluation (if needed)
+        evaluation = None
         if needs_evaluation:
             step_num += 1
-            logger.info(f"[STEP {step_num}/{total_steps}] Evaluating results...")
-            
-            # Load summary and plan if not already loaded
-            if structured_summary is None:
-                summary_json_path = output_dir / "summary.json"
-                if not summary_json_path.exists():
-                    logger.error(f"✗ Summary file not found: {summary_json_path}")
-                    return 1
-                structured_summary = load_structured_summary(summary_json_path)
-            
-            if structured_plan is None:
-                plan_json_path = output_dir / "plan.json"
-                if not plan_json_path.exists():
-                    logger.error(f"✗ Plan file not found: {plan_json_path}")
-                    return 1
-                structured_plan = load_plan(plan_json_path)
-            
-            # Run evaluation (use structured_summary and structured_plan)
-            evaluation = evaluate_summary_and_plan(
-                structured_summary, structured_plan, canonical_note, chunks,
-                config=config
-            )
-            
-            # Save evaluation
             evaluation_path = output_dir / "evaluation.json"
-            save_evaluation(evaluation, evaluation_path)
-            logger.info(f"✓ Saved evaluation to: {evaluation_path}")
             
-            # Display evaluation metrics
-            logger.info("\n[EVALUATION METRICS]")
-            logger.info(f"Citation Coverage:")
-            logger.info(f"  Summary: {evaluation['citation_coverage']['summary_coverage_percentage']:.1f}% "
-                       f"({evaluation['citation_coverage']['summary_facts_with_citations']}/{evaluation['citation_coverage']['summary_total_facts']})")
-            logger.info(f"  Plan: {evaluation['citation_coverage']['plan_coverage_percentage']:.1f}% "
-                       f"({evaluation['citation_coverage']['plan_recommendations_with_citations']}/{evaluation['citation_coverage']['plan_total_recommendations']})")
-            logger.info(f"  Overall: {evaluation['citation_coverage']['overall_coverage_percentage']:.1f}%")
-            logger.info(f"\nCitation Validity: {evaluation['citation_validity']['validity_percentage']:.1f}% "
-                       f"({evaluation['citation_validity']['total_citations_checked'] - evaluation['citation_validity']['invalid_citations']}/{evaluation['citation_validity']['total_citations_checked']})")
-            logger.info(f"\nHallucination Rate: {evaluation['orphan_claims']['hallucination_rate_percentage']:.1f}% "
-                       f"({evaluation['orphan_claims']['total_orphans']}/{evaluation['orphan_claims']['total_claims']} orphan claims)")
-            logger.info(f"\nCitation Overlap Jaccard: {evaluation['citation_overlap_jaccard']['average_jaccard_similarity']:.4f} "
-                       f"(avg, {evaluation['citation_overlap_jaccard']['total_citation_pairs']} pairs, "
-                       f"range: {evaluation['citation_overlap_jaccard']['min_jaccard']:.4f}-{evaluation['citation_overlap_jaccard']['max_jaccard']:.4f})")
-            logger.info(f"\nSpan Consistency: {evaluation['span_consistency']['consistency_percentage']:.1f}% "
-                       f"({evaluation['span_consistency']['checks_passed']}/{evaluation['span_consistency']['checks_performed']})")
-            logger.info(f"\nSummary Statistics:")
-            logger.info(f"  Total facts: {evaluation['summary_statistics']['total_facts_extracted']}")
-            logger.info(f"  Total recommendations: {evaluation['summary_statistics']['total_recommendations_generated']}")
-            if evaluation['summary_statistics']['confidence_score_distribution']['count'] > 0:
-                logger.info(f"  Average confidence: {evaluation['summary_statistics']['confidence_score_distribution']['mean']:.2f}")
+            # Check if evaluation already exists
+            if evaluation_path.exists():
+                logger.info(f"[STEP {step_num}/{total_steps}] Evaluation already exists, skipping...")
+                logger.info(f"✓ Evaluation file found at: {evaluation_path}")
+                # Load evaluation for metrics display
+                try:
+                    import json
+                    with open(evaluation_path, "r", encoding="utf-8") as f:
+                        evaluation = json.load(f)
+                except Exception as e:
+                    logger.warning(f"Could not load existing evaluation for metrics display: {e}")
+            else:
+                logger.info(f"[STEP {step_num}/{total_steps}] Evaluating results...")
+                
+                # Load summary and plan if not already loaded
+                if structured_summary is None:
+                    summary_json_path = output_dir / "summary.json"
+                    if not summary_json_path.exists():
+                        logger.error(f"✗ Summary file not found: {summary_json_path}")
+                        return 1
+                    structured_summary = load_structured_summary(summary_json_path)
+                    logger.info(f"✓ Loaded structured summary for evaluation")
+                
+                if structured_plan is None:
+                    plan_json_path = output_dir / "plan.json"
+                    if not plan_json_path.exists():
+                        logger.error(f"✗ Plan file not found: {plan_json_path}")
+                        return 1
+                    structured_plan = load_plan(plan_json_path)
+                    logger.info(f"✓ Loaded structured plan for evaluation")
+                
+                # Run evaluation (use structured_summary and structured_plan)
+                evaluation = evaluate_summary_and_plan(
+                    structured_summary, structured_plan, canonical_note, chunks,
+                    config=config
+                )
+                
+                # Save evaluation
+                save_evaluation(evaluation, evaluation_path)
+                logger.info(f"✓ Saved evaluation to: {evaluation_path}")
+            
+            # Display evaluation metrics if available
+            if evaluation:
+                logger.info("\n[EVALUATION METRICS]")
+                logger.info(f"Citation Coverage:")
+                logger.info(f"  Summary: {evaluation['citation_coverage']['summary_coverage_percentage']:.1f}% "
+                           f"({evaluation['citation_coverage']['summary_facts_with_citations']}/{evaluation['citation_coverage']['summary_total_facts']})")
+                logger.info(f"  Plan: {evaluation['citation_coverage']['plan_coverage_percentage']:.1f}% "
+                           f"({evaluation['citation_coverage']['plan_recommendations_with_citations']}/{evaluation['citation_coverage']['plan_total_recommendations']})")
+                logger.info(f"  Overall: {evaluation['citation_coverage']['overall_coverage_percentage']:.1f}%")
+                logger.info(f"\nCitation Validity: {evaluation['citation_validity']['validity_percentage']:.1f}% "
+                           f"({evaluation['citation_validity']['total_citations_checked'] - evaluation['citation_validity']['invalid_citations']}/{evaluation['citation_validity']['total_citations_checked']})")
+                logger.info(f"\nHallucination Rate: {evaluation['orphan_claims']['hallucination_rate_percentage']:.1f}% "
+                           f"({evaluation['orphan_claims']['total_orphans']}/{evaluation['orphan_claims']['total_claims']} orphan claims)")
+                logger.info(f"\nCitation Overlap Jaccard: {evaluation['citation_overlap_jaccard']['average_jaccard_similarity']:.4f} "
+                           f"(avg, {evaluation['citation_overlap_jaccard']['total_citation_pairs']} pairs, "
+                           f"range: {evaluation['citation_overlap_jaccard']['min_jaccard']:.4f}-{evaluation['citation_overlap_jaccard']['max_jaccard']:.4f})")
+                logger.info(f"\nSpan Consistency: {evaluation['span_consistency']['consistency_percentage']:.1f}% "
+                           f"({evaluation['span_consistency']['checks_passed']}/{evaluation['span_consistency']['checks_performed']})")
+                logger.info(f"\nSummary Statistics:")
+                logger.info(f"  Total facts: {evaluation['summary_statistics']['total_facts_extracted']}")
+                logger.info(f"  Total recommendations: {evaluation['summary_statistics']['total_recommendations_generated']}")
+                if evaluation['summary_statistics']['confidence_score_distribution']['count'] > 0:
+                    logger.info(f"  Average confidence: {evaluation['summary_statistics']['confidence_score_distribution']['mean']:.2f}")
         
         logger.info("\n✓ Pipeline completed successfully!")
         logger.info(f"Output directory: {output_dir}")
@@ -514,6 +564,61 @@ def run_pipeline(
     except Exception as e:
         logger.error(f"✗ Error: {e}", exc_info=True)
         return 1
+
+
+def _is_already_processed(
+    input_path: Path,
+    output_base_dir: Optional[Path],
+    config: Config,
+    toc_only: bool,
+    summary_only: bool,
+    plan_only: bool,
+    no_evaluation: bool,
+) -> bool:
+    """Check if a document has already been processed.
+    
+    Args:
+        input_path: Path to input file
+        output_base_dir: Base output directory
+        config: Configuration object
+        toc_only: Only generate TOC
+        summary_only: Only generate summary
+        plan_only: Only generate plan
+        no_evaluation: Skip evaluation
+        
+    Returns:
+        bool: True if already processed, False otherwise
+    """
+    from app.ingestion import generate_note_id
+    
+    note_id = generate_note_id(input_path)
+    if output_base_dir is None:
+        output_dir = config.output_dir / note_id
+    else:
+        output_dir = output_base_dir / note_id
+    
+    # Check if output directory exists
+    if not output_dir.exists():
+        return False
+    
+    # Determine which file indicates completion based on execution mode
+    if toc_only:
+        # For toc_only, check if toc.json exists
+        completion_file = output_dir / "toc.json"
+    elif summary_only:
+        # For summary_only, check if summary.json exists
+        completion_file = output_dir / "summary.json"
+    elif plan_only:
+        # For plan_only, check if plan.json exists
+        completion_file = output_dir / "plan.json"
+    elif no_evaluation:
+        # For no_evaluation, check if plan.json exists (final output)
+        completion_file = output_dir / "plan.json"
+    else:
+        # For full pipeline, check if evaluation.json exists (final output)
+        completion_file = output_dir / "evaluation.json"
+    
+    return completion_file.exists()
 
 
 def run_pipeline_batch(
@@ -542,9 +647,13 @@ def run_pipeline_batch(
         
     Returns:
         dict mapping input_path -> (exit_code, error_message)
-            - exit_code: 0 for success, 1 for failure
-            - error_message: None if successful, error string if failed
+            - exit_code: 0 for success, 1 for failure, 2 for skipped
+            - error_message: None if successful, error string if failed, "Already processed" if skipped
     """
+    # Get configuration
+    if config is None:
+        config = get_config()
+    
     # Set up root logger for batch processing
     root_logger = logging.getLogger()
     root_logger.setLevel(logging.DEBUG if verbose else logging.INFO)
@@ -560,7 +669,35 @@ def run_pipeline_batch(
     console_handler.setFormatter(console_formatter)
     root_logger.addHandler(console_handler)
     
+    # Filter out already processed documents
+    paths_to_process: list[Path] = []
+    skipped_paths: list[Path] = []
+    
+    root_logger.info(f"Checking {len(input_paths)} documents for existing results...")
+    for input_path in input_paths:
+        if _is_already_processed(
+            input_path, output_base_dir, config, toc_only, summary_only, plan_only, no_evaluation
+        ):
+            skipped_paths.append(input_path)
+        else:
+            paths_to_process.append(input_path)
+    
+    if skipped_paths:
+        root_logger.info(f"⏭️  Skipping {len(skipped_paths)} already processed document(s)")
+        for skipped_path in skipped_paths:
+            root_logger.debug(f"  - {skipped_path.name} (already processed)")
+    
+    if not paths_to_process:
+        root_logger.info("All documents have already been processed. Nothing to do.")
+        return {path: (2, "Already processed") for path in input_paths}
+    
+    root_logger.info(f"Processing {len(paths_to_process)} document(s) with {workers} worker(s)...")
+    
     results: dict[Path, tuple[int, Optional[str]]] = {}
+    # Add skipped documents to results
+    for skipped_path in skipped_paths:
+        results[skipped_path] = (2, "Already processed")
+    
     total = len(input_paths)
     
     def process_one(input_path: Path) -> tuple[Path, int, Optional[str]]:
@@ -581,12 +718,12 @@ def run_pipeline_batch(
             return (input_path, 1, str(e))
     
     # Process documents in parallel
-    completed = 0
+    completed = len(skipped_paths)  # Start with skipped count
     with ThreadPoolExecutor(max_workers=workers) as executor:
-        # Submit all tasks
+        # Submit all tasks (only for paths that need processing)
         future_to_path = {
             executor.submit(process_one, path): path 
-            for path in input_paths
+            for path in paths_to_process
         }
         
         # Process as they complete
@@ -596,10 +733,15 @@ def run_pipeline_batch(
             completed += 1
             
             # Log progress
-            status = "✓" if exit_code == 0 else "✗"
+            if exit_code == 0:
+                status = "✓"
+            elif exit_code == 2:
+                status = "⏭️"
+            else:
+                status = "✗"
             filename = path.name
             if error:
-                root_logger.info(f"[{completed}/{total}] {status} {filename} - Error: {error}")
+                root_logger.info(f"[{completed}/{total}] {status} {filename} - {error}")
             else:
                 root_logger.info(f"[{completed}/{total}] {status} {filename}")
     
