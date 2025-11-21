@@ -24,28 +24,31 @@ class TestCitationParsing:
         """Test parsing citation with character spans."""
         result = parse_citation_from_text("chunk_0:123-456")
         assert result is not None
-        chunk_id, start_char, end_char = result
+        chunk_id, start_char, end_char, section_name = result
         assert chunk_id == "chunk_0"
         assert start_char == 123
         assert end_char == 456
+        assert section_name is None
 
     def test_parse_citation_without_spans(self):
         """Test parsing citation without character spans."""
         result = parse_citation_from_text("chunk_0")
         assert result is not None
-        chunk_id, start_char, end_char = result
+        chunk_id, start_char, end_char, section_name = result
         assert chunk_id == "chunk_0"
         assert start_char is None
         assert end_char is None
+        assert section_name is None
 
     def test_parse_citation_with_section_name(self):
         """Test parsing citation with section name."""
         result = parse_citation_from_text("PLAN, chunk_6")
         assert result is not None
-        chunk_id, start_char, end_char = result
+        chunk_id, start_char, end_char, section_name = result
         assert chunk_id == "chunk_6"
         assert start_char is None
         assert end_char is None
+        assert section_name == "PLAN"
 
     def test_parse_citation_none(self):
         """Test parsing 'None mentioned' citation."""
@@ -172,24 +175,36 @@ class TestEvaluation:
 
     def test_evaluate_summary_and_plan(self, sample_canonical_note, sample_chunks):
         """Test full evaluation with sample data."""
-        summary_text = """**Patient Snapshot**
-A 23-year-old patient.
-- Source: chunk_0:10-50
-
-**Key Problems**
-Heart failure
-- Source: chunk_2:100-150
-"""
-        plan_text = """**1. Diagnostics**
-[Recommendation 1]
-- Source: `OBJECTIVE (chunk_2)`
-- Confidence: 1.0
-
-* Vitals check.
-"""
+        from app.schemas import StructuredSummary, SummaryItem, StructuredPlan, PlanRecommendation
+        
+        structured_summary = StructuredSummary(
+            patient_snapshot=[
+                SummaryItem(text="A 23-year-old patient.", source="chunk_0:10-50")
+            ],
+            key_problems=[
+                SummaryItem(text="Heart failure", source="chunk_2:100-150")
+            ],
+            pertinent_history=[],
+            medicines_allergies=[],
+            objective_findings=[],
+            labs_imaging=[],
+            assessment=[],
+        )
+        
+        structured_plan = StructuredPlan(
+            recommendations=[
+                PlanRecommendation(
+                    number=1,
+                    recommendation="Vitals check.",
+                    source="OBJECTIVE (chunk_2)",
+                    confidence=1.0,
+                    hallucination_guard_note=None
+                )
+            ]
+        )
         
         evaluation = evaluate_summary_and_plan(
-            summary_text, plan_text, sample_canonical_note, sample_chunks
+            structured_summary, structured_plan, sample_canonical_note, sample_chunks
         )
         
         # Check that evaluation has all required keys

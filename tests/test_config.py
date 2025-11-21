@@ -14,7 +14,7 @@ class TestConfig:
     def test_default_config(self):
         """Test creating Config with default values."""
         config = Config()
-        assert config.model_name == "llama3"
+        assert config.model_name == "qwen2.5:7b"
         assert config.temperature == 0.1
         assert config.chunk_size == 1500
         assert config.chunk_overlap == 200

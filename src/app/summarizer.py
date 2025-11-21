@@ -446,6 +446,54 @@ def extract_summary(
     return summary
 
 
+def _clean_summary_response(response: dict) -> dict:
+    """Clean up LLM response to fix invalid source values.
+    
+    The LLM sometimes returns empty lists [] or None for source fields when
+    no information is available. This function converts them to valid strings.
+    
+    Args:
+        response: Raw LLM response dictionary
+        
+    Returns:
+        Cleaned response dictionary with valid source strings
+    """
+    cleaned = response.copy()
+    
+    # List of section keys that contain SummaryItem lists
+    section_keys = [
+        "patient_snapshot",
+        "key_problems", 
+        "pertinent_history",
+        "medicines_allergies",
+        "objective_findings",
+        "labs_imaging",
+        "assessment"
+    ]
+    
+    for section_key in section_keys:
+        if section_key in cleaned and isinstance(cleaned[section_key], list):
+            cleaned_items = []
+            for item in cleaned[section_key]:
+                if isinstance(item, dict):
+                    cleaned_item = item.copy()
+                    # Fix invalid source values
+                    source = cleaned_item.get("source")
+                    if not isinstance(source, str):
+                        # Convert empty list, None, or other invalid types to a default string
+                        if source is None or source == [] or source == "":
+                            cleaned_item["source"] = "Not mentioned"
+                        else:
+                            # Try to convert to string if it's some other type
+                            cleaned_item["source"] = str(source) if source is not None else "Not mentioned"
+                    cleaned_items.append(cleaned_item)
+                else:
+                    cleaned_items.append(item)
+            cleaned[section_key] = cleaned_items
+    
+    return cleaned
+
+
 def create_structured_summary_from_chunks(
     chunks: List[Chunk],
     llm_client: LLMClient,
@@ -498,13 +546,15 @@ Provide a JSON object with the following structure:
   "assessment": [{{"text": "...", "source": "..."}}]
 }}
 
-Each item must include "text" and "source" fields. Source should use format: "[section_title] section, [chunk_id]:[start_char]-[end_char]"."""
+Each item must include "text" and "source" fields. Source should use format: "[section_title] section, [chunk_id]:[start_char]-[end_char]". If no source is available, use "Not mentioned" or "No source available"."""
 
     # Call LLM - request JSON output (return_text=False will parse JSON)
     response = llm_client.call(prompt, logger_instance=logger, return_text=False)
     
     # Response should be a dict when return_text=False
     if isinstance(response, dict):
+        # Clean up response: fix invalid source values (empty lists, None, etc.)
+        response = _clean_summary_response(response)
         try:
             return StructuredSummary(**response)
         except Exception as e:
@@ -514,6 +564,9 @@ Each item must include "text" and "source" fields. Source should use format: "[s
     if isinstance(response, str):
         try:
             data = json.loads(response)
+            # Clean up response: fix invalid source values (empty lists, None, etc.)
+            if isinstance(data, dict):
+                data = _clean_summary_response(data)
             return StructuredSummary(**data)
         except (json.JSONDecodeError, ValueError) as e:
             raise ValueError(f"Could not parse LLM response as StructuredSummary: {e}") from e
@@ -682,6 +735,26 @@ def save_structured_summary(structured_summary: StructuredSummary, output_path: 
         json.dump(summary_data, f, indent=2, ensure_ascii=False)
 
     logger.info(f"Saved structured summary to {output_path}")
+
+
+def create_text_summary_from_chunks(
+    chunks: List[Chunk],
+    llm_client: LLMClient,
+) -> str:
+    """Create a text summary from chunks (wrapper for backward compatibility).
+    
+    This function creates a structured summary and formats it as text.
+    For new code, prefer using create_structured_summary_from_chunks directly.
+    
+    Args:
+        chunks: List of chunks to summarize
+        llm_client: LLM client instance
+        
+    Returns:
+        str: Text-formatted summary with all sections
+    """
+    structured_summary = create_structured_summary_from_chunks(chunks, llm_client)
+    return format_structured_summary_as_text(structured_summary)
 
 
 def format_structured_summary_as_text(structured_summary: StructuredSummary) -> str:

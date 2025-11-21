@@ -15,15 +15,20 @@ class TestCreateTextSummaryFromChunks:
 
     def test_create_text_summary_basic(self, sample_chunks, mock_llm_client):
         """Test creating a basic text summary."""
-        # Mock LLM response
-        mock_response = """**Patient Snapshot**
-A test patient.
-- Source: chunk_0:10-50
-
-**Key Problems**
-Test problem
-- Source: chunk_1:100-150
-"""
+        # Mock LLM response - now returns structured JSON dict
+        mock_response = {
+            "patient_snapshot": [
+                {"text": "A test patient.", "source": "chunk_0:10-50"}
+            ],
+            "key_problems": [
+                {"text": "Test problem", "source": "chunk_1:100-150"}
+            ],
+            "pertinent_history": [],
+            "medicines_allergies": [],
+            "objective_findings": [],
+            "labs_imaging": [],
+            "assessment": [],
+        }
         # Override the side_effect to return our mock response
         mock_llm_client.call = MagicMock(return_value=mock_response)
         
@@ -35,7 +40,15 @@ Test problem
 
     def test_create_text_summary_includes_chunk_spans(self, sample_chunks, mock_llm_client):
         """Test that summary includes chunk character spans in headers."""
-        mock_response = "Test summary"
+        mock_response = {
+            "patient_snapshot": [],
+            "key_problems": [],
+            "pertinent_history": [],
+            "medicines_allergies": [],
+            "objective_findings": [],
+            "labs_imaging": [],
+            "assessment": [],
+        }
         mock_llm_client.call = MagicMock(return_value=mock_response)
         
         summary = create_text_summary_from_chunks(sample_chunks, mock_llm_client)
@@ -53,7 +66,15 @@ Test problem
 
     def test_create_text_summary_empty_chunks(self, mock_llm_client):
         """Test creating summary with empty chunks list."""
-        mock_response = "No content"
+        mock_response = {
+            "patient_snapshot": [],
+            "key_problems": [],
+            "pertinent_history": [],
+            "medicines_allergies": [],
+            "objective_findings": [],
+            "labs_imaging": [],
+            "assessment": [],
+        }
         mock_llm_client.call.return_value = mock_response
         
         summary = create_text_summary_from_chunks([], mock_llm_client)
@@ -63,34 +84,29 @@ Test problem
 
     def test_create_text_summary_structure(self, sample_chunks, mock_llm_client):
         """Test that summary has expected structure."""
-        mock_response = """**Patient Snapshot**
-Test patient.
-- Source: chunk_0:10-50
-
-**Key Problems**
-Problem 1
-- Source: chunk_1:100-150
-
-**Pertinent History**
-History item
-- Source: chunk_2:200-250
-
-**Medicines/Allergies**
-Medication
-- Source: chunk_3:300-350
-
-**Objective Findings**
-Finding
-- Source: chunk_4:400-450
-
-**Labs/Imaging**
-None documented
-- Source: None
-
-**Concise Assessment**
-Assessment
-- Source: chunk_5:500-550
-"""
+        mock_response = {
+            "patient_snapshot": [
+                {"text": "Test patient.", "source": "chunk_0:10-50"}
+            ],
+            "key_problems": [
+                {"text": "Problem 1", "source": "chunk_1:100-150"}
+            ],
+            "pertinent_history": [
+                {"text": "History item", "source": "chunk_2:200-250"}
+            ],
+            "medicines_allergies": [
+                {"text": "Medication", "source": "chunk_3:300-350"}
+            ],
+            "objective_findings": [
+                {"text": "Finding", "source": "chunk_4:400-450"}
+            ],
+            "labs_imaging": [
+                {"text": "None documented", "source": "Not mentioned"}
+            ],
+            "assessment": [
+                {"text": "Assessment", "source": "chunk_5:500-550"}
+            ],
+        }
         mock_llm_client.call = MagicMock(return_value=mock_response)
         
         summary = create_text_summary_from_chunks(sample_chunks, mock_llm_client)
@@ -102,7 +118,7 @@ Assessment
         assert "Medicines/Allergies" in summary
         assert "Objective Findings" in summary
         assert "Labs/Imaging" in summary
-        assert "Concise Assessment" in summary
+        assert "Assessment" in summary
 
 
 
@@ -244,8 +260,16 @@ class TestPromptTemplateLoading:
         mock_client = MagicMock()
         # Simulate FileNotFoundError when loading prompt
         mock_client.load_prompt.side_effect = FileNotFoundError("Template not found")
-        # But call should still work with fallback
-        mock_client.call.return_value = "Fallback prompt response"
+        # But call should still work with fallback - return structured JSON
+        mock_client.call.return_value = {
+            "patient_snapshot": [],
+            "key_problems": [],
+            "pertinent_history": [],
+            "medicines_allergies": [],
+            "objective_findings": [],
+            "labs_imaging": [],
+            "assessment": [],
+        }
         
         # The function should use fallback prompt
         summary = create_text_summary_from_chunks(sample_chunks, mock_client)
@@ -388,7 +412,7 @@ class TestRealLLMIntegration:
             "Medicines/Allergies",
             "Objective Findings",
             "Labs/Imaging",
-            "Concise Assessment",
+            "Assessment",
         ]
         
         summary_lower = summary.lower()

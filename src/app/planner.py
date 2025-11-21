@@ -249,17 +249,23 @@ def create_treatment_plan_from_chunks(
     # Format chunks as a simple summary structure for backward compatibility
     # This is a simplified conversion - ideally use structured summary
     chunks_text = []
+    section_titles = set()
     for chunk in chunks:
         chunks_text.append(f"## {chunk.section_title} ({chunk.chunk_id})")
         chunks_text.append(chunk.text)
         chunks_text.append("")
+        section_titles.add(chunk.section_title)
     
     combined_text = "\n".join(chunks_text)
+    
+    # Extract section titles for prompt template
+    section_titles_list = sorted(list(section_titles))
+    section_titles_text = "\n".join([f"- \"{title} section\"" for title in section_titles_list])
     
     # Use the same prompt as summary-based planning
     try:
         prompt_template = llm_client.load_prompt("plan_generation.md")
-        prompt = prompt_template.format(summary_sections=combined_text)
+        prompt = prompt_template.format(summary_sections=combined_text, section_titles_list=section_titles_text)
     except FileNotFoundError:
         prompt = f"""Generate a prioritized treatment plan based on the following clinical note.
 

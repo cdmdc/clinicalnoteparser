@@ -108,17 +108,18 @@ class TestPipelineIntegration:
         assert (output_dir / "canonical_text.txt").exists()
         assert (output_dir / "toc.json").exists()
         assert (output_dir / "chunks.json").exists()
-        assert (output_dir / "summary.txt").exists()
+        assert (output_dir / "summary.json").exists()
         
         # Check that plan was NOT created
-        assert not (output_dir / "plan.txt").exists()
+        assert not (output_dir / "plan.json").exists()
         assert not (output_dir / "evaluation.json").exists()
         
         # Verify summary content
-        summary_path = output_dir / "summary.txt"
+        summary_path = output_dir / "summary.json"
         if summary_path.exists():
-            summary_content = summary_path.read_text()
-            assert len(summary_content) > 0, "Summary should not be empty"
+            import json
+            summary_data = json.loads(summary_path.read_text())
+            assert len(summary_data) > 0, "Summary should not be empty"
 
     def test_pipeline_full(self, sample_txt_path, temp_output_dir, sample_config, real_llm_client):
         """Test full pipeline with all outputs using real LLM."""
@@ -137,21 +138,23 @@ class TestPipelineIntegration:
         assert (output_dir / "canonical_text.txt").exists()
         assert (output_dir / "toc.json").exists()
         assert (output_dir / "chunks.json").exists()
-        assert (output_dir / "summary.txt").exists()
-        assert (output_dir / "plan.txt").exists()
+        assert (output_dir / "summary.json").exists()
+        assert (output_dir / "plan.json").exists()
         assert (output_dir / "evaluation.json").exists()
         assert (output_dir / "pipeline.log").exists()
         
         # Verify output content
-        summary_path = output_dir / "summary.txt"
+        summary_path = output_dir / "summary.json"
         if summary_path.exists():
-            summary_content = summary_path.read_text()
-            assert len(summary_content) > 0, "Summary should not be empty"
+            import json
+            summary_data = json.loads(summary_path.read_text())
+            assert len(summary_data) > 0, "Summary should not be empty"
         
-        plan_path = output_dir / "plan.txt"
+        plan_path = output_dir / "plan.json"
         if plan_path.exists():
-            plan_content = plan_path.read_text()
-            assert len(plan_content) > 0, "Plan should not be empty"
+            import json
+            plan_data = json.loads(plan_path.read_text())
+            assert len(plan_data) > 0, "Plan should not be empty"
 
     def test_pipeline_missing_file(self, tmp_path, sample_config):
         """Test pipeline with missing input file."""
@@ -229,6 +232,6 @@ class TestPipelineIntegration:
         
         # Verify chunks still exist and summary was regenerated
         assert chunks_path.exists(), "Chunks should still exist after second run"
-        summary_path = output_dir / "summary.txt"
+        summary_path = output_dir / "summary.json"
         assert summary_path.exists(), "Summary should have been created in second run"
 
