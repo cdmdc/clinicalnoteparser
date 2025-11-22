@@ -355,8 +355,8 @@ results/
     ├── canonical_text.txt      # Normalized text with page mapping
     ├── toc.json                # Table of contents with sections
     ├── chunks.json             # Text chunks for LLM processing
-    ├── summary.txt             # Structured summary with citations
-    ├── plan.txt                # Treatment plan with recommendations
+    ├── summary.json            # Structured summary with citations (JSON format)
+    ├── plan.json               # Treatment plan with recommendations (JSON format)
     ├── evaluation.json         # Evaluation metrics
     └── pipeline.log            # Detailed execution log
 ```
@@ -388,29 +388,31 @@ results/
   - `page_start`: Starting page number
   - `page_end`: Ending page number
 
-#### `summary.txt`
-- Structured summary in plain text format
+#### `summary.json`
+- Structured summary in JSON format (Pydantic `StructuredSummary` model)
 - Sections include:
-  - **Patient Snapshot**: Age, sex, brief overview
-  - **Key Problems**: List of identified problems
-  - **Pertinent History**: Relevant medical history
-  - **Medicines/Allergies**: Current medications and allergies
-  - **Objective Findings**: Physical exam findings
-  - **Labs/Imaging**: Laboratory and imaging results
-  - **Concise Assessment**: Diagnosis and treatment plans
-- Each item includes source citations with character spans
+  - **patient_snapshot**: Age, sex, brief overview (list of items with text and source)
+  - **key_problems**: List of identified problems
+  - **pertinent_history**: Relevant medical history
+  - **medicines_allergies**: Current medications and allergies
+  - **objective_findings**: Physical exam findings
+  - **labs_imaging**: Laboratory and imaging results
+  - **assessment**: Diagnosis and treatment plans
+- Each item is a `SummaryItem` with:
+  - `text`: The item content
+  - `source`: Source citation (e.g., "chunk_0:10-50" or "Section Name, chunk_X:Y-Z")
+- Can be loaded as a Pydantic model for programmatic access
 
-#### `plan.txt`
-- Problem-oriented treatment plan
-- Organized by:
-  - **Diagnostics**: Recommended diagnostic tests
-  - **Therapeutics**: Treatment recommendations
-  - **Follow-ups**: Follow-up appointments and monitoring
-- Each recommendation includes:
-  - Rationale grounded in source text
-  - Confidence score (0-1)
-  - Source citations with character spans
-  - Hallucination guard notes (if evidence is weak)
+#### `plan.json`
+- Problem-oriented treatment plan in JSON format (Pydantic `StructuredPlan` model)
+- Contains a list of `PlanRecommendation` objects, each with:
+  - `number`: Recommendation number (1, 2, 3, ... in decreasing priority)
+  - `recommendation`: Comprehensive recommendation text
+  - `source`: Source citation (e.g., "RECOMMENDATIONS section, chunk_11:4648-5547")
+  - `confidence`: Confidence score (0.0-1.0)
+  - `hallucination_guard_note`: Optional note explaining uncertainty if confidence < 0.8
+- Recommendations are prioritized by clinical urgency and evidence strength
+- Can be loaded as a Pydantic model for programmatic access
 
 #### `evaluation.json`
 - Evaluation metrics for quality assessment
@@ -474,135 +476,6 @@ The system validates configuration:
 - `temperature` must be between 0.0 and 2.0
 - `max_chunk_failure_rate` must be between 0.0 and 1.0
 
-## Troubleshooting
-
-### Common Issues
-
-#### 1. "Ollama is not available" Error
-
-**Problem**: Ollama is not running or not installed.
-
-**Solution**:
-```bash
-# Check if Ollama is installed
-which ollama
-
-# Start Ollama (if installed but not running)
-ollama serve
-
-# Install Ollama from https://ollama.ai
-```
-
-#### 2. "Model 'qwen2.5:7b' not found" Error
-
-**Problem**: The specified Ollama model is not installed.
-
-**Solution**:
-```bash
-# List available models
-ollama list
-
-# Install the model
-ollama pull qwen2.5:7b
-
-# Or use a different model with --model flag
-python -m app.cli process 570.pdf --model llama3.2
-```
-
-#### 3. "Failed to get embedding from Ollama" Error (when using `--semantic-accuracy`)
-
-**Problem**: The embedding model is not installed or Ollama is not accessible.
-
-**Solution**:
-```bash
-# Install the embedding model
-ollama pull nomic-embed-text
-
-# Verify it's installed
-ollama list | grep nomic-embed-text
-
-# If using a custom Ollama base URL, set the environment variable
-export OLLAMA_BASE_URL=http://your-ollama-url:11434
-```
-
-**Note**: Semantic accuracy evaluation is now enabled by default. If you don't have the embedding model installed, the evaluation will skip semantic accuracy metrics.
-
-#### 3. "ModuleNotFoundError: No module named 'app'"
-
-**Problem**: Python path is not set correctly when using module style.
-
-**Solution**: Use the direct script method (recommended - no PYTHONPATH needed):
-```bash
-python3 src/app/cli.py process 570.pdf
-```
-
-Or if using module style, set PYTHONPATH:
-```bash
-PYTHONPATH=src python -m app.cli process 570.pdf
-```
-
-Or ensure you're in the project root and the virtual environment is activated.
-
-#### 4. PDF Processing Fails
-
-**Problem**: PDF cannot be read or processed.
-
-**Solution**:
-- Verify the PDF is not corrupted
-- Check if the PDF is password-protected (not supported)
-- Try converting to .txt format and processing that instead
-- Check `pipeline.log` for detailed error messages
-
-#### 5. Few Sections Detected
-
-**Problem**: Section detection finds fewer sections than expected.
-
-**Solution**:
-- Check `pipeline.log` for section detection details
-- The system will automatically use LLM fallback if enabled
-- Verify the PDF has clear section headers (bold, all-caps, at start of line)
-- For .txt files, ensure section headers are clearly formatted
-
-#### 6. LLM Calls Timeout or Fail
-
-**Problem**: LLM calls are slow or failing.
-
-**Solution**:
-- Check if Ollama is running: `ollama list`
-- Verify model is installed: `ollama pull qwen2.5:7b`
-- Try a smaller model or reduce `chunk_size` in configuration
-- Check system resources (CPU, RAM, GPU if using MPS)
-- Review `pipeline.log` for specific error messages
-
-#### 7. High Memory Usage
-
-**Problem**: Processing large PDFs uses too much memory.
-
-**Solution**:
-- Reduce `chunk_size` in configuration
-- Process documents one at a time (use `process` instead of `process-batch`)
-- Reduce `--workers` count in batch processing
-- Use `--toc-only` or `--summary-only` to process in stages
-- For PDFs >30 pages, the system will log a warning
-
-#### 8. Batch Processing Issues
-
-**Problem**: Batch processing fails or is slow.
-
-**Solution**:
-- Reduce `--workers` count if Ollama is overwhelmed (try 2 instead of 4)
-- Check system resources (CPU, RAM, network)
-- Process smaller batches if memory is limited
-- Use `--toc-only` for faster batch processing without LLM calls
-- Check individual `pipeline.log` files in each document's output directory
-
-### Getting Help
-
-1. **Check Logs**: Review `results/{note_id}/pipeline.log` for detailed error messages
-2. **Run Tests**: Verify installation with `PYTHONPATH=src python tests/run_all_tests.py`
-3. **Verbose Mode**: Use `--verbose` flag for detailed debugging output
-4. **Review Documentation**: Check `prompts/README.md` for prompt engineering details
-
 ## PHI Protection
 
 **Important**: This system is designed to protect Protected Health Information (PHI):
@@ -648,35 +521,206 @@ Logs include:
 
 ## Testing
 
-### Run All Tests
+The project includes a comprehensive test suite with **120+ tests** covering all major components. Tests are organized into unit tests (fast, isolated) and integration tests (end-to-end with real LLM).
+
+### Test Organization
+
+**Unit Tests** (Fast, no LLM required):
+- `test_schemas.py` - Pydantic model validation
+- `test_config.py` - Configuration management
+- `test_ingestion.py` - Document loading and text normalization
+- `test_sections.py` - Section detection logic
+- `test_chunks.py` - Text chunking algorithms
+- `test_llm.py` - LLM client wrapper (mocked)
+- `test_evaluation.py` - Evaluation metric calculations
+- `test_summarizer.py` - Summary generation (with mocks)
+- `test_planner.py` - Plan generation (with mocks)
+
+**Integration Tests** (Requires Ollama):
+- `test_pipeline.py` - Full pipeline end-to-end tests
+- `test_summarizer.py` - Real LLM integration tests
+- `test_planner.py` - Real LLM plan generation tests
+
+### Running Tests
+
+#### Run All Tests
 
 ```bash
-PYTHONPATH=src python tests/run_all_tests.py
+# Using the test runner (recommended)
+source .venv/bin/activate
+python tests/run_all_tests.py
+
+# Or using pytest directly
+pytest tests/ -v
 ```
 
-### Run with Coverage
+#### Run with Coverage Report
 
 ```bash
-PYTHONPATH=src python tests/run_all_tests.py --coverage
+python tests/run_all_tests.py --coverage
 ```
 
-### Run Specific Test Module
+This generates:
+- Terminal coverage report showing line-by-line coverage
+- HTML report in `htmlcov/index.html` for detailed browsing
+
+#### Run Specific Test Module
 
 ```bash
-PYTHONPATH=src python tests/run_all_tests.py --module ingestion
+# Test a specific module
+python tests/run_all_tests.py --module ingestion
+python tests/run_all_tests.py --module schemas
+python tests/run_all_tests.py --module pipeline
 ```
 
-### Run Only Unit Tests
+Available modules: `ingestion`, `schemas`, `sections`, `chunks`, `llm`, `summarizer`, `planner`, `evaluation`, `config`, `pipeline`
+
+#### Run Only Unit Tests (Fast, No LLM)
 
 ```bash
-PYTHONPATH=src python tests/run_all_tests.py --unit-only
+python tests/run_all_tests.py --unit-only
 ```
 
-### Run Only Integration Tests
+#### Run Only Integration Tests (Requires Ollama)
 
 ```bash
-PYTHONPATH=src python tests/run_all_tests.py --integration-only
+python tests/run_all_tests.py --integration-only
 ```
+
+#### Run with Verbose Output
+
+```bash
+python tests/run_all_tests.py --verbose
+```
+
+### Test Coverage by Module
+
+#### `test_schemas.py` - Data Model Validation
+Tests Pydantic model validation and serialization:
+- **PageSpan**: Character span validation (end > start)
+- **CanonicalNote**: Document structure with page mapping
+- **Section**: Section boundaries and validation
+- **Chunk**: Chunk structure and character span validation
+- **Citation**: Citation format and span validation
+- **StructuredSummary**: Summary structure validation
+- **StructuredPlan**: Plan structure validation
+
+**Key Tests**: Model instantiation, field validation, serialization/deserialization, edge cases (invalid ranges, missing fields)
+
+#### `test_config.py` - Configuration Management
+Tests configuration loading and validation:
+- Default configuration values
+- Environment variable loading
+- Configuration validation (chunk_overlap < chunk_size, temperature bounds)
+- Output directory path conversion
+- Singleton pattern for global config
+
+**Key Tests**: Default values, env var parsing, validation rules, path handling
+
+#### `test_ingestion.py` - Document Loading
+Tests PDF and text file ingestion:
+- **Text Normalization**: Line ending normalization, whitespace handling, non-breaking spaces
+- **Note ID Generation**: Filename-based ID generation, special character sanitization
+- **Document Ingestion**: PDF loading, text extraction, page mapping
+- **Canonical Note Loading**: JSON deserialization and validation
+
+**Key Tests**: Text normalization edge cases, ID generation from various filename formats, PDF vs text file handling, error handling for missing files
+
+#### `test_sections.py` - Section Detection
+Tests section header detection and TOC generation:
+- **Header Detection**: Finding section headers (all-caps, after empty lines)
+- **Section Detection**: Full section detection with boundaries
+- **TOC Persistence**: Saving and loading TOC JSON files
+- **Edge Cases**: Documents with no sections, overlapping sections
+
+**Key Tests**: Header pattern matching, section boundary calculation, TOC serialization, overview section detection
+
+#### `test_chunks.py` - Text Chunking
+Tests text chunking algorithms:
+- **Chunk Creation**: Creating chunks from sections with proper boundaries
+- **Chunk Properties**: Character spans, section assignments, chunk IDs
+- **Chunk Persistence**: Saving and loading chunks JSON files
+- **Edge Cases**: Short sections, long sections, section boundaries
+
+**Key Tests**: Chunk size limits, overlap handling, boundary preservation, chunk serialization
+
+#### `test_llm.py` - LLM Client
+Tests LLM client wrapper (mocked, no real Ollama calls):
+- **Ollama Availability**: Checking if Ollama is running and models are available
+- **LLM Calls**: JSON and text response handling
+- **Prompt Loading**: Loading prompt templates from files
+- **Error Handling**: Model not found, Ollama not running
+
+**Key Tests**: Availability checks, response parsing (JSON vs text), prompt template loading, error scenarios
+
+#### `test_evaluation.py` - Evaluation Metrics
+Tests evaluation metric calculations:
+- **Citation Parsing**: Parsing citation formats (chunk_X:start-end, section names)
+- **Citation Validation**: Validating citation spans are within bounds
+- **Jaccard Similarity**: Calculating overlap between citation spans
+- **Summary/Plan Extraction**: Extracting items from structured summaries and plans
+- **Full Evaluation**: End-to-end evaluation with sample data
+
+**Key Tests**: Citation format parsing, span validation, similarity calculations, evaluation metric aggregation
+
+#### `test_summarizer.py` - Summary Generation
+Tests summary generation with both mocks and real LLM:
+- **Text Summary Creation**: Creating summaries from chunks (mocked LLM)
+- **Citation Format Validation**: Ensuring citations match expected format
+- **Error Handling**: LLM failures, retry logic, Ollama unavailability
+- **Prompt Template Loading**: Fallback prompts when templates are missing
+- **Edge Cases**: Very long chunks, special characters, unicode, empty chunks
+- **Real LLM Integration**: Full summary generation with real Ollama (requires Ollama)
+
+**Key Tests**: Summary structure validation, citation format checking, error recovery, edge case handling, real LLM integration
+
+#### `test_planner.py` - Treatment Plan Generation
+Tests treatment plan generation:
+- **Plan Creation**: Creating plans from chunks (mocked LLM)
+- **Plan Structure**: Validating plan structure and required fields
+- **Citation Inclusion**: Ensuring recommendations include source citations
+- **Real LLM Integration**: Full plan generation with real Ollama (requires Ollama)
+- **Confidence Scores**: Validating confidence score ranges
+
+**Key Tests**: Plan structure validation, citation requirements, real LLM integration, confidence score validation
+
+#### `test_pipeline.py` - Pipeline Integration
+Tests full pipeline end-to-end (requires Ollama):
+- **Input Validation**: File existence, format validation, unsupported formats
+- **Ollama Availability**: Checking Ollama before running pipeline
+- **TOC-Only Mode**: Generating only table of contents (no LLM needed)
+- **Summary-Only Mode**: Generating summary without plan or evaluation
+- **Full Pipeline**: Complete pipeline with all outputs
+- **Error Handling**: Missing files, Ollama unavailable, processing failures
+- **Caching**: Skipping ingestion when chunks already exist
+
+**Key Tests**: End-to-end pipeline execution, conditional execution modes, error handling, caching behavior
+
+### Test Fixtures
+
+Shared test fixtures (in `conftest.py`):
+- `sample_txt_path` - Sample text file for testing
+- `sample_chunks` - Pre-created chunk objects
+- `sample_canonical_note` - Sample canonical note structure
+- `sample_config` - Test configuration
+- `mock_llm_client` - Mocked LLM client for unit tests
+- `real_llm_client` - Real LLM client for integration tests (requires Ollama)
+- `temp_output_dir` - Temporary directory for test outputs
+
+### Test Best Practices
+
+1. **Unit Tests First**: Run `--unit-only` for fast feedback during development
+2. **Integration Tests**: Run `--integration-only` before committing to verify real LLM integration
+3. **Coverage**: Use `--coverage` regularly to identify untested code paths
+4. **Verbose Mode**: Use `--verbose` when debugging test failures
+5. **Module-Specific**: Use `--module` to focus on specific functionality
+
+### Continuous Integration
+
+The test suite is designed to run in CI/CD pipelines:
+- Unit tests run quickly without external dependencies
+- Integration tests can be skipped in CI if Ollama is not available
+- Coverage reports can be generated and uploaded to coverage services
 
 ## Project Structure
 
