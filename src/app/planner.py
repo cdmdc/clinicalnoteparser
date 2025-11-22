@@ -41,6 +41,69 @@ def load_text_summary(summary_txt_path: Path) -> str:
         raise ValueError(f"Error loading text summary: {e}") from e
 
 
+def _clean_plan_response(response: dict) -> dict:
+    """Clean up LLM response to fix invalid or missing fields.
+    
+    The LLM sometimes returns 'priority' instead of 'confidence', or may omit
+    required fields. This function normalizes the response to match the schema.
+    
+    Args:
+        response: Raw LLM response dictionary
+        
+    Returns:
+        Cleaned response dictionary with valid fields
+    """
+    cleaned = response.copy()
+    
+    # Clean recommendations if present
+    if "recommendations" in cleaned and isinstance(cleaned["recommendations"], list):
+        cleaned_recs = []
+        for rec in cleaned["recommendations"]:
+            if isinstance(rec, dict):
+                cleaned_rec = rec.copy()
+                
+                # Convert priority to confidence if confidence is missing
+                if "confidence" not in cleaned_rec or cleaned_rec.get("confidence") is None:
+                    if "priority" in cleaned_rec:
+                        # Convert priority (1, 2, 3...) to confidence (0.0-1.0)
+                        # Higher priority (lower number) = higher confidence
+                        priority = cleaned_rec["priority"]
+                        if isinstance(priority, (int, float)) and priority > 0:
+                            # Inverse mapping: priority 1 -> 0.9, priority 2 -> 0.8, etc.
+                            # Cap at 0.5 minimum for lower priorities
+                            confidence = max(0.5, 1.0 - (priority - 1) * 0.1)
+                        else:
+                            confidence = 0.8  # Default confidence
+                        cleaned_rec["confidence"] = confidence
+                    else:
+                        # No priority or confidence - use default
+                        cleaned_rec["confidence"] = 0.8
+                
+                # Ensure confidence is a float between 0.0 and 1.0
+                confidence = cleaned_rec.get("confidence")
+                if confidence is not None:
+                    try:
+                        confidence = float(confidence)
+                        cleaned_rec["confidence"] = max(0.0, min(1.0, confidence))
+                    except (ValueError, TypeError):
+                        cleaned_rec["confidence"] = 0.8
+                else:
+                    cleaned_rec["confidence"] = 0.8
+                
+                # Ensure hallucination_guard_note is None if not provided
+                if "hallucination_guard_note" not in cleaned_rec:
+                    cleaned_rec["hallucination_guard_note"] = None
+                elif cleaned_rec["hallucination_guard_note"] == "":
+                    cleaned_rec["hallucination_guard_note"] = None
+                
+                cleaned_recs.append(cleaned_rec)
+            else:
+                cleaned_recs.append(rec)
+        cleaned["recommendations"] = cleaned_recs
+    
+    return cleaned
+
+
 def create_treatment_plan_from_summary(
     summary_text: str,
     llm_client: LLMClient,
@@ -121,6 +184,8 @@ Order recommendations by clinical urgency, evidence strength, and logical sequen
 
     # Response should be a dict when return_text=False
     if isinstance(response, dict):
+        # Clean up response: fix invalid or missing fields
+        response = _clean_plan_response(response)
         try:
             return StructuredPlan(**response)
         except Exception as e:
@@ -130,10 +195,13 @@ Order recommendations by clinical urgency, evidence strength, and logical sequen
     if isinstance(response, str):
         try:
             data = json.loads(response)
+            # Clean up response: fix invalid or missing fields
+            if isinstance(data, dict):
+                data = _clean_plan_response(data)
             return StructuredPlan(**data)
         except (json.JSONDecodeError, ValueError) as e:
             raise ValueError(f"Could not parse LLM response as StructuredPlan: {e}") from e
-
+    
     raise ValueError(f"Unexpected response type from LLM: {type(response)}")
 
 
