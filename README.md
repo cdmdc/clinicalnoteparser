@@ -2,6 +2,30 @@
 
 A pipeline that extracts structured information from clinical notes (PDF or .txt files) and generates a table of contents, summary, and treatment plan recommendations. The system uses local LLMs via Ollama for privacy and offline operation.
 
+## Quick Start
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/cdmdc/clinicalnoteparser.git
+cd clinicalnoteparser
+
+# 2. Create and activate virtual environment
+uv venv
+source .venv/bin/activate  # On macOS/Linux
+
+# 3. Install dependencies
+uv sync
+
+# 4. Install Ollama and required models
+# See https://ollama.ai for Ollama installation
+ollama pull qwen2.5:7b
+
+# 5. Process your first document
+python3 src/app/cli.py process your_document.pdf
+```
+
+See [Setup Instructions](#setup-instructions) below for detailed setup steps.
+
 ## Project Overview
 
 This tool processes unstructured clinical notes and extracts:
@@ -51,33 +75,39 @@ All outputs include explicit citations linking back to the source text, enabling
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/cdmdc/clinicalnoteparser.git
 cd clinicalnoteparser
 ```
 
-### 2. Activate the Virtual Environment
+### 2. Create and Activate Virtual Environment
 
-The project uses `uv` for dependency management. Activate the virtual environment:
+The project uses `uv` for dependency management. Create and activate the virtual environment:
 
 ```bash
-source .venv/bin/activate
+# Create virtual environment (if it doesn't exist)
+uv venv
+
+# Activate the virtual environment
+source .venv/bin/activate  # On macOS/Linux
+# OR
+.venv\Scripts\activate     # On Windows
 ```
 
 **Note**: Always activate the virtual environment before running any commands. All commands should be run from the project root directory (`clinicalnoteparser`).
 
 ### 3. Install Dependencies
 
-Dependencies are already defined in `pyproject.toml`. If you need to reinstall:
+Install all project dependencies:
 
 ```bash
+# Using uv (recommended)
 uv sync
-```
 
-Or install from `requirements.txt`:
-
-```bash
+# OR using pip
 pip install -r requirements.txt
 ```
+
+This will install all required packages including `typer`, `pydantic`, `langchain-ollama`, `pypdf`, and others.
 
 ### 4. Verify Ollama Installation
 
@@ -99,8 +129,14 @@ ollama pull nomic-embed-text    # Embedding model (optional, for semantic accura
 Run the test suite to verify everything is set up correctly:
 
 ```bash
-PYTHONPATH=src python tests/run_all_tests.py
+# Using the test runner (recommended)
+python tests/run_all_tests.py
+
+# OR using pytest directly
+pytest tests/ -v
 ```
+
+**Note**: Some tests require Ollama to be running. Unit tests will pass without Ollama, but integration tests require it.
 
 ## Data Download Instructions
 
