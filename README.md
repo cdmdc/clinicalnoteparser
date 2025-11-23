@@ -35,6 +35,127 @@ This tool processes unstructured clinical notes and extracts:
 
 All outputs include explicit citations linking back to the source text, enabling traceability and verification.
 
+### Pipeline Architecture & Flow
+
+The system follows a **modular, multi-stage pipeline** that combines deterministic processing with AI-powered extraction:
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         INPUT: PDF or Text File                          │
+└───────────────────────────────┬─────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  [STEP 1] INGESTION                                                      │
+│  • Extract text from PDF (pypdf) or load text file                      │
+│  • Normalize encoding, line endings, whitespace                         │
+│  • Track character offsets and page mappings                            │
+│  • Output: CanonicalNote (normalized text + page spans)                 │
+└───────────────────────────────┬─────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  [STEP 2] SECTION DETECTION                                             │
+│  • Pattern matching for section headers (all-caps, after empty lines)   │
+│  • LLM fallback for ambiguous cases (optional)                          │
+│  • Create section boundaries with character offsets                     │
+│  • Output: Table of Contents (TOC) - List[Section]                      │
+└───────────────────────────────┬─────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  [STEP 3] CHUNKING                                                      │
+│  • Split sections into manageable chunks (default: 1500 chars)          │
+│  • Preserve section boundaries                                          │
+│  • Add overlap between chunks (default: 200 chars)                      │
+│  • Output: List[Chunk] with chunk IDs and character spans               │
+└───────────────────────────────┬─────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  [STEP 4] SUMMARIZATION (LLM-Powered)                                   │
+│  • Process all chunks with local LLM (Ollama)                          │
+│  • Extract structured information into 7 categories:                    │
+│    - Patient Snapshot, Key Problems, Pertinent History,                │
+│      Medicines/Allergies, Objective Findings, Labs/Imaging, Assessment │
+│  • Each item includes source citation (chunk_ID:start-end)             │
+│  • Output: StructuredSummary (JSON with Pydantic validation)            │
+└───────────────────────────────┬─────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  [STEP 5] TREATMENT PLAN GENERATION (LLM-Powered)                       │
+│  • Generate prioritized recommendations from summary                    │
+│  • Organize by: Diagnostics, Therapeutics, Follow-ups                  │
+│  • Include confidence scores, rationale, and source citations           │
+│  • Output: StructuredPlan (JSON with Pydantic validation)               │
+└───────────────────────────────┬─────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  [STEP 6] EVALUATION                                                    │
+│  • Citation coverage: % of facts/recommendations with citations         │
+│  • Citation validity: Verify citations point to valid text spans        │
+│  • Hallucination detection: Identify claims without citations           │
+│  • Span consistency: Validate citation spans are within chunk bounds    │
+│  • Semantic accuracy: Compare recommendations to source text (optional) │
+│  • Output: Evaluation metrics (JSON)                                    │
+└───────────────────────────────┬─────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    OUTPUT: Structured JSON Files                         │
+│  • canonical_text.txt, toc.json, chunks.json                            │
+│  • summary.json, plan.json, evaluation.json                             │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### Architecture Benefits
+
+#### 1. **Modular Design**
+- **Separation of Concerns**: Each stage is independent and testable
+- **Reusability**: Components can be used independently (e.g., TOC-only mode)
+- **Maintainability**: Changes to one stage don't affect others
+- **Extensibility**: Easy to add new processing stages or modify existing ones
+
+#### 2. **Type Safety & Validation**
+- **Pydantic Models**: All data structures are validated with Pydantic
+- **Automatic Validation**: Invalid data is caught early with clear error messages
+- **Self-Documenting**: Models include field descriptions and type hints
+- **Serialization**: Easy JSON serialization/deserialization for persistence
+
+#### 3. **Caching & Incremental Processing**
+- **Intermediate Results**: Each stage saves its output (TOC, chunks, summary, plan)
+- **Skip Completed Steps**: Pipeline detects existing files and skips regeneration
+- **Resume Processing**: Can resume from any stage if processing is interrupted
+- **Efficient Reruns**: Only regenerate what's needed (e.g., plan-only mode)
+
+#### 4. **Local-First & Privacy**
+- **No External APIs**: All processing happens locally via Ollama
+- **Zero API Costs**: No per-request charges or usage limits
+- **PHI Protection**: Data never leaves the local machine
+- **Offline Operation**: Works completely offline after initial setup
+
+#### 5. **Robust Error Handling**
+- **Validation at Each Stage**: Invalid data is caught before proceeding
+- **LLM Response Cleaning**: Handles malformed LLM responses gracefully
+- **Retry Logic**: Automatic retries for transient LLM failures
+- **Detailed Logging**: Comprehensive logs for debugging and auditing
+
+#### 6. **Performance Optimizations**
+- **GPU Acceleration**: Automatic MPS support on Apple Silicon (4-5x speedup)
+- **Parallel Processing**: Batch processing with configurable worker threads
+- **Efficient Chunking**: Smart chunking preserves context while managing token limits
+- **Selective Execution**: Run only needed stages (--toc-only, --summary-only, etc.)
+
+#### 7. **Traceability & Verification**
+- **Source Citations**: Every extracted fact links back to source text
+- **Character-Level Precision**: Citations include exact character spans
+- **Evaluation Metrics**: Comprehensive quality metrics for validation
+- **Audit Trail**: Complete logs of all processing steps
+
+
+
 ## Prerequisites
 
 - **Python 3.11+**: Required for modern Python features
