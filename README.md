@@ -273,8 +273,8 @@ pytest tests/ -v
 The pipeline is designed to work with clinical notes from the MTSamples dataset:
 
 1. **Download from Kaggle**: 
-   - Visit [MTSamples Dataset on Kaggle](https://www.kaggle.com/datasets/tboyle10/medicaltranscriptions)
-   - Download the dataset
+   - The data for this project can be accessed here: [MTSamples Dataset on Kaggle](https://www.kaggle.com/datasets/shoubhikchakra/mtsamples-dataset?resource=download)
+   - Download the dataset and extract the PDF files
 
 2. **Expected Data Structure**:
    ```
