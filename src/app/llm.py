@@ -291,15 +291,32 @@ class LLMClient:
         if system_message:
             log.debug(f"System message preview: {system_message[:200]}...")
 
+        # Track JSON parsing errors for feedback
+        current_prompt = prompt
+        last_json_error = None
+        last_response_snippet = None
+
         messages = []
         if system_message:
             messages.append(SystemMessage(content=system_message))
-        messages.append(HumanMessage(content=prompt))
 
         last_error = None
         for attempt in range(1, self.max_retries + 1):
             try:
                 start_time = time.time()
+
+                # Update prompt with JSON error feedback if retrying after JSON parse failure
+                if attempt > 1 and last_json_error and not return_text:
+                    current_prompt = f"{prompt}\n\nERROR: Previous response was not valid JSON. Please respond with valid JSON only."
+                    if last_response_snippet:
+                        current_prompt += f"\nPrevious response snippet: {last_response_snippet}"
+                    log.debug(f"Retrying with JSON parsing feedback (attempt {attempt})")
+
+                # Update message with current prompt
+                if len(messages) > 1:
+                    messages[-1] = HumanMessage(content=current_prompt)
+                else:
+                    messages.append(HumanMessage(content=current_prompt))
 
                 # Call LLM
                 response = self.client.invoke(messages)
@@ -319,7 +336,21 @@ class LLMClient:
                 parsed_json = self._extract_json_from_text(response_text)
 
                 if parsed_json is None:
-                    raise ValueError(f"Failed to parse JSON from response: {response_text[:500]}")
+                    # JSON parsing failed - prepare for retry with feedback
+                    last_json_error = "Response is not valid JSON"
+                    last_response_snippet = response_text[:200]  # Only snippet for efficiency
+                    
+                    if attempt < self.max_retries:
+                        log.warning(f"JSON parsing failed (attempt {attempt}/{self.max_retries}): Response is not valid JSON")
+                        log.info("Retrying with JSON parsing feedback...")
+                        time.sleep(0.5)  # Short delay for JSON retries
+                        continue  # Retry immediately with feedback
+                    else:
+                        raise ValueError(f"Failed to parse JSON from response: {response_text[:500]}")
+
+                # Reset JSON error tracking on success
+                last_json_error = None
+                last_response_snippet = None
 
                 # Log success
                 log.info(f"LLM call succeeded (attempt {attempt}, {elapsed_time:.2f}s)")
@@ -327,12 +358,22 @@ class LLMClient:
 
                 return parsed_json
 
+            except ValueError as e:
+                # JSON parsing error - already handled above, but catch here to avoid double handling
+                if attempt >= self.max_retries:
+                    last_error = e
+                    log.error(f"All {self.max_retries} attempts failed")
+                    raise LLMError(f"LLM call failed after {self.max_retries} attempts: {last_error}") from last_error
+                # Otherwise continue to retry
+                continue
+
             except Exception as e:
+                # Network/timeout errors - use exponential backoff
                 last_error = e
                 log.warning(f"LLM call failed (attempt {attempt}/{self.max_retries}): {e}")
 
                 if attempt < self.max_retries:
-                    # Exponential backoff
+                    # Exponential backoff for network errors
                     wait_time = 2 ** (attempt - 1)
                     log.info(f"Retrying in {wait_time}s...")
                     time.sleep(wait_time)

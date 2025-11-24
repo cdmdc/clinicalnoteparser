@@ -532,9 +532,10 @@ def run_pipeline(
                            f"({evaluation['citation_validity']['total_citations_checked'] - evaluation['citation_validity']['invalid_citations']}/{evaluation['citation_validity']['total_citations_checked']})")
                 logger.info(f"\nHallucination Rate: {evaluation['orphan_claims']['hallucination_rate_percentage']:.1f}% "
                            f"({evaluation['orphan_claims']['total_orphans']}/{evaluation['orphan_claims']['total_claims']} orphan claims)")
-                logger.info(f"\nCitation Overlap Jaccard: {evaluation['citation_overlap_jaccard']['average_jaccard_similarity']:.4f} "
-                           f"(avg, {evaluation['citation_overlap_jaccard']['total_citation_pairs']} pairs, "
-                           f"range: {evaluation['citation_overlap_jaccard']['min_jaccard']:.4f}-{evaluation['citation_overlap_jaccard']['max_jaccard']:.4f})")
+                if evaluation['citation_overlap_jaccard'].get('average_jaccard_similarity') is not None:
+                    logger.info(f"\nCitation Overlap Jaccard: {evaluation['citation_overlap_jaccard']['average_jaccard_similarity']:.4f} "
+                               f"(avg, {evaluation['citation_overlap_jaccard']['total_citation_pairs']} pairs, "
+                               f"range: {evaluation['citation_overlap_jaccard']['min_jaccard']:.4f}-{evaluation['citation_overlap_jaccard']['max_jaccard']:.4f})")
                 logger.info(f"\nSpan Consistency: {evaluation['span_consistency']['consistency_percentage']:.1f}% "
                            f"({evaluation['span_consistency']['checks_passed']}/{evaluation['span_consistency']['checks_performed']})")
                 logger.info(f"\nSummary Statistics:")

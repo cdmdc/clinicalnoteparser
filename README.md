@@ -40,74 +40,76 @@ All outputs include explicit citations linking back to the source text, enabling
 The system follows a **modular, multi-stage pipeline** that combines deterministic processing with AI-powered extraction:
 
 ```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                         INPUT: PDF or Text File                          │
-└───────────────────────────────┬─────────────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│  [STEP 1] INGESTION                                                      │
-│  • Extract text from PDF (pypdf) or load text file                      │
-│  • Normalize encoding, line endings, whitespace                         │
-│  • Track character offsets and page mappings                            │
-│  • Output: CanonicalNote (normalized text + page spans)                 │
-└───────────────────────────────┬─────────────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│  [STEP 2] SECTION DETECTION                                             │
-│  • Pattern matching for section headers (all-caps, after empty lines)   │
-│  • LLM fallback for ambiguous cases (optional)                          │
-│  • Create section boundaries with character offsets                     │
-│  • Output: Table of Contents (TOC) - List[Section]                      │
-└───────────────────────────────┬─────────────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│  [STEP 3] CHUNKING                                                      │
-│  • Split sections into manageable chunks (default: 1500 chars)          │
-│  • Preserve section boundaries                                          │
-│  • Add overlap between chunks (default: 200 chars)                      │
-│  • Output: List[Chunk] with chunk IDs and character spans               │
-└───────────────────────────────┬─────────────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│  [STEP 4] SUMMARIZATION (LLM-Powered)                                   │
-│  • Process all chunks with local LLM (Ollama)                          │
-│  • Extract structured information into 7 categories:                    │
-│    - Patient Snapshot, Key Problems, Pertinent History,                │
-│      Medicines/Allergies, Objective Findings, Labs/Imaging, Assessment │
-│  • Each item includes source citation (chunk_ID:start-end)             │
-│  • Output: StructuredSummary (JSON with Pydantic validation)            │
-└───────────────────────────────┬─────────────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│  [STEP 5] TREATMENT PLAN GENERATION (LLM-Powered)                       │
-│  • Generate prioritized recommendations from summary                    │
-│  • Organize by: Diagnostics, Therapeutics, Follow-ups                  │
-│  • Include confidence scores, rationale, and source citations           │
-│  • Output: StructuredPlan (JSON with Pydantic validation)               │
-└───────────────────────────────┬─────────────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│  [STEP 6] EVALUATION                                                    │
-│  • Citation coverage: % of facts/recommendations with citations         │
-│  • Citation validity: Verify citations point to valid text spans        │
-│  • Hallucination detection: Identify claims without citations           │
-│  • Span consistency: Validate citation spans are within chunk bounds    │
-│  • Semantic accuracy: Compare recommendations to source text (optional) │
-│  • Output: Evaluation metrics (JSON)                                    │
-└───────────────────────────────┬─────────────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│                    OUTPUT: Structured JSON Files                         │
-│  • canonical_text.txt, toc.json, chunks.json                            │
-│  • summary.json, plan.json, evaluation.json                             │
-└─────────────────────────────────────────────────────────────────────────┘
++=======================================================================+
+|                         INPUT: PDF or Text File                        |
++-----------------------------------|-----------------------------------+
+                                    |
+                                    v
++=======================================================================+
+|  [STEP 1] INGESTION                                                  |
+|  • Extract text from PDF (pypdf) or load text file                   |
+|  • Normalize encoding, line endings, whitespace                      |
+|  • Track character offsets and page mappings                         |
+|  • Output: CanonicalNote (normalized text + page spans)              |
++-----------------------------------|-----------------------------------+
+                                    |
+                                    v
++=======================================================================+
+|  [STEP 2] SECTION DETECTION                                         |
+|  • Pattern matching for section headers (all-caps, after empty lines)|
+|  • LLM fallback for ambiguous cases (optional)                       |
+|  • Create section boundaries with character offsets                  |
+|  • Output: Table of Contents (TOC) - List[Section]                   |
++-----------------------------------|-----------------------------------+
+                                    |
+                                    v
++=======================================================================+
+|  [STEP 3] CHUNKING                                                  |
+|  • Split sections into manageable chunks (default: 1500 chars)       |
+|  • Preserve section boundaries                                       |
+|  • Add overlap between chunks (default: 200 chars)                   |
+|  • Output: List[Chunk] with chunk IDs and character spans            |
++-----------------------------------|-----------------------------------+
+                                    |
+                                    v
++=======================================================================+
+|  [STEP 4] SUMMARIZATION (LLM-Powered)                               |
+|  • Process all chunks with local LLM (Ollama)                       |
+|  • Extract structured information into 7 categories:                 |
+|    - Patient Snapshot, Key Problems, Pertinent History,             |
+|      Medicines/Allergies, Objective Findings, Labs/Imaging,         |
+|      Assessment                                                      |
+|  • Each item includes source citation (chunk_ID:start-end)          |
+|  • Output: StructuredSummary (JSON with Pydantic validation)         |
++-----------------------------------|-----------------------------------+
+                                    |
+                                    v
++=======================================================================+
+|  [STEP 5] TREATMENT PLAN GENERATION (LLM-Powered)                   |
+|  • Generate prioritized recommendations from summary                 |
+|  • Organize by: Diagnostics, Therapeutics, Follow-ups               |
+|  • Include confidence scores, rationale, and source citations        |
+|  • Output: StructuredPlan (JSON with Pydantic validation)            |
++-----------------------------------|-----------------------------------+
+                                    |
+                                    v
++=======================================================================+
+|  [STEP 6] EVALUATION                                                |
+|  • Citation coverage: % of facts/recommendations with citations      |
+|  • Citation validity: Verify citations point to valid text spans     |
+|  • Hallucination detection: Identify claims without citations        |
+|  • Span consistency: Validate citation spans are within chunk bounds |
+|  • Semantic accuracy: Compare recommendations to source text         |
+|    (optional)                                                         |
+|  • Output: Evaluation metrics (JSON)                                 |
++-----------------------------------|-----------------------------------+
+                                    |
+                                    v
++=======================================================================+
+|                    OUTPUT: Structured JSON Files                      |
+|  • canonical_text.txt, toc.json, chunks.json                         |
+|  • summary.json, plan.json, evaluation.json                          |
++=======================================================================+
 ```
 
 ### Architecture Benefits
@@ -136,10 +138,15 @@ The system follows a **modular, multi-stage pipeline** that combines determinist
 - **PHI Protection**: Data never leaves the local machine
 - **Offline Operation**: Works completely offline after initial setup
 
-#### 5. **Robust Error Handling**
+#### 5. **Robust Error Handling & Agentic Self-Correction**
 - **Validation at Each Stage**: Invalid data is caught before proceeding
-- **LLM Response Cleaning**: Handles malformed LLM responses gracefully
-- **Retry Logic**: Automatic retries for transient LLM failures
+- **LLM Response Cleaning**: Handles malformed LLM responses gracefully (fixes common issues like missing source fields)
+- **Agentic Validation Retry**: When Pydantic validation fails, the system provides error feedback to the LLM and retries, allowing the LLM to self-correct
+- **Multi-Layer Retry Logic**:
+  - **Network/Timeout Errors**: Exponential backoff retry (1s, 2s, 4s delays)
+  - **JSON Parsing Errors**: Immediate retry with feedback about invalid JSON format
+  - **Validation Errors**: Retry with extracted Pydantic error messages (max 2 attempts)
+- **Error Feedback Extraction**: Converts verbose Pydantic validation errors into concise, actionable feedback for the LLM
 - **Detailed Logging**: Comprehensive logs for debugging and auditing
 
 #### 6. **Performance Optimizations**
@@ -642,7 +649,13 @@ The system validates configuration:
 - **No Inference**: Patient names, dates of birth, addresses, or identifiers are not inferred
 - **Explicit Citations**: All extracted information includes source citations for verification
 
-The prompts include explicit instructions to prevent PHI hallucination. See `prompts/README.md` for details on PHI protection measures.
+The prompts (v2) include explicit anti-hallucination rules and emphasize source-only extraction. Key features:
+- **Strict anti-hallucination rules**: Source-only extraction, no inference, no external knowledge
+- **Clear section definitions**: Non-overlapping boundaries for accurate categorization
+- **Citation format**: Accepts both `"SECTION_NAME section, chunk_X:Y-Z"` and `"[SECTION_NAME] section, chunk_X:Y-Z"` (brackets optional)
+- **Comprehensiveness validation**: Retry mechanism ensures adequate extraction from multiple chunks
+
+See `prompts/text_summary.md` and `prompts/plan_generation.md` for the current prompt versions. Previous versions are saved as `*_v1.md` and `*_v2.md` for reference.
 
 ## Logging
 
@@ -825,21 +838,27 @@ Tests summary generation with both mocks and real LLM:
 - **Text Summary Creation**: Creating summaries from chunks (mocked LLM)
 - **Citation Format Validation**: Ensuring citations match expected format
 - **Error Handling**: LLM failures, retry logic, Ollama unavailability
+- **Agentic Validation Retry**: Tests validation error retry with feedback mechanism
+  - Invalid structure retry (LLM fixes errors after feedback)
+  - Max retries limit (raises exception after 2 attempts)
 - **Prompt Template Loading**: Fallback prompts when templates are missing
 - **Edge Cases**: Very long chunks, special characters, unicode, empty chunks
 - **Real LLM Integration**: Full summary generation with real Ollama (requires Ollama)
 
-**Key Tests**: Summary structure validation, citation format checking, error recovery, edge case handling, real LLM integration
+**Key Tests**: Summary structure validation, citation format checking, error recovery, agentic self-correction, edge case handling, real LLM integration
 
 #### `test_planner.py` - Treatment Plan Generation
 Tests treatment plan generation:
 - **Plan Creation**: Creating plans from chunks (mocked LLM)
 - **Plan Structure**: Validating plan structure and required fields
 - **Citation Inclusion**: Ensuring recommendations include source citations
+- **Agentic Validation Retry**: Tests validation error retry with feedback mechanism
+  - Invalid structure retry (LLM fixes errors after feedback)
+  - Max retries limit (raises exception after 2 attempts)
 - **Real LLM Integration**: Full plan generation with real Ollama (requires Ollama)
 - **Confidence Scores**: Validating confidence score ranges
 
-**Key Tests**: Plan structure validation, citation requirements, real LLM integration, confidence score validation
+**Key Tests**: Plan structure validation, citation requirements, agentic self-correction, real LLM integration, confidence score validation
 
 #### `test_pipeline.py` - Pipeline Integration
 Tests full pipeline end-to-end (requires Ollama):
@@ -897,11 +916,15 @@ clinicalnoteparser/
 │       ├── config.py         # Configuration management
 │       └── schemas.py        # Pydantic data models
 ├── prompts/
-│   ├── README.md             # Prompt engineering documentation
-│   ├── section_inference.md  # Section detection prompt
-│   ├── summary_extraction.md # Fact extraction prompt
-│   ├── text_summary.md       # Summary generation prompt
-│   └── plan_generation.md    # Plan generation prompt
+│   ├── README.md                  # Prompt engineering documentation
+│   ├── section_inference.md       # Section detection prompt
+│   ├── summary_extraction.md      # Fact extraction prompt (deprecated)
+│   ├── text_summary.md            # Summary generation prompt (v2 - current)
+│   ├── text_summary_v1.md         # Summary generation prompt (v1 - previous version)
+│   ├── text_summary_v2.md         # Summary generation prompt (v2 - current version backup)
+│   ├── plan_generation.md         # Plan generation prompt (v2 - current)
+│   ├── plan_generation_v1.md      # Plan generation prompt (v1 - previous version)
+│   └── plan_generation_v2.md      # Plan generation prompt (v2 - current version backup)
 ├── tests/
 │   ├── conftest.py           # Shared test fixtures
 │   ├── run_all_tests.py      # Test runner

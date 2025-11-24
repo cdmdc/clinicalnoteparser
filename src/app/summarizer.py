@@ -6,6 +6,12 @@ import re
 from pathlib import Path
 from typing import List, Optional
 
+try:
+    from pydantic import ValidationError
+except ImportError:
+    # Fallback for older Pydantic versions
+    ValidationError = ValueError
+
 from app.chunks import Chunk
 from app.config import Config, get_config
 from app.ingestion import char_span_to_page
@@ -446,19 +452,256 @@ def extract_summary(
     return summary
 
 
-def _clean_summary_response(response: dict) -> dict:
-    """Clean up LLM response to fix invalid source values.
+def _validate_citations_against_chunks(response: dict, chunks: List[Chunk]) -> tuple[List[str], List[str]]:
+    """Validate citations in response against actual chunks and return mismatch errors.
     
-    The LLM sometimes returns empty lists [] or None for source fields when
-    no information is available. This function converts them to valid strings.
+    Args:
+        response: LLM response dictionary with citations
+        chunks: List of actual chunks with section titles
+        
+    Returns:
+        tuple[List[str], List[str]]: (List of error messages, List of valid section titles)
+    """
+    from app.evaluation import parse_citation_from_text
+    
+    errors = []
+    chunk_map = {chunk.chunk_id: chunk for chunk in chunks}
+    
+    # Collect all unique valid section titles
+    valid_section_titles = sorted(set(chunk.section_title for chunk in chunks))
+    
+    # List of section keys that contain SummaryItem lists
+    section_keys = [
+        "patient_snapshot",
+        "key_problems", 
+        "pertinent_history",
+        "medicines_allergies",
+        "objective_findings",
+        "labs_imaging",
+        "assessment"
+    ]
+    
+    for section_key in section_keys:
+        if section_key not in response or not isinstance(response[section_key], list):
+            continue
+            
+        for item in response[section_key]:
+            if not isinstance(item, dict) or "source" not in item:
+                continue
+                
+            source = item.get("source", "")
+            if not isinstance(source, str) or not source.strip():
+                continue
+            
+            # Parse citation
+            citation_info = parse_citation_from_text(source)
+            if citation_info is None:
+                continue
+                
+            chunk_id, start_char, end_char, cited_section_name = citation_info
+            
+            # Check if citation has section name (required format: "SECTION_NAME section, chunk_X:Y-Z" or "[SECTION_NAME] section, chunk_X:Y-Z")
+            # Accept both formats: with or without brackets around section name
+            # If section name is present (even with brackets), consider it valid
+            has_section_name = cited_section_name and (" section, " in source or ", chunk_" in source)
+            # Don't report errors for bracket formatting - both formats are acceptable
+            # Only report if section name is completely missing
+            if not has_section_name and "chunk_" in source:
+                errors.append(
+                    f"Citation in {section_key} is missing section name. "
+                    f"Format must be: 'SECTION_NAME section, chunk_X:Y-Z' or '[SECTION_NAME] section, chunk_X:Y-Z'. "
+                    f"Current: '{source}'. "
+                    f"Example: 'EXTERNAL EXAMINATION section, chunk_3:1203-2603'"
+                )
+            
+            # Check if chunk exists and validate spans
+            if chunk_id in chunk_map:
+                chunk = chunk_map[chunk_id]
+                
+                # Validate spans are within chunk bounds if provided
+                if start_char is not None and end_char is not None:
+                    if start_char < chunk.start_char or end_char > chunk.end_char:
+                        errors.append(
+                            f"Citation in {section_key} has span {start_char}-{end_char} "
+                            f"but chunk {chunk_id} only spans {chunk.start_char}-{chunk.end_char}"
+                        )
+            else:
+                # Chunk doesn't exist
+                errors.append(
+                    f"Citation in {section_key} references chunk {chunk_id} which does not exist"
+                )
+    
+    return errors, valid_section_titles
+
+
+def _validate_comprehensiveness(response: dict, chunks: List[Chunk], chunks_processed: Optional[List[str]] = None) -> List[str]:
+    """Validate that the summary is comprehensive enough.
+    
+    Checks:
+    - Number of different chunks used
+    - Total item count
+    - Whether key sections are extracted from
+    
+    Args:
+        response: LLM response dictionary
+        chunks: List of all chunks
+        chunks_processed: Optional list of chunk_ids the LLM claims to have processed
+        
+    Returns:
+        List of error messages if comprehensiveness is insufficient
+    """
+    errors = []
+    
+    # Extract all chunk_ids from citations
+    from app.evaluation import parse_citation_from_text
+    
+    chunks_used = set()
+    total_items = 0
+    
+    section_keys = [
+        "patient_snapshot",
+        "key_problems", 
+        "pertinent_history",
+        "medicines_allergies",
+        "objective_findings",
+        "labs_imaging",
+        "assessment"
+    ]
+    
+    for section_key in section_keys:
+        if section_key in response and isinstance(response[section_key], list):
+            total_items += len(response[section_key])
+            for item in response[section_key]:
+                if isinstance(item, dict):
+                    source = item.get("source", "")
+                    if source:
+                        citation_info = parse_citation_from_text(source)
+                        if citation_info:
+                            chunk_id, _, _, _ = citation_info
+                            chunks_used.add(chunk_id)
+    
+    # Determine minimum chunks required based on total chunks
+    total_chunks = len(chunks)
+    min_chunks_required = 5 if total_chunks < 20 else 8
+    
+    # Check if enough chunks were used
+    if len(chunks_used) < min_chunks_required:
+        errors.append(
+            f"Only extracted from {len(chunks_used)} different chunks ({', '.join(sorted(chunks_used))}), "
+            f"but need at least {min_chunks_required} chunks. There are {total_chunks} total chunks available. "
+            f"Review ALL chunks systematically and extract from more chunks."
+        )
+    
+    # Check total item count
+    if total_items < 10:
+        errors.append(
+            f"Only extracted {total_items} total items, but should extract 15-30+ items for comprehensive summary. "
+            f"Extract more information from each chunk - create separate items for each distinct piece of information."
+        )
+    
+    # Check if key sections are missing
+    section_titles = {chunk.section_title for chunk in chunks}
+    chunks_by_section = {}
+    for chunk in chunks:
+        if chunk.section_title not in chunks_by_section:
+            chunks_by_section[chunk.section_title] = []
+        chunks_by_section[chunk.section_title].append(chunk.chunk_id)
+    
+    # Check for ANATOMICAL SUMMARY
+    if "ANATOMICAL SUMMARY" in section_titles:
+        anat_summary_chunks = chunks_by_section["ANATOMICAL SUMMARY"]
+        if not any(cid in chunks_used for cid in anat_summary_chunks):
+            errors.append(
+                f"ANATOMICAL SUMMARY section exists (chunks: {', '.join(anat_summary_chunks)}) but no information was extracted from it. "
+                f"Extract numbered items from ANATOMICAL SUMMARY as separate key_problems items."
+            )
+    
+    # Check for EXTERNAL EXAMINATION
+    if "EXTERNAL EXAMINATION" in section_titles:
+        ext_exam_chunks = chunks_by_section["EXTERNAL EXAMINATION"]
+        if not any(cid in chunks_used for cid in ext_exam_chunks):
+            errors.append(
+                f"EXTERNAL EXAMINATION section exists (chunks: {', '.join(ext_exam_chunks)}) but no information was extracted from it. "
+                f"Extract patient details (age, sex, weight, height, etc.) from EXTERNAL EXAMINATION as separate patient_snapshot items."
+            )
+    
+    # Check if chunks_processed was provided and matches actual usage
+    if chunks_processed:
+        chunks_processed_set = set(chunks_processed)
+        if chunks_processed_set != chunks_used:
+            missing = chunks_processed_set - chunks_used
+            extra = chunks_used - chunks_processed_set
+            if missing:
+                errors.append(
+                    f"Listed chunks in _chunks_processed that weren't actually used: {', '.join(sorted(missing))}"
+                )
+    
+    return errors
+
+
+def _extract_validation_errors(error: Exception) -> str:
+    """Extract concise, actionable error messages from Pydantic ValidationError.
+    
+    Args:
+        error: Exception (typically ValidationError or ValueError)
+        
+    Returns:
+        str: Concise error message with actionable feedback
+    """
+    # Check if it's a Pydantic ValidationError
+    if hasattr(error, 'errors') and callable(error.errors):
+        try:
+            errors = error.errors()
+            error_messages = []
+            # Limit to first 3 errors to keep feedback concise
+            for err in errors[:3]:
+                field_path = '.'.join(str(x) for x in err.get('loc', []))
+                msg = err.get('msg', 'Unknown error')
+                error_type = err.get('type', '')
+                
+                # Format error message
+                if field_path:
+                    error_messages.append(f"{field_path}: {msg}")
+                else:
+                    error_messages.append(f"{msg}")
+            
+            if error_messages:
+                return "; ".join(error_messages)
+        except Exception:
+            # If error.errors() fails, fall back to string representation
+            pass
+    
+    # Fallback: use string representation, truncated
+    error_str = str(error)
+    # Truncate long error messages
+    if len(error_str) > 300:
+        return error_str[:300] + "..."
+    return error_str
+
+
+def _clean_summary_response(response: dict) -> dict:
+    """Clean up LLM response to fix invalid source values and field names.
+    
+    The LLM sometimes returns:
+    - Empty lists [] or None for source fields
+    - "description" instead of "text" field
+    - Source as a stringified dict instead of proper format
+    - _chunks_processed field (for verification, remove before validation)
     
     Args:
         response: Raw LLM response dictionary
         
     Returns:
-        Cleaned response dictionary with valid source strings
+        Cleaned response dictionary with valid structure
     """
+    import json
+    import re
+    
     cleaned = response.copy()
+    
+    # Remove _chunks_processed field if present (it's for verification only, not part of schema)
+    if "_chunks_processed" in cleaned:
+        cleaned.pop("_chunks_processed")
     
     # List of section keys that contain SummaryItem lists
     section_keys = [
@@ -477,7 +720,15 @@ def _clean_summary_response(response: dict) -> dict:
             for item in cleaned[section_key]:
                 if isinstance(item, dict):
                     cleaned_item = item.copy()
-                    # Fix invalid source values
+                    
+                    # Fix "description" -> "text" field name
+                    if "description" in cleaned_item and "text" not in cleaned_item:
+                        cleaned_item["text"] = cleaned_item.pop("description")
+                    elif "description" in cleaned_item and "text" in cleaned_item:
+                        # If both exist, prefer "text", remove "description"
+                        cleaned_item.pop("description")
+                    
+                    # Fix source field
                     source = cleaned_item.get("source")
                     if not isinstance(source, str):
                         # Convert empty list, None, or other invalid types to a default string
@@ -486,6 +737,30 @@ def _clean_summary_response(response: dict) -> dict:
                         else:
                             # Try to convert to string if it's some other type
                             cleaned_item["source"] = str(source) if source is not None else "Not mentioned"
+                    else:
+                        # Source is a string - check if it's a stringified dict or old format with section title
+                        # Pattern: "{'section_title': 'X', 'chunk_id': 'Y', 'span': [Z, W]}"
+                        dict_match = re.match(r"\{['\"]section_title['\"]:\s*['\"]([^'\"]+)['\"],\s*['\"]chunk_id['\"]:\s*['\"]([^'\"]+)['\"],\s*['\"]span['\"]:\s*\[(\d+),\s*(\d+)\]\}", source)
+                        if dict_match:
+                            # Convert stringified dict to proper citation format (chunk_id only)
+                            chunk_id = dict_match.group(2)
+                            start_char = dict_match.group(3)
+                            end_char = dict_match.group(4)
+                            cleaned_item["source"] = f"{chunk_id}:{start_char}-{end_char}"
+                        else:
+                            # Check if it's format with brackets and section name: "[SECTION_NAME]:start-end"
+                            bracket_format_match = re.match(r"^\[[^\]]+\]:(\d+)-(\d+)$", source)
+                            if bracket_format_match:
+                                # This format doesn't have chunk_id, so we can't convert it properly
+                                # Mark as invalid - the LLM should use chunk_id format
+                                cleaned_item["source"] = "Not mentioned"
+                            else:
+                                # Check if it's format without section name: "chunk_X:Y-Z"
+                                # We want to preserve section names if present, but if LLM outputs without section name,
+                                # we can't add it here (would need chunk context). Leave as-is for now.
+                                # The validation retry will catch this and ask LLM to add section names.
+                                pass
+                    
                     cleaned_items.append(cleaned_item)
                 else:
                     cleaned_items.append(item)
@@ -526,7 +801,13 @@ def create_structured_summary_from_chunks(
     # Load prompt template
     try:
         prompt_template = llm_client.load_prompt("text_summary.md")
-        prompt = prompt_template.format(chunks_with_headers=combined_text)
+        total_chunks = len(chunks)
+        min_chunks_required = 5 if total_chunks < 20 else 8
+        prompt = prompt_template.format(
+            chunks_with_headers=combined_text,
+            total_chunks=total_chunks,
+            min_chunks_required=min_chunks_required
+        )
     except FileNotFoundError:
         # Fallback prompt if template doesn't exist
         prompt = f"""Create a comprehensive structured summary of the following clinical note in JSON format.
@@ -548,30 +829,97 @@ Provide a JSON object with the following structure:
 
 Each item must include "text" and "source" fields. Source should use format: "[section_title] section, [chunk_id]:[start_char]-[end_char]". If no source is available, use "Not mentioned" or "No source available"."""
 
-    # Call LLM - request JSON output (return_text=False will parse JSON)
-    response = llm_client.call(prompt, logger_instance=logger, return_text=False)
+    # Call LLM with validation retry wrapper
+    # Try with existing cleaning function first, retry with feedback on validation errors
+    current_prompt = prompt
+    max_validation_retries = 1  # Limit validation retries to avoid token waste
     
-    # Response should be a dict when return_text=False
-    if isinstance(response, dict):
-        # Clean up response: fix invalid source values (empty lists, None, etc.)
-        response = _clean_summary_response(response)
+    for validation_attempt in range(1, max_validation_retries + 1):
         try:
-            return StructuredSummary(**response)
-        except Exception as e:
-            raise ValueError(f"Could not parse LLM response as StructuredSummary: {e}. Response: {response}") from e
-    
-    # Fallback: try to parse as string
-    if isinstance(response, str):
-        try:
-            data = json.loads(response)
-            # Clean up response: fix invalid source values (empty lists, None, etc.)
-            if isinstance(data, dict):
-                data = _clean_summary_response(data)
-            return StructuredSummary(**data)
-        except (json.JSONDecodeError, ValueError) as e:
-            raise ValueError(f"Could not parse LLM response as StructuredSummary: {e}") from e
-    
-    raise ValueError(f"Unexpected response type from LLM: {type(response)}")
+            # Call LLM - request JSON output (return_text=False will parse JSON)
+            response = llm_client.call(current_prompt, logger_instance=logger, return_text=False)
+            
+            # Response should be a dict when return_text=False
+            if isinstance(response, dict):
+                # Clean up response: fix invalid source values (empty lists, None, etc.)
+                cleaned_response = _clean_summary_response(response)
+                
+                try:
+                    structured_summary = StructuredSummary(**cleaned_response)
+                    
+                    # Validate both citations and comprehensiveness, combine errors if both fail
+                    citation_errors, _ = _validate_citations_against_chunks(cleaned_response, chunks)
+                    chunks_processed = response.get("_chunks_processed") if isinstance(response, dict) else None
+                    comprehensiveness_errors = _validate_comprehensiveness(cleaned_response, chunks, chunks_processed)
+                    
+                    # Combine all validation errors
+                    all_errors = []
+                    if citation_errors:
+                        all_errors.extend(citation_errors[:2])  # Limit to 2 citation errors
+                    if comprehensiveness_errors:
+                        all_errors.extend(comprehensiveness_errors[:2])  # Limit to 2 comprehensiveness errors
+                    
+                    # If any validation errors, retry with combined feedback
+                    if all_errors and validation_attempt < max_validation_retries:
+                        error_msg = "\n".join(all_errors)
+                        error_type = "Citation format and comprehensiveness" if citation_errors and comprehensiveness_errors else ("Citation format" if citation_errors else "Comprehensiveness")
+                        logger.warning(f"{error_type} issues (attempt {validation_attempt}/{max_validation_retries}): {error_msg[:200]}...")
+                        logger.info(f"Retrying with {error_type.lower()} feedback...")
+                        
+                        # Build combined feedback message
+                        feedback_parts = []
+                        if citation_errors:
+                            feedback_parts.append("Citation format errors found. Citations MUST include section name in format '[SECTION_NAME] section, chunk_X:Y-Z'.")
+                        if comprehensiveness_errors:
+                            feedback_parts.append("Comprehensiveness issues found. You MUST extract from at least 5 different chunks (8 for longer documents), and extract ALL relevant information from each chunk.")
+                        
+                        current_prompt = f"{prompt}\n\nERROR: {error_type} issues found. Please fix:\n{error_msg}\n\nRemember:\n" + "\n".join(f"  - {part}" for part in feedback_parts)
+                        continue
+                    
+                    # Success - return the structured summary
+                    return structured_summary
+                    
+                except (ValueError, ValidationError) as e:
+                    if validation_attempt < max_validation_retries:
+                        # Extract actionable error info from Pydantic
+                        error_msg = _extract_validation_errors(e)
+                        
+                        logger.warning(f"Validation failed (attempt {validation_attempt}/{max_validation_retries}): {error_msg[:200]}...")
+                        logger.info("Retrying with validation error feedback...")
+                        
+                        # Append error feedback to prompt
+                        current_prompt = f"{prompt}\n\nERROR: Fix validation errors: {error_msg}"
+                        continue  # Retry with feedback
+                    else:
+                        raise ValueError(f"Could not parse LLM response as StructuredSummary: {e}. Response: {cleaned_response}") from e
+            
+            # Fallback: try to parse as string
+            if isinstance(response, str):
+                try:
+                    data = json.loads(response)
+                    # Clean up response: fix invalid source values (empty lists, None, etc.)
+                    if isinstance(data, dict):
+                        data = _clean_summary_response(data)
+                        structured_summary = StructuredSummary(**data)
+                        return structured_summary
+                    else:
+                        raise ValueError(f"Expected dict, got {type(data)}")
+                except (json.JSONDecodeError, ValueError, ValidationError) as e:
+                    if validation_attempt < max_validation_retries:
+                        error_msg = _extract_validation_errors(e)
+                        
+                        
+                        logger.warning(f"Validation failed (attempt {validation_attempt}/{max_validation_retries}): {error_msg[:200]}...")
+                        logger.info("Retrying with validation error feedback...")
+                        current_prompt = f"{prompt}\n\nERROR: The previous response failed validation. Please fix the following issues:\n{error_msg}\n\nPlease provide a corrected JSON response that addresses all validation errors. Use EXACT section titles from chunk headers."
+                        continue
+                    raise ValueError(f"Could not parse LLM response as StructuredSummary: {e}") from e
+            
+            raise ValueError(f"Unexpected response type from LLM: {type(response)}")
+            
+        except LLMError:
+            # LLM call failed (network/parsing errors) - don't retry validation, re-raise
+            raise
 
 
 def parse_text_summary_to_structured(text_summary: str) -> StructuredSummary:

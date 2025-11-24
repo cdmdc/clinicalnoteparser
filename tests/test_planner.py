@@ -5,7 +5,8 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from app.planner import create_treatment_plan_from_chunks
+from app.planner import create_treatment_plan_from_chunks, create_treatment_plan_from_summary
+from app.schemas import StructuredPlan, StructuredSummary
 
 
 class TestCreateTreatmentPlanFromChunks:
@@ -174,4 +175,64 @@ class TestRealLLMPlanGeneration:
             for conf_str in confidences:
                 conf = float(conf_str)
                 assert 0.0 <= conf <= 1.0, f"Confidence score {conf} should be between 0.0 and 1.0"
+
+
+class TestPlanValidationRetryWithFeedback:
+    """Tests for validation error retry with feedback in plan generation."""
+
+    def test_plan_validation_retry_on_invalid_structure(self, mock_llm_client):
+        """Test that validation errors trigger retry with error feedback for plans."""
+        summary_text = "Test summary text"
+        
+        # First call: invalid structure - recommendations is not a list
+        invalid_response_1 = {
+            "recommendations": "not a list"  # Should be a list - cleaning can't fix this
+        }
+        
+        # Second call: valid response after feedback
+        valid_response = {
+            "recommendations": [
+                {
+                    "number": 1,
+                    "recommendation": "Test recommendation",
+                    "source": "chunk_0:10-50",
+                    "confidence": 0.9
+                }
+            ]
+        }
+        
+        # Mock LLM to return invalid first, then valid
+        mock_llm_client.call = MagicMock(side_effect=[invalid_response_1, valid_response])
+        
+        # Should succeed after retry
+        plan = create_treatment_plan_from_summary(summary_text, mock_llm_client)
+        
+        # Verify it was called twice (initial + retry)
+        assert mock_llm_client.call.call_count == 2
+        
+        # Verify second call includes error feedback
+        second_call_prompt = mock_llm_client.call.call_args_list[1][0][0]
+        assert "ERROR" in second_call_prompt or "validation" in second_call_prompt.lower()
+        
+        # Verify result is valid
+        assert isinstance(plan, StructuredPlan)
+        assert len(plan.recommendations) == 1
+
+    def test_plan_validation_fails_after_max_retries(self, mock_llm_client):
+        """Test that validation errors raise exception after max retries for plans."""
+        summary_text = "Test summary text"
+        
+        # Always return invalid response (wrong type)
+        invalid_response = {
+            "recommendations": "not a list"  # Should be a list - cleaning can't fix this
+        }
+        
+        mock_llm_client.call = MagicMock(return_value=invalid_response)
+        
+        # Should raise ValueError after max retries (2 attempts)
+        with pytest.raises(ValueError, match="Could not parse LLM response as StructuredPlan"):
+            create_treatment_plan_from_summary(summary_text, mock_llm_client)
+        
+        # Should have been called max_validation_retries times (2)
+        assert mock_llm_client.call.call_count == 2
 

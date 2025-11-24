@@ -21,7 +21,7 @@ class Config(BaseModel):
     max_paragraph_size: int = Field(default=3000, gt=0, description="Max paragraph size")
     min_sections_for_success: int = Field(default=2, ge=1, description="Min sections for success")
     enable_llm_fallback: bool = Field(default=True, description="Enable LLM fallback")
-    max_retries: int = Field(default=3, ge=0, description="Max retries for LLM calls")
+    max_retries: int = Field(default=1, ge=0, description="Max retries for LLM calls")
     max_chunk_failure_rate: float = Field(default=0.3, ge=0.0, le=1.0, description="Max chunk failure rate")
     max_pages_warning: int = Field(default=30, gt=0, description="Page count warning threshold")
     output_dir: Path = Field(default=Path("results"), description="Output directory")
@@ -54,7 +54,7 @@ class Config(BaseModel):
             max_paragraph_size=int(os.getenv("CLINICAL_NOTE_MAX_PARAGRAPH_SIZE", "3000")),
             min_sections_for_success=int(os.getenv("CLINICAL_NOTE_MIN_SECTIONS", "2")),
             enable_llm_fallback=os.getenv("CLINICAL_NOTE_ENABLE_LLM_FALLBACK", "true").lower() in ("true", "1", "yes"),
-            max_retries=int(os.getenv("CLINICAL_NOTE_MAX_RETRIES", "3")),
+            max_retries=int(os.getenv("CLINICAL_NOTE_MAX_RETRIES", "1")),
             max_chunk_failure_rate=float(os.getenv("CLINICAL_NOTE_MAX_CHUNK_FAILURE_RATE", "0.3")),
             max_pages_warning=int(os.getenv("CLINICAL_NOTE_MAX_PAGES_WARNING", "30")),
             output_dir=Path(os.getenv("CLINICAL_NOTE_OUTPUT_DIR", "results")),

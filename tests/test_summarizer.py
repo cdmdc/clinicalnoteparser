@@ -7,7 +7,8 @@ import pytest
 
 from app.config import Config
 from app.llm import LLMClient, LLMError, OllamaNotAvailableError
-from app.summarizer import create_text_summary_from_chunks
+from app.summarizer import create_structured_summary_from_chunks, create_text_summary_from_chunks
+from app.schemas import StructuredSummary
 
 
 class TestCreateTextSummaryFromChunks:
@@ -457,4 +458,78 @@ class TestRealLLMIntegration:
         # This is a simple check that citations are properly formatted
         assert "source:" in summary.lower() or "- Source:" in summary, \
             "Summary should include 'Source:' labels for citations"
+
+
+class TestValidationRetryWithFeedback:
+    """Tests for validation error retry with feedback mechanism."""
+
+    def test_validation_retry_on_invalid_structure(self, sample_chunks, mock_llm_client):
+        """Test that validation errors trigger retry with error feedback."""
+        from app.summarizer import create_structured_summary_from_chunks
+        from app.schemas import StructuredSummary
+        
+        # First call: invalid structure - patient_snapshot is not a list
+        invalid_response_1 = {
+            "patient_snapshot": "not a list",  # Should be a list
+            "key_problems": [],
+            "pertinent_history": [],
+            "medicines_allergies": [],
+            "objective_findings": [],
+            "labs_imaging": [],
+            "assessment": [],
+        }
+        
+        # Second call: valid response after feedback
+        valid_response = {
+            "patient_snapshot": [
+                {"text": "Test patient", "source": "chunk_0:10-50"}
+            ],
+            "key_problems": [],
+            "pertinent_history": [],
+            "medicines_allergies": [],
+            "objective_findings": [],
+            "labs_imaging": [],
+            "assessment": [],
+        }
+        
+        # Mock LLM to return invalid first, then valid
+        mock_llm_client.call = MagicMock(side_effect=[invalid_response_1, valid_response])
+        
+        # Should succeed after retry
+        summary = create_structured_summary_from_chunks(sample_chunks, mock_llm_client)
+        
+        # Verify it was called twice (initial + retry)
+        assert mock_llm_client.call.call_count == 2
+        
+        # Verify second call includes error feedback
+        second_call_prompt = mock_llm_client.call.call_args_list[1][0][0]
+        assert "ERROR" in second_call_prompt or "validation" in second_call_prompt.lower()
+        
+        # Verify result is valid
+        assert isinstance(summary, StructuredSummary)
+        assert len(summary.patient_snapshot) == 1
+
+    def test_validation_fails_after_max_retries(self, sample_chunks, mock_llm_client):
+        """Test that validation errors raise exception after max retries."""
+        from app.summarizer import create_structured_summary_from_chunks
+        
+        # Always return invalid response (wrong type for section)
+        invalid_response = {
+            "patient_snapshot": "not a list",  # Should be a list - cleaning can't fix this
+            "key_problems": [],
+            "pertinent_history": [],
+            "medicines_allergies": [],
+            "objective_findings": [],
+            "labs_imaging": [],
+            "assessment": [],
+        }
+        
+        mock_llm_client.call = MagicMock(return_value=invalid_response)
+        
+        # Should raise ValueError after max retries (2 attempts)
+        with pytest.raises(ValueError, match="Could not parse LLM response as StructuredSummary"):
+            create_structured_summary_from_chunks(sample_chunks, mock_llm_client)
+        
+        # Should have been called max_validation_retries times (2)
+        assert mock_llm_client.call.call_count == 2
 

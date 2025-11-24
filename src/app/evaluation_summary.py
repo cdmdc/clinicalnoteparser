@@ -166,7 +166,7 @@ def generate_evaluation_summary(
         if sem_acc and sem_acc.get("average_similarity") is not None:
             semantic_similarity.append(sem_acc["average_similarity"])
         
-        # Section mismatches
+        # Section mismatches (no longer tracked since citations only use chunk_id, no section titles)
         section_mismatches = eval_data.get("section_name_mismatches", {})
         section_mismatches_total.append(section_mismatches.get("total", 0))
         
@@ -514,11 +514,11 @@ def save_text_summary(summary: Dict, output_path: Path) -> None:
         lines.append(f"Min: {conf['min']:.2f}, Max: {conf['max']:.2f}")
         lines.append("")
     
-    # Section Mismatches
-    lines.append("SECTION NAME MISMATCHES")
+    # Section Mismatches (no longer tracked since citations only use chunk_id, no section titles)
+    lines.append("SECTION NAME MISMATCHES (deprecated - always 0)")
     lines.append("-" * 80)
     section = summary["section_name_mismatches"]["total"]
-    if section['mean'] is not None:
+    if section.get('mean') is not None:
         lines.append(f"Mean: {section['mean']:.2f}")
         lines.append(f"Median: {section['median']:.2f}")
         lines.append(f"Min: {section['min']:.0f}, Max: {section['max']:.0f}")

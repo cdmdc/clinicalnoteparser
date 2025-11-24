@@ -39,7 +39,6 @@ High-level overview of who the patient is and why they are being seen.
 
 - **Include:** age, sex/gender, reason for visit/referral, one-sentence context for the encounter.
 - **Do not include:** detailed history, exam, labs, or plan.
-- **Primary source:** Look for this information primarily in chunks with section_title "Overview" (often chunk_0).
 
 ### key_problems
 Active clinical problems and current symptoms driving the encounter.
@@ -74,8 +73,8 @@ Diagnostic investigations and their results.
 ### assessment
 Clinician's interpretation and plan.
 
-- **Include:** Prioritize treatment plans/recommendations, referrals, follow-ups, and planned investigations. Explicitly include any medications or treatments prescribed.
-- **Primary source:** Look for this information **PRIMARILY in chunks with section_title "RECOMMENDATIONS"**.
+- **Include:** diagnostic impressions, problem prioritization, treatment recommendations, referrals, planned investigations, follow-up, administrative/insurance steps.
+- **Exclude:** new raw data, medication lists, and exam/lab details.
 
 ## 3. Extraction Behavior
 

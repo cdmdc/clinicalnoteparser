@@ -5,7 +5,13 @@ import logging
 from pathlib import Path
 from typing import List, Optional
 
-from app.llm import LLMClient
+try:
+    from pydantic import ValidationError
+except ImportError:
+    # Fallback for older Pydantic versions
+    ValidationError = ValueError
+
+from app.llm import LLMClient, LLMError
 from app.schemas import PlanRecommendation, StructuredPlan, StructuredSummary
 from app.summarizer import format_structured_summary_as_text
 
@@ -104,6 +110,115 @@ def _clean_plan_response(response: dict) -> dict:
     return cleaned
 
 
+def _validate_plan_citations_against_summary(
+    response: dict, 
+    structured_summary: Optional[StructuredSummary]
+) -> List[str]:
+    """Validate plan citations against summary's citation section names.
+    
+    Plan recommendations should cite sections that exist in the summary.
+    This validates that cited section names match those used in the summary.
+    
+    Args:
+        response: LLM plan response dictionary with citations
+        structured_summary: StructuredSummary object to validate against
+        
+    Returns:
+        List[str]: List of error messages for citation mismatches
+    """
+    from app.evaluation import parse_citation_from_text
+    
+    errors = []
+    
+    if structured_summary is None:
+        return errors  # Can't validate without summary
+    
+    # Extract all valid section names from summary citations
+    valid_section_names = set()
+    for section_items in [
+        structured_summary.patient_snapshot,
+        structured_summary.key_problems,
+        structured_summary.pertinent_history,
+        structured_summary.medicines_allergies,
+        structured_summary.objective_findings,
+        structured_summary.labs_imaging,
+        structured_summary.assessment,
+    ]:
+        for item in section_items:
+            # Parse citation to extract section name
+            citation_info = parse_citation_from_text(item.source)
+            if citation_info:
+                chunk_id, start_char, end_char, section_name = citation_info
+                if section_name:
+                    valid_section_names.add(section_name.upper())
+    
+    # Validate plan recommendations' citations
+    if "recommendations" in response and isinstance(response["recommendations"], list):
+        for rec in response["recommendations"]:
+            if not isinstance(rec, dict) or "source" not in rec:
+                continue
+                
+            source = rec.get("source", "")
+            if not isinstance(source, str) or not source.strip():
+                continue
+            
+            # Parse citation
+            citation_info = parse_citation_from_text(source)
+            if citation_info is None:
+                continue
+                
+            chunk_id, start_char, end_char, cited_section_name = citation_info
+            
+            # Check if cited section name exists in summary
+            if cited_section_name and cited_section_name.upper() not in valid_section_names:
+                errors.append(
+                    f"Plan recommendation cites section '{cited_section_name}' "
+                    f"which does not exist in the summary. Valid sections: {', '.join(sorted(valid_section_names)[:5])}..."
+                )
+    
+    return errors
+
+
+def _extract_validation_errors(error: Exception) -> str:
+    """Extract concise, actionable error messages from Pydantic ValidationError.
+    
+    Args:
+        error: Exception (typically ValidationError or ValueError)
+        
+    Returns:
+        str: Concise error message with actionable feedback
+    """
+    # Check if it's a Pydantic ValidationError
+    if hasattr(error, 'errors') and callable(error.errors):
+        try:
+            errors = error.errors()
+            error_messages = []
+            # Limit to first 3 errors to keep feedback concise
+            for err in errors[:3]:
+                field_path = '.'.join(str(x) for x in err.get('loc', []))
+                msg = err.get('msg', 'Unknown error')
+                error_type = err.get('type', '')
+                
+                # Format error message
+                if field_path:
+                    error_messages.append(f"{field_path}: {msg}")
+                else:
+                    error_messages.append(f"{msg}")
+            
+            if error_messages:
+                return "; ".join(error_messages)
+        except Exception:
+            # If error.errors() fails, fall back to string representation
+            pass
+    
+    # Fallback: use string representation, truncated
+    error_str = str(error)
+    # Truncate long error messages
+    if len(error_str) > 300:
+        return error_str[:300] + "..."
+    return error_str
+
+
 def create_treatment_plan_from_summary(
     summary_text: str,
     llm_client: LLMClient,
@@ -179,30 +294,67 @@ For each recommendation, include:
 
 Order recommendations by clinical urgency, evidence strength, and logical sequence."""
 
-    # Call LLM - request JSON output (return_text=False will parse JSON)
-    response = llm_client.call(prompt, logger_instance=logger, return_text=False)
-
-    # Response should be a dict when return_text=False
-    if isinstance(response, dict):
-        # Clean up response: fix invalid or missing fields
-        response = _clean_plan_response(response)
-        try:
-            return StructuredPlan(**response)
-        except Exception as e:
-            raise ValueError(f"Could not parse LLM response as StructuredPlan: {e}. Response: {response}") from e
-
-    # Fallback: try to parse as string
-    if isinstance(response, str):
-        try:
-            data = json.loads(response)
-            # Clean up response: fix invalid or missing fields
-            if isinstance(data, dict):
-                data = _clean_plan_response(data)
-            return StructuredPlan(**data)
-        except (json.JSONDecodeError, ValueError) as e:
-            raise ValueError(f"Could not parse LLM response as StructuredPlan: {e}") from e
+    # Call LLM with validation retry wrapper
+    # Try with existing cleaning function first, retry with feedback on validation errors
+    current_prompt = prompt
+    max_validation_retries = 1  # Limit validation retries to avoid token waste
     
-    raise ValueError(f"Unexpected response type from LLM: {type(response)}")
+    for validation_attempt in range(1, max_validation_retries + 1):
+        try:
+            # Call LLM - request JSON output (return_text=False will parse JSON)
+            response = llm_client.call(current_prompt, logger_instance=logger, return_text=False)
+
+            # Response should be a dict when return_text=False
+            if isinstance(response, dict):
+                # Clean up response: fix invalid or missing fields
+                cleaned_response = _clean_plan_response(response)
+                
+                try:
+                    structured_plan = StructuredPlan(**cleaned_response)
+                    # Success - return the structured plan
+                    return structured_plan
+                    
+                except (ValueError, ValidationError) as e:
+                    if validation_attempt < max_validation_retries:
+                        # Extract actionable error info from Pydantic
+                        error_msg = _extract_validation_errors(e)
+                        
+                        logger.warning(f"Validation failed (attempt {validation_attempt}/{max_validation_retries}): {error_msg[:200]}...")
+                        logger.info("Retrying with validation error feedback...")
+                        
+                        # Append error feedback to prompt
+                        current_prompt = f"{prompt}\n\nERROR: The previous response failed validation. Please fix the following issues:\n{error_msg}\n\nPlease provide a corrected JSON response that addresses all validation errors."
+                        continue  # Retry with feedback
+                    else:
+                        raise ValueError(f"Could not parse LLM response as StructuredPlan: {e}. Response: {cleaned_response}") from e
+
+            # Fallback: try to parse as string
+            if isinstance(response, str):
+                try:
+                    data = json.loads(response)
+                    # Clean up response: fix invalid or missing fields
+                    if isinstance(data, dict):
+                        data = _clean_plan_response(data)
+                        structured_plan = StructuredPlan(**data)
+                        return structured_plan
+                    else:
+                        raise ValueError(f"Expected dict, got {type(data)}")
+                except (json.JSONDecodeError, ValueError, ValidationError) as e:
+                    if validation_attempt < max_validation_retries:
+                        error_msg = _extract_validation_errors(e)
+                        
+                        
+                        logger.warning(f"Validation failed (attempt {validation_attempt}/{max_validation_retries}): {error_msg[:200]}...")
+                        logger.info("Retrying with validation error feedback...")
+                        current_prompt = f"{prompt}\n\nERROR: The previous response failed validation. Please fix the following issues:\n{error_msg}\n\nPlease provide a corrected JSON response that addresses all validation errors."
+                        continue
+                    raise ValueError(f"Could not parse LLM response as StructuredPlan: {e}") from e
+            
+            raise ValueError(f"Unexpected response type from LLM: {type(response)}")
+            
+        except LLMError:
+            # LLM call failed (network/parsing errors) - don't retry validation, re-raise
+            raise
 
 
 def save_plan(structured_plan: StructuredPlan, output_path: Path) -> None:

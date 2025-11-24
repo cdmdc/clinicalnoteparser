@@ -37,7 +37,8 @@ def parse_citation_from_text(citation_text: str) -> Optional[Tuple[str, Optional
     """Parse citation from text format.
     
     Handles formats like:
-    - "chunk_0:123-456"
+    - "EXTERNAL EXAMINATION section, chunk_3:1203-2603" (new format with section name)
+    - "chunk_0:123-456" (old format without section name)
     - "Overview, chunk_0"
     - "ASSESSMENT, chunk_5"
     - "HISTORY section, chunk_1:215-220"
@@ -58,8 +59,20 @@ def parse_citation_from_text(citation_text: str) -> Optional[Tuple[str, Optional
         return None
     
     # Extract section name if present (before chunk reference)
-    # Patterns: "SECTION_NAME, chunk_X", "SECTION_NAME section, chunk_X", "SECTION_NAME (chunk_X)"
+    # Patterns: "SECTION_NAME section, chunk_X:Y-Z" or "[SECTION_NAME] section, chunk_X:Y-Z" (new format)
+    #           "SECTION_NAME, chunk_X", "SECTION_NAME section, chunk_X", "SECTION_NAME (chunk_X)" (old formats)
     section_name = None
+    # Try new format first: "SECTION_NAME section, chunk_X:Y-Z" or "[SECTION_NAME] section, chunk_X:Y-Z"
+    # Accept brackets around section name: [SECTION_NAME] or just SECTION_NAME
+    new_format_match = re.match(r'^\[?([A-Z][A-Z\s\-\-]+?)\]?\s+section,\s+chunk_(\d+)(?::(\d+)-(\d+))?', citation_text)
+    if new_format_match:
+        section_name = new_format_match.group(1).strip()
+        chunk_id = f"chunk_{new_format_match.group(2)}"
+        start_char = int(new_format_match.group(3)) if new_format_match.group(3) else None
+        end_char = int(new_format_match.group(4)) if new_format_match.group(4) else None
+        return (chunk_id, start_char, end_char, section_name)
+    
+    # Try old formats: "SECTION_NAME, chunk_X", "SECTION_NAME section, chunk_X", "SECTION_NAME (chunk_X)"
     section_match = re.search(r'^([A-Z][A-Z\s]+?)(?:\s+section)?[,\(]', citation_text)
     if section_match:
         section_name = section_match.group(1).strip()
@@ -673,6 +686,7 @@ def evaluate_summary_and_plan(
     total_citations = 0
     
     # Track new validation metrics separately for summary and plan
+    # Note: Section name mismatches are no longer tracked since citations only use chunk_id (no section titles)
     summary_section_mismatches = 0
     summary_span_out_of_bounds = 0
     plan_section_mismatches = 0
@@ -688,11 +702,8 @@ def evaluate_summary_and_plan(
             if chunk_id in chunk_map:
                 chunk = chunk_map[chunk_id]
                 
-                # Validate section name if provided
-                if section_name is not None:
-                    if not validate_section_name(section_name, chunk.section_title):
-                        summary_section_mismatches += 1
-                        citation_invalid = True
+                # Note: Section name validation is no longer performed since citations only use chunk_id
+                # Citations now use format: "chunk_id:start_char-end_char" (no section title)
                 
                 # Validate span bounds within chunk if spans provided
                 # Note: spans in citations are GLOBAL, not local to chunk
@@ -725,11 +736,8 @@ def evaluate_summary_and_plan(
             if chunk_id in chunk_map:
                 chunk = chunk_map[chunk_id]
                 
-                # Validate section name if provided
-                if section_name is not None:
-                    if not validate_section_name(section_name, chunk.section_title):
-                        plan_section_mismatches += 1
-                        citation_invalid = True
+                # Note: Section name validation is no longer performed since citations only use chunk_id
+                # Citations now use format: "chunk_id:start_char-end_char" (no section title)
                 
                 # Validate span bounds within chunk if spans provided
                 # Note: spans in citations are GLOBAL, not local to chunk
