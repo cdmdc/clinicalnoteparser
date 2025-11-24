@@ -1,0 +1,81 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nBariatrics\n \nSample Name:\nÂ Bariatric Consult - Surgical Weight Loss - 1\nDescription:\nÂ Evaluation for elective surgical weight loss via the gastric bypass as opposed to Lap-Band. \n(Medical Transcription Sample Report)\nABC was seen in my office for evaluation for elective surgical weight loss on October 6, 2008. ABC is a 34-year-old female with a BMI of 43.\nShe is 5'6\" tall and weighs 267 pounds. She is motivated to attempt surgical weight loss because she has been overweight for over 20 years and\nwants to have more energy and improve her self-image. She is not only affected physically, but also socially by her weight. When she loses weight\nshe always regains it and she always gains back more weight than she has lost. At one time, she lost 100 pounds and gained the weight back within\na year. She has tried numerous commercial weight loss programs including Weight Watcher's for four months in 1992 with 15-pound weight loss,\nRS for two months in 1990 with six-pound weight loss, Slim Fast for six weeks in 2004 with eight-pound weight loss, an exercise program for two\nmonths in 2007 with a five-pound weight loss, Atkin's Diet for three months in 2008 with a ten-pound weight loss, and Dexatrim for one month in\n2005 with a five-pound weight loss. She has also tried numerous fat reduction or fad diets. She was on Redux for nine months with a 100-pound\nweight loss.",
+      "start_char": 0,
+      "end_char": 1398,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "PAST MEDICAL HISTORY: \nShe has a history of hypertension and shortness of breath.",
+      "start_char": 1398,
+      "end_char": 1480,
+      "section_title": "PAST MEDICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "PAST SURGICAL HISTORY: \nPertinent for cholecystectomy.",
+      "start_char": 1480,
+      "end_char": 1535,
+      "section_title": "PAST SURGICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "PSYCHOLOGICAL HISTORY: \nNegative.",
+      "start_char": 1535,
+      "end_char": 1569,
+      "section_title": "PSYCHOLOGICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "SOCIAL HISTORY: \nShe is single. She drinks alcohol once a week. She does not smoke.",
+      "start_char": 1569,
+      "end_char": 1653,
+      "section_title": "SOCIAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "FAMILY HISTORY: \nPertinent for obesity and hypertension.",
+      "start_char": 1653,
+      "end_char": 1710,
+      "section_title": "FAMILY HISTORY"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "MEDICATIONS: \nInclude Topamax 100 mg twice daily, Zoloft 100 mg twice daily, Abilify 5 mg daily, Motrin 800 mg daily, and a multivitamin.",
+      "start_char": 1710,
+      "end_char": 1848,
+      "section_title": "MEDICATIONS"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "ALLERGIES: \nShe has no known drug allergies.",
+      "start_char": 1848,
+      "end_char": 1893,
+      "section_title": "ALLERGIES"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "REVIEW OF SYSTEMS: \nNegative.",
+      "start_char": 1893,
+      "end_char": 1923,
+      "section_title": "REVIEW OF SYSTEMS"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "PHYSICAL EXAM: \nThis is a pleasant female in no acute distress. Alert and oriented x 3. HEENT: Normocephalic, atraumatic. Extraocular\nmuscles intact, nonicteric sclerae. Chest is clear to auscultation bilaterally. Cardiovascular is normal sinus rhythm. Abdomen is obese, soft,\nnontender and nondistended. Extremities show no edema, clubbing or cyanosis.",
+      "start_char": 1923,
+      "end_char": 2277,
+      "section_title": "PHYSICAL EXAM"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "text": "ASSESSMENT/PLAN: \nThis is a 34-year-old female with a BMI of 43 who is interested in surgical weight via the gastric bypass as opposed to\nLap-Band. ABC will be asking for a letter of medical necessity from Dr. XYZ. She will also see my nutritionist and social worker and have an\nupper endoscopy. Once this is completed, we will submit her to her insurance company for approval.",
+      "start_char": 2277,
+      "end_char": 2654,
+      "section_title": "ASSESSMENT/PLAN"
+    }
+  ]
+}

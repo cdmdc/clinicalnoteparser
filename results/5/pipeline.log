@@ -1,0 +1,143 @@
+2025-11-24 15:33:28 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/5/pipeline.log, level=DEBUG
+2025-11-24 15:33:28 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/5.pdf
+2025-11-24 15:33:28 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/5
+2025-11-24 15:33:28 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-24 15:33:28 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-24 15:33:28 - app.pipeline - INFO - [STEP 1] Ingesting document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/5.pdf
+2025-11-24 15:33:28 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/5.pdf
+2025-11-24 15:33:29 - app.ingestion - WARNING - Page 2 has no extractable text
+2025-11-24 15:33:29 - app.ingestion - INFO - Ingested document: 4670 characters, 2 pages, note_id: 5
+2025-11-24 15:33:29 - app.pipeline - INFO - ✓ Ingested: 4670 chars, 2 pages, note_id: 5
+2025-11-24 15:33:29 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/5/canonical_text.txt
+2025-11-24 15:33:29 - app.pipeline - INFO - [STEP 2/6] Detecting sections...
+2025-11-24 15:33:29 - app.sections - INFO - Overview section detected: end=211, title=Overview
+2025-11-24 15:33:29 - app.sections - INFO - Found 8 section headers (after empty lines, all-caps): ['SUBJECTIVE', 'REVIEW OF SYSTEMS', 'PAST MEDICAL HISTORY', 'SOCIAL HISTORY', 'MEDICATIONS', 'ALLERGIES', 'OBJECTIVE', 'ASSESSMENT/PLAN']
+2025-11-24 15:33:29 - app.sections - INFO - Found 8 potential section headers
+2025-11-24 15:33:29 - app.sections - INFO - Detected 9 sections: ['Overview', 'SUBJECTIVE', 'REVIEW OF SYSTEMS', 'PAST MEDICAL HISTORY', 'SOCIAL HISTORY', 'MEDICATIONS', 'ALLERGIES', 'OBJECTIVE', 'ASSESSMENT/PLAN']
+2025-11-24 15:33:29 - app.pipeline - INFO - ✓ Detected 9 sections
+2025-11-24 15:33:29 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-211)
+2025-11-24 15:33:29 - app.pipeline - INFO -   2. SUBJECTIVE (pages 1-1, chars 211-1579)
+2025-11-24 15:33:29 - app.pipeline - INFO -   3. REVIEW OF SYSTEMS (pages 1-1, chars 1579-1891)
+2025-11-24 15:33:29 - app.pipeline - INFO -   4. PAST MEDICAL HISTORY (pages 1-1, chars 1891-1980)
+2025-11-24 15:33:29 - app.pipeline - INFO -   5. SOCIAL HISTORY (pages 1-1, chars 1980-2033)
+2025-11-24 15:33:29 - app.pipeline - INFO -   6. MEDICATIONS (pages 1-1, chars 2033-2070)
+2025-11-24 15:33:29 - app.pipeline - INFO -   7. ALLERGIES (pages 1-1, chars 2070-2089)
+2025-11-24 15:33:29 - app.pipeline - INFO -   8. OBJECTIVE (pages 1-1, chars 2089-3415)
+2025-11-24 15:33:29 - app.pipeline - INFO -   9. ASSESSMENT/PLAN (pages 1-2, chars 3415-4670)
+2025-11-24 15:33:29 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/5/toc.json with 9 sections
+2025-11-24 15:33:29 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/5/toc.json
+2025-11-24 15:33:29 - app.pipeline - INFO - [STEP 3/6] Creating chunks...
+2025-11-24 15:33:29 - app.chunks - INFO - Created 9 chunks from 9 sections
+2025-11-24 15:33:29 - app.pipeline - INFO - ✓ Created 9 chunks
+2025-11-24 15:33:29 - app.chunks - INFO - Saved 9 chunks to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/5/chunks.json
+2025-11-24 15:33:29 - app.pipeline - INFO - ✓ Saved chunks to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/5/chunks.json
+2025-11-24 15:33:29 - app.pipeline - INFO - Initializing LLM client...
+2025-11-24 15:33:29 - app.llm - INFO - ✓ Apple Silicon detected - MPS environment variables set for Ollama
+2025-11-24 15:33:29 - app.llm - DEBUG - Note: Install PyTorch for MPS availability verification
+2025-11-24 15:33:29 - app.llm - INFO - LLM client configured for GPU acceleration (MPS)
+2025-11-24 15:33:29 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-24 15:33:29 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-24 15:33:29 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-24 15:33:29 - app.pipeline - INFO -   Processing 9 chunks at once...
+2025-11-24 15:33:29 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-24 15:33:29 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+## SYSTEM ROLE
+
+You are a medical documentation extraction assistant.
+
+Your job is to extract only information that is explicitly present in the provided chunks of a clinical no...
+2025-11-24 15:33:29 - httpcore.connection - DEBUG - connect_tcp.started host='localhost' port=11434 local_address=None timeout=None socket_options=None
+2025-11-24 15:33:29 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10f640750>
+2025-11-24 15:33:29 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-24 15:33:29 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-24 15:33:29 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-24 15:33:29 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-24 15:33:29 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-24 15:33:31 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Mon, 24 Nov 2025 20:33:31 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-24 15:33:31 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-24 15:33:31 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-24 15:33:40 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-24 15:33:40 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-24 15:33:40 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-24 15:33:40 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "RAST allergy testing was ordered for food allergy evaluation.",
+      "source": "[RECOMMENDATIONS] section, chunk_3:996-1124",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "The patient will follow up after RAST allergy testing for further treatment recommendations.",
+      "source": "[RECOMMENDATIONS] section, chunk_3:1125-1270",
+      "con...
+2025-11-24 15:33:40 - app.planner - INFO - LLM call succeeded (attempt 1, 36.55s)
+2025-11-24 15:33:40 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "RAST allergy testing was ordered for food allergy evaluation.",
+      "source": "[RECOMMENDATIONS] section, chunk_3:996-1124",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "The patient will follow up after RAST allergy testing for further treatment recommendations.",
+      "source": "[RECOMMENDATIONS] section, chunk_3:1125-1270",
+      "confidence"...
+2025-11-24 15:33:40 - app.pipeline - INFO - ✓ Generated structured plan with 3 prioritized recommendations
+2025-11-24 15:33:40 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/4/plan.json
+2025-11-24 15:33:40 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/4/plan.json
+2025-11-24 15:33:40 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-24 15:33:40 - app.evaluation - INFO - Evaluating semantic accuracy of plan recommendations using Ollama embeddings...
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:33:40 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:33:40 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/4/evaluation.json
+2025-11-24 15:33:40 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/4/evaluation.json
+2025-11-24 15:33:40 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-24 15:33:40 - app.pipeline - INFO - Citation Coverage:
+2025-11-24 15:33:40 - app.pipeline - INFO -   Summary: 100.0% (17/17)
+2025-11-24 15:33:40 - app.pipeline - INFO -   Plan: 100.0% (3/3)
+2025-11-24 15:33:40 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-24 15:33:40 - app.pipeline - INFO - 
+Citation Validity: 35.0% (7/20)
+2025-11-24 15:33:40 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/20 orphan claims)
+2025-11-24 15:33:40 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.0158 (avg, 190 pairs, range: 0.0000-1.0000)
+2025-11-24 15:33:40 - app.pipeline - INFO - 
+Span Consistency: 100.0% (20/20)
+2025-11-24 15:33:40 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-24 15:33:40 - app.pipeline - INFO -   Total facts: 17
+2025-11-24 15:33:40 - app.pipeline - INFO -   Total recommendations: 3
+2025-11-24 15:33:40 - app.pipeline - INFO -   Average confidence: 0.90
+2025-11-24 15:33:40 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-24 15:33:40 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/4
+2025-11-24 15:33:40 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-24 15:33:40 - app.pipeline - INFO -   - toc.json
+2025-11-24 15:33:40 - app.pipeline - INFO -   - chunks.json
+2025-11-24 15:33:40 - app.pipeline - INFO -   - summary.json
+2025-11-24 15:33:40 - app.pipeline - INFO -   - plan.json
+2025-11-24 15:33:40 - app.pipeline - INFO -   - evaluation.json
+2025-11-24 15:33:40 - app.pipeline - INFO -   - pipeline.log
+2025-11-24 15:33:40 - root - INFO - [5/21] ✓ 4.pdf
+2025-11-24 15:33:40 - app.pipeline - INFO - Checking Ollama availability...
+2025-11-24 15:33:41 - app.pipeline - INFO - ✓ Ollama is available

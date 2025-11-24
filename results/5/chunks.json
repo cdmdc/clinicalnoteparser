@@ -1,0 +1,67 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAllergy / Immunology\n \nSample Name:\nÂ Followup on Asthma\nDescription:\nÂ A female for a complete physical and follow up on asthma with allergic rhinitis. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 211,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "SUBJECTIVE: \nThis is a 42-year-old white female who comes in today for a complete physical and follow up on asthma. She says her asthma\nhas been worse over the last three months. She has been using her inhaler daily. Her allergies seem to be a little bit worse as well. Her husband has\nbeen hauling corn and this seems to aggravate things. She has not been taking Allegra daily but when she does take it, it seems to help somewhat.\nShe has not been taking her Flonase which has helped her in the past. She also notes that in the past she was on Advair but she got some vaginal\nirritation with that.\nShe had been noticing increasing symptoms of irritability and PMS around her menstrual cycle. She has been more impatient around that time.\nSays otherwise her mood is normal during the rest of the month. It usually is worse the week before her cycle and improves the day her menstrual\ncycle starts. Menses have been regular but somewhat shorter than in the past. Occasionally she will get some spotting after her cycles. She denies\nany hot flashes or night sweats with this. In reviewing the chart it is noted that she did have 3+ blood with what appeared to be a urinary tract\ninfection previously. Her urine has not been rechecked. She recently had lab work and cholesterol drawn for a life insurance application and is\ngoing to send me those results when available.",
+      "start_char": 211,
+      "end_char": 1579,
+      "section_title": "SUBJECTIVE"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "REVIEW OF SYSTEMS: \nAs above. No fevers, no headaches, no shortness of breath currently. No chest pain or tightness. No abdominal pain,\nno heartburn, no constipation, diarrhea or dysuria. Occasional stress incontinence. No muscle or joint pain. No concerns about her skin. No\npolyphagia, polydipsia or polyuria.",
+      "start_char": 1579,
+      "end_char": 1891,
+      "section_title": "REVIEW OF SYSTEMS"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "PAST MEDICAL HISTORY: \nSignificant for asthma, allergic rhinitis and cervical dysplasia.",
+      "start_char": 1891,
+      "end_char": 1980,
+      "section_title": "PAST MEDICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "SOCIAL HISTORY: \nShe is married. She is a nonsmoker.",
+      "start_char": 1980,
+      "end_char": 2033,
+      "section_title": "SOCIAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "MEDICATIONS: \nProventil and Allegra.",
+      "start_char": 2033,
+      "end_char": 2070,
+      "section_title": "MEDICATIONS"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "ALLERGIES: \nSulfa.",
+      "start_char": 2070,
+      "end_char": 2089,
+      "section_title": "ALLERGIES"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "OBJECTIVE:\nVital signs: Her weight is 151 pounds. Blood pressure is 110/60. Pulse is 72. Temperature is 97.1 degrees. Respirations are 20.\nGeneral: This is a well-developed, well-nourished 42-year-old white female, alert and oriented in no acute distress. Affect is appropriate and is\npleasant.\nHEENT: Normocephalic, atraumatic. Tympanic membranes are clear. Conjunctivae are clear. Pupils are equal, round and reactive to light. Nares\nwithout turbinate edema. Oropharynx is nonerythematous.\nNeck: Supple without lymphadenopathy, thyromegaly, carotid bruit or JVD.\nChest: Clear to auscultation bilaterally.\nCardiovascular: Regular rate and rhythm without murmur.\nAbdomen: Soft, nontender, nondistended. Normoactive bowel sounds. No masses or organomegaly to palpation.\nExtremities: Without cyanosis or edema.\nSkin: Without abnormalities.\nBreasts: Normal symmetrical breasts without dimpling or retraction. No nipple discharge. No masses or lesions to palpation. No axillary masses or\nlymphadenopathy.\nGenitourinary: Normal external genitalia. The walls of the vaginal vault are visualized with normal pink rugae with no lesions noted. Cervix is\nvisualized without lesion. She has a moderate amount of thick white/yellow vaginal discharge in the vaginal vault. No cervical motion tenderness.\nNo adnexal tenderness or fullness.",
+      "start_char": 2089,
+      "end_char": 3415,
+      "section_title": "OBJECTIVE"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "ASSESSMENT/PLAN:\n1. Asthma. Seems to be worse than in the past. She is just using her Proventil inhaler but is using it daily. We will add Flovent 44 mcg two puffs\np.o. b.i.d. May need to increase the dose. She did get some vaginal irritation with Advair in the past but she is willing to retry that if it is necessary.\nMay also need to consider Singulair. She is to call me if she is not improving. If her shortness of breath worsens she is to call me or go into the\nemergency department. We will plan on following up for reevaluation in one month.\n2. Allergic rhinitis. We will plan on restarting Allegra and Flonase daily for the time being.\n3. Premenstrual dysphoric disorder. She may have some perimenopausal symptoms. We will start her on fluoxetine 20 mg one tablet p.o. q.d.\n4. Hematuria. Likely this is secondary to urinary tract infection but we will repeat a UA to document clearing. She does have some frequent\ndysuria but is not having it currently.\n5. Cervical dysplasia. Pap smear is taken. We will notify the patient of results. If normal we will go back to yearly Pap smear. She is scheduled for\nscreening mammogram and instructed on monthly self-breast exam techniques. Recommend she get 1200 mg of calcium and 400 U of vitamin D a\nday.",
+      "start_char": 3415,
+      "end_char": 4670,
+      "section_title": "ASSESSMENT/PLAN"
+    }
+  ]
+}

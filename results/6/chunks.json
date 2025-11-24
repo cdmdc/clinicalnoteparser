@@ -1,0 +1,53 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAllergy / Immunology\n \nSample Name:\nÂ Kawasaki Disease - Discharge Summary\nDescription:\nÂ This is a 14-month-old baby boy Caucasian who came in with presumptive diagnosis of Kawasaki with fever for more\nthan 5 days and conjunctivitis, mild arthritis with edema, rash, resolving and with elevated neutrophils and thrombocytosis, elevated\nCRP and ESR. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 408,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "ADMITTING DIAGNOSIS: \nKawasaki disease.",
+      "start_char": 408,
+      "end_char": 448,
+      "section_title": "ADMITTING DIAGNOSIS"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "DISCHARGE DIAGNOSIS:\n Kawasaki disease, resolving.",
+      "start_char": 448,
+      "end_char": 499,
+      "section_title": "DISCHARGE DIAGNOSIS"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "HOSPITAL COURSE:\n This is a 14-month-old baby boy Caucasian who came in with presumptive diagnosis of Kawasaki with fever for more\nthan 5 days and conjunctivitis, mild arthritis with edema, rash, resolving and with elevated neutrophils and thrombocytosis, elevated CRP and ESR.\nWhen he was sent to the hospital, he had a fever of 102. Subsequently, the patient was evaluated and based on the criteria, he was started on high\ndose of aspirin and IVIG. Echocardiogram was also done, which was negative. IVIG was done x1, and between 12 hours of IVIG, he spiked\nfever again; it was repeated twice, and then after second IVIG, he did not spike any more fever. Today, his fever and his rash have completely\nresolved. He does not have any conjunctivitis and no redness of mucous membranes. He is more calm and quite and taking good p.o.; so with a\nvery close followup and a cardiac followup, he will be sent home.",
+      "start_char": 499,
+      "end_char": 1407,
+      "section_title": "HOSPITAL COURSE"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "DISCHARGE ACTIVITIES:\n Ad-lib.",
+      "start_char": 1407,
+      "end_char": 1438,
+      "section_title": "DISCHARGE ACTIVITIES"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "DISCHARGE DIET: \nPO ad-lib.",
+      "start_char": 1438,
+      "end_char": 1466,
+      "section_title": "DISCHARGE DIET"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "DISCHARGE MEDICATIONS: \nAspirin high dose 340 mg q.6h. for 1 day and then aspirin low dose 40 mg q.d. for 14 days and then\nPrevacid also to prevent his GI from aspirin 15 mg p.o. once a day. He will be followed by his primary doctor in 2 to 3 days. Cardiology for echo\nfollowup in 4 to 6 weeks and instructed not to give any vaccine in less than 11 months because of IVIG, all the live virus vaccine, and if he gets any\nrashes, any fevers, should go to primary care doctor as soon as possible.",
+      "start_char": 1466,
+      "end_char": 1959,
+      "section_title": "DISCHARGE MEDICATIONS"
+    }
+  ]
+}

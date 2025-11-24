@@ -1,0 +1,130 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 149,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "EXTERNAL EXAMINATION",
+      "start_char": 149,
+      "end_char": 2392,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "RADIOGRAPHS",
+      "start_char": 2392,
+      "end_char": 2994,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "INTERNAL EXAMINATION",
+      "start_char": 2994,
+      "end_char": 4231,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CARDIOVASCULAR SYSTEM",
+      "start_char": 4231,
+      "end_char": 4523,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "RESPIRATORY SYSTEM",
+      "start_char": 4523,
+      "end_char": 5321,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "HEMOLYMPHATIC SYSTEM",
+      "start_char": 5321,
+      "end_char": 5709,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "GENITOURINARY SYSTEM",
+      "start_char": 5709,
+      "end_char": 6977,
+      "start_page": 0,
+      "end_page": 1
+    },
+    {
+      "title": "GASTROINTESTINAL SYSTEM",
+      "start_char": 6977,
+      "end_char": 7757,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "HEPATOBILIARY SYSTEM",
+      "start_char": 7757,
+      "end_char": 8283,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "ENDOCRINE SYSTEM",
+      "start_char": 8283,
+      "end_char": 8414,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "MUSCULOSKELETAL SYSTEM",
+      "start_char": 8414,
+      "end_char": 8873,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "NECK",
+      "start_char": 8873,
+      "end_char": 9790,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "CENTRAL NERVOUS SYSTEM",
+      "start_char": 9790,
+      "end_char": 9841,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "MICROSCOPIC EXAMINATION",
+      "start_char": 9841,
+      "end_char": 11038,
+      "start_page": 1,
+      "end_page": 2
+    },
+    {
+      "title": "AUTOPSY FINDINGS",
+      "start_char": 11038,
+      "end_char": 12084,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "CAUSE OF DEATH",
+      "start_char": 12084,
+      "end_char": 12141,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "MANNER OF DEATH",
+      "start_char": 12141,
+      "end_char": 12172,
+      "start_page": 2,
+      "end_page": 2
+    }
+  ]
+}

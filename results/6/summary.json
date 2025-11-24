@@ -1,0 +1,52 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "A 14-month-old baby boy Caucasian",
+      "source": "[Overview] section, chunk_0:0-36"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Kawasaki disease with fever for more than 5 days and conjunctivitis, mild arthritis with edema, rash, resolving and with elevated neutrophils and thrombocytosis, elevated CRP and ESR",
+      "source": "[Overview] section, chunk_0:37-148"
+    },
+    {
+      "text": "Kawasaki disease, resolving",
+      "source": "[DISCHARGE DIAGNOSIS] section, chunk_2:448-499"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Not explicitly stated in the provided chunks.",
+      "source": ""
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Aspirin high dose 340 mg q.6h. for 1 day and then aspirin low dose 40 mg q.d. for 14 days",
+      "source": "[DISCHARGE MEDICATIONS] section, chunk_6:1466-1728"
+    },
+    {
+      "text": "Prevacid also to prevent his GI from aspirin 15 mg p.o. once a day",
+      "source": "[DISCHARGE MEDICATIONS] section, chunk_6:1729-1803"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Not explicitly stated in the provided chunks.",
+      "source": ""
+    }
+  ],
+  "labs_imaging": [
+    {
+      "text": "Echocardiogram was also done, which was negative",
+      "source": "[HOSPITAL COURSE] section, chunk_3:507-528"
+    }
+  ],
+  "assessment": [
+    {
+      "text": "He will be followed by his primary doctor in 2 to 3 days. Cardiology for echo followup in 4 to 6 weeks and instructed not to give any vaccine in less than 11 months because of IVIG, all the live virus vaccine, and if he gets any rashes, any fevers, should go to primary care doctor as soon as possible",
+      "source": "[DISCHARGE ACTIVITIES] section, chunk_4:1407-1438"
+    }
+  ]
+}

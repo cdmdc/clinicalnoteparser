@@ -1,0 +1,47 @@
+{
+  "citation_coverage": {
+    "summary_facts_with_citations": 20,
+    "summary_total_facts": 20,
+    "summary_coverage_percentage": 100.0,
+    "plan_recommendations_with_citations": 3,
+    "plan_total_recommendations": 3,
+    "plan_coverage_percentage": 100.0,
+    "overall_coverage_percentage": 100.0
+  },
+  "citation_validity": {
+    "total_citations_checked": 23,
+    "invalid_citations": 0,
+    "validity_percentage": 100.0
+  },
+  "orphan_claims": {
+    "summary_orphans": 0,
+    "plan_orphans": 0,
+    "total_orphans": 0,
+    "total_claims": 23,
+    "hallucination_rate_percentage": 0.0
+  },
+  "citation_overlap_jaccard": {
+    "total_citation_pairs": 253,
+    "average_jaccard_similarity": 0.0158,
+    "min_jaccard": 0.0,
+    "max_jaccard": 1.0
+  },
+  "span_consistency": {
+    "checks_performed": 23,
+    "checks_passed": 23,
+    "consistency_percentage": 100.0
+  },
+  "summary_statistics": {
+    "total_facts_extracted": 20,
+    "total_recommendations_generated": 3,
+    "average_citations_per_fact": 1.0,
+    "average_citations_per_recommendation": 1.0,
+    "confidence_score_distribution": {
+      "count": 3,
+      "mean": 0.9,
+      "median": 0.9,
+      "min": 0.9,
+      "max": 0.9
+    }
+  }
+}

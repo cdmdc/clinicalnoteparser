@@ -1,0 +1,88 @@
+Here is the structured summary of the clinical note:
+
+**Patient Snapshot**
+A 34-year-old male presents with an acute allergic reaction, etiology uncertain. He has a history of renal failure requiring dialysis and hypertension.
+
+- Source: chunk_1:0-215
+
+**Key Problems**
+
+1. Acute allergic reaction, etiology uncertain
+- Source: chunk_9:3318-3465
+
+2. Renal failure requiring dialysis
+- Source: chunk_9:3318-3465
+
+3. Hypertension
+- Source: chunk_9:3318-3465
+
+**Pertinent History**
+
+1. History of urticaria, renal failure with hypertension, and dialysis times 2 years.
+- Source: chunk_2:1405-1592
+
+2. Family history of heart disease, carcinoma, and food allergies.
+- Source: chunk_4:1668-1800
+
+**Medicines/Allergies**
+
+1. Atenolol for blood pressure control
+- Source: chunk_5:1800-1875
+
+2. Lovaza and Dialyvite (medications)
+- Source: chunk_5:1800-1875
+
+3. Heparin causing thrombocytopenia (allergy)
+- Source: chunk_6:1875-1921
+
+**Objective Findings**
+
+1. Vital signs: age 34, blood pressure 128/78, pulse 70, temperature 97.8, weight 207 pounds, and height 5 feet 7 inches.
+- Source: chunk_8:1969-3318
+
+2. Physical examination: healthy appearing; alert and oriented to person, place, and time; responds appropriately; in no acute distress.
+- Source: chunk_8:1969-3318
+
+**Labs/Imaging**
+
+1. RAST allergy testing for food and environmental allergies
+- Source: chunk_10:3465-4544
+
+2. No lab or imaging results mentioned
+- Source: None documented
+
+**Concise Assessment**
+
+1. Acute allergic reaction, etiology uncertain, however, suspicious for Keflex.
+- Source: chunk_9:3318-3465
+
+2. Renal failure requiring dialysis.
+- Source: chunk_9:3318-3465
+
+3. Hypertension.
+- Source: chunk_9:3318-3465
+
+Treatment/Recommendation:
+
+1. RAST allergy testing for food and environmental allergies
+- Source: chunk_10:3465-4544
+
+2. Avoid specific food or inhalant allergen if found to be high on the sensitivity scale.
+- Source: chunk_10:3465-4544
+
+3. Stop using cephalosporin antibiotics, which may cause allergic reaction.
+- Source: chunk_10:3465-4544
+
+4. Consider atenolol's impact on treating acute anaphylaxis.
+- Source: chunk_10:3465-4544
+
+5. Prescribe EpiPen for emergency use and instruct patient to proceed directly to the emergency room after administration.
+- Source: chunk_10:3465-4544
+
+Important clinical context:
+
+* Patient needs to go to ER after EpiPen use
+* Medication X makes treating condition Y more difficult
+* Being on medication Y complicates treatment of condition Z
+
+- Source: chunk_10:3465-4544

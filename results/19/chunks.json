@@ -1,0 +1,74 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nBariatrics\n \nSample Name:\nÂ Discharge Summary - Gastric Bypass\nDescription:\nÂ Patient suffered from morbid obesity for many years and made multiple attempts at nonsurgical weight loss without\nsuccess. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 259,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "ADMISSION DIAGNOSIS:\n Morbid obesity. BMI is 51.",
+      "start_char": 259,
+      "end_char": 308,
+      "section_title": "ADMISSION DIAGNOSIS"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "DISCHARGE DIAGNOSIS: \nMorbid obesity. BMI is 51.",
+      "start_char": 308,
+      "end_char": 357,
+      "section_title": "DISCHARGE DIAGNOSIS"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "PROCEDURE: \nLaparoscopic gastric bypass.",
+      "start_char": 357,
+      "end_char": 398,
+      "section_title": "PROCEDURE"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "SERVICE: \nSurgery.",
+      "start_char": 398,
+      "end_char": 417,
+      "section_title": "SERVICE"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "CONSULT: \nAnesthesia and pain.",
+      "start_char": 417,
+      "end_char": 448,
+      "section_title": "CONSULT"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "HISTORY OF PRESENT ILLNESS: \nMs. A is a 27-year-old woman, who suffered from morbid obesity for many years. She has made\nmultiple attempts at nonsurgical weight loss without success. She underwent a preoperative workup and clearance for gastric bypass and was\nfound to be an appropriate candidate. She underwent her procedure.",
+      "start_char": 448,
+      "end_char": 775,
+      "section_title": "HISTORY OF PRESENT ILLNESS"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "HOSPITAL COURSE: \nMs. A underwent her procedure. She tolerated without difficulty. She was admitted to the floor post procedure. Her\npostoperative course has been unremarkable. On postoperative day 1, she was hemodynamically stable, afebrile, normal labs, and she was started\non a clear liquid diet, which she has tolerated without difficulty. She has ambulated and had no complaints. Today, on postoperative day 2, the\npatient continues to do well. Pain controlled with p.o. pain medicine, ambulating without difficulty, tolerating a liquid diet. At this point, it is felt that\nshe is stable for discharge. Her drain was discontinued.",
+      "start_char": 775,
+      "end_char": 1411,
+      "section_title": "HOSPITAL COURSE"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "DISCHARGE INSTRUCTIONS:\n Liquid diet x1 week, then advance to pureed and soft as tolerated. No heavy lifting, greater than 10 pounds\nx4 weeks. The patient is instructed to not engage in any strenuous activity, but maintain mobility. No driving for 1 to 2 weeks. She must be able to\nstop in an emergency and be off narcotic pain medicine. She may shower. She needs to keep her wounds clean and dry. She needs to follow up in\nmy office in 1 week for postoperative evaluation. She is instructed to call for any problems of shortness of breath, chest pain, calf pain,\ntemperature greater than 101.5, any redness, swelling, or foul smelling drainage from her wounds, intractable nausea, vomiting, and abdominal\npain. She is instructed just to resume her discharge medications.",
+      "start_char": 1411,
+      "end_char": 2183,
+      "section_title": "DISCHARGE INSTRUCTIONS"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "DISCHARGE MEDICATIONS:\n She was given a scripts for Lortab Elixir, Flexeril, ursodiol, and Colace.",
+      "start_char": 2183,
+      "end_char": 2281,
+      "section_title": "DISCHARGE MEDICATIONS"
+    }
+  ]
+}

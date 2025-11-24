@@ -1,0 +1,95 @@
+{
+  "citation_coverage": {
+    "summary_facts_with_citations": 18,
+    "summary_total_facts": 18,
+    "summary_coverage_percentage": 100.0,
+    "plan_recommendations_with_citations": 4,
+    "plan_total_recommendations": 4,
+    "plan_coverage_percentage": 100.0,
+    "overall_coverage_percentage": 100.0
+  },
+  "citation_validity": {
+    "total_citations_checked": 22,
+    "invalid_citations": 9,
+    "validity_percentage": 59.09
+  },
+  "section_name_mismatches": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "span_out_of_chunk_bounds": {
+    "summary": 9,
+    "plan": 0,
+    "total": 9
+  },
+  "orphan_claims": {
+    "summary_orphans": 0,
+    "plan_orphans": 0,
+    "total_orphans": 0,
+    "total_claims": 22,
+    "hallucination_rate_percentage": 0.0
+  },
+  "citation_overlap_jaccard": {
+    "total_citation_pairs": 231,
+    "average_jaccard_similarity": 0.021,
+    "min_jaccard": 0.0,
+    "max_jaccard": 1.0
+  },
+  "span_consistency": {
+    "checks_performed": 22,
+    "checks_passed": 22,
+    "consistency_percentage": 100.0
+  },
+  "summary_statistics": {
+    "total_facts_extracted": 18,
+    "total_recommendations_generated": 4,
+    "average_citations_per_fact": 1.0,
+    "average_citations_per_recommendation": 1.0,
+    "confidence_score_distribution": {
+      "count": 4,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    }
+  },
+  "semantic_accuracy": {
+    "average_similarity": 0.6759,
+    "well_supported": 2,
+    "poorly_supported": 2,
+    "total_recommendations": 4,
+    "support_rate": 0.5,
+    "similarity_threshold": 0.7,
+    "per_recommendation": [
+      {
+        "number": 1,
+        "similarity_score": 0.7607,
+        "is_supported": true,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "N:\n We will have her undergo routine nutri"
+      },
+      {
+        "number": 2,
+        "similarity_score": 0.5133,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "onal and psychosocial assessment. I suspect that we can significantly i"
+      },
+      {
+        "number": 3,
+        "similarity_score": 0.6848,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "rove\nthe situation with her insulin and oral hypoglycemia, as well"
+      },
+      {
+        "number": 4,
+        "similarity_score": 0.7448,
+        "is_supported": true,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "s hypertension, with significant weight loss. She is otherwise at increased risk for future\ncomplica..."
+      }
+    ]
+  }
+}

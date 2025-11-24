@@ -1,0 +1,64 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "The patient is a 14-year-old female.",
+      "source": "PATIENT SNAPSHOTS section, chunk_0:2-36"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Contusions and hemorrhage in the brain.",
+      "source": "IMPRESSION section, chunk_39:18107-18422"
+    },
+    {
+      "text": "Vaginal wall/hymen with epithelial erosion and birefringent foreign material.",
+      "source": "EVIDENCE section, chunk_41:18422-18826"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Prepubescent age of the patient.",
+      "source": "REPRODUCTIVE ORGANS section, chunk_37:17890-18005"
+    },
+    {
+      "text": "No relevant medical history provided.",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:462-514"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "None documented.",
+      "source": "CURRENT MEDICATIONS section, chunk_9:3087-3106"
+    },
+    {
+      "text": "None documented.",
+      "source": "ALLERGIES section, chunk_10:3254-3273"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Contusions and hemorrhage in the brain identified through examination.",
+      "source": "IMPRESSION section, chunk_39:18107-18422"
+    },
+    {
+      "text": "Epithelial erosion with underlying capillary congestion on vaginal wall/hymen.",
+      "source": "VAGINAL MUCOSA section, chunk_40:18422-18826"
+    }
+  ],
+  "labs_imaging": [
+    {
+      "text": "None documented.",
+      "source": "LABS/IMAGING section, chunk_5:397-405"
+    }
+  ],
+  "assessment": [
+    {
+      "text": "The patient has contusions and hemorrhage in the brain with associated vaginal wall/hymen injuries.",
+      "source": "IMPRESSION section, chunk_39:18107-18422"
+    },
+    {
+      "text": "Recommend further evaluation for potential sexual abuse.",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_42:19270-19565"
+    }
+  ]
+}

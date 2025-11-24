@@ -1,0 +1,107 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "A 34-year-old male",
+      "source": "[OVERVIEW] section, chunk_0:0-21"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Acute allergic reaction, etiology uncertain, however, suspicious for Keflex.",
+      "source": "[IMPRESSION] section, chunk_9:3318-3465"
+    },
+    {
+      "text": "Renal failure requiring dialysis.",
+      "source": "[IMPRESSION] section, chunk_9:3420-3437"
+    },
+    {
+      "text": "Hypertension.",
+      "source": "[IMPRESSION] section, chunk_9:3451-3460"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "History of urticaria.",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_2:1408-1417"
+    },
+    {
+      "text": "History of renal failure with hypertension possible source of renal failure.",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_2:1435-1460"
+    },
+    {
+      "text": "History of dialysis times 2 years.",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_2:1479-1489"
+    },
+    {
+      "text": "History of hypertension.",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_2:1503-1511"
+    },
+    {
+      "text": "PermCath insertion times 3 and peritoneal dialysis.",
+      "source": "[PAST SURGICAL HISTORY] section, chunk_3:1604-1628"
+    },
+    {
+      "text": "Strong for heart disease, carcinoma, and a history of food allergies.",
+      "source": "[FAMILY HISTORY] section, chunk_4:1759-1782"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Heparin causing thrombocytopenia.",
+      "source": "[ALLERGIES] section, chunk_6:1876-1884"
+    },
+    {
+      "text": "Atenolol for blood pressure control.",
+      "source": "[CURRENT MEDICATIONS] section, chunk_5:1803-1812"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Age 34",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:1976-1980"
+    },
+    {
+      "text": "Blood pressure 128/78",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:1984-1993"
+    },
+    {
+      "text": "Pulse 70",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:1996-2000"
+    },
+    {
+      "text": "Temperature is 97.8",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:2003-2009"
+    },
+    {
+      "text": "Weight is 207 pounds",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:2012-2018"
+    },
+    {
+      "text": "Height is 5 feet 7 inches",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:2021-2030"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "RAST allergy testing for both food and environmental allergies was performed.",
+      "source": "[RECOMMENDATIONS] section, chunk_10:3468-3507"
+    },
+    {
+      "text": "If there is any specific food or inhalant allergen that is found to be quite high on the sensitivity scale, we would probably recommend the patient to avoid the offending agent to hold off on any further reactions.",
+      "source": "[RECOMMENDATIONS] section, chunk_10:3529-3648"
+    },
+    {
+      "text": "At this point, I would recommend the patient stopping any further use of cephalosporin antibiotics, which may be the cause of his allergic reaction, and I would consider this an allergy.",
+      "source": "[RECOMMENDATIONS] section, chunk_10:3652-3789"
+    },
+    {
+      "text": "Being on atenolol, the patient has a more difficult time treating acute anaphylaxis, but I do think this is medically necessary at this time and hopefully we can find specific causes for his allergic reactions.",
+      "source": "[RECOMMENDATIONS] section, chunk_10:3792-3896"
+    },
+    {
+      "text": "An EpiPen was also prescribed in the event of acute angioedema or allergic reaction or sensation of impending allergic reaction and he is aware he needs to proceed directly to the emergency room for further evaluation and treatment recommendations after administration of an EpiPen.",
+      "source": "[RECOMMENDATIONS] section, chunk_10:3900-4528"
+    }
+  ]
+}

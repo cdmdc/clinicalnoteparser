@@ -1,0 +1,88 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 272,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "HISTORY",
+      "start_char": 272,
+      "end_char": 1898,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PAST MEDICAL HISTORY",
+      "start_char": 1898,
+      "end_char": 2057,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PAST SURGICAL HISTORY",
+      "start_char": 2057,
+      "end_char": 2146,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "FAMILY HISTORY",
+      "start_char": 2146,
+      "end_char": 2204,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CURRENT MEDICATIONS",
+      "start_char": 2204,
+      "end_char": 2236,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ALLERGIES",
+      "start_char": 2236,
+      "end_char": 2280,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SOCIAL HISTORY",
+      "start_char": 2280,
+      "end_char": 2485,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PHYSICAL EXAMINATION",
+      "start_char": 2485,
+      "end_char": 4085,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PROCEDURE",
+      "start_char": 4085,
+      "end_char": 4230,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "IMPRESSION",
+      "start_char": 4230,
+      "end_char": 4648,
+      "start_page": 0,
+      "end_page": 1
+    },
+    {
+      "title": "RECOMMENDATIONS",
+      "start_char": 4648,
+      "end_char": 5547,
+      "start_page": 1,
+      "end_page": 1
+    }
+  ]
+}

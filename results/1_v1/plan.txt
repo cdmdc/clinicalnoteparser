@@ -1,0 +1,42 @@
+**Prioritized Treatment Plan**
+
+**1. Diagnostics**
+RAST allergy testing for food and environmental allergies
+- Source: chunk_10:3465-4544
+- Confidence: 0.9
+- Risks/Benefits: None identified
+- Hallucination Guard Note: None required (strongly implied in the clinical note)
+
+**2. Therapeutics**
+Avoid specific food or inhalant allergen if found to be high on the sensitivity scale.
+- Source: chunk_10:3465-4544
+- Confidence: 0.8
+- Risks/Benefits: Patient may need to make lifestyle changes, such as avoiding certain foods or environments.
+- Hallucination Guard Note: None required (strongly implied in the clinical note)
+
+Stop using cephalosporin antibiotics, which may cause allergic reaction.
+- Source: chunk_10:3465-4544
+- Confidence: 0.9
+- Risks/Benefits: Patient may need to switch to alternative antibiotics or adjust treatment plan.
+- Hallucination Guard Note: None required (strongly implied in the clinical note)
+
+Prescribe EpiPen for emergency use and instruct patient to proceed directly to the emergency room after administration.
+- Source: chunk_10:3465-4544
+- Confidence: 0.9
+- Risks/Benefits: Patient may need to carry an EpiPen at all times, which requires proper training and education.
+- Hallucination Guard Note: None required (strongly implied in the clinical note)
+
+**3. Follow-ups**
+Monitor patient's response to treatment and adjust as necessary.
+- Source: chunk_10:3465-4544
+- Confidence: 0.8
+- Risks/Benefits: Patient may need to return for follow-up appointments or adjust medication regimen.
+- Hallucination Guard Note: None required (strongly implied in the clinical note)
+
+**Risks/Benefits**
+The patient needs to go to ER after EpiPen use, which requires proper training and education. Medication X makes treating condition Y more difficult, and being on medication Y complicates treatment of condition Z.
+
+- Source: chunk_10:3465-4544
+- Confidence: 0.9
+- Risks/Benefits: Patient may need to adjust treatment plan or seek additional care.
+- Hallucination Guard Note: None required (strongly implied in the clinical note)

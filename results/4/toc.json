@@ -1,0 +1,32 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 257,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "HISTORY",
+      "start_char": 257,
+      "end_char": 631,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "IMPRESSION",
+      "start_char": 631,
+      "end_char": 996,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "RECOMMENDATIONS",
+      "start_char": 996,
+      "end_char": 1355,
+      "start_page": 0,
+      "end_page": 0
+    }
+  ]
+}

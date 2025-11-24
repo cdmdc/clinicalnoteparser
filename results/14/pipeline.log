@@ -1,0 +1,219 @@
+2025-11-24 15:42:32 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/14/pipeline.log, level=DEBUG
+2025-11-24 15:42:32 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/14.pdf
+2025-11-24 15:42:32 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/14
+2025-11-24 15:42:32 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-24 15:42:32 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-24 15:42:32 - app.pipeline - INFO - [STEP 1] Ingesting document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/14.pdf
+2025-11-24 15:42:32 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/14.pdf
+2025-11-24 15:42:33 - app.ingestion - INFO - Ingested document: 8709 characters, 2 pages, note_id: 14
+2025-11-24 15:42:33 - app.pipeline - INFO - ✓ Ingested: 8709 chars, 2 pages, note_id: 14
+2025-11-24 15:42:33 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/14/canonical_text.txt
+2025-11-24 15:42:33 - app.pipeline - INFO - [STEP 2/6] Detecting sections...
+2025-11-24 15:42:33 - app.sections - INFO - Overview section detected: end=209, title=Overview
+2025-11-24 15:42:33 - app.sections - INFO - Found 15 section headers (after empty lines, all-caps): ['SUMMARY OF CLINICAL HISTORY', 'DESCRIPTION OF GROSS LESIONS', 'EXTERNAL EXAMINATION', 'INTERNAL EXAMINATION (BODY CAVITIES)', 'HEART', 'AORTA', 'LUNGS', 'GASTROINTESTINAL SYSTEM', 'RETICULOENDOTHELIAL SYSTEM', 'GENITOURINARY SYSTEM', 'ENDOCRINE SYSTEM', 'EXTREMITIES', 'CLINICOPATHOLOGIC CORRELATION', 'SUMMARY AND REFLECTION', 'REMAINING UNANSWERED QUESTIONS']
+2025-11-24 15:42:33 - app.sections - INFO - Found 15 potential section headers
+2025-11-24 15:42:33 - app.sections - INFO - Detected 16 sections: ['Overview', 'SUMMARY OF CLINICAL HISTORY', 'DESCRIPTION OF GROSS LESIONS', 'EXTERNAL EXAMINATION', 'INTERNAL EXAMINATION (BODY CAVITIES)', 'HEART', 'AORTA', 'LUNGS', 'GASTROINTESTINAL SYSTEM', 'RETICULOENDOTHELIAL SYSTEM', 'GENITOURINARY SYSTEM', 'ENDOCRINE SYSTEM', 'EXTREMITIES', 'CLINICOPATHOLOGIC CORRELATION', 'SUMMARY AND REFLECTION', 'REMAINING UNANSWERED QUESTIONS']
+2025-11-24 15:42:33 - app.pipeline - INFO - ✓ Detected 16 sections
+2025-11-24 15:42:33 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-209)
+2025-11-24 15:42:33 - app.pipeline - INFO -   2. SUMMARY OF CLINICAL HISTORY (pages 1-1, chars 209-1546)
+2025-11-24 15:42:33 - app.pipeline - INFO -   3. DESCRIPTION OF GROSS LESIONS (pages 1-1, chars 1546-1575)
+2025-11-24 15:42:33 - app.pipeline - INFO -   4. EXTERNAL EXAMINATION (pages 1-1, chars 1575-2097)
+2025-11-24 15:42:33 - app.pipeline - INFO -   5. INTERNAL EXAMINATION (BODY CAVITIES) (pages 1-1, chars 2097-2385)
+2025-11-24 15:42:33 - app.pipeline - INFO -   6. HEART (pages 1-1, chars 2385-3187)
+2025-11-24 15:42:33 - app.pipeline - INFO -   7. AORTA (pages 1-1, chars 3187-3316)
+2025-11-24 15:42:33 - app.pipeline - INFO -   8. LUNGS (pages 1-1, chars 3316-4095)
+2025-11-24 15:42:33 - app.pipeline - INFO -   9. GASTROINTESTINAL SYSTEM (pages 1-1, chars 4095-4752)
+2025-11-24 15:42:33 - app.pipeline - INFO -   10. RETICULOENDOTHELIAL SYSTEM (pages 1-1, chars 4752-4928)
+2025-11-24 15:42:33 - app.pipeline - INFO -   11. GENITOURINARY SYSTEM (pages 1-1, chars 4928-5327)
+2025-11-24 15:42:33 - app.pipeline - INFO -   12. ENDOCRINE SYSTEM (pages 1-1, chars 5327-5597)
+2025-11-24 15:42:33 - app.pipeline - INFO -   13. EXTREMITIES (pages 1-2, chars 5597-5764)
+2025-11-24 15:42:33 - app.pipeline - INFO -   14. CLINICOPATHOLOGIC CORRELATION (pages 2-2, chars 5764-8193)
+2025-11-24 15:42:33 - app.pipeline - INFO -   15. SUMMARY AND REFLECTION (pages 2-2, chars 8193-8500)
+2025-11-24 15:42:33 - app.pipeline - INFO -   16. REMAINING UNANSWERED QUESTIONS (pages 2-2, chars 8500-8709)
+2025-11-24 15:42:33 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/14/toc.json with 16 sections
+2025-11-24 15:42:33 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/14/toc.json
+2025-11-24 15:42:33 - app.pipeline - INFO - [STEP 3/6] Creating chunks...
+2025-11-24 15:42:33 - app.chunks - INFO - Created 16 chunks from 16 sections
+2025-11-24 15:42:33 - app.pipeline - INFO - ✓ Created 16 chunks
+2025-11-24 15:42:33 - app.chunks - INFO - Saved 16 chunks to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/14/chunks.json
+2025-11-24 15:42:33 - app.pipeline - INFO - ✓ Saved chunks to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/14/chunks.json
+2025-11-24 15:42:33 - app.pipeline - INFO - Initializing LLM client...
+2025-11-24 15:42:33 - app.llm - INFO - ✓ Apple Silicon detected - MPS environment variables set for Ollama
+2025-11-24 15:42:33 - app.llm - DEBUG - Note: Install PyTorch for MPS availability verification
+2025-11-24 15:42:33 - app.llm - INFO - LLM client configured for GPU acceleration (MPS)
+2025-11-24 15:42:33 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-24 15:42:33 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-24 15:42:33 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-24 15:42:33 - app.pipeline - INFO -   Processing 16 chunks at once...
+2025-11-24 15:42:33 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-24 15:42:33 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+## SYSTEM ROLE
+
+You are a medical documentation extraction assistant.
+
+Your job is to extract only information that is explicitly present in the provided chunks of a clinical no...
+2025-11-24 15:42:33 - httpcore.connection - DEBUG - connect_tcp.started host='localhost' port=11434 local_address=None timeout=None socket_options=None
+2025-11-24 15:42:33 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10f887910>
+2025-11-24 15:42:33 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-24 15:42:33 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-24 15:42:33 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-24 15:42:33 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-24 15:42:33 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-24 15:42:45 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Mon, 24 Nov 2025 20:42:45 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-24 15:42:45 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-24 15:42:45 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-24 15:43:39 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-24 15:43:39 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-24 15:43:39 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-24 15:43:39 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "sections": [
+    {
+      "name": "Anoxic-ischemic encephalopathy",
+      "facts": [
+        {
+          "text": "Extremity muscle atrophy and contractures.",
+          "source": "AUTOPSY FINDINGS (chunk_15, chars 11038-12084)"
+        },
+        {
+          "text": "Glossal, pharyngeal, and neck muscle atrophy.",
+          "source": "AUTOPSY FINDINGS (chunk_15, chars 11038-12084)"
+        }
+      ]
+    },
+    {
+      "name": "Bilateral bronchopneumonia",
+      "facts": [
+        {
+ ...
+2025-11-24 15:43:39 - app.summarizer - INFO - LLM call succeeded (attempt 1, 99.06s)
+2025-11-24 15:43:39 - app.summarizer - DEBUG - Parsed JSON: {
+  "sections": [
+    {
+      "name": "Anoxic-ischemic encephalopathy",
+      "facts": [
+        {
+          "text": "Extremity muscle atrophy and contractures.",
+          "source": "AUTOPSY FINDINGS (chunk_15, chars 11038-12084)"
+        },
+        {
+          "text": "Glossal, pharyngeal, and neck muscle atrophy.",
+          "source": "AUTOPSY FINDINGS (chunk_15, chars 11038-12084)"
+        }
+      ]
+    },
+    {
+      "name": "Bilateral bronchopneumonia",
+      "facts": [
+        {
+         ...
+2025-11-24 15:43:39 - app.pipeline - INFO - ✓ Generated structured summary with 0 patient snapshot items, 0 problems, 0 history items, 0 medicines/allergies, 0 findings, 0 labs/imaging, 0 assessment items
+2025-11-24 15:43:39 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/summary.json
+2025-11-24 15:43:39 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/summary.json
+2025-11-24 15:43:39 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-24 15:43:39 - app.pipeline - INFO -   Using structured summary (264 characters)...
+2025-11-24 15:43:39 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-24 15:43:39 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## SYSTEM ROLE
+
+You generate a prioritized clinical recommendation plan using only the information present in the JSON summary provided.
+
+You must never invent or infer infor...
+2025-11-24 15:43:39 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-24 15:43:39 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-24 15:43:39 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-24 15:43:39 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-24 15:43:39 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-24 15:43:52 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Mon, 24 Nov 2025 20:43:52 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-24 15:43:52 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-24 15:43:52 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-24 15:44:24 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-24 15:44:24 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-24 15:44:24 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-24 15:44:24 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    { "text": "The patient died of a pulmonary embolism, the underlying cause of which is currently undetermined.", "source": "[DESCRIPTION OF GROSS LESIONS] section, chunk_2:1546-1575" }
+  ],
+  "key_problems": [
+    { "text": "shortness of breath and chest pain", "source": "[SUMMARY OF CLINICAL HISTORY] section, chunk_1:209-383" },
+    { "text": "unresponsive, apneic", "source": "[SUMMARY OF CLINICAL HISTORY] section, chunk_1:465-473" }
+  ],
+  "pertinent_histor...
+2025-11-24 15:44:24 - app.summarizer - INFO - LLM call succeeded (attempt 1, 111.42s)
+2025-11-24 15:44:24 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "The patient died of a pulmonary embolism, the underlying cause of which is currently undetermined.",
+      "source": "[DESCRIPTION OF GROSS LESIONS] section, chunk_2:1546-1575"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "shortness of breath and chest pain",
+      "source": "[SUMMARY OF CLINICAL HISTORY] section, chunk_1:209-383"
+    },
+    {
+      "text": "unresponsive, apneic",
+      "source": "[SUMMARY OF CLINICAL HISTORY] section, chunk_1...
+2025-11-24 15:44:24 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 2 problems, 2 history items, 0 medicines/allergies, 0 findings, 0 labs/imaging, 0 assessment items
+2025-11-24 15:44:24 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/14/summary.json
+2025-11-24 15:44:24 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/14/summary.json
+2025-11-24 15:44:24 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-24 15:44:24 - app.pipeline - INFO -   Using structured summary (982 characters)...
+2025-11-24 15:44:24 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-24 15:44:24 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## SYSTEM ROLE
+
+You generate a prioritized clinical recommendation plan using only the information present in the JSON summary provided.
+
+You must never invent or infer infor...
+2025-11-24 15:44:24 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-24 15:44:24 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-24 15:44:24 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-24 15:44:24 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-24 15:44:24 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-24 15:44:27 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Mon, 24 Nov 2025 20:44:27 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-24 15:44:27 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-24 15:44:27 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-24 15:44:27 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-24 15:44:27 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-24 15:44:27 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-24 15:44:27 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": []
+}
+```...
+2025-11-24 15:44:27 - app.planner - INFO - LLM call succeeded (attempt 1, 47.78s)
+2025-11-24 15:44:27 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": []
+}...
+2025-11-24 15:44:27 - app.pipeline - INFO - ✓ Generated structured plan with 0 prioritized recommendations
+2025-11-24 15:44:27 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/plan.json
+2025-11-24 15:44:27 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/plan.json
+2025-11-24 15:44:27 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-24 15:44:27 - app.evaluation - INFO - Evaluating semantic accuracy of plan recommendations using Ollama embeddings...
+2025-11-24 15:44:27 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/evaluation.json
+2025-11-24 15:44:27 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/evaluation.json
+2025-11-24 15:44:27 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-24 15:44:27 - app.pipeline - INFO - Citation Coverage:
+2025-11-24 15:44:27 - app.pipeline - INFO -   Summary: 0.0% (0/0)
+2025-11-24 15:44:27 - app.pipeline - INFO -   Plan: 0.0% (0/0)
+2025-11-24 15:44:27 - app.pipeline - INFO -   Overall: 0.0%
+2025-11-24 15:44:27 - app.pipeline - INFO - 
+Citation Validity: 100.0% (0/0)
+2025-11-24 15:44:27 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/0 orphan claims)
+2025-11-24 15:44:27 - app.pipeline - ERROR - ✗ Error: unsupported format string passed to NoneType.__format__
+Traceback (most recent call last):
+  File "/Users/davidavinci/Documents/GitHub/clinicalnoteparser/src/app/pipeline.py", line 536, in run_pipeline
+    logger.info(f"\nCitation Overlap Jaccard: {evaluation['citation_overlap_jaccard']['average_jaccard_similarity']:.4f} "
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported format string passed to NoneType.__format__
+2025-11-24 15:44:27 - root - INFO - [14/21] ✗ 13.pdf
+2025-11-24 15:44:27 - app.pipeline - INFO - Checking Ollama availability...
+2025-11-24 15:44:27 - app.pipeline - INFO - ✓ Ollama is available

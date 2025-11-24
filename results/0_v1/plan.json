@@ -1,0 +1,25 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "The patient has been diagnosed with allergic rhinitis. The plan is to try Zyrtec instead of Allegra, as the current treatment (Allegra) has not been effective recently.",
+      "source": "PLAN section, chunk_6:1247-1268",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Consider loratadine as an alternative treatment option for allergic rhinitis.",
+      "source": "PLAN section, chunk_6:1273-1285",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "Use Nasonex two sprays in each nostril for three weeks as a treatment option for allergic rhinitis.",
+      "source": "PLAN section, chunk_6:1304-1339",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    }
+  ]
+}

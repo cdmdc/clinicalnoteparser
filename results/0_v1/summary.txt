@@ -1,0 +1,54 @@
+**Patient Snapshot**
+A 23-year-old white female presents with complaint of allergies.
+- Source: chunk_0:10-50
+
+**Key Problems**
+Allergic rhinitis
+- Source: chunk_5:100-150
+
+**Pertinent History**
+She used to have allergies when she lived in Seattle but they are worse here. She has tried Claritin, Zyrtec, and Allegra.
+- Source: chunk_1:200-300
+
+She has asthma but does not require daily medication for this and does not think it is flaring up.
+- Source: chunk_1:400-450
+
+**Medicines/Allergies**
+Ortho Tri-Cyclen
+- Source: chunk_2:50-100
+
+Allegra
+- Source: chunk_2:150-200
+
+No known medicine allergies.
+- Source: chunk_3:75-125
+
+**Objective Findings**
+Weight was 130 pounds and blood pressure 124/78.
+- Source: chunk_4:150-250
+
+Vitals:
+- Source: chunk_4:100-150
+
+HEENT: Her throat was mildly erythematous without exudate. Nasal mucosa was erythematous and swollen. Only clear drainage was seen. TMs were clear.
+- Source: chunk_4:200-350
+
+Neck: Supple without adenopathy.
+- Source: chunk_4:250-300
+
+Lungs: Clear.
+- Source: chunk_4:300-350
+
+**Labs/Imaging**
+None documented
+- Source: None
+
+**Concise Assessment**
+Allergic rhinitis.
+- Source: chunk_5:200-250
+
+She will try Zyrtec instead of Allegra again. Another option will be to use loratadine. She does not think she has prescription coverage so that might be cheaper.
+- Source: chunk_6:100-200
+
+Samples of Nasonex two sprays in each nostril given for three weeks. A prescription was written as well.
+- Source: chunk_6:150-250

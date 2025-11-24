@@ -1,0 +1,102 @@
+{
+  "citation_coverage": {
+    "summary_facts_with_citations": 24,
+    "summary_total_facts": 24,
+    "summary_coverage_percentage": 100.0,
+    "plan_recommendations_with_citations": 5,
+    "plan_total_recommendations": 5,
+    "plan_coverage_percentage": 100.0,
+    "overall_coverage_percentage": 100.0
+  },
+  "citation_validity": {
+    "total_citations_checked": 29,
+    "invalid_citations": 0,
+    "validity_percentage": 100.0
+  },
+  "section_name_mismatches": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "span_out_of_chunk_bounds": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "orphan_claims": {
+    "summary_orphans": 0,
+    "plan_orphans": 0,
+    "total_orphans": 0,
+    "total_claims": 29,
+    "hallucination_rate_percentage": 0.0
+  },
+  "citation_overlap_jaccard": {
+    "total_citation_pairs": 406,
+    "average_jaccard_similarity": 0.2192,
+    "min_jaccard": 0.0,
+    "max_jaccard": 1.0
+  },
+  "span_consistency": {
+    "checks_performed": 29,
+    "checks_passed": 29,
+    "consistency_percentage": 100.0
+  },
+  "summary_statistics": {
+    "total_facts_extracted": 24,
+    "total_recommendations_generated": 5,
+    "average_citations_per_fact": 1.0,
+    "average_citations_per_recommendation": 1.0,
+    "confidence_score_distribution": {
+      "count": 5,
+      "mean": 0.8800000000000001,
+      "median": 0.9,
+      "min": 0.8,
+      "max": 0.9
+    }
+  },
+  "semantic_accuracy": {
+    "average_similarity": 0.6357,
+    "well_supported": 1,
+    "poorly_supported": 4,
+    "total_recommendations": 5,
+    "support_rate": 0.2,
+    "similarity_threshold": 0.7,
+    "per_recommendation": [
+      {
+        "number": 1,
+        "similarity_score": 0.5975,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": "PHYSICAL EXAMINATION:\nVITAL SIGNS: Temperature 98.7, pulse 105, respiration is 28, blood pressure 11..."
+      },
+      {
+        "number": 2,
+        "similarity_score": 0.4712,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": "PHYSICAL EXAMINATION:\nVITAL SIGNS: Temperature 98.7, pulse 105, respiration is 28, blood pressure 11..."
+      },
+      {
+        "number": 3,
+        "similarity_score": 0.6891,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_11",
+        "cited_text_preview": "MEDICAL DECISION MAKING:\n The differential entertained on this patient includes reactive airways dis..."
+      },
+      {
+        "number": 4,
+        "similarity_score": 0.6674,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_11",
+        "cited_text_preview": "MEDICAL DECISION MAKING:\n The differential entertained on this patient includes reactive airways dis..."
+      },
+      {
+        "number": 5,
+        "similarity_score": 0.753,
+        "is_supported": true,
+        "cited_chunk_id": "chunk_5",
+        "cited_text_preview": "MEDICATIONS: \nAdvair, Nasonex, Xopenex, Zicam, Zithromax, prednisone, and albuterol."
+      }
+    ]
+  }
+}

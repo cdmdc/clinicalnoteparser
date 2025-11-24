@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Further evaluation for potential sexual abuse is recommended due to the presence of contusions and hemorrhage in the brain with associated vaginal wall/hymen injuries.",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_42:19270-19565",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}

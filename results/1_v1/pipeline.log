@@ -1,0 +1,1583 @@
+2025-11-18 14:31:36 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-18 14:31:36 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 14:31:36 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:31:36 - app.pipeline - INFO - Configuration: model=llama3, temperature=0.1
+2025-11-18 14:31:36 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=True, no_evaluation=False
+2025-11-18 14:31:36 - app.pipeline - INFO - [STEP 1] Ingesting document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 14:31:36 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 14:31:37 - app.ingestion - INFO - Ingested document: 4544 characters, 1 pages, note_id: 1
+2025-11-18 14:31:37 - app.pipeline - INFO - ✓ Ingested: 4544 chars, 1 pages, note_id: 1
+2025-11-18 14:31:37 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-18 14:31:37 - app.pipeline - INFO - [STEP 2/5] Detecting sections...
+2025-11-18 14:31:37 - app.sections - INFO - Overview section detected: end=215, title=Overview
+2025-11-18 14:31:37 - app.sections - INFO - Found 10 section headers (after empty lines, all-caps): ['HISTORY', 'PAST MEDICAL HISTORY', 'PAST SURGICAL HISTORY', 'FAMILY HISTORY', 'CURRENT MEDICATIONS', 'ALLERGIES', 'SOCIAL HISTORY', 'PHYSICAL EXAMINATION', 'IMPRESSION', 'RECOMMENDATIONS']
+2025-11-18 14:31:37 - app.sections - INFO - Found 10 potential section headers
+2025-11-18 14:31:37 - app.sections - INFO - Detected 11 sections: ['Overview', 'HISTORY', 'PAST MEDICAL HISTORY', 'PAST SURGICAL HISTORY', 'FAMILY HISTORY', 'CURRENT MEDICATIONS', 'ALLERGIES', 'SOCIAL HISTORY', 'PHYSICAL EXAMINATION', 'IMPRESSION', 'RECOMMENDATIONS']
+2025-11-18 14:31:37 - app.pipeline - INFO - ✓ Detected 11 sections
+2025-11-18 14:31:37 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-215)
+2025-11-18 14:31:37 - app.pipeline - INFO -   2. HISTORY (pages 1-1, chars 215-1405)
+2025-11-18 14:31:37 - app.pipeline - INFO -   3. PAST MEDICAL HISTORY (pages 1-1, chars 1405-1592)
+2025-11-18 14:31:37 - app.pipeline - INFO -   4. PAST SURGICAL HISTORY (pages 1-1, chars 1592-1668)
+2025-11-18 14:31:37 - app.pipeline - INFO -   5. FAMILY HISTORY (pages 1-1, chars 1668-1800)
+2025-11-18 14:31:37 - app.pipeline - INFO -   6. CURRENT MEDICATIONS (pages 1-1, chars 1800-1875)
+2025-11-18 14:31:37 - app.pipeline - INFO -   7. ALLERGIES (pages 1-1, chars 1875-1921)
+2025-11-18 14:31:37 - app.pipeline - INFO -   8. SOCIAL HISTORY (pages 1-1, chars 1921-1969)
+2025-11-18 14:31:37 - app.pipeline - INFO -   9. PHYSICAL EXAMINATION (pages 1-1, chars 1969-3318)
+2025-11-18 14:31:37 - app.pipeline - INFO -   10. IMPRESSION (pages 1-1, chars 3318-3465)
+2025-11-18 14:31:37 - app.pipeline - INFO -   11. RECOMMENDATIONS (pages 1-1, chars 3465-4544)
+2025-11-18 14:31:37 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json with 11 sections
+2025-11-18 14:31:37 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:31:37 - app.pipeline - INFO - [STEP 3/5] Creating chunks...
+2025-11-18 14:31:37 - app.chunks - INFO - Created 11 chunks from 11 sections
+2025-11-18 14:31:37 - app.pipeline - INFO - ✓ Created 11 chunks
+2025-11-18 14:31:37 - app.chunks - INFO - Saved 11 chunks to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:31:37 - app.pipeline - INFO - ✓ Saved chunks to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:31:37 - app.pipeline - INFO - Initializing LLM client...
+2025-11-18 14:31:37 - app.llm - INFO - Initialized LLM client with model: llama3, temperature: 0.1
+2025-11-18 14:31:37 - app.pipeline - INFO - ✓ LLM client initialized (model: llama3)
+2025-11-18 14:31:37 - app.pipeline - INFO - [STEP 4/5] Generating summary...
+2025-11-18 14:31:37 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-18 14:31:37 - app.summarizer - INFO - Calling LLM (model: llama3, temperature: 0.1)
+2025-11-18 14:31:41 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-18 14:31:57 - app.summarizer - INFO - LLM call succeeded (attempt 1, 20.59s)
+2025-11-18 14:31:57 - app.pipeline - INFO - ✓ Generated summary (1871 characters)
+2025-11-18 14:31:57 - app.pipeline - INFO - ✓ Parsed structured summary with 1 patient snapshot items, 0 problems, 2 history items, 0 medicines/allergies, 1 findings, 0 labs/imaging, 1 assessment items
+2025-11-18 14:31:57 - app.summarizer - INFO - Saved text summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:31:57 - app.pipeline - INFO - ✓ Saved text summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:31:57 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:31:57 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:31:57 - app.pipeline - INFO - [STEP 5/5] Generating treatment plan...
+2025-11-18 14:31:57 - app.pipeline - INFO -   Using structured summary with 0 problems, 1 assessment items...
+2025-11-18 14:31:57 - app.planner - INFO - Calling LLM (model: llama3, temperature: 0.1)
+2025-11-18 14:32:00 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-18 14:32:10 - app.planner - INFO - LLM call succeeded (attempt 1, 13.09s)
+2025-11-18 14:32:10 - app.pipeline - INFO - ✓ Generated plan (1273 characters)
+2025-11-18 14:32:10 - app.planner - INFO - Saved treatment plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.txt
+2025-11-18 14:32:10 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.txt
+2025-11-18 14:32:10 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (plan only)
+2025-11-18 14:32:10 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:32:10 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-18 14:32:10 - app.pipeline - INFO -   - toc.json
+2025-11-18 14:32:10 - app.pipeline - INFO -   - chunks.json
+2025-11-18 14:32:10 - app.pipeline - INFO -   - summary.txt
+2025-11-18 14:32:10 - app.pipeline - INFO -   - summary.json
+2025-11-18 14:32:10 - app.pipeline - INFO -   - plan.txt
+2025-11-18 14:41:32 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-18 14:41:32 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 14:41:32 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:41:32 - app.pipeline - INFO - Configuration: model=llama3, temperature=0.1
+2025-11-18 14:41:32 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=True, no_evaluation=False
+2025-11-18 14:41:32 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-18 14:41:32 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:41:32 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:41:32 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-18 14:41:32 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-18 14:41:32 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-18 14:41:32 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:41:32 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:41:32 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-18 14:41:32 - app.pipeline - INFO - [STEP 2/5] Skipped (using existing ToC)
+2025-11-18 14:41:32 - app.pipeline - INFO - [STEP 3/5] Skipped (using existing chunks)
+2025-11-18 14:41:32 - app.pipeline - INFO - Initializing LLM client...
+2025-11-18 14:41:32 - app.llm - INFO - Initialized LLM client with model: llama3, temperature: 0.1
+2025-11-18 14:41:32 - app.pipeline - INFO - ✓ LLM client initialized (model: llama3)
+2025-11-18 14:41:32 - app.pipeline - INFO - [STEP 4/5] Generating summary...
+2025-11-18 14:41:32 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-18 14:41:32 - app.summarizer - INFO - Calling LLM (model: llama3, temperature: 0.1)
+2025-11-18 14:41:36 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-18 14:41:51 - app.summarizer - INFO - LLM call succeeded (attempt 1, 18.99s)
+2025-11-18 14:41:51 - app.pipeline - INFO - ✓ Generated summary (1684 characters)
+2025-11-18 14:41:51 - app.pipeline - INFO - ✓ Parsed structured summary with 1 patient snapshot items, 0 problems, 1 history items, 0 medicines/allergies, 0 findings, 0 labs/imaging, 0 assessment items
+2025-11-18 14:41:51 - app.summarizer - INFO - Saved text summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:41:51 - app.pipeline - INFO - ✓ Saved text summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:41:51 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:41:51 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:41:51 - app.pipeline - INFO - [STEP 5/5] Generating treatment plan...
+2025-11-18 14:41:51 - app.pipeline - INFO -   Using text summary (1684 characters)...
+2025-11-18 14:41:51 - app.planner - INFO - Calling LLM (model: llama3, temperature: 0.1)
+2025-11-18 14:41:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-18 14:42:06 - app.planner - INFO - LLM call succeeded (attempt 1, 14.97s)
+2025-11-18 14:42:06 - app.pipeline - INFO - ✓ Generated plan (1401 characters)
+2025-11-18 14:42:06 - app.planner - INFO - Saved treatment plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.txt
+2025-11-18 14:42:06 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.txt
+2025-11-18 14:42:06 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (plan only)
+2025-11-18 14:42:06 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:42:06 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-18 14:42:06 - app.pipeline - INFO -   - toc.json
+2025-11-18 14:42:06 - app.pipeline - INFO -   - chunks.json
+2025-11-18 14:42:06 - app.pipeline - INFO -   - summary.txt
+2025-11-18 14:42:06 - app.pipeline - INFO -   - summary.json
+2025-11-18 14:42:06 - app.pipeline - INFO -   - plan.txt
+2025-11-18 14:47:00 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-18 14:47:00 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 14:47:00 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:47:00 - app.pipeline - INFO - Configuration: model=llama3, temperature=0.1
+2025-11-18 14:47:00 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=True, plan_only=False, no_evaluation=False
+2025-11-18 14:47:00 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-18 14:47:00 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:47:00 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:47:00 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-18 14:47:00 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-18 14:47:00 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-18 14:47:00 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:47:00 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:47:00 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-18 14:47:00 - app.pipeline - INFO - [STEP 2/4] Skipped (using existing ToC)
+2025-11-18 14:47:00 - app.pipeline - INFO - [STEP 3/4] Skipped (using existing chunks)
+2025-11-18 14:47:00 - app.pipeline - INFO - Initializing LLM client...
+2025-11-18 14:47:01 - app.llm - INFO - Initialized LLM client with model: llama3, temperature: 0.1
+2025-11-18 14:47:01 - app.pipeline - INFO - ✓ LLM client initialized (model: llama3)
+2025-11-18 14:47:01 - app.pipeline - INFO - [STEP 4/4] Generating summary...
+2025-11-18 14:47:01 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-18 14:47:01 - app.summarizer - INFO - Calling LLM (model: llama3, temperature: 0.1)
+2025-11-18 14:47:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-18 14:47:22 - app.summarizer - INFO - LLM call succeeded (attempt 1, 21.60s)
+2025-11-18 14:47:22 - app.pipeline - INFO - ✓ Generated summary (1927 characters)
+2025-11-18 14:47:22 - app.pipeline - INFO - ✓ Parsed structured summary with 1 patient snapshot items, 0 problems, 1 history items, 0 medicines/allergies, 0 findings, 0 labs/imaging, 0 assessment items
+2025-11-18 14:47:22 - app.summarizer - INFO - Saved text summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:47:22 - app.pipeline - INFO - ✓ Saved text summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:47:22 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:47:22 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:47:22 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (summary only)
+2025-11-18 14:47:22 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:47:22 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-18 14:47:22 - app.pipeline - INFO -   - toc.json
+2025-11-18 14:47:22 - app.pipeline - INFO -   - chunks.json
+2025-11-18 14:47:22 - app.pipeline - INFO -   - summary.txt
+2025-11-18 14:49:16 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-18 14:49:16 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 14:49:16 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:49:16 - app.pipeline - INFO - Configuration: model=llama3, temperature=0.1
+2025-11-18 14:49:16 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=True, plan_only=False, no_evaluation=False
+2025-11-18 14:49:16 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-18 14:49:16 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:49:16 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:49:16 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-18 14:49:16 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-18 14:49:16 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-18 14:49:16 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:49:16 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:49:16 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-18 14:49:16 - app.pipeline - INFO - [STEP 2/4] Skipped (using existing ToC)
+2025-11-18 14:49:16 - app.pipeline - INFO - [STEP 3/4] Skipped (using existing chunks)
+2025-11-18 14:49:16 - app.pipeline - INFO - Initializing LLM client...
+2025-11-18 14:49:16 - app.llm - INFO - Initialized LLM client with model: llama3, temperature: 0.1
+2025-11-18 14:49:16 - app.pipeline - INFO - ✓ LLM client initialized (model: llama3)
+2025-11-18 14:49:16 - app.pipeline - INFO - [STEP 4/4] Generating summary...
+2025-11-18 14:49:16 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-18 14:49:16 - app.summarizer - INFO - Calling LLM (model: llama3, temperature: 0.1)
+2025-11-18 14:49:22 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-18 14:49:45 - app.summarizer - INFO - LLM call succeeded (attempt 1, 28.23s)
+2025-11-18 14:49:45 - app.pipeline - INFO - ✓ Generated summary (2580 characters)
+2025-11-18 14:49:45 - app.pipeline - INFO - ✓ Parsed structured summary with 1 patient snapshot items, 3 problems, 2 history items, 3 medicines/allergies, 2 findings, 2 labs/imaging, 7 assessment items
+2025-11-18 14:49:45 - app.summarizer - INFO - Saved text summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:49:45 - app.pipeline - INFO - ✓ Saved text summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:49:45 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:49:45 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:49:45 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (summary only)
+2025-11-18 14:49:45 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:49:45 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-18 14:49:45 - app.pipeline - INFO -   - toc.json
+2025-11-18 14:49:45 - app.pipeline - INFO -   - chunks.json
+2025-11-18 14:49:45 - app.pipeline - INFO -   - summary.txt
+2025-11-18 14:51:09 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-18 14:51:09 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 14:51:09 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:51:09 - app.pipeline - INFO - Configuration: model=llama3, temperature=0.1
+2025-11-18 14:51:09 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=True, plan_only=False, no_evaluation=False
+2025-11-18 14:51:09 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-18 14:51:09 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:51:09 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:51:09 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-18 14:51:09 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-18 14:51:09 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-18 14:51:09 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:51:09 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:51:09 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-18 14:51:09 - app.pipeline - INFO - [STEP 2/4] Skipped (using existing ToC)
+2025-11-18 14:51:09 - app.pipeline - INFO - [STEP 3/4] Skipped (using existing chunks)
+2025-11-18 14:51:09 - app.pipeline - INFO - Initializing LLM client...
+2025-11-18 14:51:09 - app.llm - INFO - Initialized LLM client with model: llama3, temperature: 0.1
+2025-11-18 14:51:09 - app.pipeline - INFO - ✓ LLM client initialized (model: llama3)
+2025-11-18 14:51:09 - app.pipeline - INFO - [STEP 4/4] Generating summary...
+2025-11-18 14:51:09 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-18 14:51:09 - app.summarizer - INFO - Calling LLM (model: llama3, temperature: 0.1)
+2025-11-18 14:51:10 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-18 14:51:35 - app.summarizer - INFO - LLM call succeeded (attempt 1, 25.96s)
+2025-11-18 14:51:35 - app.pipeline - INFO - ✓ Generated summary (3128 characters)
+2025-11-18 14:51:35 - app.pipeline - INFO - ✓ Parsed structured summary with 1 patient snapshot items, 0 problems, 1 history items, 0 medicines/allergies, 1 findings, 0 labs/imaging, 2 assessment items
+2025-11-18 14:51:35 - app.summarizer - INFO - Saved text summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:51:35 - app.pipeline - INFO - ✓ Saved text summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:51:35 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:51:35 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:51:35 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (summary only)
+2025-11-18 14:51:35 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:51:35 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-18 14:51:35 - app.pipeline - INFO -   - toc.json
+2025-11-18 14:51:35 - app.pipeline - INFO -   - chunks.json
+2025-11-18 14:51:35 - app.pipeline - INFO -   - summary.txt
+2025-11-18 14:52:22 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-18 14:52:22 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 14:52:22 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:52:22 - app.pipeline - INFO - Configuration: model=llama3, temperature=0.1
+2025-11-18 14:52:22 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=True, no_evaluation=False
+2025-11-18 14:52:22 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-18 14:52:22 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:52:22 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-18 14:52:22 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-18 14:52:22 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-18 14:52:22 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-18 14:52:22 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:52:22 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 14:52:22 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-18 14:52:22 - app.pipeline - INFO - [STEP 2/5] Skipped (using existing ToC)
+2025-11-18 14:52:22 - app.pipeline - INFO - [STEP 3/5] Skipped (using existing chunks)
+2025-11-18 14:52:22 - app.pipeline - INFO - Initializing LLM client...
+2025-11-18 14:52:22 - app.llm - INFO - Initialized LLM client with model: llama3, temperature: 0.1
+2025-11-18 14:52:22 - app.pipeline - INFO - ✓ LLM client initialized (model: llama3)
+2025-11-18 14:52:22 - app.pipeline - INFO - [STEP 4/5] Generating summary...
+2025-11-18 14:52:22 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-18 14:52:22 - app.summarizer - INFO - Calling LLM (model: llama3, temperature: 0.1)
+2025-11-18 14:52:22 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-18 14:52:45 - app.summarizer - INFO - LLM call succeeded (attempt 1, 23.13s)
+2025-11-18 14:52:45 - app.pipeline - INFO - ✓ Generated summary (2496 characters)
+2025-11-18 14:52:45 - app.pipeline - INFO - ✓ Parsed structured summary with 1 patient snapshot items, 3 problems, 2 history items, 3 medicines/allergies, 2 findings, 2 labs/imaging, 9 assessment items
+2025-11-18 14:52:45 - app.summarizer - INFO - Saved text summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:52:45 - app.pipeline - INFO - ✓ Saved text summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.txt
+2025-11-18 14:52:45 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:52:45 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-18 14:52:45 - app.pipeline - INFO - [STEP 5/5] Generating treatment plan...
+2025-11-18 14:52:45 - app.pipeline - INFO -   Using text summary (2496 characters)...
+2025-11-18 14:52:45 - app.planner - INFO - Calling LLM (model: llama3, temperature: 0.1)
+2025-11-18 14:52:49 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-18 14:53:05 - app.planner - INFO - LLM call succeeded (attempt 1, 19.84s)
+2025-11-18 14:53:05 - app.pipeline - INFO - ✓ Generated plan (2047 characters)
+2025-11-18 14:53:05 - app.planner - INFO - Saved treatment plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.txt
+2025-11-18 14:53:05 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.txt
+2025-11-18 14:53:05 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (plan only)
+2025-11-18 14:53:05 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 14:53:05 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-18 14:53:05 - app.pipeline - INFO -   - toc.json
+2025-11-18 14:53:05 - app.pipeline - INFO -   - chunks.json
+2025-11-18 14:53:05 - app.pipeline - INFO -   - summary.txt
+2025-11-18 14:53:05 - app.pipeline - INFO -   - summary.json
+2025-11-18 14:53:05 - app.pipeline - INFO -   - plan.txt
+2025-11-18 15:45:40 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/pipeline.log, level=INFO
+2025-11-18 15:45:40 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-18 15:45:40 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/0.pdf
+2025-11-18 15:45:40 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 15:45:40 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0
+2025-11-18 15:45:40 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 15:45:40 - app.pipeline - INFO - Configuration: model=llama3, temperature=0.1
+2025-11-18 15:45:40 - app.pipeline - INFO - Configuration: model=llama3, temperature=0.1
+2025-11-18 15:45:40 - app.pipeline - INFO - Execution mode: toc_only=True, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-18 15:45:40 - app.pipeline - INFO - Execution mode: toc_only=True, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-18 15:45:40 - app.pipeline - INFO - [STEP 1] Ingesting document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/0.pdf
+2025-11-18 15:45:40 - app.pipeline - INFO - [STEP 1] Ingesting document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 15:45:40 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/0.pdf
+2025-11-18 15:45:40 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 15:45:40 - app.ingestion - INFO - Ingested document: 1501 characters, 1 pages, note_id: 0
+2025-11-18 15:45:40 - app.pipeline - INFO - ✓ Ingested: 1501 chars, 1 pages, note_id: 0
+2025-11-18 15:45:40 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/canonical_text.txt
+2025-11-18 15:45:40 - app.pipeline - INFO - [STEP 2/2] Detecting sections...
+2025-11-18 15:45:40 - app.sections - INFO - Overview section detected: end=194, title=Overview
+2025-11-18 15:45:40 - app.sections - INFO - Found 6 section headers (after empty lines, all-caps): ['SUBJECTIVE', 'MEDICATIONS', 'ALLERGIES', 'OBJECTIVE', 'ASSESSMENT', 'PLAN']
+2025-11-18 15:45:40 - app.sections - INFO - Found 6 potential section headers
+2025-11-18 15:45:40 - app.sections - INFO - Detected 7 sections: ['Overview', 'SUBJECTIVE', 'MEDICATIONS', 'ALLERGIES', 'OBJECTIVE', 'ASSESSMENT', 'PLAN']
+2025-11-18 15:45:40 - app.pipeline - INFO - ✓ Detected 7 sections
+2025-11-18 15:45:40 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-194)
+2025-11-18 15:45:40 - app.pipeline - INFO -   2. SUBJECTIVE (pages 1-1, chars 194-797)
+2025-11-18 15:45:40 - app.pipeline - INFO -   3. MEDICATIONS (pages 1-1, chars 797-878)
+2025-11-18 15:45:40 - app.pipeline - INFO -   4. ALLERGIES (pages 1-1, chars 878-927)
+2025-11-18 15:45:40 - app.pipeline - INFO -   5. OBJECTIVE (pages 1-1, chars 927-1190)
+2025-11-18 15:45:40 - app.pipeline - INFO -   6. ASSESSMENT (pages 1-1, chars 1190-1222)
+2025-11-18 15:45:40 - app.pipeline - INFO -   7. PLAN (pages 1-1, chars 1222-1501)
+2025-11-18 15:45:40 - app.ingestion - INFO - Ingested document: 4544 characters, 1 pages, note_id: 1
+2025-11-18 15:45:40 - app.pipeline - INFO - ✓ Ingested: 4544 chars, 1 pages, note_id: 1
+2025-11-18 15:45:40 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/toc.json with 7 sections
+2025-11-18 15:45:40 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-18 15:45:40 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/toc.json
+2025-11-18 15:45:40 - app.pipeline - INFO - [STEP 2/2] Detecting sections...
+2025-11-18 15:45:40 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (TOC only)
+2025-11-18 15:45:40 - app.sections - INFO - Overview section detected: end=215, title=Overview
+2025-11-18 15:45:40 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0
+2025-11-18 15:45:40 - app.sections - INFO - Found 10 section headers (after empty lines, all-caps): ['HISTORY', 'PAST MEDICAL HISTORY', 'PAST SURGICAL HISTORY', 'FAMILY HISTORY', 'CURRENT MEDICATIONS', 'ALLERGIES', 'SOCIAL HISTORY', 'PHYSICAL EXAMINATION', 'IMPRESSION', 'RECOMMENDATIONS']
+2025-11-18 15:45:40 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-18 15:45:40 - app.sections - INFO - Found 10 potential section headers
+2025-11-18 15:45:40 - app.pipeline - INFO -   - toc.json
+2025-11-18 15:45:40 - app.sections - INFO - Detected 11 sections: ['Overview', 'HISTORY', 'PAST MEDICAL HISTORY', 'PAST SURGICAL HISTORY', 'FAMILY HISTORY', 'CURRENT MEDICATIONS', 'ALLERGIES', 'SOCIAL HISTORY', 'PHYSICAL EXAMINATION', 'IMPRESSION', 'RECOMMENDATIONS']
+2025-11-18 15:45:40 - app.pipeline - INFO - ✓ Detected 11 sections
+2025-11-18 15:45:40 - root - INFO - [1/2] ✓ 0.pdf
+2025-11-18 15:45:40 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-215)
+2025-11-18 15:45:40 - app.pipeline - INFO -   2. HISTORY (pages 1-1, chars 215-1405)
+2025-11-18 15:45:40 - app.pipeline - INFO -   3. PAST MEDICAL HISTORY (pages 1-1, chars 1405-1592)
+2025-11-18 15:45:40 - app.pipeline - INFO -   4. PAST SURGICAL HISTORY (pages 1-1, chars 1592-1668)
+2025-11-18 15:45:40 - app.pipeline - INFO -   5. FAMILY HISTORY (pages 1-1, chars 1668-1800)
+2025-11-18 15:45:40 - app.pipeline - INFO -   6. CURRENT MEDICATIONS (pages 1-1, chars 1800-1875)
+2025-11-18 15:45:40 - app.pipeline - INFO -   7. ALLERGIES (pages 1-1, chars 1875-1921)
+2025-11-18 15:45:40 - app.pipeline - INFO -   8. SOCIAL HISTORY (pages 1-1, chars 1921-1969)
+2025-11-18 15:45:40 - app.pipeline - INFO -   9. PHYSICAL EXAMINATION (pages 1-1, chars 1969-3318)
+2025-11-18 15:45:40 - app.pipeline - INFO -   10. IMPRESSION (pages 1-1, chars 3318-3465)
+2025-11-18 15:45:40 - app.pipeline - INFO -   11. RECOMMENDATIONS (pages 1-1, chars 3465-4544)
+2025-11-18 15:45:40 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json with 11 sections
+2025-11-18 15:45:40 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 15:45:40 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (TOC only)
+2025-11-18 15:45:40 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 15:45:40 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-18 15:45:40 - app.pipeline - INFO -   - toc.json
+2025-11-18 15:45:40 - root - INFO - [2/2] ✓ 1.pdf
+2025-11-18 15:45:48 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/pipeline.log, level=INFO
+2025-11-18 15:45:48 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-18 15:45:48 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/0.pdf
+2025-11-18 15:45:48 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 15:45:48 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0
+2025-11-18 15:45:48 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 15:45:48 - app.pipeline - INFO - Configuration: model=llama3, temperature=0.1
+2025-11-18 15:45:48 - app.pipeline - INFO - Configuration: model=llama3, temperature=0.1
+2025-11-18 15:45:48 - app.pipeline - INFO - Execution mode: toc_only=True, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-18 15:45:48 - app.pipeline - INFO - Execution mode: toc_only=True, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-18 15:45:48 - app.pipeline - INFO - [STEP 1] Ingesting document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/0.pdf
+2025-11-18 15:45:48 - app.pipeline - INFO - [STEP 1] Ingesting document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 15:45:48 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-18 15:45:48 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/0.pdf
+2025-11-18 15:45:48 - app.ingestion - INFO - Ingested document: 1501 characters, 1 pages, note_id: 0
+2025-11-18 15:45:48 - app.pipeline - INFO - ✓ Ingested: 1501 chars, 1 pages, note_id: 0
+2025-11-18 15:45:48 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/canonical_text.txt
+2025-11-18 15:45:48 - app.pipeline - INFO - [STEP 2/2] Detecting sections...
+2025-11-18 15:45:48 - app.sections - INFO - Overview section detected: end=194, title=Overview
+2025-11-18 15:45:48 - app.ingestion - INFO - Ingested document: 4544 characters, 1 pages, note_id: 1
+2025-11-18 15:45:48 - app.sections - INFO - Found 6 section headers (after empty lines, all-caps): ['SUBJECTIVE', 'MEDICATIONS', 'ALLERGIES', 'OBJECTIVE', 'ASSESSMENT', 'PLAN']
+2025-11-18 15:45:48 - app.pipeline - INFO - ✓ Ingested: 4544 chars, 1 pages, note_id: 1
+2025-11-18 15:45:48 - app.sections - INFO - Found 6 potential section headers
+2025-11-18 15:45:48 - app.sections - INFO - Detected 7 sections: ['Overview', 'SUBJECTIVE', 'MEDICATIONS', 'ALLERGIES', 'OBJECTIVE', 'ASSESSMENT', 'PLAN']
+2025-11-18 15:45:48 - app.pipeline - INFO - ✓ Detected 7 sections
+2025-11-18 15:45:48 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-194)
+2025-11-18 15:45:48 - app.pipeline - INFO -   2. SUBJECTIVE (pages 1-1, chars 194-797)
+2025-11-18 15:45:48 - app.pipeline - INFO -   3. MEDICATIONS (pages 1-1, chars 797-878)
+2025-11-18 15:45:48 - app.pipeline - INFO -   4. ALLERGIES (pages 1-1, chars 878-927)
+2025-11-18 15:45:48 - app.pipeline - INFO -   5. OBJECTIVE (pages 1-1, chars 927-1190)
+2025-11-18 15:45:48 - app.pipeline - INFO -   6. ASSESSMENT (pages 1-1, chars 1190-1222)
+2025-11-18 15:45:48 - app.pipeline - INFO -   7. PLAN (pages 1-1, chars 1222-1501)
+2025-11-18 15:45:48 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-18 15:45:48 - app.pipeline - INFO - [STEP 2/2] Detecting sections...
+2025-11-18 15:45:48 - app.sections - INFO - Overview section detected: end=215, title=Overview
+2025-11-18 15:45:48 - app.sections - INFO - Found 10 section headers (after empty lines, all-caps): ['HISTORY', 'PAST MEDICAL HISTORY', 'PAST SURGICAL HISTORY', 'FAMILY HISTORY', 'CURRENT MEDICATIONS', 'ALLERGIES', 'SOCIAL HISTORY', 'PHYSICAL EXAMINATION', 'IMPRESSION', 'RECOMMENDATIONS']
+2025-11-18 15:45:48 - app.sections - INFO - Found 10 potential section headers
+2025-11-18 15:45:48 - app.sections - INFO - Detected 11 sections: ['Overview', 'HISTORY', 'PAST MEDICAL HISTORY', 'PAST SURGICAL HISTORY', 'FAMILY HISTORY', 'CURRENT MEDICATIONS', 'ALLERGIES', 'SOCIAL HISTORY', 'PHYSICAL EXAMINATION', 'IMPRESSION', 'RECOMMENDATIONS']
+2025-11-18 15:45:48 - app.pipeline - INFO - ✓ Detected 11 sections
+2025-11-18 15:45:48 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-215)
+2025-11-18 15:45:48 - app.pipeline - INFO -   2. HISTORY (pages 1-1, chars 215-1405)
+2025-11-18 15:45:48 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/toc.json with 7 sections
+2025-11-18 15:45:48 - app.pipeline - INFO -   3. PAST MEDICAL HISTORY (pages 1-1, chars 1405-1592)
+2025-11-18 15:45:48 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/toc.json
+2025-11-18 15:45:48 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (TOC only)
+2025-11-18 15:45:48 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0
+2025-11-18 15:45:48 - app.pipeline - INFO -   4. PAST SURGICAL HISTORY (pages 1-1, chars 1592-1668)
+2025-11-18 15:45:48 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-18 15:45:48 - app.pipeline - INFO -   5. FAMILY HISTORY (pages 1-1, chars 1668-1800)
+2025-11-18 15:45:48 - app.pipeline - INFO -   - toc.json
+2025-11-18 15:45:48 - app.pipeline - INFO -   6. CURRENT MEDICATIONS (pages 1-1, chars 1800-1875)
+2025-11-18 15:45:48 - root - INFO - [1/2] ✓ 0.pdf
+2025-11-18 15:45:48 - app.pipeline - INFO -   7. ALLERGIES (pages 1-1, chars 1875-1921)
+2025-11-18 15:45:48 - app.pipeline - INFO -   8. SOCIAL HISTORY (pages 1-1, chars 1921-1969)
+2025-11-18 15:45:48 - app.pipeline - INFO -   9. PHYSICAL EXAMINATION (pages 1-1, chars 1969-3318)
+2025-11-18 15:45:48 - app.pipeline - INFO -   10. IMPRESSION (pages 1-1, chars 3318-3465)
+2025-11-18 15:45:48 - app.pipeline - INFO -   11. RECOMMENDATIONS (pages 1-1, chars 3465-4544)
+2025-11-18 15:45:48 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json with 11 sections
+2025-11-18 15:45:48 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-18 15:45:48 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (TOC only)
+2025-11-18 15:45:48 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-18 15:45:48 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-18 15:45:48 - app.pipeline - INFO -   - toc.json
+2025-11-18 15:45:48 - root - INFO - [2/2] ✓ 1.pdf
+2025-11-19 17:44:24 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=DEBUG
+2025-11-19 17:44:24 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 17:44:24 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 17:44:24 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 17:44:24 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 17:44:24 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-19 17:44:24 - app.chunks - INFO - Loaded 7 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/chunks.json
+2025-11-19 17:44:24 - app.pipeline - INFO - ✓ Loaded 7 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/chunks.json
+2025-11-19 17:44:24 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 17:44:24 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 17:44:24 - app.ingestion - INFO - Loaded canonical note: 1501 characters, 1 pages
+2025-11-19 17:44:24 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 17:44:24 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/canonical_text.txt
+2025-11-19 17:44:24 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 17:44:24 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 17:44:24 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 17:44:24 - app.sections - INFO - Loaded 7 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/toc.json
+2025-11-19 17:44:24 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 17:44:24 - app.pipeline - INFO - ✓ Loaded 7 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/toc.json
+2025-11-19 17:44:24 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 17:44:24 - app.pipeline - INFO - [STEP 2/6] Skipped (using existing ToC)
+2025-11-19 17:44:24 - app.pipeline - INFO - [STEP 3/6] Skipped (using existing chunks)
+2025-11-19 17:44:24 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 17:44:24 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 17:44:24 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 17:44:24 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 17:44:24 - app.pipeline - INFO - [STEP 2/6] Skipped (using existing ToC)
+2025-11-19 17:44:24 - app.pipeline - INFO - [STEP 3/6] Skipped (using existing chunks)
+2025-11-19 17:44:24 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 17:44:24 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 17:44:24 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 17:44:24 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-19 17:44:24 - app.pipeline - INFO -   Processing 12 chunks at once...
+2025-11-19 17:44:24 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:44:24 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+You are a medical documentation assistant. Extract and summarize information from the clinical note below. **Output the actual summary directly - do NOT describe what you will d...
+2025-11-19 17:44:24 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 17:44:24 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 17:44:24 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-19 17:44:24 - app.pipeline - INFO -   Processing 12 chunks at once...
+2025-11-19 17:44:24 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:44:24 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+You are a medical documentation assistant. Extract and summarize information from the clinical note below. **Output the actual summary directly - do NOT describe what you will d...
+2025-11-19 17:44:24 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-11-19 17:44:24 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-11-19 17:44:24 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x113137e90>
+2025-11-19 17:44:24 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x113144f10>
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:44:24 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:44:24 - app.pipeline - INFO -   Processing 7 chunks at once...
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:44:24 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+You are a medical documentation assistant. Extract and summarize information from the clinical note below. **Output the actual summary directly - do NOT describe what you will d...
+2025-11-19 17:44:24 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-11-19 17:44:24 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x113147110>
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 17:44:24 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 17:44:24 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-19 17:44:24 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 17:44:24 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:44:24 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+You are a medical documentation assistant. Extract and summarize information from the clinical note below. **Output the actual summary directly - do NOT describe what you will d...
+2025-11-19 17:44:24 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-11-19 17:44:24 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11314d290>
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:44:24 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:44:33 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:44:33 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:44:33 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:44:33 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:45:06 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:45:06 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:45:06 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:45:06 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "50-year-old female", "source": "OVERVIEW section, chunk_0:271-284"}
+  ],
+  "key_problems": [
+    {"text": "Chronic sinusitis with severe symptoms including facial discomfort, nasal congestion, eye pain, and postnasal drip", "source": "HISTORY section, chunk_1:356-490"},
+    {"text": "Dizziness of uncertain etiology, possibly related to positional vertigo or vestibular neuronitis", "source": "IMPRESSION section, chunk_10:2875-2922"}
+  ],
+  "pertinen...
+2025-11-19 17:45:06 - app.summarizer - INFO - LLM call succeeded (attempt 1, 41.95s)
+2025-11-19 17:45:06 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "50-year-old female",
+      "source": "OVERVIEW section, chunk_0:271-284"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Chronic sinusitis with severe symptoms including facial discomfort, nasal congestion, eye pain, and postnasal drip",
+      "source": "HISTORY section, chunk_1:356-490"
+    },
+    {
+      "text": "Dizziness of uncertain etiology, possibly related to positional vertigo or vestibular neuronitis",
+      "source": "IMPRESSION secti...
+2025-11-19 17:45:06 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 2 problems, 3 history items, 2 medicines/allergies, 3 findings, 2 labs/imaging, 5 assessment items
+2025-11-19 17:45:06 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/summary.json
+2025-11-19 17:45:06 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/summary.json
+2025-11-19 17:45:06 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 17:45:06 - app.pipeline - INFO -   Using structured summary (2592 characters)...
+2025-11-19 17:45:06 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:45:06 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated.
+
+## In...
+2025-11-19 17:45:06 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:45:06 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:45:06 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:45:06 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:45:06 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:45:10 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:45:10 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:45:10 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:45:10 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:45:30 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:45:30 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:45:30 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:45:30 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "23-year-old white female", "source": "SUBJECTIVE section, chunk_1:194-205"}
+  ],
+  "key_problems": [
+    {"text": "Allergic rhinitis", "source": "ASSESSMENT section, chunk_5:1190-1203"}
+  ],
+  "pertinent_history": [
+    {"text": "History of allergies in Seattle, tried Claritin and Zyrtec with temporary effectiveness, currently using Allegra without success", "source": "SUBJECTIVE section, chunk_1:194-797"},
+    {"text": "Has asthma but not flaring ...
+2025-11-19 17:45:30 - app.summarizer - INFO - LLM call succeeded (attempt 1, 65.16s)
+2025-11-19 17:45:30 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "23-year-old white female",
+      "source": "SUBJECTIVE section, chunk_1:194-205"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Allergic rhinitis",
+      "source": "ASSESSMENT section, chunk_5:1190-1203"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "History of allergies in Seattle, tried Claritin and Zyrtec with temporary effectiveness, currently using Allegra without success",
+      "source": "SUBJECTIVE section, chunk_1:194-797"
+  ...
+2025-11-19 17:45:30 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 1 problems, 2 history items, 2 medicines/allergies, 1 findings, 1 labs/imaging, 3 assessment items
+2025-11-19 17:45:30 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/summary.json
+2025-11-19 17:45:30 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/summary.json
+2025-11-19 17:45:30 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 17:45:30 - app.pipeline - INFO -   Using structured summary (1199 characters)...
+2025-11-19 17:45:30 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:45:30 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated.
+
+## In...
+2025-11-19 17:45:30 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:45:30 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:45:30 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:45:30 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:45:30 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:45:36 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:45:36 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:45:36 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:45:36 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:46:08 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:46:08 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:46:08 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:46:08 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "34-year-old male", "source": "HISTORY section, chunk_1:215-220"}
+  ],
+  "key_problems": [
+    {"text": "Acute allergic reaction to Keflex", "source": "IMPRESSION section, chunk_9:3318-3465"},
+    {"text": "Renal failure requiring dialysis", "source": "IMPRESSION section, chunk_9:3318-3465"},
+    {"text": "Hypertension", "source": "IMPRESSION section, chunk_9:3318-3465"}
+  ],
+  "pertinent_history": [
+    {"text": "History of urticaria and renal fail...
+2025-11-19 17:46:08 - app.summarizer - INFO - LLM call succeeded (attempt 1, 103.16s)
+2025-11-19 17:46:08 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "34-year-old male",
+      "source": "HISTORY section, chunk_1:215-220"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Acute allergic reaction to Keflex",
+      "source": "IMPRESSION section, chunk_9:3318-3465"
+    },
+    {
+      "text": "Renal failure requiring dialysis",
+      "source": "IMPRESSION section, chunk_9:3318-3465"
+    },
+    {
+      "text": "Hypertension",
+      "source": "IMPRESSION section, chunk_9:3318-3465"
+    }
+  ],
+  "pertine...
+2025-11-19 17:46:08 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 4 history items, 2 medicines/allergies, 2 findings, 1 labs/imaging, 6 assessment items
+2025-11-19 17:46:08 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 17:46:08 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 17:46:08 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 17:46:08 - app.pipeline - INFO -   Using structured summary (1916 characters)...
+2025-11-19 17:46:08 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:46:08 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated.
+
+## In...
+2025-11-19 17:46:08 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:46:08 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:46:08 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:46:08 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:46:08 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:46:13 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:46:13 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:46:13 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:46:13 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:46:35 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:46:35 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:46:35 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:46:35 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "5-year-old male", "source": "Overview section, chunk_0:0-18"}
+  ],
+  "key_problems": [
+    {"text": "Asthma, respiratory distress", "source": "CHIEF COMPLAINT section, chunk_1:183-789"},
+    {"text": "Vomiting and abdominal pain", "source": "CHIEF COMPLAINT section, chunk_1:183-789"}
+  ],
+  "pertinent_history": [
+    {"text": "History of asthma with previous admission in July 2007 and frequent pneumonia", "source": "PAST MEDICAL HISTORY section, ch...
+2025-11-19 17:46:35 - app.summarizer - INFO - LLM call succeeded (attempt 1, 130.26s)
+2025-11-19 17:46:35 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "5-year-old male",
+      "source": "Overview section, chunk_0:0-18"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Asthma, respiratory distress",
+      "source": "CHIEF COMPLAINT section, chunk_1:183-789"
+    },
+    {
+      "text": "Vomiting and abdominal pain",
+      "source": "CHIEF COMPLAINT section, chunk_1:183-789"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "History of asthma with previous admission in July 2007 and frequent pn...
+2025-11-19 17:46:35 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 2 problems, 1 history items, 2 medicines/allergies, 2 findings, 1 labs/imaging, 2 assessment items
+2025-11-19 17:46:35 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/2/summary.json
+2025-11-19 17:46:35 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/2/summary.json
+2025-11-19 17:46:35 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 17:46:35 - app.pipeline - INFO -   Using structured summary (1273 characters)...
+2025-11-19 17:46:35 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:46:35 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated.
+
+## In...
+2025-11-19 17:46:35 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:46:35 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:46:35 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:46:35 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:46:35 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:46:42 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:46:42 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:46:42 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:46:42 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:46:50 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:46:50 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:46:50 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:46:50 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "diagnostics": null,
+      "therapeutics": {"content": "Ordered ENG to evaluate vestibular function; placed on Veramyst nasal spray twice daily, Medrol Dosepak as directed, Clarinex 5 mg daily, and instructed in use of nasal saline irrigation", "source": "RECOMMENDATIONS section, chunk_11:4680-5379"},
+      "risks_benefits": null,
+      "follow_ups": {"content": "Follow-up recommended after ENG examination; patient advised to seek e...
+2025-11-19 17:46:50 - app.planner - INFO - LLM call succeeded (attempt 1, 103.34s)
+2025-11-19 17:46:50 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "diagnostics": null,
+      "therapeutics": {
+        "content": "Ordered ENG to evaluate vestibular function; placed on Veramyst nasal spray twice daily, Medrol Dosepak as directed, Clarinex 5 mg daily, and instructed in use of nasal saline irrigation",
+        "source": "RECOMMENDATIONS section, chunk_11:4680-5379"
+      },
+      "risks_benefits": null,
+      "follow_ups": {
+        "content": "Follow-up recommended after ENG examination; ...
+2025-11-19 17:46:50 - app.pipeline - INFO - ✓ Generated structured plan with 1 prioritized recommendations
+2025-11-19 17:46:50 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/plan.json
+2025-11-19 17:46:50 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/plan.json
+2025-11-19 17:46:50 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-19 17:46:50 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/evaluation.json
+2025-11-19 17:46:50 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/evaluation.json
+2025-11-19 17:46:50 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-19 17:46:50 - app.pipeline - INFO - Citation Coverage:
+2025-11-19 17:46:50 - app.pipeline - INFO -   Summary: 100.0% (18/18)
+2025-11-19 17:46:50 - app.pipeline - INFO -   Plan: 100.0% (1/1)
+2025-11-19 17:46:50 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-19 17:46:50 - app.pipeline - INFO - 
+Citation Validity: 100.0% (19/19)
+2025-11-19 17:46:50 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/19 orphan claims)
+2025-11-19 17:46:50 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.0117 (avg, 171 pairs, range: 0.0000-1.0000)
+2025-11-19 17:46:50 - app.pipeline - INFO - 
+Span Consistency: 100.0% (19/19)
+2025-11-19 17:46:50 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-19 17:46:50 - app.pipeline - INFO -   Total facts: 18
+2025-11-19 17:46:50 - app.pipeline - INFO -   Total recommendations: 1
+2025-11-19 17:46:50 - app.pipeline - INFO -   Average confidence: 0.90
+2025-11-19 17:46:50 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-19 17:46:50 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3
+2025-11-19 17:46:50 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 17:46:50 - app.pipeline - INFO -   - toc.json
+2025-11-19 17:46:50 - app.pipeline - INFO -   - chunks.json
+2025-11-19 17:46:50 - app.pipeline - INFO -   - summary.json
+2025-11-19 17:46:50 - app.pipeline - INFO -   - plan.json
+2025-11-19 17:46:50 - app.pipeline - INFO -   - evaluation.json
+2025-11-19 17:46:50 - app.pipeline - INFO -   - pipeline.log
+2025-11-19 17:46:50 - root - INFO - [1/11] ✓ 3.pdf
+2025-11-19 17:46:50 - app.pipeline - INFO - Checking Ollama availability...
+2025-11-19 17:46:50 - app.pipeline - INFO - ✓ Ollama is available
+2025-11-19 20:10:08 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-19 20:10:08 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:10:08 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:10:08 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:10:08 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=True, plan_only=False, no_evaluation=False
+2025-11-19 20:10:08 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:10:08 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:10:08 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:10:08 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:10:08 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:10:08 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:10:08 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:10:08 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:10:08 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:10:08 - app.pipeline - INFO - [STEP 2/4] Skipped (using existing ToC)
+2025-11-19 20:10:08 - app.pipeline - INFO - [STEP 3/4] Skipped (using existing chunks)
+2025-11-19 20:10:08 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:10:08 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:10:08 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:10:08 - app.pipeline - INFO - [STEP 4/4] Generating summary...
+2025-11-19 20:10:08 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:10:08 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:10:20 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:10:54 - app.summarizer - INFO - LLM call succeeded (attempt 1, 45.91s)
+2025-11-19 20:10:54 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 4 history items, 5 medicines/allergies, 2 findings, 0 labs/imaging, 6 assessment items
+2025-11-19 20:10:54 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:10:54 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:10:54 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (summary only)
+2025-11-19 20:10:54 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:10:54 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:10:54 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:10:54 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:10:54 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:14:02 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-19 20:14:02 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:14:02 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:14:02 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:14:02 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=True, plan_only=False, no_evaluation=False
+2025-11-19 20:14:02 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:14:02 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:14:02 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:14:02 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:14:02 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:14:02 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:14:02 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:14:02 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:14:02 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:14:02 - app.pipeline - INFO - [STEP 2/4] Skipped (using existing ToC)
+2025-11-19 20:14:02 - app.pipeline - INFO - [STEP 3/4] Skipped (using existing chunks)
+2025-11-19 20:14:02 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:14:02 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:14:02 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:14:02 - app.pipeline - INFO - [STEP 4/4] Generating summary...
+2025-11-19 20:14:02 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:14:02 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:14:10 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:14:55 - app.summarizer - INFO - LLM call succeeded (attempt 1, 52.72s)
+2025-11-19 20:14:55 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 6 history items, 5 medicines/allergies, 11 findings, 0 labs/imaging, 2 assessment items
+2025-11-19 20:14:55 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:14:55 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:14:55 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (summary only)
+2025-11-19 20:14:55 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:14:55 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:14:55 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:14:55 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:14:55 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:24:19 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-19 20:24:19 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:24:19 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:24:19 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:24:19 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=True, plan_only=False, no_evaluation=False
+2025-11-19 20:24:19 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:24:19 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:24:19 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:24:19 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:24:19 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:24:19 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:24:19 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:24:19 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:24:19 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:24:19 - app.pipeline - INFO - [STEP 2/4] Skipped (using existing ToC)
+2025-11-19 20:24:19 - app.pipeline - INFO - [STEP 3/4] Skipped (using existing chunks)
+2025-11-19 20:24:19 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:24:19 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:24:19 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:24:19 - app.pipeline - INFO - [STEP 4/4] Generating summary...
+2025-11-19 20:24:19 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:24:19 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:24:32 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:25:14 - app.summarizer - INFO - LLM call succeeded (attempt 1, 54.34s)
+2025-11-19 20:25:14 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 6 history items, 5 medicines/allergies, 6 findings, 0 labs/imaging, 4 assessment items
+2025-11-19 20:25:14 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:25:14 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:25:14 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (summary only)
+2025-11-19 20:25:14 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:25:14 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:25:14 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:25:14 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:25:14 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:26:08 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-19 20:26:08 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:26:08 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:26:08 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:26:08 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=True, plan_only=False, no_evaluation=False
+2025-11-19 20:26:08 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:26:08 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:26:08 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:26:08 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:26:08 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:26:08 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:26:08 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:26:08 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:26:08 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:26:08 - app.pipeline - INFO - [STEP 2/4] Skipped (using existing ToC)
+2025-11-19 20:26:08 - app.pipeline - INFO - [STEP 3/4] Skipped (using existing chunks)
+2025-11-19 20:26:08 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:26:08 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:26:08 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:26:08 - app.pipeline - INFO - [STEP 4/4] Generating summary...
+2025-11-19 20:26:08 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:26:08 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:26:20 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:27:05 - app.summarizer - INFO - LLM call succeeded (attempt 1, 56.86s)
+2025-11-19 20:27:05 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 6 history items, 5 medicines/allergies, 4 findings, 0 labs/imaging, 7 assessment items
+2025-11-19 20:27:05 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:27:05 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:27:05 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (summary only)
+2025-11-19 20:27:05 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:27:05 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:27:05 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:27:05 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:27:05 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:34:09 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-19 20:34:09 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:34:09 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:34:09 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:34:09 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=True, no_evaluation=False
+2025-11-19 20:34:09 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:34:09 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:34:09 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:34:09 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:34:09 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:34:09 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:34:09 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:34:09 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:34:09 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:34:09 - app.pipeline - INFO - [STEP 2/5] Skipped (using existing ToC)
+2025-11-19 20:34:09 - app.pipeline - INFO - [STEP 3/5] Skipped (using existing chunks)
+2025-11-19 20:34:09 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:34:09 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:34:09 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:34:09 - app.pipeline - INFO - [STEP 4/5] Generating summary...
+2025-11-19 20:34:09 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:34:09 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:34:23 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:35:03 - app.summarizer - INFO - LLM call succeeded (attempt 1, 53.84s)
+2025-11-19 20:35:03 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 6 history items, 5 medicines/allergies, 4 findings, 0 labs/imaging, 7 assessment items
+2025-11-19 20:35:03 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:35:03 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:35:03 - app.pipeline - INFO - [STEP 5/5] Generating treatment plan...
+2025-11-19 20:35:03 - app.pipeline - INFO -   Using structured summary (2427 characters)...
+2025-11-19 20:35:03 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:35:12 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:35:25 - app.planner - INFO - LLM call succeeded (attempt 1, 21.92s)
+2025-11-19 20:35:25 - app.pipeline - INFO - ✓ Generated structured plan with 4 prioritized recommendations
+2025-11-19 20:35:25 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:35:25 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:35:25 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (plan only)
+2025-11-19 20:35:25 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:35:25 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:35:25 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:35:25 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:35:25 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:35:25 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:35:58 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-19 20:35:58 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:35:58 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:35:58 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:35:58 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=True, no_evaluation=False
+2025-11-19 20:35:58 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:35:58 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:35:58 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:35:58 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:35:58 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:35:58 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:35:58 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:35:58 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:35:58 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:35:58 - app.pipeline - INFO - [STEP 2/5] Skipped (using existing ToC)
+2025-11-19 20:35:58 - app.pipeline - INFO - [STEP 3/5] Skipped (using existing chunks)
+2025-11-19 20:35:58 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:35:58 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:35:58 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:35:58 - app.pipeline - INFO - [STEP 4/5] Generating summary...
+2025-11-19 20:35:58 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:35:58 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:36:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:36:51 - app.summarizer - INFO - LLM call succeeded (attempt 1, 53.55s)
+2025-11-19 20:36:51 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 6 history items, 5 medicines/allergies, 4 findings, 0 labs/imaging, 7 assessment items
+2025-11-19 20:36:51 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:36:51 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:36:51 - app.pipeline - INFO - [STEP 5/5] Generating treatment plan...
+2025-11-19 20:36:51 - app.pipeline - INFO -   Using structured summary (2375 characters)...
+2025-11-19 20:36:51 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:37:01 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:37:15 - app.planner - INFO - LLM call succeeded (attempt 1, 23.77s)
+2025-11-19 20:37:15 - app.pipeline - INFO - ✓ Generated structured plan with 4 prioritized recommendations
+2025-11-19 20:37:15 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:37:15 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:37:15 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (plan only)
+2025-11-19 20:37:15 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:37:15 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:37:15 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:37:15 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:37:15 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:37:15 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:37:31 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-19 20:37:31 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:37:31 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:37:31 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:37:31 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=True, no_evaluation=False
+2025-11-19 20:37:31 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:37:31 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:37:31 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:37:31 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:37:31 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:37:31 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:37:31 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:37:31 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:37:31 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:37:31 - app.pipeline - INFO - [STEP 2/5] Skipped (using existing ToC)
+2025-11-19 20:37:31 - app.pipeline - INFO - [STEP 3/5] Skipped (using existing chunks)
+2025-11-19 20:37:31 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:37:31 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:37:31 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:37:31 - app.pipeline - INFO - [STEP 4/5] Generating summary...
+2025-11-19 20:37:31 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:37:31 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:37:40 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:38:20 - app.summarizer - INFO - LLM call succeeded (attempt 1, 48.76s)
+2025-11-19 20:38:20 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 6 history items, 5 medicines/allergies, 3 findings, 0 labs/imaging, 7 assessment items
+2025-11-19 20:38:20 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:38:20 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:38:20 - app.pipeline - INFO - [STEP 5/5] Generating treatment plan...
+2025-11-19 20:38:20 - app.pipeline - INFO -   Using structured summary (2282 characters)...
+2025-11-19 20:38:20 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:38:29 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:38:42 - app.planner - INFO - LLM call succeeded (attempt 1, 21.55s)
+2025-11-19 20:38:42 - app.pipeline - INFO - ✓ Generated structured plan with 4 prioritized recommendations
+2025-11-19 20:38:42 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:38:42 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:38:42 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (plan only)
+2025-11-19 20:38:42 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:38:42 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:38:42 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:38:42 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:38:42 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:38:42 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:38:58 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-19 20:38:58 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:38:58 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:38:58 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:38:58 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=True, no_evaluation=False
+2025-11-19 20:38:58 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:38:58 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:38:58 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:38:58 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:38:58 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:38:58 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:38:58 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:38:58 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:38:58 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:38:58 - app.pipeline - INFO - [STEP 2/5] Skipped (using existing ToC)
+2025-11-19 20:38:58 - app.pipeline - INFO - [STEP 3/5] Skipped (using existing chunks)
+2025-11-19 20:38:58 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:38:58 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:38:58 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:38:58 - app.pipeline - INFO - [STEP 4/5] Generating summary...
+2025-11-19 20:38:58 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:38:58 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:39:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:39:52 - app.summarizer - WARNING - LLM call failed (attempt 1/3): Failed to parse JSON from response: ```json
+{
+  "patient_snapshot": [
+    {"text": "34-year-old male", "source": "HISTORY section, chunk_1:215-220"}
+  ],
+  "key_problems": [
+    {"text": "Acute allergic reaction, etiology uncertain, suspicious for Keflex", "source": "IMPRESSION section, chunk_9:3318-3465"},
+    {"text": "Renal failure requiring dialysis", "source": "IMPRESSION section, chunk_9:3318-3465"},
+    {"text": "Hypertension", "source": "IMPRESSION section, chunk_9:3318-3465"}
+  ],
+  "pertinent_history": [
+    {"text": "Hi
+2025-11-19 20:39:52 - app.summarizer - INFO - Retrying in 1s...
+2025-11-19 20:40:02 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:40:44 - app.summarizer - INFO - LLM call succeeded (attempt 2, 50.84s)
+2025-11-19 20:40:44 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 6 history items, 5 medicines/allergies, 4 findings, 0 labs/imaging, 7 assessment items
+2025-11-19 20:40:44 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:40:44 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:40:44 - app.pipeline - INFO - [STEP 5/5] Generating treatment plan...
+2025-11-19 20:40:44 - app.pipeline - INFO -   Using structured summary (2380 characters)...
+2025-11-19 20:40:44 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:40:53 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:41:07 - app.planner - INFO - LLM call succeeded (attempt 1, 23.17s)
+2025-11-19 20:41:07 - app.pipeline - INFO - ✓ Generated structured plan with 4 prioritized recommendations
+2025-11-19 20:41:07 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:41:07 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:41:07 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (plan only)
+2025-11-19 20:41:07 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:41:07 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:41:07 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:41:07 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:41:07 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:41:07 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:42:17 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-19 20:42:17 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:42:17 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:42:17 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:42:17 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=True, no_evaluation=False
+2025-11-19 20:42:17 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:42:17 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:42:17 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:42:17 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:42:17 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:42:17 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:42:17 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:42:17 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:42:17 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:42:17 - app.pipeline - INFO - [STEP 2/5] Skipped (using existing ToC)
+2025-11-19 20:42:17 - app.pipeline - INFO - [STEP 3/5] Skipped (using existing chunks)
+2025-11-19 20:42:17 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:42:17 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:42:17 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:42:17 - app.pipeline - INFO - [STEP 4/5] Generating summary...
+2025-11-19 20:42:17 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:42:17 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:42:27 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:43:07 - app.summarizer - INFO - LLM call succeeded (attempt 1, 49.19s)
+2025-11-19 20:43:07 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 6 history items, 5 medicines/allergies, 4 findings, 0 labs/imaging, 7 assessment items
+2025-11-19 20:43:07 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:43:07 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:43:07 - app.pipeline - INFO - [STEP 5/5] Generating treatment plan...
+2025-11-19 20:43:07 - app.pipeline - INFO -   Using structured summary (2375 characters)...
+2025-11-19 20:43:07 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:43:16 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:43:31 - app.planner - INFO - LLM call succeeded (attempt 1, 24.01s)
+2025-11-19 20:43:31 - app.pipeline - INFO - ✓ Generated structured plan with 4 prioritized recommendations
+2025-11-19 20:43:31 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:43:31 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:43:31 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (plan only)
+2025-11-19 20:43:31 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:43:31 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:43:31 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:43:31 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:43:31 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:43:31 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:43:50 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-19 20:43:50 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:43:50 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:43:50 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:43:50 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=True, no_evaluation=False
+2025-11-19 20:43:50 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:43:50 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:43:50 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:43:50 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:43:50 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:43:50 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:43:50 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:43:50 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:43:50 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:43:50 - app.pipeline - INFO - [STEP 2/5] Skipped (using existing ToC)
+2025-11-19 20:43:50 - app.pipeline - INFO - [STEP 3/5] Skipped (using existing chunks)
+2025-11-19 20:43:50 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:43:50 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:43:50 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:43:50 - app.pipeline - INFO - [STEP 4/5] Generating summary...
+2025-11-19 20:43:50 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:43:50 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:43:58 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:44:39 - app.summarizer - INFO - LLM call succeeded (attempt 1, 49.71s)
+2025-11-19 20:44:39 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 6 history items, 5 medicines/allergies, 4 findings, 0 labs/imaging, 7 assessment items
+2025-11-19 20:44:39 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:44:39 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/summary.json
+2025-11-19 20:44:39 - app.pipeline - INFO - [STEP 5/5] Generating treatment plan...
+2025-11-19 20:44:39 - app.pipeline - INFO -   Using structured summary (2393 characters)...
+2025-11-19 20:44:39 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:44:48 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:45:02 - app.planner - INFO - LLM call succeeded (attempt 1, 22.99s)
+2025-11-19 20:45:02 - app.pipeline - INFO - ✓ Generated structured plan with 4 prioritized recommendations
+2025-11-19 20:45:02 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:45:02 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/plan.json
+2025-11-19 20:45:02 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (plan only)
+2025-11-19 20:45:02 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:45:02 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:45:02 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:45:02 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:45:02 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:45:02 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:46:28 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/pipeline.log, level=DEBUG
+2025-11-19 20:46:28 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=DEBUG
+2025-11-19 20:46:28 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/3.pdf
+2025-11-19 20:46:28 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-19 20:46:28 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3
+2025-11-19 20:46:28 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-19 20:46:28 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:46:28 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:46:28 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-19 20:46:28 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-19 20:46:28 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:46:28 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:46:28 - app.chunks - INFO - Loaded 12 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/chunks.json
+2025-11-19 20:46:28 - app.chunks - INFO - Loaded 11 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:46:28 - app.pipeline - INFO - ✓ Loaded 12 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/chunks.json
+2025-11-19 20:46:28 - app.pipeline - INFO - ✓ Loaded 11 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-19 20:46:28 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:46:28 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:46:28 - app.ingestion - INFO - Loaded canonical note: 5547 characters, 1 pages
+2025-11-19 20:46:28 - app.ingestion - INFO - Loaded canonical note: 4544 characters, 1 pages
+2025-11-19 20:46:28 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/canonical_text.txt
+2025-11-19 20:46:28 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-19 20:46:28 - app.sections - INFO - Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:46:28 - app.sections - INFO - Loaded 12 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/toc.json
+2025-11-19 20:46:28 - app.pipeline - INFO - ✓ Loaded 11 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-19 20:46:28 - app.pipeline - INFO - ✓ Loaded 12 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/toc.json
+2025-11-19 20:46:28 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:46:28 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:46:28 - app.pipeline - INFO - [STEP 2/6] Skipped (using existing ToC)
+2025-11-19 20:46:28 - app.pipeline - INFO - [STEP 2/6] Skipped (using existing ToC)
+2025-11-19 20:46:28 - app.pipeline - INFO - [STEP 3/6] Skipped (using existing chunks)
+2025-11-19 20:46:28 - app.pipeline - INFO - [STEP 3/6] Skipped (using existing chunks)
+2025-11-19 20:46:28 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:46:28 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:46:29 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:46:29 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:46:29 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-19 20:46:29 - app.pipeline - INFO -   Processing 12 chunks at once...
+2025-11-19 20:46:29 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:46:29 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:46:29 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-19 20:46:29 - app.pipeline - INFO -   Processing 7 chunks at once...
+2025-11-19 20:46:29 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:46:29 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:46:29 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+You are a medical documentation assistant. Extract and summarize information from the clinical note below. **Output the actual summary directly - do NOT describe what you will d...
+2025-11-19 20:46:29 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+You are a medical documentation assistant. Extract and summarize information from the clinical note below. **Output the actual summary directly - do NOT describe what you will d...
+2025-11-19 20:46:29 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-11-19 20:46:29 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-11-19 20:46:29 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11692f8d0>
+2025-11-19 20:46:29 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11692e890>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:46:29 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:46:29 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:46:29 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:46:29 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-19 20:46:29 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-19 20:46:29 - app.pipeline - INFO -   Processing 11 chunks at once...
+2025-11-19 20:46:29 - app.pipeline - INFO -   Processing 12 chunks at once...
+2025-11-19 20:46:29 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:46:29 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:46:29 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+You are a medical documentation assistant. Extract and summarize information from the clinical note below. **Output the actual summary directly - do NOT describe what you will d...
+2025-11-19 20:46:29 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+You are a medical documentation assistant. Extract and summarize information from the clinical note below. **Output the actual summary directly - do NOT describe what you will d...
+2025-11-19 20:46:29 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-11-19 20:46:29 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-11-19 20:46:29 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11693e4d0>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11693fbd0>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:46:29 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:46:38 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:46:38 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:46:38 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:46:38 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:47:14 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:47:14 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:47:14 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:47:14 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "5-year-old male", "source": "CHIEF COMPLAINT section, chunk_1:183-789"}
+  ],
+  "key_problems": [
+    {"text": "Wheezing and coughing", "source": "CHIEF COMPLAINT section, chunk_1:183-789"},
+    {"text": "Asthma", "source": "PAST MEDICAL HISTORY section, chunk_2:789-903"}
+  ],
+  "pertinent_history": [
+    {"text": "Frequent pneumonia", "source": "PAST MEDICAL HISTORY section, chunk_2:789-903"},
+    {"text": "No smoking in the home", "source": "SOCIA...
+2025-11-19 20:47:14 - app.summarizer - INFO - LLM call succeeded (attempt 1, 44.97s)
+2025-11-19 20:47:14 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "5-year-old male",
+      "source": "CHIEF COMPLAINT section, chunk_1:183-789"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Wheezing and coughing",
+      "source": "CHIEF COMPLAINT section, chunk_1:183-789"
+    },
+    {
+      "text": "Asthma",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:789-903"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Frequent pneumonia",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:789-903...
+2025-11-19 20:47:14 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 2 problems, 2 history items, 8 medicines/allergies, 7 findings, 1 labs/imaging, 3 assessment items
+2025-11-19 20:47:14 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/2/summary.json
+2025-11-19 20:47:14 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/2/summary.json
+2025-11-19 20:47:14 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 20:47:14 - app.pipeline - INFO -   Using structured summary (1931 characters)...
+2025-11-19 20:47:14 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:47:14 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated. **Focu...
+2025-11-19 20:47:14 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:47:14 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:47:14 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:47:14 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:47:14 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:47:21 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:47:21 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:47:21 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:47:21 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:47:52 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:47:52 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:47:52 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:47:52 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "23-year-old white female", "source": "SUBJECTIVE section, chunk_1:194-206"}
+  ],
+  "key_problems": [
+    {"text": "Allergic rhinitis", "source": "ASSESSMENT section, chunk_5:1190-1203"}
+  ],
+  "pertinent_history": [
+    {"text": "Used to have allergies in Seattle but worse here.", "source": "SUBJECTIVE section, chunk_1:207-246"},
+    {"text": "Tried Claritin and Zyrtec with short-term effectiveness.", "source": "SUBJECTIVE section, chunk_1:253-289"...
+2025-11-19 20:47:52 - app.summarizer - INFO - LLM call succeeded (attempt 1, 83.56s)
+2025-11-19 20:47:52 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "23-year-old white female",
+      "source": "SUBJECTIVE section, chunk_1:194-206"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Allergic rhinitis",
+      "source": "ASSESSMENT section, chunk_5:1190-1203"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Used to have allergies in Seattle but worse here.",
+      "source": "SUBJECTIVE section, chunk_1:207-246"
+    },
+    {
+      "text": "Tried Claritin and Zyrtec with short-term effectivene...
+2025-11-19 20:47:52 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 1 problems, 5 history items, 3 medicines/allergies, 6 findings, 0 labs/imaging, 4 assessment items
+2025-11-19 20:47:52 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/summary.json
+2025-11-19 20:47:52 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/0/summary.json
+2025-11-19 20:47:52 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 20:47:52 - app.pipeline - INFO -   Using structured summary (1874 characters)...
+2025-11-19 20:47:52 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:47:52 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated. **Focu...
+2025-11-19 20:47:52 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:47:52 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:47:52 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:47:52 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:47:52 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:48:01 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:48:01 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:48:01 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:48:01 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:48:33 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:48:33 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:48:33 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:48:33 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "50-year-old female", "source": "HISTORY section, chunk_1:276-304"}
+  ],
+  "key_problems": [
+    {"text": "Chronic sinusitis with severe symptoms", "source": "HISTORY section, chunk_1:289-353"},
+    {"text": "Dizziness of uncertain etiology", "source": "IMPRESSION section, chunk_10:4467-4489"}
+  ],
+  "pertinent_history": [
+    {"text": "Seasonal allergies and possible food allergies", "source": "PAST MEDICAL HISTORY section, chunk_2:1935-1964"},
+   ...
+2025-11-19 20:48:33 - app.summarizer - INFO - LLM call succeeded (attempt 1, 124.84s)
+2025-11-19 20:48:33 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "50-year-old female",
+      "source": "HISTORY section, chunk_1:276-304"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Chronic sinusitis with severe symptoms",
+      "source": "HISTORY section, chunk_1:289-353"
+    },
+    {
+      "text": "Dizziness of uncertain etiology",
+      "source": "IMPRESSION section, chunk_10:4467-4489"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Seasonal allergies and possible food allergies",
+      "sourc...
+2025-11-19 20:48:33 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 2 problems, 6 history items, 2 medicines/allergies, 2 findings, 1 labs/imaging, 5 assessment items
+2025-11-19 20:48:33 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/summary.json
+2025-11-19 20:48:33 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/3/summary.json
+2025-11-19 20:48:33 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 20:48:33 - app.pipeline - INFO -   Using structured summary (1893 characters)...
+2025-11-19 20:48:33 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:48:33 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated. **Focu...
+2025-11-19 20:48:33 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:48:33 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:48:33 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:48:33 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:48:33 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:48:44 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:48:44 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:48:44 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:48:44 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:49:30 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:49:30 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:49:30 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:49:30 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "34-year-old male", "source": "HISTORY section, chunk_1:215-220"}
+  ],
+  "key_problems": [
+    {"text": "Acute allergic reaction, etiology uncertain, suspicious for Keflex", "source": "IMPRESSION section, chunk_9:3318-3465"},
+    {"text": "Renal failure requiring dialysis", "source": "IMPRESSION section, chunk_9:3318-3465"},
+    {"text": "Hypertension", "source": "IMPRESSION section, chunk_9:3318-3465"}
+  ],
+  "pertinent_history": [
+    {"text": "Hi...
+2025-11-19 20:49:30 - app.summarizer - WARNING - LLM call failed (attempt 1/3): Failed to parse JSON from response: ```json
+{
+  "patient_snapshot": [
+    {"text": "34-year-old male", "source": "HISTORY section, chunk_1:215-220"}
+  ],
+  "key_problems": [
+    {"text": "Acute allergic reaction, etiology uncertain, suspicious for Keflex", "source": "IMPRESSION section, chunk_9:3318-3465"},
+    {"text": "Renal failure requiring dialysis", "source": "IMPRESSION section, chunk_9:3318-3465"},
+    {"text": "Hypertension", "source": "IMPRESSION section, chunk_9:3318-3465"}
+  ],
+  "pertinent_history": [
+    {"text": "Hi
+2025-11-19 20:49:30 - app.summarizer - INFO - Retrying in 1s...
+2025-11-19 20:49:31 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:49:31 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:49:31 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:49:31 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:49:31 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:49:39 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:49:39 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:49:39 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:49:39 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:49:47 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:49:47 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:49:47 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:49:47 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Continue high-dose albuterol for the patient's respiratory distress and asthma. The patient is experiencing tight wheezing and retractions, with an oxygen saturation of 91% on room air.",
+      "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Administer Decadron by mouth to manag...
+2025-11-19 20:49:47 - app.planner - INFO - LLM call succeeded (attempt 1, 153.10s)
+2025-11-19 20:49:47 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Continue high-dose albuterol for the patient's respiratory distress and asthma. The patient is experiencing tight wheezing and retractions, with an oxygen saturation of 91% on room air.",
+      "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Administer Decadron by mouth to manage the pa...
+2025-11-19 20:49:47 - app.pipeline - INFO - ✓ Generated structured plan with 2 prioritized recommendations
+2025-11-19 20:49:47 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/2/plan.json
+2025-11-19 20:49:47 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/2/plan.json
+2025-11-19 20:49:47 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-19 20:49:47 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/2/evaluation.json
+2025-11-19 20:49:47 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/2/evaluation.json
+2025-11-19 20:49:47 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-19 20:49:47 - app.pipeline - INFO - Citation Coverage:
+2025-11-19 20:49:47 - app.pipeline - INFO -   Summary: 100.0% (24/24)
+2025-11-19 20:49:47 - app.pipeline - INFO -   Plan: 100.0% (2/2)
+2025-11-19 20:49:47 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-19 20:49:47 - app.pipeline - INFO - 
+Citation Validity: 100.0% (26/26)
+2025-11-19 20:49:47 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/26 orphan claims)
+2025-11-19 20:49:47 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.1815 (avg, 325 pairs, range: 0.0000-1.0000)
+2025-11-19 20:49:47 - app.pipeline - INFO - 
+Span Consistency: 100.0% (26/26)
+2025-11-19 20:49:47 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-19 20:49:47 - app.pipeline - INFO -   Total facts: 24
+2025-11-19 20:49:47 - app.pipeline - INFO -   Total recommendations: 2
+2025-11-19 20:49:47 - app.pipeline - INFO -   Average confidence: 0.90
+2025-11-19 20:49:47 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-19 20:49:47 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/2
+2025-11-19 20:49:47 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:49:47 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:49:47 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:49:47 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:49:47 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:49:47 - app.pipeline - INFO -   - evaluation.json
+2025-11-19 20:49:47 - app.pipeline - INFO -   - pipeline.log
+2025-11-19 20:49:47 - root - INFO - [1/11] ✓ 2.pdf
+2025-11-19 20:49:47 - app.pipeline - INFO - Checking Ollama availability...
+2025-11-19 20:49:47 - app.pipeline - INFO - ✓ Ollama is available
+2025-11-20 17:18:22 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/pipeline.log, level=INFO
+2025-11-20 17:18:22 - app.pipeline - INFO - Processing document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-20 17:18:22 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-20 17:18:22 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-20 17:18:22 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=False, no_evaluation=True
+2025-11-20 17:18:22 - app.pipeline - INFO - [STEP 1] Ingesting document: data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-20 17:18:22 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/1.pdf
+2025-11-20 17:18:22 - app.ingestion - INFO - Ingested document: 4544 characters, 1 pages, note_id: 1
+2025-11-20 17:18:22 - app.pipeline - INFO - ✓ Ingested: 4544 chars, 1 pages, note_id: 1
+2025-11-20 17:18:22 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/canonical_text.txt
+2025-11-20 17:18:22 - app.pipeline - INFO - [STEP 2/2] Detecting sections...
+2025-11-20 17:18:22 - app.sections - INFO - Overview section detected: end=215, title=Overview
+2025-11-20 17:18:22 - app.sections - INFO - Found 10 section headers (after empty lines, all-caps): ['HISTORY', 'PAST MEDICAL HISTORY', 'PAST SURGICAL HISTORY', 'FAMILY HISTORY', 'CURRENT MEDICATIONS', 'ALLERGIES', 'SOCIAL HISTORY', 'PHYSICAL EXAMINATION', 'IMPRESSION', 'RECOMMENDATIONS']
+2025-11-20 17:18:22 - app.sections - INFO - Found 10 potential section headers
+2025-11-20 17:18:22 - app.sections - INFO - Detected 11 sections: ['Overview', 'HISTORY', 'PAST MEDICAL HISTORY', 'PAST SURGICAL HISTORY', 'FAMILY HISTORY', 'CURRENT MEDICATIONS', 'ALLERGIES', 'SOCIAL HISTORY', 'PHYSICAL EXAMINATION', 'IMPRESSION', 'RECOMMENDATIONS']
+2025-11-20 17:18:22 - app.pipeline - INFO - ✓ Detected 11 sections
+2025-11-20 17:18:22 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-215)
+2025-11-20 17:18:22 - app.pipeline - INFO -   2. HISTORY (pages 1-1, chars 215-1405)
+2025-11-20 17:18:22 - app.pipeline - INFO -   3. PAST MEDICAL HISTORY (pages 1-1, chars 1405-1592)
+2025-11-20 17:18:22 - app.pipeline - INFO -   4. PAST SURGICAL HISTORY (pages 1-1, chars 1592-1668)
+2025-11-20 17:18:22 - app.pipeline - INFO -   5. FAMILY HISTORY (pages 1-1, chars 1668-1800)
+2025-11-20 17:18:22 - app.pipeline - INFO -   6. CURRENT MEDICATIONS (pages 1-1, chars 1800-1875)
+2025-11-20 17:18:22 - app.pipeline - INFO -   7. ALLERGIES (pages 1-1, chars 1875-1921)
+2025-11-20 17:18:22 - app.pipeline - INFO -   8. SOCIAL HISTORY (pages 1-1, chars 1921-1969)
+2025-11-20 17:18:22 - app.pipeline - INFO -   9. PHYSICAL EXAMINATION (pages 1-1, chars 1969-3318)
+2025-11-20 17:18:22 - app.pipeline - INFO -   10. IMPRESSION (pages 1-1, chars 3318-3465)
+2025-11-20 17:18:22 - app.pipeline - INFO -   11. RECOMMENDATIONS (pages 1-1, chars 3465-4544)
+2025-11-20 17:18:22 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json with 11 sections
+2025-11-20 17:18:22 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/toc.json
+2025-11-20 17:18:22 - app.pipeline - INFO - [STEP 3/2] Creating chunks...
+2025-11-20 17:18:22 - app.chunks - INFO - Created 11 chunks from 11 sections
+2025-11-20 17:18:22 - app.pipeline - INFO - ✓ Created 11 chunks
+2025-11-20 17:18:22 - app.chunks - INFO - Saved 11 chunks to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-20 17:18:22 - app.pipeline - INFO - ✓ Saved chunks to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1/chunks.json
+2025-11-20 17:18:22 - app.pipeline - INFO - 
+✓ Pipeline completed successfully (no evaluation)
+2025-11-20 17:18:22 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/1
+2025-11-20 17:18:22 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-20 17:18:22 - app.pipeline - INFO -   - toc.json
+2025-11-20 17:18:22 - app.pipeline - INFO -   - chunks.json

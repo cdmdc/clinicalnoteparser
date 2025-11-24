@@ -1,0 +1,25 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Will be asking for a letter of medical necessity from Dr. XYZ.",
+      "source": "chunk_10:2571-2593",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "She will also see my nutritionist and social worker and have an upper endoscopy.",
+      "source": "chunk_10:2594-2628",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "Once this is completed, we will submit her to her insurance company for approval.",
+      "source": "chunk_10:2629-2653",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}

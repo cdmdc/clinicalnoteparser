@@ -1,0 +1,116 @@
+{
+  "citation_coverage": {
+    "summary_facts_with_citations": 28,
+    "summary_total_facts": 28,
+    "summary_coverage_percentage": 100.0,
+    "plan_recommendations_with_citations": 7,
+    "plan_total_recommendations": 7,
+    "plan_coverage_percentage": 100.0,
+    "overall_coverage_percentage": 100.0
+  },
+  "citation_validity": {
+    "total_citations_checked": 35,
+    "invalid_citations": 15,
+    "validity_percentage": 57.14
+  },
+  "section_name_mismatches": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "span_out_of_chunk_bounds": {
+    "summary": 15,
+    "plan": 0,
+    "total": 15
+  },
+  "orphan_claims": {
+    "summary_orphans": 0,
+    "plan_orphans": 0,
+    "total_orphans": 0,
+    "total_claims": 35,
+    "hallucination_rate_percentage": 0.0
+  },
+  "citation_overlap_jaccard": {
+    "total_citation_pairs": 595,
+    "average_jaccard_similarity": 0.0332,
+    "min_jaccard": 0.0,
+    "max_jaccard": 1.0
+  },
+  "span_consistency": {
+    "checks_performed": 35,
+    "checks_passed": 35,
+    "consistency_percentage": 100.0
+  },
+  "summary_statistics": {
+    "total_facts_extracted": 28,
+    "total_recommendations_generated": 7,
+    "average_citations_per_fact": 1.0,
+    "average_citations_per_recommendation": 1.0,
+    "confidence_score_distribution": {
+      "count": 7,
+      "mean": 0.9000000000000001,
+      "median": 0.9,
+      "min": 0.9,
+      "max": 0.9
+    }
+  },
+  "semantic_accuracy": {
+    "average_similarity": 0.5187,
+    "well_supported": 1,
+    "poorly_supported": 6,
+    "total_recommendations": 7,
+    "support_rate": 0.1429,
+    "similarity_threshold": 0.7,
+    "per_recommendation": [
+      {
+        "number": 1,
+        "similarity_score": 0.5268,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_11",
+        "cited_text_preview": "d to evaluate vestibular function. She was pla"
+      },
+      {
+        "number": 2,
+        "similarity_score": 0.4325,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_11",
+        "cited_text_preview": "ed on Veramyst nasal"
+      },
+      {
+        "number": 3,
+        "similarity_score": 0.5752,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_11",
+        "cited_text_preview": "prays each\nnostril daily and even twice d"
+      },
+      {
+        "number": 4,
+        "similarity_score": 0.524,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_11",
+        "cited_text_preview": "MMENDATIONS:\n An E"
+      },
+      {
+        "number": 5,
+        "similarity_score": 0.5017,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_11",
+        "cited_text_preview": "ily if symptoms are worsening. A Medrol Dosepak was pre"
+      },
+      {
+        "number": 6,
+        "similarity_score": 0.3621,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_11",
+        "cited_text_preview": "cribed as directed."
+      },
+      {
+        "number": 7,
+        "similarity_score": 0.7084,
+        "is_supported": true,
+        "cited_chunk_id": "chunk_11",
+        "cited_text_preview": "The patient was given instruction on\nuse of nasal saline irrigation to be used twice daily and Clari..."
+      }
+    ]
+  }
+}

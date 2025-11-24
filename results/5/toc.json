@@ -1,0 +1,67 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 211,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SUBJECTIVE",
+      "start_char": 211,
+      "end_char": 1579,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "REVIEW OF SYSTEMS",
+      "start_char": 1579,
+      "end_char": 1891,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PAST MEDICAL HISTORY",
+      "start_char": 1891,
+      "end_char": 1980,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SOCIAL HISTORY",
+      "start_char": 1980,
+      "end_char": 2033,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "MEDICATIONS",
+      "start_char": 2033,
+      "end_char": 2070,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ALLERGIES",
+      "start_char": 2070,
+      "end_char": 2089,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "OBJECTIVE",
+      "start_char": 2089,
+      "end_char": 3415,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ASSESSMENT/PLAN",
+      "start_char": 3415,
+      "end_char": 4670,
+      "start_page": 0,
+      "end_page": 1
+    }
+  ]
+}

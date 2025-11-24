@@ -1,0 +1,142 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "55-year-old female",
+      "source": "[OVERVIEW] section, chunk_0:0-21"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "obesity-related comorbidities including hypertension and hypercholesterolemia",
+      "source": "[ASSESSMENT] section, chunk_10:3695-3748"
+    },
+    {
+      "text": "laparoscopic Roux-en-Y gastric bypass",
+      "source": "[OVERVIEW] section, chunk_0:22-43"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "overweight for approximately 35 years and has tried multiple weight loss modalities in the past including Weight Watchers, NutriSystem, Jenny Craig, TOPS, cabbage diet, grape fruit diet, Slim-Fast, Richard Simmons, as well as over-the-counter measures without any long-term sustainable weight loss",
+      "source": "[HISTORY OF PRESENT ILLNESS] section, chunk_1:258-697"
+    },
+    {
+      "text": "5 feet 6 inches tall with a weight of 285.4 pounds and a body mass index of 46",
+      "source": "[HISTORY OF PRESENT ILLNESS] section, chunk_1:698-730"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Norvasc 10 mg p.o. daily",
+      "source": "[MEDICATIONS] section, chunk_4:1573-1589"
+    },
+    {
+      "text": "Lopressor tartrate 50 mg p.o. b.i.d.",
+      "source": "[MEDICATIONS] section, chunk_4:1590-1602"
+    },
+    {
+      "text": "lovastatin 10 mg p.o. at bedtime",
+      "source": "[MEDICATIONS] section, chunk_4:1603-1617"
+    },
+    {
+      "text": "citalopram 10 mg p.o. daily",
+      "source": "[MEDICATIONS] section, chunk_4:1618-1629"
+    },
+    {
+      "text": "aspirin 500 mg three times a day, which is currently stopped",
+      "source": "[MEDICATIONS] section, chunk_4:1630-1647"
+    },
+    {
+      "text": "vitamin D",
+      "source": "[MEDICATIONS] section, chunk_4:1648-1652"
+    },
+    {
+      "text": "Premarin 0.3 mg one tablet p.o. daily, currently stopped",
+      "source": "[MEDICATIONS] section, chunk_4:1653-1670"
+    },
+    {
+      "text": "omega-3 fatty acids",
+      "source": "[MEDICATIONS] section, chunk_4:1671-1682"
+    },
+    {
+      "text": "vitamin D 50,000 units q. weekly",
+      "source": "[MEDICATIONS] section, chunk_4:1683-1695"
+    },
+    {
+      "text": "The patient denies allergies to medications and to latex.",
+      "source": "[ALLERGIES] section, chunk_5:1904-1974"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "well-nourished, well-developed female",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2869-2883"
+    },
+    {
+      "text": "pupils equal and reactive to light",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2884-2897"
+    },
+    {
+      "text": "extraocular motions are intact",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2898-2906"
+    },
+    {
+      "text": "no cervical lymphadenopathy",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2907-2915"
+    },
+    {
+      "text": "midline trachea",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2916-2921"
+    },
+    {
+      "text": "no carotid bruits",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2922-2928"
+    },
+    {
+      "text": "nonpalpable thyroid",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2929-2935"
+    },
+    {
+      "text": "gross motor strength in the upper and lower extremities, equal bilaterally with no focal neuro deficits noted",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2936-2958"
+    },
+    {
+      "text": "clear breath sounds without rhonchi or wheezes",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2959-2971"
+    },
+    {
+      "text": "regular rate and rhythm without murmur or bruits",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2972-2986"
+    },
+    {
+      "text": "positive bowel sounds",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2987-2993"
+    },
+    {
+      "text": "soft, nontender, obese, and nondistended abdomen",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:2994-3010"
+    },
+    {
+      "text": "lap cholecystectomy scars noted",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:3011-3018"
+    },
+    {
+      "text": "no obvious hernias",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:3019-3025"
+    },
+    {
+      "text": "no organomegaly appreciated",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:3026-3034"
+    },
+    {
+      "text": "edema 1+",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:3058-3062"
+    },
+    {
+      "text": "dorsalis pedis pulses 2+",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_9:3063-3071"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": []
+}

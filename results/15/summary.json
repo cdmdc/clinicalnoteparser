@@ -1,0 +1,99 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "34-year-old female with a BMI of 43.",
+      "source": "[OVERVIEW] section, chunk_0:126"
+    },
+    {
+      "text": "5'6\" tall and weighs 267 pounds.",
+      "source": "[OVERVIEW] section, chunk_0:128-139"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Interested in surgical weight loss via the gastric bypass as opposed to Lap-Band.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2456-2570"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Overweight for over 20 years and wants to have more energy and improve her self-image.",
+      "source": "[OVERVIEW] section, chunk_0:389-416"
+    },
+    {
+      "text": "Has tried numerous commercial weight loss programs including Weight Watcher's, RS, Slim Fast, an exercise program, Atkin's Diet, and Dexatrim.",
+      "source": "[OVERVIEW] section, chunk_0:417-523"
+    },
+    {
+      "text": "Lost 100 pounds on Redux for nine months but regained the weight within a year.",
+      "source": "[OVERVIEW] section, chunk_0:524-568"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Topamax 100 mg twice daily",
+      "source": "[MEDICATIONS] section, chunk_6:1739-1752"
+    },
+    {
+      "text": "Zoloft 100 mg twice daily",
+      "source": "[MEDICATIONS] section, chunk_6:1753-1768"
+    },
+    {
+      "text": "Abilify 5 mg daily",
+      "source": "[MEDICATIONS] section, chunk_6:1769-1778"
+    },
+    {
+      "text": "Motrin 800 mg daily",
+      "source": "[MEDICATIONS] section, chunk_6:1779-1788"
+    },
+    {
+      "text": "Multivitamin",
+      "source": "[MEDICATIONS] section, chunk_6:1789-1795"
+    },
+    {
+      "text": "No known drug allergies.",
+      "source": "[ALLERGIES] section, chunk_7:1860-1874"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Pleasant female in no acute distress. Alert and oriented x 3.",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2058-2081"
+    },
+    {
+      "text": "HEENT: Normocephalic, atraumatic. Extraocular muscles intact, nonicteric sclerae.",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2082-2136"
+    },
+    {
+      "text": "Chest is clear to auscultation bilaterally.",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2137-2154"
+    },
+    {
+      "text": "Cardiovascular is normal sinus rhythm.",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2155-2168"
+    },
+    {
+      "text": "Abdomen is obese, soft, nontender and nondistended. Extremities show no edema, clubbing or cyanosis.",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2169-2275"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "34-year-old female with a BMI of 43 who is interested in surgical weight via the gastric bypass as opposed to Lap-Band.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2456-2570"
+    },
+    {
+      "text": "Will be asking for a letter of medical necessity from Dr. XYZ.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2571-2593"
+    },
+    {
+      "text": "She will also see my nutritionist and social worker and have an upper endoscopy.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2594-2628"
+    },
+    {
+      "text": "Once this is completed, we will submit her to her insurance company for approval.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2629-2653"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "A 55-year-old female",
+      "source": "[OVERVIEW] section, chunk_0:12-36"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "chronic glossitis",
+      "source": "[IMPRESSION] section, chunk_2:74-84"
+    },
+    {
+      "text": "xerostomia",
+      "source": "[IMPRESSION] section, chunk_2:85-93"
+    },
+    {
+      "text": "probable environmental inhalant allergies",
+      "source": "[IMPRESSION] section, chunk_2:94-116"
+    },
+    {
+      "text": "probable food allergies",
+      "source": "[IMPRESSION] section, chunk_2:117-130"
+    },
+    {
+      "text": "history of asthma",
+      "source": "[IMPRESSION] section, chunk_2:131-142"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "History of fibromyalgia.",
+      "source": "[IMPRESSION] section, chunk_2:165-179"
+    },
+    {
+      "text": "History of peptic ulcer disease",
+      "source": "[IMPRESSION] section, chunk_2:180-194"
+    },
+    {
+      "text": "history of gastritis",
+      "source": "[IMPRESSION] section, chunk_2:195-203"
+    },
+    {
+      "text": "History of gastroesophageal disease.",
+      "source": "[IMPRESSION] section, chunk_2:204-218"
+    },
+    {
+      "text": "History of chronic fatigue.",
+      "source": "[IMPRESSION] section, chunk_2:219-230"
+    },
+    {
+      "text": "History of hypothyroidism.",
+      "source": "[IMPRESSION] section, chunk_2:231-241"
+    },
+    {
+      "text": "History of depression.",
+      "source": "[IMPRESSION] section, chunk_2:242-250"
+    },
+    {
+      "text": "History of dysphagia.",
+      "source": "[IMPRESSION] section, chunk_2:251-263"
+    }
+  ],
+  "medicines_allergies": [],
+  "objective_findings": [],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "RAST allergy testing was ordered for food allergy evaluation.",
+      "source": "[RECOMMENDATIONS] section, chunk_3:996-1124"
+    },
+    {
+      "text": "The patient will follow up after RAST allergy testing for further treatment recommendations.",
+      "source": "[RECOMMENDATIONS] section, chunk_3:1125-1270"
+    },
+    {
+      "text": "No changes in her medication were prescribed until her followup visit.",
+      "source": "[RECOMMENDATIONS] section, chunk_3:1271-1354"
+    }
+  ]
+}

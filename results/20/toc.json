@@ -1,0 +1,32 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 180,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "REASON FOR VISIT",
+      "start_char": 180,
+      "end_char": 431,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PHYSICAL EXAMINATION",
+      "start_char": 431,
+      "end_char": 620,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ASSESSMENT AND PLAN",
+      "start_char": 620,
+      "end_char": 1205,
+      "start_page": 0,
+      "end_page": 0
+    }
+  ]
+}

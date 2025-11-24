@@ -1,0 +1,42 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "Preop evaluation regarding gastric bypass surgery.",
+      "source": "[REASON FOR VISIT] section, chunk_1:180-431"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Morbid obesity",
+      "source": "[ASSESSMENT AND PLAN] section, chunk_3:620-759"
+    }
+  ],
+  "pertinent_history": [],
+  "medicines_allergies": [
+    {
+      "text": "Cleared for surgery.",
+      "source": "[ASSESSMENT AND PLAN] section, chunk_3:1184-1205"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Alert and oriented x3. Temperature of 97.9, pulse of 76, blood pressure of 114/74, weight of 247.4 pounds.",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_2:431-620"
+    },
+    {
+      "text": "Abdomen: Soft, nontender, and nondistended.",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_2:431-620"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "Risks and benefits of the procedure were reiterated with the patient and significant other and mother, which included but not limited to death, pulmonary embolism, anastomotic leak, reoperation, prolonged hospitalization, stricture, small bowel obstruction, bleeding, and infection.",
+      "source": "[ASSESSMENT AND PLAN] section, chunk_3:620-759"
+    },
+    {
+      "text": "We will continue on the Medifast diet until the time of surgery and cleared for surgery.",
+      "source": "[ASSESSMENT AND PLAN] section, chunk_3:620-1205"
+    }
+  ]
+}

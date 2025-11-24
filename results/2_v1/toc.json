@@ -1,0 +1,88 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 183,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CHIEF COMPLAINT",
+      "start_char": 183,
+      "end_char": 789,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PAST MEDICAL HISTORY",
+      "start_char": 789,
+      "end_char": 903,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "IMMUNIZATIONS",
+      "start_char": 903,
+      "end_char": 931,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ALLERGIES",
+      "start_char": 931,
+      "end_char": 951,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "MEDICATIONS",
+      "start_char": 951,
+      "end_char": 1036,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PAST SURGICAL HISTORY",
+      "start_char": 1036,
+      "end_char": 1068,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SOCIAL HISTORY",
+      "start_char": 1068,
+      "end_char": 1168,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "FAMILY HISTORY",
+      "start_char": 1168,
+      "end_char": 1205,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "REVIEW OF SYSTEMS",
+      "start_char": 1205,
+      "end_char": 1287,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PHYSICAL EXAMINATION",
+      "start_char": 1287,
+      "end_char": 2192,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "MEDICAL DECISION MAKING",
+      "start_char": 2192,
+      "end_char": 2922,
+      "start_page": 0,
+      "end_page": 0
+    }
+  ]
+}

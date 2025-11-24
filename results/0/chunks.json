@@ -1,0 +1,53 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAllergy / Immunology\n \nSample Name:\nÂ Allergic Rhinitis\nDescription:\nÂ A 23-year-old white female presents with complaint of allergies. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 194,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "SUBJECTIVE:\n This 23-year-old white female presents with complaint of allergies. She used to have allergies when she lived in Seattle but she\nthinks they are worse here. In the past, she has tried Claritin, and Zyrtec. Both worked for short time but then seemed to lose effectiveness. She\nhas used Allegra also. She used that last summer and she began using it again two weeks ago. It does not appear to be working very well. She has\nused over-the-counter sprays but no prescription nasal sprays. She does have asthma but doest not require daily medication for this and does not\nthink it is flaring up.",
+      "start_char": 194,
+      "end_char": 797,
+      "section_title": "SUBJECTIVE"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "MEDICATIONS: \nHer only medication currently is Ortho Tri-Cyclen and the Allegra.",
+      "start_char": 797,
+      "end_char": 878,
+      "section_title": "MEDICATIONS"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "ALLERGIES: \nShe has no known medicine allergies.",
+      "start_char": 878,
+      "end_char": 927,
+      "section_title": "ALLERGIES"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "OBJECTIVE:\nVitals: Weight was 130 pounds and blood pressure 124/78.\nHEENT: Her throat was mildly erythematous without exudate. Nasal mucosa was erythematous and swollen. Only clear drainage was seen. TMs\nwere clear.\nNeck: Supple without adenopathy.\nLungs: Clear.",
+      "start_char": 927,
+      "end_char": 1190,
+      "section_title": "OBJECTIVE"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "ASSESSMENT:\n Allergic rhinitis.",
+      "start_char": 1190,
+      "end_char": 1222,
+      "section_title": "ASSESSMENT"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "PLAN:\n1. She will try Zyrtec instead of Allegra again. Another option will be to use loratadine. She does not think she has prescription coverage so that\nmight be cheaper.\n2. Samples of Nasonex two sprays in each nostril given for three weeks. A prescription was written as well.",
+      "start_char": 1222,
+      "end_char": 1501,
+      "section_title": "PLAN"
+    }
+  ]
+}

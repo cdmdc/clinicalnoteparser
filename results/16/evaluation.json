@@ -1,0 +1,102 @@
+{
+  "citation_coverage": {
+    "summary_facts_with_citations": 30,
+    "summary_total_facts": 30,
+    "summary_coverage_percentage": 100.0,
+    "plan_recommendations_with_citations": 5,
+    "plan_total_recommendations": 5,
+    "plan_coverage_percentage": 100.0,
+    "overall_coverage_percentage": 100.0
+  },
+  "citation_validity": {
+    "total_citations_checked": 35,
+    "invalid_citations": 0,
+    "validity_percentage": 100.0
+  },
+  "section_name_mismatches": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "span_out_of_chunk_bounds": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "orphan_claims": {
+    "summary_orphans": 0,
+    "plan_orphans": 0,
+    "total_orphans": 0,
+    "total_claims": 35,
+    "hallucination_rate_percentage": 0.0
+  },
+  "citation_overlap_jaccard": {
+    "total_citation_pairs": 595,
+    "average_jaccard_similarity": 0.0084,
+    "min_jaccard": 0.0,
+    "max_jaccard": 1.0
+  },
+  "span_consistency": {
+    "checks_performed": 35,
+    "checks_passed": 35,
+    "consistency_percentage": 100.0
+  },
+  "summary_statistics": {
+    "total_facts_extracted": 30,
+    "total_recommendations_generated": 5,
+    "average_citations_per_fact": 1.0,
+    "average_citations_per_recommendation": 1.0,
+    "confidence_score_distribution": {
+      "count": 5,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    }
+  },
+  "semantic_accuracy": {
+    "average_similarity": 0.4115,
+    "well_supported": 0,
+    "poorly_supported": 5,
+    "total_recommendations": 5,
+    "support_rate": 0.0,
+    "similarity_threshold": 0.7,
+    "per_recommendation": [
+      {
+        "number": 1,
+        "similarity_score": 0.436,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": "ASSESSMENT/PLAN: \nThis is a 51-year-old female w"
+      },
+      {
+        "number": 2,
+        "similarity_score": 0.3456,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": "th a BMI of 43 w"
+      },
+      {
+        "number": 3,
+        "similarity_score": 0.4759,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": "ested in the Lap"
+      },
+      {
+        "number": 4,
+        "similarity_score": 0.4384,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": "stric bypass. A"
+      },
+      {
+        "number": 5,
+        "similarity_score": 0.3615,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": "sity from XYZ. She wi"
+      }
+    ]
+  }
+}

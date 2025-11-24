@@ -1,0 +1,39 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Interested in Lap-Band as opposed to gastric bypass",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2831-2879",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Will need a letter of medical necessity from XYZ",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2880-2896",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "Will need EKG and clearance for surgery",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2907-2923",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "Will see nutritionist and social worker",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2945-2960",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 5,
+      "recommendation": "Insurance company approval will be submitted once completed",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:3007-3028",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}

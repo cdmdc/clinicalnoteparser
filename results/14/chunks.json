@@ -1,0 +1,116 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAutopsy\n \nSample Name:\nÂ Autopsy - 8\nDescription:\nÂ The patient died of a pulmonary embolism, the underlying cause of which is currently undetermined. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 209,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "SUMMARY OF CLINICAL HISTORY:\n The patient was a 35-year-old African-American male with no significant past medical history who\ncalled EMS with shortness of breath and chest pain. Upon EMS arrival, patient was tachypneic at 40 breaths per minute with oxygen saturation of\n90%. At the scene, EMS administered breathing treatments and checked lung sounds that did not reveal any evidence of fluid in the lung fields.\nEMS also reports patient was agitated upon their arrival at his residence. Two minutes after arrival at UTMB at 1500, the patient became\nunresponsive, apneic, and had oxygen saturations from 80-90%. The patient's heart rate decreased to asystole, was intubated with good breath\nsounds and air movement. Patient then had wide complex bradycardia and ACLS protocol for pulseless electrical activity was followed for 45\nminutes. The patient was administered TPA with no improvement. Bedside echocardiogram showed no pericardial effusion. The patient was\nadministered D5W, Narcan, and multiple rounds of epinephrine and atropine, calcium chloride, and sodium bicarbonate. The patient had three\nepisodes of ventricular tachycardia/fibrillation with cardioversion/defibrillation resulting in asystole. The patient was pronounced dead at 1605 with\nfixed, dilated pupils, no heart sounds, no pulse and no spontaneous respirations.",
+      "start_char": 209,
+      "end_char": 1546,
+      "section_title": "SUMMARY OF CLINICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "DESCRIPTION OF GROSS LESIONS",
+      "start_char": 1546,
+      "end_char": 1575,
+      "section_title": "DESCRIPTION OF GROSS LESIONS"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "EXTERNAL EXAMINATION:\n The body is that of a 35-year-old well-developed, well-nourished male. There is no peripheral edema of the\nextremities. There is an area of congestion/erythema on the upper chest and anterior neck. There are multiple small areas of hemorrhage bilaterally\nin the conjunctiva. A nasogastric tube and endotracheal tube are in place. There is an intravenous line in the right hand and left femoral region. The\npatient has multiple lead pads on the thorax. The patient has no other major surgical scars.",
+      "start_char": 1575,
+      "end_char": 2097,
+      "section_title": "EXTERNAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "INTERNAL EXAMINATION (BODY CAVITIES):\n The right and left pleural cavity contains 10 ml of clear fluid with no adhesions. The\npericardial sac is yellow, glistening without adhesions or fibrosis and contains 30 ml of a straw colored fluid. There is minimal fluid in the peritoneal\ncavity.",
+      "start_char": 2097,
+      "end_char": 2385,
+      "section_title": "INTERNAL EXAMINATION (BODY CAVITIES)"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "HEART:\n The heart is large with a normal shape and a weight of 400 grams. The pericardium is intact. The epicardial fat is diffusely firm. As\npatient was greater than 48 hours post mortem, no TTC staining was utilized. Upon opening the heart was grossly normal without evidence of\ninfarction. There were slightly raised white plaques in the left ventricle wall lining. The left ventricle measures 2.2 cm, the right ventricle measures\n0.2 cm, the tricuspid ring measures 11 cm, the pulmonic right measures 8 cm, the mitral ring measures 10.2 cm, and the aortic ring measures 7 cm.\nThe foramen ovale is closed. The circulation is left dominant. Examination of the great vessels of the heart reveals minimal atherosclerosis with the\narea of greatest stenosis (20% stenosis) at the bifurcation of the LAD.",
+      "start_char": 2385,
+      "end_char": 3187,
+      "section_title": "HEART"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "AORTA:\n There is minimal atherosclerosis with no measurable plaques along the full length of the ascending and descending aorta.",
+      "start_char": 3187,
+      "end_char": 3316,
+      "section_title": "AORTA"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "LUNGS: \nThe right lung weighed 630 grams, the left weighed 710 grams. The lung parenchyma is pink without evidence of congestion of\nhemorrhage. The bronchi are grossly normal. In the right lung, there are two large organizing thrombo-emboli. The first is located at the first branch\nof the pulmonary artery with an older, organizing area adherent to the vessel wall measuring 1.0 x 1.0 x 2.5 cm. Surrounding this organizing area is\na newer area of apparent thrombosis completely occluding the bifurcation. The other large organizing, adherent embolus is located further in out in\nthe vasculature measuring approximately 1.0 x 1.0 x 1.5 cm. There are multiple other emboli located in smaller pulmonary vessels that show\nevidence of distending the vessels they are located inside.",
+      "start_char": 3316,
+      "end_char": 4095,
+      "section_title": "LUNGS"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "GASTROINTESTINAL SYSTEM:\n The esophagus and stomach are normal in appearance without evidence of ulcers or varices. The stomach\ncontains approximately 800 ml, without evidence of any pills or other non-foodstuff material. The pancreas shows a normal lobular cut surface with\nevidence of autolysis. The duodenum, ileum, jejunum and colon are all grossly normal without evidence of abnormal vasculature or diverticula. An\nappendix is present and is unremarkable. The liver weighs 2850 grams and the cut surface reveals a normal liver with no fibrosis present grossly.\nThe gallbladder is in place with a probe patent bile duct through to the ampulla of Vater.",
+      "start_char": 4095,
+      "end_char": 4752,
+      "section_title": "GASTROINTESTINAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "RETICULOENDOTHELIAL SYSTEM:\n The spleen is large weighing 340 grams, the cut surface reveals a normal appearing white and red\npulp. No abnormally large lymph nodes were noted.",
+      "start_char": 4752,
+      "end_char": 4928,
+      "section_title": "RETICULOENDOTHELIAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "text": "GENITOURINARY SYSTEM:\n The right kidney weighs 200 grams, the left weighs 210 grams. The left kidney contains a 1.0 x 1.0 x 1.0\nsimple cyst containing a clear fluid. The cut surface reveals a normal appearing cortex and medulla with intact calyces. The prostate and seminal\nvessels were cut revealing normal appearing prostate and seminal vesicle tissue without evidence of inflammation or embolus.",
+      "start_char": 4928,
+      "end_char": 5327,
+      "section_title": "GENITOURINARY SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_11",
+      "text": "ENDOCRINE SYSTEM:\n The adrenal glands are in the normal position and weigh 8.0 grams on the right and 11.6 grams on the left. The cut\nsurface of the adrenal glands reveals a normal appearing cortex and medulla. The thyroid gland weighs 12.4 grams and is grossly normal.",
+      "start_char": 5327,
+      "end_char": 5597,
+      "section_title": "ENDOCRINE SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_12",
+      "text": "EXTREMITIES:\n Both legs and calves were measured and found to be very similar in circumference. Both legs were also milked and produced\nno clots in the venous system.",
+      "start_char": 5597,
+      "end_char": 5764,
+      "section_title": "EXTREMITIES"
+    },
+    {
+      "chunk_id": "chunk_13",
+      "text": "CLINICOPATHOLOGIC CORRELATION\nThis patient died shortly after a previous pulmonary embolus completely occluded the right pulmonary artery vasculature.\nThe most significant finding on autopsy was the presence of multiple old and new thromboemboli in the pulmonary vasculature of the right lung. The\nautopsy revealed evidence of multiple emboli in the right lung that were at least a few days old because the emboli that were organizing were\nadherent to the vessel wall. In order to be adherent to the vessel wall, the emboli must be in place long enough to evoke a fibroblast response,\nwhich takes at least a few days. The fatal event was not the old emboli in the right lung, but rather the thrombosis on top of the large saddle\nthrombus residing in the pulmonary artery. This created a high-pressure situation that the right ventricle could not handle resulting in cardiac\ndysfunction and ultimately the patient's demise.\nAlthough this case is fairly straight forward in terms of what caused the terminal event, perhaps the more interesting question is why a relatively\nhealthy 35-year-old man would develop a fatal pulmonary embolism. Virchow's triad suggests we should investigate endothelial injury, stasis and a\nhypercoagulable state as possible etiologies. The age of the patient probably precludes venous stasis as the sole reason for the embolus although it\ncould have certainly contributed. The autopsy revealed no evidence of endothelial damage in the pulmonary vasculature that would have caused the\nocclusion. The next logical reason would be a hypercoagulable state. Some possibilities include obesity, trauma, surgery, cancer, Factor V Leiden\ndeficiency (as well as other inherited disorders-prothrombin gene mutation, deficiencies in protein C, protein S, or antithrombin III, and disorders\nof plasminogen), and Lupus anticoagulant. Of these risks factors, obesity was the only risk factor the patient was known to have. The patient had\nno evidence of trauma, surgery, cancer or the stigmata of SLE, therefore these are unlikely. Perhaps the most fruitful search would be an\nexamination of the genetic possibilities for a hypercoagulable state (Factor V Leiden being the most common).\nIn summary, this patient died of a pulmonary embolism, the underlying cause of which is currently undetermined. A definitive diagnosis may be\nascertained with either genetic or other laboratory tests and a more detailed history.",
+      "start_char": 5764,
+      "end_char": 8193,
+      "section_title": "CLINICOPATHOLOGIC CORRELATION"
+    },
+    {
+      "chunk_id": "chunk_14",
+      "text": "SUMMARY AND REFLECTION\nWHAT I LEARNED FROM THIS AUTOPSY:\n I learned that although a cause of death may sometimes be obvious, the underlying mechanism\nfor the death may still be elusive. This patient was an otherwise completely healthy 35-year-old man with one known risk factor for a\nhypercoagulable state.",
+      "start_char": 8193,
+      "end_char": 8500,
+      "section_title": "SUMMARY AND REFLECTION"
+    },
+    {
+      "chunk_id": "chunk_15",
+      "text": "REMAINING UNANSWERED QUESTIONS:\n Basically the cause of the hypercoagulable state is undetermined. Once that question is\nanswered I believe this autopsy will have done a great service for the patient's family.",
+      "start_char": 8500,
+      "end_char": 8709,
+      "section_title": "REMAINING UNANSWERED QUESTIONS"
+    }
+  ]
+}

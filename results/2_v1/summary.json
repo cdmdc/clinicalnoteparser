@@ -1,0 +1,104 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "5-year-old male",
+      "source": "CHIEF COMPLAINT section, chunk_1:183-789"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Wheezing and coughing due to asthma",
+      "source": "CHIEF COMPLAINT section, chunk_1:183-789"
+    },
+    {
+      "text": "Vomiting and abdominal pain",
+      "source": "CHIEF COMPLAINT section, chunk_1:183-789"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "History of asthma with previous admission in July 2007",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:789-903"
+    },
+    {
+      "text": "Frequent pneumonia reported",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:789-903"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Advair",
+      "source": "MEDICATIONS section, chunk_5:951-1036"
+    },
+    {
+      "text": "Nasonex",
+      "source": "MEDICATIONS section, chunk_5:951-1036"
+    },
+    {
+      "text": "Xopenex",
+      "source": "MEDICATIONS section, chunk_5:951-1036"
+    },
+    {
+      "text": "Zicam",
+      "source": "MEDICATIONS section, chunk_5:951-1036"
+    },
+    {
+      "text": "Zithromax",
+      "source": "MEDICATIONS section, chunk_5:951-1036"
+    },
+    {
+      "text": "prednisone",
+      "source": "MEDICATIONS section, chunk_5:951-1036"
+    },
+    {
+      "text": "albuterol",
+      "source": "MEDICATIONS section, chunk_5:951-1036"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Temperature 98.7°F",
+      "source": "PHYSICAL EXAMINATION section, chunk_10:1287-2192"
+    },
+    {
+      "text": "Pulse 105",
+      "source": "PHYSICAL EXAMINATION section, chunk_10:1287-2192"
+    },
+    {
+      "text": "Respiration 28",
+      "source": "PHYSICAL EXAMINATION section, chunk_10:1287-2192"
+    },
+    {
+      "text": "Blood pressure 112/65",
+      "source": "PHYSICAL EXAMINATION section, chunk_10:1287-2192"
+    },
+    {
+      "text": "Weight 16.5 kg",
+      "source": "PHYSICAL EXAMINATION section, chunk_10:1287-2192"
+    },
+    {
+      "text": "Oxygen saturation low at 91% on room air",
+      "source": "PHYSICAL EXAMINATION section, chunk_10:1287-2192"
+    },
+    {
+      "text": "Tight wheezing and retractions heard bilaterally",
+      "source": "PHYSICAL EXAMINATION section, chunk_10:1287-2192"
+    }
+  ],
+  "labs_imaging": [
+    {
+      "text": "Bronchial thickening on chest x-ray",
+      "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922"
+    }
+  ],
+  "assessment": [
+    {
+      "text": "Respiratory distress and asthma",
+      "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922"
+    },
+    {
+      "text": "Recommended treatments include continuous high-dose albuterol, Decadron by mouth, pulse oximetry, and close observation",
+      "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922"
+    }
+  ]
+}

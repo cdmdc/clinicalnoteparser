@@ -1,0 +1,88 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 257,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "start_char": 257,
+      "end_char": 984,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PAST MEDICAL HISTORY",
+      "start_char": 984,
+      "end_char": 1382,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PAST SURGICAL HISTORY",
+      "start_char": 1382,
+      "end_char": 1573,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "MEDICATIONS",
+      "start_char": 1573,
+      "end_char": 1904,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ALLERGIES",
+      "start_char": 1904,
+      "end_char": 1974,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SOCIAL HISTORY",
+      "start_char": 1974,
+      "end_char": 2111,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "FAMILY HISTORY",
+      "start_char": 2111,
+      "end_char": 2430,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "REVIEW OF SYSTEMS",
+      "start_char": 2430,
+      "end_char": 2869,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PHYSICAL EXAMINATION",
+      "start_char": 2869,
+      "end_char": 3614,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ASSESSMENT",
+      "start_char": 3614,
+      "end_char": 4030,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PLAN",
+      "start_char": 4030,
+      "end_char": 4493,
+      "start_page": 0,
+      "end_page": 0
+    }
+  ]
+}

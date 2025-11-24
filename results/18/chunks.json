@@ -1,0 +1,88 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nBariatrics\n \nSample Name:\nÂ Bariatric Consult - Surgical Weight Loss - 4\nDescription:\nÂ Patient presented to the Bariatric Surgery Service for consideration of laparoscopic Roux-en-Y gastric bypass. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 257,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "HISTORY OF PRESENT ILLNESS:\n Ms. A is a 55-year-old female who presented to the Bariatric Surgery Service for consideration of\nlaparoscopic Roux-en-Y gastric bypass. The patient states that she has been overweight for approximately 35 years and has tried multiple weight\nloss modalities in the past including Weight Watchers, NutriSystem, Jenny Craig, TOPS, cabbage diet, grape fruit diet, Slim-Fast, Richard\nSimmons, as well as over-the-counter measures without any long-term sustainable weight loss. At the time of presentation to the practice, she is 5\nfeet 6 inches tall with a weight of 285.4 pounds and a body mass index of 46. She has obesity-related comorbidities, which includes hypertension\nand hypercholesterolemia.",
+      "start_char": 257,
+      "end_char": 984,
+      "section_title": "HISTORY OF PRESENT ILLNESS"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "PAST MEDICAL HISTORY:\n Significant for hypertension, for which the patient takes Norvasc and Lopressor for. She also suffers from high\ncholesterol and is on lovastatin for this. She has depression, for which she takes citalopram. She also stated that she had a DVT in the past prior to\nher hysterectomy. She also suffers from thyroid disease in the past though this is unclear, the nature of this.",
+      "start_char": 984,
+      "end_char": 1382,
+      "section_title": "PAST MEDICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "PAST SURGICAL HISTORY: \nSignificant for cholecystectomy in 2008 for gallstones. She also had a hysterectomy in 1994 secondary to\nhemorrhage. The patient denies any other abdominal surgeries.",
+      "start_char": 1382,
+      "end_char": 1573,
+      "section_title": "PAST SURGICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "MEDICATIONS: \nNorvasc 10 mg p.o. daily, Lopressor tartrate 50 mg p.o. b.i.d., lovastatin 10 mg p.o. at bedtime, citalopram 10 mg p.o. daily,\naspirin 500 mg three times a day, which is currently stopped, vitamin D, Premarin 0.3 mg one tablet p.o. daily, currently stopped, omega-3 fatty\nacids, and vitamin D 50,000 units q. weekly.",
+      "start_char": 1573,
+      "end_char": 1904,
+      "section_title": "MEDICATIONS"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "ALLERGIES: \nThe patient denies allergies to medications and to latex.",
+      "start_char": 1904,
+      "end_char": 1974,
+      "section_title": "ALLERGIES"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "SOCIAL HISTORY: \nThe patient is a homemaker. She is married, with 2 children aged 22 and 28. She is a lifelong nonsmoker and nondrinker.",
+      "start_char": 1974,
+      "end_char": 2111,
+      "section_title": "SOCIAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "FAMILY HISTORY: \nSignificant for high blood pressure and diabetes as well as cancer on her father side. He did pass away from congestive\nheart failure. Mother suffers from high blood pressure, cancer, and diabetes. Her mother has passed away secondary to cancer. She has two\nbrothers one passed away from brain cancer.",
+      "start_char": 2111,
+      "end_char": 2430,
+      "section_title": "FAMILY HISTORY"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "REVIEW OF SYSTEMS: \nSignificant for ankle swelling. The patient also wears glasses for vision and has dentures. She does complain of\nshortness of breath with exertion. She also suffers from hemorrhoids and frequent urination at night as well as weightbearing joint pain. The patient\ndenies ulcerative colitis, Crohn disease, bleeding diathesis, liver disease, or kidney disease. She denies chest pain, cardiac disease, cancer, and\nstroke.",
+      "start_char": 2430,
+      "end_char": 2869,
+      "section_title": "REVIEW OF SYSTEMS"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "PHYSICAL EXAMINATION: \nThe patient is a well-nourished, well-developed female, in no distress. Eye Exam: Pupils equal and reactive to\nlight. Extraocular motions are intact. Neck Exam: No cervical lymphadenopathy. Midline trachea. No carotid bruits. Nonpalpable thyroid. Neuro\nExam: Gross motor strength in the upper and lower extremities, equal bilaterally with no focal neuro deficits noted. Lung Exam: Clear breath\nsounds without rhonchi or wheezes. Cardiac Exam: Regular rate and rhythm without murmur or bruits. Abdominal Exam: Positive bowel sounds.\nSoft, nontender, obese, and nondistended abdomen. Lap cholecystectomy scars noted. No obvious hernias. No organomegaly appreciated.\nLower extremity Exam: Edema 1+. Dorsalis pedis pulses 2+.",
+      "start_char": 2869,
+      "end_char": 3614,
+      "section_title": "PHYSICAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "text": "ASSESSMENT: \nThe patient is a 55-year-old female with a body mass index of 46, suffering from obesity-related comorbidities including\nhypertension and hypercholesterolemia, who presents to the practice for consideration of gastric bypass surgery. The patient appears to be an\nexcellent candidate for surgery and would benefit greatly from surgical weight loss in the management of her obesity-related comorbidities.",
+      "start_char": 3614,
+      "end_char": 4030,
+      "section_title": "ASSESSMENT"
+    },
+    {
+      "chunk_id": "chunk_11",
+      "text": "PLAN: \nIn preparation for surgery, we will obtain the usual baseline laboratory values including baseline vitamin levels. I recommended the patient\nundergo an upper GI series prior to surgery due to find her upper GI anatomy. Also the patient will meet with the dietitian and psychologist as per\nher usual routine. I have recommended approximately six to eight weeks of Medifast for the patient to obtain a 10% preoperative weight loss in\npreparation for surgery.",
+      "start_char": 4030,
+      "end_char": 4493,
+      "section_title": "PLAN"
+    }
+  ]
+}

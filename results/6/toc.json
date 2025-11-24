@@ -1,0 +1,53 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 408,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ADMITTING DIAGNOSIS",
+      "start_char": 408,
+      "end_char": 448,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "DISCHARGE DIAGNOSIS",
+      "start_char": 448,
+      "end_char": 499,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "HOSPITAL COURSE",
+      "start_char": 499,
+      "end_char": 1407,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "DISCHARGE ACTIVITIES",
+      "start_char": 1407,
+      "end_char": 1438,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "DISCHARGE DIET",
+      "start_char": 1438,
+      "end_char": 1466,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "DISCHARGE MEDICATIONS",
+      "start_char": 1466,
+      "end_char": 1959,
+      "start_page": 0,
+      "end_page": 0
+    }
+  ]
+}

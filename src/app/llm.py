@@ -238,28 +238,53 @@ class LLMClient:
         Returns:
             Optional[Dict[str, Any]]: Parsed JSON dict, or None if extraction fails
         """
-        # Try to find JSON in markdown code blocks
-        json_pattern = r"```(?:json)?\s*(\{.*?\})\s*```"
+        # Try to find JSON in markdown code blocks (object or array)
+        json_pattern = r"```(?:json)?\s*([\[\{].*?[\]\}])\s*```"
         match = re.search(json_pattern, text, re.DOTALL)
         if match:
             try:
-                return json.loads(match.group(1))
+                parsed = json.loads(match.group(1))
+                # Return dict if it's a dict, otherwise None (will be handled as structure error)
+                return parsed if isinstance(parsed, dict) else None
+            except json.JSONDecodeError:
+                # Check if it's truncated (incomplete JSON)
+                json_content = match.group(1).strip()
+                if not json_content.endswith(('}', ']')):
+                    # Likely truncated
+                    return None
+                pass
+
+        # Try to find JSON object directly (prefer objects over arrays)
+        json_pattern = r"\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}"
+        match = re.search(json_pattern, text, re.DOTALL)
+        if match:
+            try:
+                parsed = json.loads(match.group(0))
+                return parsed if isinstance(parsed, dict) else None
             except json.JSONDecodeError:
                 pass
 
-        # Try to find JSON object directly
-        json_pattern = r"\{.*\}"
+        # Try to find JSON array (fallback, but we need objects)
+        json_pattern = r"\[[^\[\]]*(?:\[[^\[\]]*\][^\[\]]*)*\]"
         match = re.search(json_pattern, text, re.DOTALL)
         if match:
             try:
-                return json.loads(match.group(0))
+                parsed = json.loads(match.group(0))
+                # Arrays are not valid for our use case, return None to trigger error
+                return None
             except json.JSONDecodeError:
                 pass
 
         # Try parsing entire text as JSON
         try:
-            return json.loads(text)
+            parsed = json.loads(text)
+            return parsed if isinstance(parsed, dict) else None
         except json.JSONDecodeError:
+            # Check if text looks truncated (starts with JSON but doesn't end properly)
+            text_stripped = text.strip()
+            if text_stripped.startswith(('{', '[')) and not text_stripped.endswith(('}', ']')):
+                # Likely truncated
+                return None
             return None
 
     def call(
@@ -307,10 +332,10 @@ class LLMClient:
 
                 # Update prompt with JSON error feedback if retrying after JSON parse failure
                 if attempt > 1 and last_json_error and not return_text:
-                    current_prompt = f"{prompt}\n\nERROR: Previous response was not valid JSON. Please respond with valid JSON only."
+                    current_prompt = f"{prompt}\n\nERROR: {last_json_error}\n\nPlease respond with a valid JSON object (not an array) that matches the required structure. Ensure the response is complete and not truncated."
                     if last_response_snippet:
-                        current_prompt += f"\nPrevious response snippet: {last_response_snippet}"
-                    log.debug(f"Retrying with JSON parsing feedback (attempt {attempt})")
+                        current_prompt += f"\n\nPrevious response snippet (for reference): {last_response_snippet}"
+                    log.debug(f"Retrying with JSON parsing feedback (attempt {attempt}): {last_json_error}")
 
                 # Update message with current prompt
                 if len(messages) > 1:
@@ -336,17 +361,50 @@ class LLMClient:
                 parsed_json = self._extract_json_from_text(response_text)
 
                 if parsed_json is None:
-                    # JSON parsing failed - prepare for retry with feedback
-                    last_json_error = "Response is not valid JSON"
+                    # Detect specific issues
+                    error_type = "unknown"
+                    error_message = "Response is not valid JSON"
+                    
+                    # Check if response is an array instead of object
+                    try:
+                        # Try to parse as array
+                        array_match = re.search(r"```(?:json)?\s*(\[.*?\])\s*```", response_text, re.DOTALL)
+                        if not array_match:
+                            array_match = re.search(r"\[.*\]", response_text, re.DOTALL)
+                        if array_match:
+                            try:
+                                json.loads(array_match.group(1) if array_match.lastindex else array_match.group(0))
+                                error_type = "array_structure"
+                                error_message = "Response is a JSON array, but must be a JSON object with keys like 'patient_snapshot', 'key_problems', etc."
+                            except json.JSONDecodeError:
+                                pass
+                    except Exception:
+                        pass
+                    
+                    # Check if response appears truncated
+                    response_stripped = response_text.strip()
+                    if response_stripped.startswith(('```json', '```', '{', '[')):
+                        # Check if it ends properly
+                        if not response_stripped.endswith(('```', '}', ']')):
+                            error_type = "truncated"
+                            error_message = "Response appears to be truncated (incomplete JSON). Please ensure the full response is generated."
+                        # Check for incomplete JSON structures
+                        elif response_stripped.count('{') > response_stripped.count('}') or \
+                             response_stripped.count('[') > response_stripped.count(']'):
+                            error_type = "truncated"
+                            error_message = "Response appears to be truncated (unmatched brackets). Please ensure the full response is generated."
+                    
+                    # Prepare for retry with feedback
+                    last_json_error = error_message
                     last_response_snippet = response_text[:200]  # Only snippet for efficiency
                     
                     if attempt < self.max_retries:
-                        log.warning(f"JSON parsing failed (attempt {attempt}/{self.max_retries}): Response is not valid JSON")
+                        log.warning(f"JSON parsing failed (attempt {attempt}/{self.max_retries}): {error_message}")
                         log.info("Retrying with JSON parsing feedback...")
                         time.sleep(0.5)  # Short delay for JSON retries
                         continue  # Retry immediately with feedback
                     else:
-                        raise ValueError(f"Failed to parse JSON from response: {response_text[:500]}")
+                        raise ValueError(f"Failed to parse JSON from response: {error_message}. Response snippet: {response_text[:500]}")
 
                 # Reset JSON error tracking on success
                 last_json_error = None

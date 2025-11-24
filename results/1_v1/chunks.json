@@ -1,0 +1,81 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAllergy / Immunology\n \nSample Name:\nÂ Allergy Evaluation Consult\nDescription:\nÂ Acute allergic reaction, etiology uncertain, however, suspicious for Keflex. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 215,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "HISTORY: \nA 34-year-old male presents today self-referred at the recommendation of Emergency Room physicians and his nephrologist to\npursue further allergy evaluation and treatment. Please refer to chart for history and physical, as well as the medical records regarding his allergic\nreaction treatment at ABC Medical Center for further details and studies. In summary, the patient had an acute event of perioral swelling, etiology\nuncertain, occurring on 05/03/2008 requiring transfer from ABC Medical Center to XYZ Medical Center due to a history of renal failure requiring\ndialysis and he was admitted and treated and felt that his allergy reaction was to Keflex, which was being used to treat a skin cellulitis dialysis shunt\ninfection. In summary, the patient states he has some problems with tolerating grass allergies, environmental and inhalant allergies occasionally, but\nhas never had anaphylactic or angioedema reactions. He currently is not taking any medication for allergies. He is taking atenolol for blood\npressure control. No further problems have been noted upon his discharge and treatment, which included corticosteroid therapy and antihistamine\ntherapy and monitoring.",
+      "start_char": 215,
+      "end_char": 1405,
+      "section_title": "HISTORY"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "PAST MEDICAL HISTORY:\n History of urticaria, history of renal failure with hypertension possible source of renal failure, history of dialysis\ntimes 2 years and a history of hypertension.",
+      "start_char": 1405,
+      "end_char": 1592,
+      "section_title": "PAST MEDICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "PAST SURGICAL HISTORY:\n PermCath insertion times 3 and peritoneal dialysis.",
+      "start_char": 1592,
+      "end_char": 1668,
+      "section_title": "PAST SURGICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "FAMILY HISTORY: \nStrong for heart disease, carcinoma, and a history of food allergies, and there is also a history of hypertension.",
+      "start_char": 1668,
+      "end_char": 1800,
+      "section_title": "FAMILY HISTORY"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "CURRENT MEDICATIONS: \nAtenolol, sodium bicarbonate, Lovaza, and Dialyvite.",
+      "start_char": 1800,
+      "end_char": 1875,
+      "section_title": "CURRENT MEDICATIONS"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "ALLERGIES: \nHeparin causing thrombocytopenia.",
+      "start_char": 1875,
+      "end_char": 1921,
+      "section_title": "ALLERGIES"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "SOCIAL HISTORY: \nDenies tobacco or alcohol use.",
+      "start_char": 1921,
+      "end_char": 1969,
+      "section_title": "SOCIAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "PHYSICAL EXAMINATION: \nVITAL SIGNS: Age 34, blood pressure 128/78, pulse 70, temperature is 97.8, weight is 207 pounds, and height is 5 feet 7 inches.\nGENERAL: The patient is healthy appearing; alert and oriented to person, place and time; responds appropriately; in no acute distress.\nHEAD: Normocephalic. No masses or lesions noted.\nFACE: No facial tenderness or asymmetry noted.\nEYES: Pupils are equal, round and reactive to light and accommodation bilaterally. Extraocular movements are intact bilaterally.\nEARS: The tympanic membranes are intact bilaterally with a good light reflex. The external auditory canals are clear with no lesions or masses\nnoted. Weber and Rinne tests are within normal limits.\nNOSE: The nasal cavities are patent bilaterally. The nasal septum is midline. There are no nasal discharges. No masses or lesions noted.\nTHROAT: The oral mucosa appears healthy. Dental hygiene is maintained well. No oropharyngeal masses or lesions noted. No postnasal drip\nnoted.\nNECK: The neck is supple with no adenopathy or masses palpated. The trachea is midline. The thyroid gland is of normal size with no nodules.\nNEUROLOGIC: Facial nerve is intact bilaterally. The remaining cranial nerves are intact without focal deficit.\nLUNGS: Clear to auscultation bilaterally. No wheeze noted.\nHEART: Regular rate and rhythm. No murmur noted.",
+      "start_char": 1969,
+      "end_char": 3318,
+      "section_title": "PHYSICAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "IMPRESSION: \n1. Acute allergic reaction, etiology uncertain, however, suspicious for Keflex.\n2. Renal failure requiring dialysis.\n3. Hypertension.",
+      "start_char": 3318,
+      "end_char": 3465,
+      "section_title": "IMPRESSION"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "text": "RECOMMENDATIONS: \nRAST allergy testing for both food and environmental allergies was performed, and we will get the results back to\nthe patient with further recommendations to follow. If there is any specific food or inhalant allergen that is found to be quite high on the sensitivity\nscale, we would probably recommend the patient to avoid the offending agent to hold off on any further reactions. At this point, I would\nrecommend the patient stopping any further use of cephalosporin antibiotics, which may be the cause of his allergic reaction, and I would consider\nthis an allergy. Being on atenolol, the patient has a more difficult time treating acute anaphylaxis, but I do think this is medically necessary at this\ntime and hopefully we can find specific causes for his allergic reactions. An EpiPen was also prescribed in the event of acute angioedema or allergic\nreaction or sensation of impending allergic reaction and he is aware he needs to proceed directly to the emergency room for further evaluation and\ntreatment recommendations after administration of an EpiPen.",
+      "start_char": 3465,
+      "end_char": 4544,
+      "section_title": "RECOMMENDATIONS"
+    }
+  ]
+}

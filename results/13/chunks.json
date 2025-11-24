@@ -1,0 +1,130 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAutopsy\n \nSample Name:\nÂ Autopsy - 7\nDescription:\nÂ Cause of death - Anoxic Encephalopathy \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 149,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "EXTERNAL EXAMINATION: \nThe body is that of a 62-inch, 112-pound white female who appears the recorded age of 41 years. The body\nis clad in a pink and white gown. Three pillows and a blanket are also received with the body. The scalp is covered in thick brown hair with flecks\nof gray. The irides are brown. There is bilateral tache noire. The eyelids are yellow and dry. The eyes have a sunken appearance. The ears and\nnose are normally developed. The mouth has partial natural dentition. The left upper first bicuspid through the molars are absent. The left lower\nbicuspid is absent. The right upper second molar is capped. The left lower first molar appears decayed. The teeth are otherwise in good repair.\nThe lips and buccal mucosa have no trauma. The neck is unremarkable except for a 2.5 cm tracheostomy scar just above the suprasternal notch.\nThe posterior portion of the neck is unremarkable and free of scars. An obliquely oriented 6 cm surgical scar is on the anterior left chest with an\nunderlying, implanted, medical device. The breasts are pendulous and otherwise unremarkable. There is white powder underneath the breasts. A\nround, 8 mm scar is on the upper central abdomen. A horizontally oriented 2.5 cm linear scar is on the central upper abdomen. A faint,\napproximately 1 cm scar is on the right mid lateral abdomen. There are a few striae on the hips and lower abdomen. The external genitalia are\nnormally developed and white powder covers the perineum. The labia are dry. The urethral meatus is visible and 3.5 mm in diameter. No objects\nor substances are in the vagina other than a slight amount of yellow-white discharge. The anus is patent and unremarkable. Faint, pink-white, flat,\n1-2 cm scars are just above the superior portion of the gluteal cleft. A 2.5 cm, somewhat square shaped, brown macule is on the left buttock.\nThere are no open and active decubitus ulcers. The upper extremities have flexion contractures with striae on the medial portions of the upper\narms. The muscles of the extremities are atrophic. The lower extremities are partially shaved. The left fifth toe is absent. The skin on the back is\nintact. The spine has accentuated thoracic kyphosis and lumbar lordosis. The skin demonstrates tenting",
+      "start_char": 149,
+      "end_char": 2392,
+      "section_title": "EXTERNAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "RADIOGRAPHS: \nPostmortem radiographs show radiopaque shadows extending from the periosteum of the femurs, left tibia, and right ischial\ntuberosity. Diffuse, severe osteoporosis is present. The 11th thoracic vertebral body has an endplate fracture. Degenerative joint changes are\nnoted in the acromioclavicular joints, hips, right knee, left foot, and pelvis. The left fifth toe is amputated along with the distal portion of the left fifth\nmetatarsal. Radiographs of anterior neck structures and iliac wings are not remarkable. Calculi are seen in the urinary tract. Staples are in the\ngallbladder bed.",
+      "start_char": 2392,
+      "end_char": 2994,
+      "section_title": "RADIOGRAPHS"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "INTERNAL EXAMINATION: \nThe muscles of the chest and abdominal wall are normally developed. The subcutaneous tissues are dry. The\npanniculus is 2.5-3 cm. In the left chest wall is an implanted medical device with a wire extending through subcutaneous tissues of the left neck and\ninto the left scalp. A flat, four-prong electrical device is in the subgaleal area of the left scalp. A wire then further extends into the cranial cavity. The\nperitoneal cavity is unremarkable and dry. There are no intraperitoneal adhesions except for an adhesion of the anterior portion of the stomach to\nthe anterior abdominal wall in the area of the previously described round abdominal scar. The organs are in the usual anatomic relations. The\npleural cavities are dry. The lungs are well aerated. The pericardial sac is remarkable for a 1 cm focal area of anterior pericardial adhesion to the\nanterior portion of the right ventricle. There is some lateral adhesion of the right ventricle to the right lateral portion of the pericardial sac. No other\nadhesions are noted. The pericardial sac is dry. The diaphragm is intact. The sternum is unremarkable. The ribs have no trauma and are normally\ndeveloped with somewhat prominent costochondral junctions.",
+      "start_char": 2994,
+      "end_char": 4231,
+      "section_title": "INTERNAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "CARDIOVASCULAR SYSTEM: \nThe pericardial sac is remarkable as previously described. The epicardial fat of the 255 gram heart is\notherwise unremarkable. The root of the aorta has no atherosclerosis. The arch and descending aorta have minimal atherosclerosis (see attached\nCV pathology report).",
+      "start_char": 4231,
+      "end_char": 4523,
+      "section_title": "CARDIOVASCULAR SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "RESPIRATORY SYSTEM: \nThe right and left lungs are 260 and 245 grams, respectively. The lungs have a normal number of lobes and have\nlight pink-red outer surfaces. The bronchi are unobstructed. The well-aerated lung parenchyma is pink-red. There are no anthracosis, tumors,\ncysts, or infarcts. The upper lobe bronchi contain a scant amount pearlescent fluid. The proximal bronchi contain yellow pearlescent fluid. The\nlower lobe distal bronchi contain some scattered areas of yellow pearlescent fluid. The alveoli otherwise contain foamy, reddish-white fluid. The\npulmonary arteries contain no emboli. The lower lobes have firm areas of partial consolidation with yellow-green pearlescent fluid. The firm area of\nthe left lower lobe is \n4 x 4 x 3 cm. The right lung has scattered firm areas (<lcm).",
+      "start_char": 4523,
+      "end_char": 5321,
+      "section_title": "RESPIRATORY SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "HEMOLYMPHATIC SYSTEM: \nThe 215 gram spleen is covered in an intact, gray, somewhat wrinkled capsule. There are two hilar accessory\nspleens (1.4 and 1 cm in diameter). The splenic parenchyma is dark red-maroon and unremarkable. There is no interstitial fibrosis, tumors, cysts or\ninfarcts. No enlarged lymph nodes are noted. The bone marrow of the lumbar vertebral bodies is red and soft.",
+      "start_char": 5321,
+      "end_char": 5709,
+      "section_title": "HEMOLYMPHATIC SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "GENITOURINARY SYSTEM:\n The right and left kidneys are 100 and 130 grams, respectively. The right kidney has a central, 2-2.5 cm,\nobliquely oriented cleft/scar extending from the central renal pelvis to the upper lateral cortex. The brown-tan outer surfaces are otherwise slightly\nlobular and granular. The pelvis of the right kidney is mildly dilated. A 1 x 0.6 x 0.7 cm, green-brown stone is in the pelvis of the right kidney. The\nleft renal pelvis has an approximately 0.5 x 0.6 x 1 cm, green-brown stone. The corticomedullary ratios are reduced. The pelvic fat is increased.\nThe left ureter contains pearlescent fluid. The urinary bladder contains \n6 cc of brown-yellow fluid. A 3.8 x 1.2 x 1 cm, white-yellow, somewhat crescent shaped stone is within the lumen of the bladder. The uterus is\npresent and has a normal shape. The cervix is normally developed. The cervical os is large (coned) and contains mucoid fluid. There are a few\nminute nabothian cysts (<2 mm). A 2 cm, spherical leiomyoma is in the posterior portion of the uterine corpus. The endometrial cavity contains 3\nto 4 mm thick, tan endometrium. The ovaries are present, firm and otherwise grossly unremarkable. The fallopian tubes are unremarkable except\nfor a few adhesions of the fimbriated ends.",
+      "start_char": 5709,
+      "end_char": 6977,
+      "section_title": "GENITOURINARY SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "GASTROINTESTINAL SYSTEM:\n The stomach contains 60 cc of green-brown fluid without any solid food fragments. The gastric mucosa is\nflat, congested, and green-gray. The gastric mucosa is congested. No ulcerations are noted. There are a few congested vessels with minute\npetechiae around the previously healed ostomy site. An 8 mm blood clot is on the gastric mucosa near the healed/healing gastrostomy site. The\nwall of the stomach is thin (<3mm). No perforations are noted. The esophagus is not remarkable with gray/pink mucosa. The bowel contains\nprogressively formed feces with the rectum containing hard stool. The appendix is present, but is atrophic/small. The bowel has no perforations. An\nabundant amount of greenish liquid is in the duodenum. No foreign objects are noted.",
+      "start_char": 6977,
+      "end_char": 7757,
+      "section_title": "GASTROINTESTINAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "HEPATOBILIARY SYSTEM:\n The outer surface of the 965 gram liver is covered in a transparent intact capsule. There are very few inferior\nhepatic adhesions associated with an absent gallbladder. Surgical staples are imbedded in the area of the cystic duct. The hepatic parenchyma is\nbrown-green with a slight pattern of congestion. The bile ducts and portal veins appear grossly unremarkable. No fibrosis, cysts or infarcts are\nnoted. A yellow-white, round, 2 mm nodule is in the anterior portion of the right lobe of the liver.",
+      "start_char": 7757,
+      "end_char": 8283,
+      "section_title": "HEPATOBILIARY SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "text": "ENDOCRINE SYSTEM: \nThe adrenals and pancreas are present and grossly unremarkable. The thyroid is mildly atrophic without nodules.",
+      "start_char": 8283,
+      "end_char": 8414,
+      "section_title": "ENDOCRINE SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_11",
+      "text": "MUSCULOSKELETAL SYSTEM: \nThe upper and lower extremities are atrophic as previously described. The trunk musculature is atrophic. A\n1 x 1.5 x \n1 cm area of induration/calcification extends from the anterior surface of the right femur. The anterior/lateral cortical surface of the distal right femur\nmetaphysis is rough and irregular. The cortical bone of the lumbar and thoracic vertebral bodies is thin and soft. The iliac wings have no trauma or\ndeformity.",
+      "start_char": 8414,
+      "end_char": 8873,
+      "section_title": "MUSCULOSKELETAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_12",
+      "text": "NECK: \nThe strap muscles of the anterior neck have intact musculature with atrophy of the musculature on the right side. The right\nsternocleidomastoid is moderately atrophic. There are no hemorrhages. The larynx and piriform recesses contain yellow-tan, mucoid fluid. There is\nyellow-green, mucoid fluid on the base of the tongue and epiglottis. The larynx contains a scant amount of fluid. The thyroid and cricoid cartilages\nare intact. The hyoid bone is intact. The tongue is atrophic. There is a yellow-green dry crusted material on the surface of the tongue. The posterior\npharyngeal musculature appears atrophic. There are no hemorrhages. A healed tracheostomy site is on the anterior trachea. The carotid arteries\nand jugular veins are not remarkable. The muscles and cervical vertebral bodies of the posterior neck are not remarkable. The spinal cord and\ncolumn have no trauma. The posterior laminae are soft.",
+      "start_char": 8873,
+      "end_char": 9790,
+      "section_title": "NECK"
+    },
+    {
+      "chunk_id": "chunk_13",
+      "text": "CENTRAL NERVOUS SYSTEM: \nSee neuropathology report",
+      "start_char": 9790,
+      "end_char": 9841,
+      "section_title": "CENTRAL NERVOUS SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_14",
+      "text": "MICROSCOPIC EXAMINATION: \n(Also see neuropathology and cardiovascular pathology reports)\nLUNGS, LOWER LOBES: Widespread bronchopneumonia. Intraalveolar debris and bacteria.\nIntraalveolar foamy macrophages. Congestion. Edema.\nUTERUS: Late proliferative endometrium leiomyoma.\nACCESSORY SPLEEN: Not remarkable.\nCOLON: Autolysis. Melanosis.\nURINARY BLADDER: Chronic inflammation.\nOVARIES: Corpora albicantia. Follicular cyst.\nFALLOPIAN TUBES: Paratubal cyst. Congestion.\nVAGINA: Vascular congestion.\nADRENAL GLANDS: Mild congestion.\nSTOMACH, GASTROSTOMY: Clotted blood.\nLIVER: Focal nodular hyperplasia (single focus). Centrilobular congestion with steatosis\nKIDNEYS: Tubular necrosis. Mild vascular congestion.\nTHYROID: Not remarkable.\nPANCREAS: Early autolysis. Mild interstitial fibrosis.\nEPIGLOTTIS: Focal ulceration with acute inflammation.\nLARYNX, RIGHT ARYEPIGLOTTIC FOLD: Not remarkable.\nTONGUE: No significant histologic abnormalities.\nFEMUR, RIGHT: Heterotopic ossification.\nFEMUR, THIGH, RIGHT: Heterotopic ossification.\nRIBS, COSTOCHONDRAL JUNCTION: No significant histologic abnormalities.\nBONE, THORACIC VERTEBRA: Severe osteoporosis. Unremarkable bone marrow.\nBREASTS: Not remarkable.",
+      "start_char": 9841,
+      "end_char": 11038,
+      "section_title": "MICROSCOPIC EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_15",
+      "text": "AUTOPSY FINDINGS:\n1. Anoxic-ischemic encephalopathy (see attached neuropathology report).\na. Extremity muscle atrophy and contractures.\nb. Bilateral bronchopneumonia.\nc. Osteoporosis (with Tl 1 endplate fracture).\nd. Urolithiasis.\ne. Renal scar (right).\nf. Heterotopic ossification.\ng. Degenerative joint changes.\nh. Glossal, pharyngeal, and neck muscle atrophy.\ni. Healing gastrostomy.\nj. Implanted electrical stimulator.\nk. Healed decubitus ulcer (s) and remote left fifth toe amputation.\n2. Dehydration\na. Vitreous chemistry: sodium 207 mmol/L, chloride 184 mmol/L, urea nitrogen 133 mg/dL, creatinine 1.3 mg/dL, glucose 57 mg/L.\nb. Dry skin and body cavities.\nc. Renal tubular necrosis.\n3. Toxicology\na. Heart blood: acetaminophen 8.8 mg/L.\nb. Urine: acetaminophen detected.\n4. Status post cholecystectomy.\n5. Hyperostosis frontalis interna.\n6. Uterine leiomyoma.\n7. Cardiovascular (see attached cardiovascular pathology report).\na. Heart weight 255 grams.\nb. Focal pericardial adhesions.\nc. Cardiac ion channel mutation screening: Negative.",
+      "start_char": 11038,
+      "end_char": 12084,
+      "section_title": "AUTOPSY FINDINGS"
+    },
+    {
+      "chunk_id": "chunk_16",
+      "text": "CAUSE OF DEATH: \nComplications of Anoxic Encephalopathy.",
+      "start_char": 12084,
+      "end_char": 12141,
+      "section_title": "CAUSE OF DEATH"
+    },
+    {
+      "chunk_id": "chunk_17",
+      "text": "MANNER OF DEATH:\n Undetermined.",
+      "start_char": 12141,
+      "end_char": 12172,
+      "section_title": "MANNER OF DEATH"
+    }
+  ]
+}

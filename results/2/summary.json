@@ -1,0 +1,112 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "Asthma in a 5-year-old",
+      "source": "[CHIEF COMPLAINT] section, chunk_1:183-789"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "wheezing and coughing",
+      "source": "[CHIEF COMPLAINT] section, chunk_1:183-789"
+    },
+    {
+      "text": "asthma",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_2:789-903"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "wheezing and coughing",
+      "source": "[CHIEF COMPLAINT] section, chunk_1:183-789"
+    },
+    {
+      "text": "asthma with his last admission in 07/2007. Also inclusive of frequent pneumonia by report.",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_2:789-903"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Advair",
+      "source": "[MEDICATIONS] section, chunk_5:951-1036"
+    },
+    {
+      "text": "Nasonex",
+      "source": "[MEDICATIONS] section, chunk_5:951-1036"
+    },
+    {
+      "text": "Xopenex",
+      "source": "[MEDICATIONS] section, chunk_5:951-1036"
+    },
+    {
+      "text": "Zicam",
+      "source": "[MEDICATIONS] section, chunk_5:951-1036"
+    },
+    {
+      "text": "Zithromax",
+      "source": "[MEDICATIONS] section, chunk_5:951-1036"
+    },
+    {
+      "text": "prednisone",
+      "source": "[MEDICATIONS] section, chunk_5:951-1036"
+    },
+    {
+      "text": "albuterol",
+      "source": "[MEDICATIONS] section, chunk_5:951-1036"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Temperature 98.7",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_10:1287-2192"
+    },
+    {
+      "text": "pulse 105",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_10:1287-2192"
+    },
+    {
+      "text": "respiration is 28",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_10:1287-2192"
+    },
+    {
+      "text": "blood pressure 112/65",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_10:1287-2192"
+    },
+    {
+      "text": "weight of 16.5 kg",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_10:1287-2192"
+    },
+    {
+      "text": "Oxygen saturation low at 91% on room air",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_10:1287-2192"
+    },
+    {
+      "text": "tight wheezing and retractions heard bilaterally",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_10:1287-2192"
+    }
+  ],
+  "labs_imaging": [
+    {
+      "text": "Chest x-ray reveals bronchial thickening, otherwise no definite infiltrate.",
+      "source": "[MEDICAL DECISION MAKING] section, chunk_11:2192-2922"
+    }
+  ],
+  "assessment": [
+    {
+      "text": "reactive airways disease",
+      "source": "[MEDICAL DECISION MAKING] section, chunk_11:2192-2922"
+    },
+    {
+      "text": "viral syndrome",
+      "source": "[MEDICAL DECISION MAKING] section, chunk_11:2192-2922"
+    },
+    {
+      "text": "foreign body pneumonia",
+      "source": "[MEDICAL DECISION MAKING] section, chunk_11:2192-2922"
+    },
+    {
+      "text": "respiratory distress and asthma",
+      "source": "[MEDICAL DECISION MAKING] section, chunk_11:2192-2922"
+    }
+  ]
+}

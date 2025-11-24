@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "The patient is experiencing respiratory distress and asthma. Recommended treatments include continuous high-dose albuterol, Decadron by mouth, pulse oximetry, and close observation.",
+      "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    }
+  ]
+}

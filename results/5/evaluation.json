@@ -1,0 +1,158 @@
+{
+  "citation_coverage": {
+    "summary_facts_with_citations": 32,
+    "summary_total_facts": 32,
+    "summary_coverage_percentage": 100.0,
+    "plan_recommendations_with_citations": 13,
+    "plan_total_recommendations": 13,
+    "plan_coverage_percentage": 100.0,
+    "overall_coverage_percentage": 100.0
+  },
+  "citation_validity": {
+    "total_citations_checked": 45,
+    "invalid_citations": 3,
+    "validity_percentage": 93.33
+  },
+  "section_name_mismatches": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "span_out_of_chunk_bounds": {
+    "summary": 3,
+    "plan": 0,
+    "total": 3
+  },
+  "orphan_claims": {
+    "summary_orphans": 0,
+    "plan_orphans": 0,
+    "total_orphans": 0,
+    "total_claims": 45,
+    "hallucination_rate_percentage": 0.0
+  },
+  "citation_overlap_jaccard": {
+    "total_citation_pairs": 990,
+    "average_jaccard_similarity": 0.0131,
+    "min_jaccard": 0.0,
+    "max_jaccard": 1.0
+  },
+  "span_consistency": {
+    "checks_performed": 45,
+    "checks_passed": 45,
+    "consistency_percentage": 100.0
+  },
+  "summary_statistics": {
+    "total_facts_extracted": 32,
+    "total_recommendations_generated": 13,
+    "average_citations_per_fact": 1.0,
+    "average_citations_per_recommendation": 1.0,
+    "confidence_score_distribution": {
+      "count": 13,
+      "mean": 0.9000000000000002,
+      "median": 0.9,
+      "min": 0.9,
+      "max": 0.9
+    }
+  },
+  "semantic_accuracy": {
+    "average_similarity": 0.4074,
+    "well_supported": 0,
+    "poorly_supported": 13,
+    "total_recommendations": 13,
+    "support_rate": 0.0,
+    "similarity_threshold": 0.7,
+    "per_recommendation": [
+      {
+        "number": 1,
+        "similarity_score": 0.4608,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": ". Seems to be wo"
+      },
+      {
+        "number": 2,
+        "similarity_score": 0.395,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": " than in "
+      },
+      {
+        "number": 3,
+        "similarity_score": 0.4839,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "e past. She is just using her P"
+      },
+      {
+        "number": 4,
+        "similarity_score": 0.4504,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "ventil inhal"
+      },
+      {
+        "number": 5,
+        "similarity_score": 0.3973,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": " but is u"
+      },
+      {
+        "number": 6,
+        "similarity_score": 0.348,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "ng it daily. We w"
+      },
+      {
+        "number": 7,
+        "similarity_score": 0.3172,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "l add Flovent"
+      },
+      {
+        "number": 8,
+        "similarity_score": 0.3482,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "4 mcg two puffs\np.o. b.i.d."
+      },
+      {
+        "number": 9,
+        "similarity_score": 0.5352,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "dose. She did g"
+      },
+      {
+        "number": 10,
+        "similarity_score": 0.4012,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": " some vaginal irritation w"
+      },
+      {
+        "number": 11,
+        "similarity_score": 0.4048,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": " past but she is"
+      },
+      {
+        "number": 12,
+        "similarity_score": 0.35,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "ry that if it is n"
+      },
+      {
+        "number": 13,
+        "similarity_score": 0.4048,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_8",
+        "cited_text_preview": "essary.\nMay a"
+      }
+    ]
+  }
+}

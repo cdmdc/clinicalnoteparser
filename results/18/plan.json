@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "laparoscopic Roux-en-Y gastric bypass",
+      "source": "[OVERVIEW] section, chunk_0:22-43",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}

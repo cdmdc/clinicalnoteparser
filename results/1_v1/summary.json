@@ -1,0 +1,119 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "34-year-old male",
+      "source": "HISTORY section, chunk_1:215-220"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Acute allergic reaction to Keflex",
+      "source": "IMPRESSION section, chunk_9:3318-3465"
+    },
+    {
+      "text": "Renal failure requiring dialysis",
+      "source": "IMPRESSION section, chunk_9:3318-3465"
+    },
+    {
+      "text": "Hypertension",
+      "source": "IMPRESSION section, chunk_9:3318-3465"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "History of urticaria",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:1405-1417"
+    },
+    {
+      "text": "History of renal failure with hypertension as possible source",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:1405-1417"
+    },
+    {
+      "text": "History of dialysis for 2 years",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:1405-1417"
+    },
+    {
+      "text": "History of hypertension",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:1405-1417"
+    },
+    {
+      "text": "Strong family history for heart disease and carcinoma",
+      "source": "FAMILY HISTORY section, chunk_4:1668-1739"
+    },
+    {
+      "text": "History of food allergies in the family",
+      "source": "FAMILY HISTORY section, chunk_4:1668-1739"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Atenolol for blood pressure control",
+      "source": "CURRENT MEDICATIONS section, chunk_5:1800-1820"
+    },
+    {
+      "text": "Sodium bicarbonate",
+      "source": "CURRENT MEDICATIONS section, chunk_5:1800-1820"
+    },
+    {
+      "text": "Lovaza",
+      "source": "CURRENT MEDICATIONS section, chunk_5:1800-1820"
+    },
+    {
+      "text": "Dialyvite",
+      "source": "CURRENT MEDICATIONS section, chunk_5:1800-1820"
+    },
+    {
+      "text": "Heparin causing thrombocytopenia",
+      "source": "ALLERGIES section, chunk_6:1875-1921"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Blood pressure 128/78",
+      "source": "PHYSICAL EXAMINATION section, chunk_8:1969-2003"
+    },
+    {
+      "text": "Pulse 70",
+      "source": "PHYSICAL EXAMINATION section, chunk_8:1969-2003"
+    },
+    {
+      "text": "Respiratory rate and other vital signs not mentioned",
+      "source": "PHYSICAL EXAMINATION section, chunk_8:1969-2003"
+    },
+    {
+      "text": "No specific clinical observations noted in the examination findings",
+      "source": "PHYSICAL EXAMINATION section, chunk_8:1969-2003"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "Acute allergic reaction to Keflex",
+      "source": "IMPRESSION section, chunk_9:3318-3465"
+    },
+    {
+      "text": "Renal failure requiring dialysis",
+      "source": "IMPRESSION section, chunk_9:3318-3465"
+    },
+    {
+      "text": "Hypertension",
+      "source": "IMPRESSION section, chunk_9:3318-3465"
+    },
+    {
+      "text": "Recommend RAST allergy testing",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_10:3467-3472"
+    },
+    {
+      "text": "Stop cephalosporin antibiotics",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_10:3467-3472"
+    },
+    {
+      "text": "Prescribe EpiPen for emergency use",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_10:3467-3472"
+    },
+    {
+      "text": "Refer to the emergency room if symptoms worsen",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_10:3467-3472"
+    }
+  ]
+}

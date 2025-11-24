@@ -1,0 +1,67 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nBariatrics\n \nSample Name:\nÂ Bariatric Consult - Surgical Weight Loss - 3\nDescription:\nÂ Evaluation for bariatric surgery. \n(Medical Transcription Sample Report)\nI had the pleasure of meeting Ms. ABC for evaluation for bariatric surgery. As you know she is a pleasant 54-year-old female who has multiple\nmedical problems and is seeking evaluation for laparoscopic gastric banding. I saw her on October 3, 2008 in the office after she had attended a\nFairfield County Bariatrics and Surgical Specialists seminar. She is 5'7\" tall and weighs 242 pounds. She has been overweight since age 27. She is\nnow at her highest adult weight.",
+      "start_char": 0,
+      "end_char": 647,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "PAST MEDICAL HISTORY: \nHer medical conditions driving her toward surgery include hypercholesterolemia, hypertension, varicose veins,\nprior history of stroke. She denies any history of cancer. She does have a history of hepatitis which I will need to further investigate. She complains\nof multiple joint pains, and heavy snoring.",
+      "start_char": 647,
+      "end_char": 976,
+      "section_title": "PAST MEDICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "PAST SURGICAL HISTORY: \nIncludes hysterectomy in 1995 for fibroids and varicose vein removal. She had one ovary removed at the time\nof the hysterectomy as well.",
+      "start_char": 976,
+      "end_char": 1137,
+      "section_title": "PAST SURGICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "SOCIAL HISTORY:\n She is a single mother of one adopted child.",
+      "start_char": 1137,
+      "end_char": 1199,
+      "section_title": "SOCIAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "FAMILY HISTORY: \nThere is a strong family history of heart disease and hypertension, as well as diabetes on both sides of her family. Her\nmother is alive. Her father is deceased from alcohol. She has five siblings.",
+      "start_char": 1199,
+      "end_char": 1414,
+      "section_title": "FAMILY HISTORY"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "MEDICATIONS: \nAs you know she takes the following medications for her diabetes, insulin 70 units/6 units times four years, aspirin 81 mg a\nday, Actos 15 mg, Crestor 10 mg and CellCept 500 mg two times a day.",
+      "start_char": 1414,
+      "end_char": 1622,
+      "section_title": "MEDICATIONS"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "ALLERGIES: \nShe has no known drug allergies.",
+      "start_char": 1622,
+      "end_char": 1667,
+      "section_title": "ALLERGIES"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "PHYSICAL EXAM: \nShe is a 54-year-old obese female. She does not appear to have any significant residual deficits from her stroke. There may\nbe slight left arm weakness.",
+      "start_char": 1667,
+      "end_char": 1836,
+      "section_title": "PHYSICAL EXAM"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "ASSESSMENT/PLAN:\n We will have her undergo routine nutritional and psychosocial assessment. I suspect that we can significantly improve\nthe situation with her insulin and oral hypoglycemia, as well as hypertension, with significant weight loss. She is otherwise at increased risk for future\ncomplications given her history, and weight loss will be a good option. We will see her back in the office once she completes her preliminary\nworkup and submit her for approval to the insurance company.",
+      "start_char": 1836,
+      "end_char": 2329,
+      "section_title": "ASSESSMENT/PLAN"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+**Patient Snapshot**
+A 5-year-old male presents to Children's Hospital Emergency Department with wheezing and coughing.
+
+- Source: OVERVIEW section, chunk_0:0-183
+
+**Key Problems**
+The patient has asthma, with a chief complaint of wheezing and coughing. He was previously evaluated at the clinic, given breathing treatments, and discharged home. However, he presented to the emergency department due to worsening symptoms.
+
+- Source: CHIEF COMPLAINT section, chunk_1:183-789
+
+**Pertinent History**
+The patient has a history of asthma with his last admission in 07/2007. He also had frequent pneumonia by report.
+
+- Source: PAST MEDICAL HISTORY section, chunk_2:789-903
+
+**Medicines/Allergies**
+The patient is currently taking Advair, Nasonex, Xopenex, Zicam, Zithromax, prednisone, and albuterol. He has no known allergies.
+
+- Source: IMMUNIZATIONS section, chunk_3:903-931; ALLERGIES section, chunk_4:931-951
+
+**Objective Findings**
+The patient's vital signs are temperature 98.7, pulse 105, respiration 28, blood pressure 112/65, and weight 16.5 kg. His oxygen saturation is low at 91% on room air. Physical examination reveals tight wheezing and retractions heard bilaterally.
+
+- Source: PHYSICAL EXAMINATION section, chunk_10:1287-2192
+
+**Labs/Imaging**
+Chest x-ray reveals bronchial thickening, otherwise no definite infiltrate.
+
+- Source: MEDICAL DECISION MAKING section, chunk_11:2192-2922
+
+**Concise Assessment**
+Diagnoses:
+* Respiratory distress
+* Asthma
+
+Recommendations/Treatment Plans:
+* Admission to the hospital with a working diagnosis of respiratory distress and asthma
+* Continued breathing treatments in the emergency department
+* Hospitalist consultation and acceptance for admission
+
+Important Clinical Context:
+The patient's condition requires close observation, pulse oximetry, and continued high-dose albuterol.
+
+- Source: MEDICAL DECISION MAKING section, chunk_11:2192-2922

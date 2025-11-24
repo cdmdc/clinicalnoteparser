@@ -1,0 +1,186 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 1600,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CENTRAL NERVOUS SYSTEM",
+      "start_char": 1600,
+      "end_char": 1684,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SKELETAL SYSTEM",
+      "start_char": 1684,
+      "end_char": 1854,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "RESPIRATORY SYSTEM--THROAT STRUCTURES",
+      "start_char": 1854,
+      "end_char": 2274,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CARDIOVASCULAR SYSTEM",
+      "start_char": 2274,
+      "end_char": 2411,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "GASTROINTESTINAL SYSTEM",
+      "start_char": 2411,
+      "end_char": 2740,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "URINARY SYSTEM",
+      "start_char": 2740,
+      "end_char": 2890,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "FEMALE GENITAL SYSTEM",
+      "start_char": 2890,
+      "end_char": 3119,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "DESCRIPTION OF INJURIES - SUMMARY",
+      "start_char": 3119,
+      "end_char": 3676,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "LABORATORY DATA",
+      "start_char": 3676,
+      "end_char": 3692,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CEREBROSPINAL FLUID CULTURE AND SENSITIVITY",
+      "start_char": 3692,
+      "end_char": 3796,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CEREBROSPINAL FLUID BACTERIAL ANTIGENS",
+      "start_char": 3796,
+      "end_char": 3977,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PRELIMINARY TOXICOLOGICAL RESULTS",
+      "start_char": 3977,
+      "end_char": 4012,
+      "start_page": 0,
+      "end_page": 1
+    },
+    {
+      "title": "BLOOD - ETHANOL - NEG",
+      "start_char": 4012,
+      "end_char": 4035,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "BLOOD - CANNABINOIDS-ETS - INC",
+      "start_char": 4035,
+      "end_char": 4066,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "BLOOD - COCAINE-ETS - INC",
+      "start_char": 4066,
+      "end_char": 4092,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "BLOOD - OPIATES-ETS - INC",
+      "start_char": 4092,
+      "end_char": 4118,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "BLOOD - AMPHETAMINE-ETS - INC",
+      "start_char": 4118,
+      "end_char": 4179,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "BLOOD - BENZODIAZEPINE-ETS - INC",
+      "start_char": 4179,
+      "end_char": 4212,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "BLOOD - METHADONE-ETS - INC",
+      "start_char": 4212,
+      "end_char": 4240,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "BLOOD - PCP-ETS - INC",
+      "start_char": 4240,
+      "end_char": 4364,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "EVIDENCE COLLECTED",
+      "start_char": 4364,
+      "end_char": 4600,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "OPINION",
+      "start_char": 4600,
+      "end_char": 4609,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "TIME OF DEATH",
+      "start_char": 4609,
+      "end_char": 4794,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "CAUSE OF DEATH",
+      "start_char": 4794,
+      "end_char": 4840,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "MANNER OF DEATH",
+      "start_char": 4840,
+      "end_char": 4866,
+      "start_page": 1,
+      "end_page": 1
+    }
+  ]
+}

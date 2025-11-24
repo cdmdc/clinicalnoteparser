@@ -1,0 +1,135 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "51-year-old female",
+      "source": "[OVERVIEW] section, chunk_0:78-92"
+    },
+    {
+      "text": "BMI of 43",
+      "source": "[OVERVIEW] section, chunk_0:106-112"
+    },
+    {
+      "text": "5'4\" tall and weighs 252 pounds",
+      "source": "[OVERVIEW] section, chunk_0:118-137"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Overweight for over 20 years",
+      "source": "[OVERVIEW] section, chunk_0:145-160"
+    },
+    {
+      "text": "Regains more weight than lost after dieting",
+      "source": "[OVERVIEW] section, chunk_0:168-179"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Motivated to lose weight for activity with grandchildren and health",
+      "source": "[OVERVIEW] section, chunk_0:234-253"
+    },
+    {
+      "text": "Negative stress test four to five years ago",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:1476-1528"
+    },
+    {
+      "text": "Short of breath in walking about 30 steps",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:1539-1557"
+    },
+    {
+      "text": "Non-insulin dependent diabetes for about eight years",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:1568-1584"
+    },
+    {
+      "text": "Left knee arthritis",
+      "source": "[PAST SURGICAL HISTORY] section, chunk_2:1734-1749"
+    },
+    {
+      "text": "History of hemorrhoids",
+      "source": "[PAST SURGICAL HISTORY] section, chunk_2:1750-1760"
+    },
+    {
+      "text": "Rehabilitated for alcohol addiction in 1990",
+      "source": "[PSYCHOLOGICAL HISTORY] section, chunk_3:1865-1884"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Colestid 1 g daily",
+      "source": "[MEDICATIONS] section, chunk_6:2268-2279"
+    },
+    {
+      "text": "Actos 30 mg daily",
+      "source": "[MEDICATIONS] section, chunk_6:2280-2288"
+    },
+    {
+      "text": "Amaryl 2 mg daily",
+      "source": "[MEDICATIONS] section, chunk_6:2289-2297"
+    },
+    {
+      "text": "Soma",
+      "source": "[MEDICATIONS] section, chunk_6:2301-2304"
+    },
+    {
+      "text": "Meloxicam for back pain",
+      "source": "[MEDICATIONS] section, chunk_6:2308-2319"
+    },
+    {
+      "text": "No known drug allergies; tachycardic with caffeine, Sudafed, or phenylpropanolamine",
+      "source": "[ALLERGIES] section, chunk_7:2387-2456"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Pleasant female in no acute distress",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2544-2561"
+    },
+    {
+      "text": "Alert and oriented x 3",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2562-2570"
+    },
+    {
+      "text": "Normocephalic, atraumatic HEENT",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2571-2584"
+    },
+    {
+      "text": "Extraocular muscles intact, nonicteric sclerae",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2585-2603"
+    },
+    {
+      "text": "Chest is clear",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2604-2610"
+    },
+    {
+      "text": "Abdomen is obese, soft, nontender and nondistended",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2611-2630"
+    },
+    {
+      "text": "Extremities show no edema, clubbing or cyanosis",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2631-2654"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "Interested in Lap-Band as opposed to gastric bypass",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2831-2879"
+    },
+    {
+      "text": "Will need a letter of medical necessity from XYZ",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2880-2896"
+    },
+    {
+      "text": "Will need EKG and clearance for surgery",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2907-2923"
+    },
+    {
+      "text": "Will see nutritionist and social worker",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2945-2960"
+    },
+    {
+      "text": "Insurance company approval will be submitted once completed",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:3007-3028"
+    }
+  ]
+}

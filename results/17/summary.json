@@ -1,0 +1,87 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "54-year-old female",
+      "source": "[OVERVIEW] section, chunk_0:28-36"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "hypercholesterolemia",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:75-84"
+    },
+    {
+      "text": "hypertension",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:86-92"
+    },
+    {
+      "text": "varicose veins",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:93-100"
+    },
+    {
+      "text": "prior history of stroke",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:102-114"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "multiple joint pains",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:136-145"
+    },
+    {
+      "text": "heavy snoring",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:147-152"
+    },
+    {
+      "text": "hysterectomy in 1995 for fibroids",
+      "source": "[PAST SURGICAL HISTORY] section, chunk_2:98-113"
+    },
+    {
+      "text": "varicose vein removal",
+      "source": "[PAST SURGICAL HISTORY] section, chunk_2:114-125"
+    },
+    {
+      "text": "one ovary removed at the time of hysterectomy",
+      "source": "[PAST SURGICAL HISTORY] section, chunk_2:126-137"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "no known drug allergies",
+      "source": "[ALLERGIES] section, chunk_6:1625-1667"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "5'7\" tall and weighs 242 pounds",
+      "source": "[OVERVIEW] section, chunk_0:38-52"
+    },
+    {
+      "text": "obese female",
+      "source": "[PHYSICAL EXAM] section, chunk_7:1690-1696"
+    },
+    {
+      "text": "slight left arm weakness",
+      "source": "[PHYSICAL EXAM] section, chunk_7:1723-1734"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "We will have her undergo routine nutritional and psychosocial assessment.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_8:1850-1892"
+    },
+    {
+      "text": "We suspect that we can significantly improve the situation with her insulin and oral hypoglycemia, as well as hypertension, with significant weight loss.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_8:1894-1965"
+    },
+    {
+      "text": "She is otherwise at increased risk for future complications given her history, and weight loss will be a good option.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_8:1967-2033"
+    },
+    {
+      "text": "We will see her back in the office once she completes her preliminary workup and submit her for approval to the insurance company.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_8:2035-2329"
+    }
+  ]
+}

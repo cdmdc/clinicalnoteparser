@@ -1,0 +1,45 @@
+**Patient Snapshot**
+A 50-year-old female patient presenting with chronic sinusitis symptoms, including facial discomfort, nasal congestion, eye pain, and postnasal drip.
+
+- Source: HISTORY section, chunk_1:0-272
+
+**Key Problems**
+Probable increasing problems with allergic rhinitis and chronic sinusitis contributing to the patient's symptoms. Subjective dizziness of uncertain etiology, possibly related to positional vertigo or vestibular neuronitis.
+
+- Source: IMPRESSION section, chunk_10:4230-4648
+
+**Pertinent History**
+The patient has a history of seasonal allergies, possible food allergies, chronic sinusitis, hypertension, and weight change. She is currently 180 pounds.
+
+- Source: PAST MEDICAL HISTORY section, chunk_2:1898-2057
+
+**Medicines/Allergies**
+Current medications include DynaCirc. Known allergies include egg-based products causing hives.
+
+- Source: CURRENT MEDICATIONS section, chunk_5:2204-2236 and ALLERGIES section, chunk_6:2236-2280
+
+**Objective Findings**
+Vital signs: age 50, blood pressure 136/74, pulse 84, temperature 98.4, weight 180 pounds, height 5 feet 3 inches. Physical examination revealed turbinate hypertrophy and nasal septum deviation to the left.
+
+- Source: PHYSICAL EXAMINATION section, chunk_8:2485-4085
+
+**Labs/Imaging**
+A CT of her paranasal sinuses identified mild mucosal thickening of the right paranasal sinuses with occlusion of the ostiomeatal complex on the right and turbinate hypertrophy. An audiogram demonstrated mild high-frequency sensorineural hearing loss, normal tympanometry, and normal speech discrimination.
+
+- Source: HISTORY section, chunk_1:272-1898 and PROCEDURE section, chunk_9:4085-4230
+
+**Concise Assessment**
+Diagnoses:
+1. Probable increasing problems with allergic rhinitis and chronic sinusitis
+2. Subjective dizziness of uncertain etiology
+3. Inferior turbinate hypertrophy
+4. Nasal septum deformity
+
+Recommendations:
+1. ENG examination to evaluate vestibular function
+2. Veramyst nasal spray, two sprays each nostril daily, with option for twice-daily use if symptoms worsen
+3. Medrol Dosepak as directed
+4. Clarinex 5 mg daily
+5. Nasal saline irrigation twice daily
+
+- Source: RECOMMENDATIONS section, chunk_11:4648-5547

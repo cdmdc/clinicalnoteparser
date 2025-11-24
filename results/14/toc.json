@@ -1,0 +1,116 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 209,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SUMMARY OF CLINICAL HISTORY",
+      "start_char": 209,
+      "end_char": 1546,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "DESCRIPTION OF GROSS LESIONS",
+      "start_char": 1546,
+      "end_char": 1575,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "EXTERNAL EXAMINATION",
+      "start_char": 1575,
+      "end_char": 2097,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "INTERNAL EXAMINATION (BODY CAVITIES)",
+      "start_char": 2097,
+      "end_char": 2385,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "HEART",
+      "start_char": 2385,
+      "end_char": 3187,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "AORTA",
+      "start_char": 3187,
+      "end_char": 3316,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "LUNGS",
+      "start_char": 3316,
+      "end_char": 4095,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "GASTROINTESTINAL SYSTEM",
+      "start_char": 4095,
+      "end_char": 4752,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "RETICULOENDOTHELIAL SYSTEM",
+      "start_char": 4752,
+      "end_char": 4928,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "GENITOURINARY SYSTEM",
+      "start_char": 4928,
+      "end_char": 5327,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ENDOCRINE SYSTEM",
+      "start_char": 5327,
+      "end_char": 5597,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "EXTREMITIES",
+      "start_char": 5597,
+      "end_char": 5764,
+      "start_page": 0,
+      "end_page": 1
+    },
+    {
+      "title": "CLINICOPATHOLOGIC CORRELATION",
+      "start_char": 5764,
+      "end_char": 8193,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "SUMMARY AND REFLECTION",
+      "start_char": 8193,
+      "end_char": 8500,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "REMAINING UNANSWERED QUESTIONS",
+      "start_char": 8500,
+      "end_char": 8709,
+      "start_page": 1,
+      "end_page": 1
+    }
+  ]
+}

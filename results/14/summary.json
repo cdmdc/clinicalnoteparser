@@ -1,0 +1,32 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "The patient died of a pulmonary embolism, the underlying cause of which is currently undetermined.",
+      "source": "[DESCRIPTION OF GROSS LESIONS] section, chunk_2:1546-1575"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "shortness of breath and chest pain",
+      "source": "[SUMMARY OF CLINICAL HISTORY] section, chunk_1:209-383"
+    },
+    {
+      "text": "unresponsive, apneic",
+      "source": "[SUMMARY OF CLINICAL HISTORY] section, chunk_1:465-473"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "The patient was a 35-year-old African-American male with no significant past medical history.",
+      "source": "[SUMMARY OF CLINICAL HISTORY] section, chunk_1:209-383"
+    },
+    {
+      "text": "The patient had three episodes of thromboemboli in the pulmonary vasculature that were at least a few days old because the emboli that were organizing were adherent to the vessel wall.",
+      "source": "[CLINICOPATHOLOGIC CORRELATION] section, chunk_13:5764-8193"
+    }
+  ],
+  "medicines_allergies": [],
+  "objective_findings": [],
+  "labs_imaging": [],
+  "assessment": []
+}

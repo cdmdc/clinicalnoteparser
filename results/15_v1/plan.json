@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Will have an upper endoscopy",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2377-2386",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Will be asking for a letter of medical necessity from Dr. XYZ",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2327-2356",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "Will also see my nutritionist and social worker",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2359-2374",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "Interested in surgical weight loss via the gastric bypass as opposed to Lap-Band",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2283-2324",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}

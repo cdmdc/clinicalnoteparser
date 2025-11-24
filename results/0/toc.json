@@ -1,0 +1,53 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 194,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SUBJECTIVE",
+      "start_char": 194,
+      "end_char": 797,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "MEDICATIONS",
+      "start_char": 797,
+      "end_char": 878,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ALLERGIES",
+      "start_char": 878,
+      "end_char": 927,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "OBJECTIVE",
+      "start_char": 927,
+      "end_char": 1190,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ASSESSMENT",
+      "start_char": 1190,
+      "end_char": 1222,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PLAN",
+      "start_char": 1222,
+      "end_char": 1501,
+      "start_page": 0,
+      "end_page": 0
+    }
+  ]
+}

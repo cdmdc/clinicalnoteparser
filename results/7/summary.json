@@ -1,0 +1,81 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "Caucasian female",
+      "source": "[OVERVIEW] section, chunk_0:789-812"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Blunt force cranial trauma",
+      "source": "[DESCRIPTION OF INJURIES - SUMMARY] section, chunk_8:3645-3666"
+    },
+    {
+      "text": "Subdural hematoma and comminuted fractures of the occipital bone",
+      "source": "[CENTRAL NERVOUS SYSTEM] section, chunk_1:1600-1629; [SKELETAL SYSTEM] section, chunk_2:1684-1735"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Not pregnant at the time of death",
+      "source": "[FEMALE GENITAL SYSTEM] section, chunk_7:2905-2919"
+    }
+  ],
+  "medicines_allergies": [],
+  "objective_findings": [
+    {
+      "text": "63 inches in length, weighing 114 pounds",
+      "source": "[EXTERNAL EXAMINATION - SUMMARY] section, chunk_0:789-825"
+    },
+    {
+      "text": "Cold and unembalmed with declining rigor",
+      "source": "[EXTERNAL EXAMINATION - SUMMARY] section, chunk_0:831-846"
+    },
+    {
+      "text": "Pronounced unblanching lividity on the posterior of the body",
+      "source": "[EXTERNAL EXAMINATION - SUMMARY] section, chunk_0:852-879"
+    },
+    {
+      "text": "Skull symmetric with extensive trauma in the occipital region",
+      "source": "[CENTRAL NERVOUS SYSTEM] section, chunk_1:1600-1634; [SKELETAL SYSTEM] section, chunk_2:1684-1715"
+    },
+    {
+      "text": "Brain weighs 1,303 grams",
+      "source": "[CENTRAL NERVOUS SYSTEM] section, chunk_1:1600-1629"
+    },
+    {
+      "text": "Subdural hematoma and comminuted fractures of the occipital bone with numerous bone fragments penetrating brain tissue",
+      "source": "[SKELETAL SYSTEM] section, chunk_2:1684-1735; [DESCRIPTION OF INJURIES - SUMMARY] section, chunk_8:3645-3690"
+    },
+    {
+      "text": "Oral cavity shows no lesions",
+      "source": "[RESPIRATORY SYSTEM--THROAT STRUCTURES] section, chunk_3:1854-1872"
+    },
+    {
+      "text": "Mucosa of the epiglottis, glottis, piriform sinuses, trachea and major bronchi are anatomic",
+      "source": "[RESPIRATORY SYSTEM--THROAT STRUCTURES] section, chunk_3:1876-1905"
+    },
+    {
+      "text": "Esophagus mucosa intact and gray-pink without lesions or injuries",
+      "source": "[GASTROINTESTINAL SYSTEM] section, chunk_5:2411-2440"
+    },
+    {
+      "text": "Stomach contains approximately 125 ml of partially digested semisolid food",
+      "source": "[GASTROINTESTINAL SYSTEM] section, chunk_5:2446-2473"
+    },
+    {
+      "text": "Kidneys weigh left 115 grams and right 113 grams",
+      "source": "[URINARY SYSTEM] section, chunk_6:2740-2789"
+    },
+    {
+      "text": "Female genital system within normal limits",
+      "source": "[FEMALE GENITAL SYSTEM] section, chunk_7:2890-2913"
+    },
+    {
+      "text": "Time of death between 9:30 p.m. on 9/17/05 and 12:00 a.m. on 9/18/05",
+      "source": "[TIME OF DEATH] section, chunk_23:4609-4736"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": []
+}

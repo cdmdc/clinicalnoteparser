@@ -1,0 +1,95 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "23-year-old white female",
+      "source": "SUBJECTIVE section, chunk_1:194-206"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Allergic rhinitis",
+      "source": "ASSESSMENT section, chunk_5:1190-1203"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Used to have allergies in Seattle but worse here.",
+      "source": "SUBJECTIVE section, chunk_1:207-246"
+    },
+    {
+      "text": "Tried Claritin and Zyrtec with short-term effectiveness.",
+      "source": "SUBJECTIVE section, chunk_1:253-289"
+    },
+    {
+      "text": "Used Allegra last summer and started using it two weeks ago but not effective now.",
+      "source": "SUBJECTIVE section, chunk_1:296-347"
+    },
+    {
+      "text": "Used over-the-counter sprays but no prescription nasal sprays.",
+      "source": "SUBJECTIVE section, chunk_1:354-380"
+    },
+    {
+      "text": "Has asthma that does not require daily medication and is not flaring up.",
+      "source": "SUBJECTIVE section, chunk_1:387-426"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Ortho Tri-Cyclen",
+      "source": "MEDICATIONS section, chunk_2:797-809"
+    },
+    {
+      "text": "Allegra",
+      "source": "MEDICATIONS section, chunk_2:814-820"
+    },
+    {
+      "text": "No known medicine allergies",
+      "source": "ALLERGIES section, chunk_3:885-896"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Weight: 130 pounds, Blood pressure: 124/78",
+      "source": "OBJECTIVE section, chunk_4:933-955"
+    },
+    {
+      "text": "Throat mildly erythematous without exudate.",
+      "source": "OBJECTIVE section, chunk_4:960-979"
+    },
+    {
+      "text": "Nasal mucosa erythematous and swollen with clear drainage.",
+      "source": "OBJECTIVE section, chunk_4:984-1005"
+    },
+    {
+      "text": "Tympanic membranes (TMs) clear.",
+      "source": "OBJECTIVE section, chunk_4:1010-1023"
+    },
+    {
+      "text": "Neck supple without adenopathy.",
+      "source": "OBJECTIVE section, chunk_4:1028-1040"
+    },
+    {
+      "text": "Lungs clear.",
+      "source": "OBJECTIVE section, chunk_4:1045-1053"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "Allergic rhinitis",
+      "source": "ASSESSMENT section, chunk_5:1190-1203"
+    },
+    {
+      "text": "Try Zyrtec instead of Allegra.",
+      "source": "PLAN section, chunk_6:1247-1268"
+    },
+    {
+      "text": "Consider loratadine as an option.",
+      "source": "PLAN section, chunk_6:1273-1285"
+    },
+    {
+      "text": "Use Nasonex two sprays in each nostril for three weeks.",
+      "source": "PLAN section, chunk_6:1304-1339"
+    }
+  ]
+}

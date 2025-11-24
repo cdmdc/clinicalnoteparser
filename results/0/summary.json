@@ -1,0 +1,63 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "A 23-year-old white female presents with complaint of allergies.",
+      "source": "[OVERVIEW] section, chunk_0:194-258"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Allergic rhinitis.",
+      "source": "[ASSESSMENT] section, chunk_5:1190-1222"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "She used to have allergies when she lived in Seattle but she thinks they are worse here.",
+      "source": "[SUBJECTIVE] section, chunk_1:194-358"
+    },
+    {
+      "text": "In the past, she has tried Claritin, and Zyrtec. Both worked for short time but then seemed to lose effectiveness.",
+      "source": "[SUBJECTIVE] section, chunk_1:358-527"
+    },
+    {
+      "text": "She has used Allegra also. She used that last summer and she began using it again two weeks ago. It does not appear to be working very well.",
+      "source": "[SUBJECTIVE] section, chunk_1:527-698"
+    },
+    {
+      "text": "She has used over-the-counter sprays but no prescription nasal sprays.",
+      "source": "[SUBJECTIVE] section, chunk_1:698-743"
+    },
+    {
+      "text": "She does have asthma but doest not require daily medication for this and does not think it is flaring up.",
+      "source": "[SUBJECTIVE] section, chunk_1:743-805"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Her only medication currently is Ortho Tri-Cyclen and the Allegra.",
+      "source": "[MEDICATIONS] section, chunk_2:797-878"
+    },
+    {
+      "text": "She has no known medicine allergies.",
+      "source": "[ALLERGIES] section, chunk_3:878-927"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Vitals: Weight was 130 pounds and blood pressure 124/78.",
+      "source": "[OBJECTIVE] section, chunk_4:927-1006"
+    },
+    {
+      "text": "HEENT: Her throat was mildly erythematous without exudate. Nasal mucosa was erythematous and swollen. Only clear drainage was seen. TMs were clear.",
+      "source": "[OBJECTIVE] section, chunk_4:1006-1190"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "Allergic rhinitis.",
+      "source": "[ASSESSMENT] section, chunk_5:1190-1222"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "He will be followed by his primary doctor in 2 to 3 days.",
+      "source": "[DISCHARGE ACTIVITIES] section, chunk_4:1407-1438",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Cardiology for echo followup in 4 to 6 weeks.",
+      "source": "[DISCHARGE ACTIVITIES] section, chunk_4:1407-1438",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "Instructed not to give any vaccine in less than 11 months because of IVIG, all the live virus vaccine.",
+      "source": "[DISCHARGE ACTIVITIES] section, chunk_4:1407-1438",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "If he gets any rashes, any fevers, should go to primary care doctor as soon as possible.",
+      "source": "[DISCHARGE ACTIVITIES] section, chunk_4:1407-1438",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}

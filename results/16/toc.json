@@ -1,0 +1,81 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 1476,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PAST MEDICAL HISTORY",
+      "start_char": 1476,
+      "end_char": 1734,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PAST SURGICAL HISTORY",
+      "start_char": 1734,
+      "end_char": 1865,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PSYCHOLOGICAL HISTORY",
+      "start_char": 1865,
+      "end_char": 1963,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SOCIAL HISTORY",
+      "start_char": 1963,
+      "end_char": 2224,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "FAMILY HISTORY",
+      "start_char": 2224,
+      "end_char": 2268,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "MEDICATIONS",
+      "start_char": 2268,
+      "end_char": 2387,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ALLERGIES",
+      "start_char": 2387,
+      "end_char": 2503,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "REVIEW OF SYSTEMS",
+      "start_char": 2503,
+      "end_char": 2544,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PHYSICAL EXAM",
+      "start_char": 2544,
+      "end_char": 2831,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ASSESSMENT/PLAN",
+      "start_char": 2831,
+      "end_char": 3212,
+      "start_page": 0,
+      "end_page": 0
+    }
+  ]
+}

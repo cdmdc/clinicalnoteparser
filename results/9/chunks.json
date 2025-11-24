@@ -1,0 +1,158 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAutopsy\n \nSample Name:\nÂ Autopsy - 3\nDescription:\nÂ Autopsy - Asphyxia due to ligature strangulation. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 160,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "EXTERNAL EXAMINATION: \nThe autopsy is begun at 8:30 A.M. on May 24, 2004. The body is presented in a black body bag. The victim\nis wearing a white sleeveless turtleneck shirt and navy blue sweatpants. Jewelry included two smooth-textured silver hoop pierced earrings, 1-inch\ndiameter, one in each ear, and one 1-inch wide silver expandable wristband on left wrist. A 1.5-inch wide tan belt with green stripes is cinched\naround the upper neck using the buckle. The opposite end of the belt is tied in a half-hitch knot, which was used to affix it to the crossbar in the\ncloset where the body was found. \nThe body is that of a normally developed white female measuring 67 inches and weighing 118 pounds, and appearing generally consistent with the\nstated age of twenty-six years. The body is cold and unembalmed. Lividity is fixed in the distal portions of the limbs. The eyes are open. The irises\nare brown and corneas are cloudy. Petechial hemorrhaging is present in the conjunctival surfaces of the eyes. The pupils measure 0.3 cm. The hair\nis dark blonde with lighter blonde highlights, wavy, layered and approximately 11 inches in length at the longest point. \nRemoval of the belt revealed a ligature mark (known throughout this report as Ligature A) on the neck below the mandible. Ligature A is\napproximately 1.5 inches wide and encircles the neck in the form of a \"V\" on the anterior of the neck and an inverted \"V\" on the posterior of the\nneck, consistent with hanging. Minor abrasions are present in the area of Ligature A. Lack of hemorrhage surrounding Ligature A indicates this\ninjury to be post-mortem. \nUpon removal of the victim's clothing, an odor of bleach was detected. Areas of the body were swabbed and submitted for detection of\nhypochlorite. Following removal of the shirt, a second ligature mark (known throughout this report as Ligature B) was observed on the victim's\nneck. The mark is dark red ligature and encircles the neck, crossing the anterior midline of the neck just below the laryngeal prominence. The\nwidth of the mark varies between 0.8 and 1cm and is horizontal in orientation. The skin of the anterior neck above and below the ligature mark\nshows petechial hemorrhaging. Ligature B is not consistent with the belt that caused Ligature A. The absence of abrasions associated with Ligature\nB, along with the variations in the width of the ligature mark, are consistent with a soft ligature, such as a length of fabric. No trace evidence was\nrecovered from Ligature B that might assist in identification of the ligature used. \nThe genitalia are that of an adult female and there is no evidence of injury. Pubic hair has been shaved in its entirety within six hours of death. Limbs\nare equal, symmetrically developed and show no evidence of injury. The fingernails are medium length and fingernail beds are blue. There are no\nresidual scars, markings or tattoos.",
+      "start_char": 160,
+      "end_char": 3056,
+      "section_title": "EXTERNAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "INTERNAL EXAMINATION:",
+      "start_char": 3056,
+      "end_char": 3079,
+      "section_title": "INTERNAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "HEAD--CENTRAL NERVOUS SYSTEM: \nSubsequent autopsy shows a broken hyoid bone. Hemorrhaging from Ligature B penetrates the\nskin and subdermal tissues of the neck. The brain weighs 1,303 grams and within normal limits.",
+      "start_char": 3079,
+      "end_char": 3296,
+      "section_title": "HEAD--CENTRAL NERVOUS SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "SKELETAL SYSTEM:\n The hyoid bone is fractured.",
+      "start_char": 3296,
+      "end_char": 3344,
+      "section_title": "SKELETAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "RESPIRATORY SYSTEM--THROAT STRUCTURES: \nThe oral cavity shows no lesions. Petechial hemorrhaging is present in the mucosa of\nthe lips and the interior of the mouth. Otherwise, the mucosa is intact and there are no injuries to the lips, teeth or gums. \nThere is no obstruction of the airway. The mucosa of the epiglottis, glottis, piriform sinuses, trachea and major bronchi are anatomic. No injuries\nare seen and there are no mucosal lesions. The hyoid bone, the thyroid, and the cricoid cartilages are fractured. \nThe lungs weigh: right, 355 grams; left 362 grams. The lungs are unremarkable.",
+      "start_char": 3344,
+      "end_char": 3939,
+      "section_title": "RESPIRATORY SYSTEM--THROAT STRUCTURES"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "CARDIOVASCULAR SYSTEM: \nThe heart weighs 253 grams, and has a normal size and configuration. No evidence of atherosclerosis is\npresent.",
+      "start_char": 3939,
+      "end_char": 4076,
+      "section_title": "CARDIOVASCULAR SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "GASTROINTESTINAL SYSTEM: \nThe mucosa and wall of the esophagus are intact and gray-pink, without lesions or injuries. The gastric\nmucosa is intact and pink without injury. Approximately 125 ml of partially digested semisolid food is found in the stomach. The mucosa of the\nduodenum, jejunum, ileum, colon and rectum are intact.",
+      "start_char": 4076,
+      "end_char": 4405,
+      "section_title": "GASTROINTESTINAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "URINARY SYSTEM: \nThe kidneys weigh: left, 115 grams; right, 113 grams. The kidneys are anatomic in size, shape and location and are\nwithout lesions.",
+      "start_char": 4405,
+      "end_char": 4555,
+      "section_title": "URINARY SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "FEMALE GENITAL SYSTEM: \nThe structures are within normal limits. Examination of the pelvic area indicates the victim had not given birth\nand was not pregnant at the time of death. There is evidence of recent sexual activity but no indications that the sexual contact was forcible.\nVaginal fluid samples are removed for analysis.",
+      "start_char": 4555,
+      "end_char": 4885,
+      "section_title": "FEMALE GENITAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "text": "TOXICOLOGY: \nSample of right pleural blood and bile are submitted for toxicologic analysis. Stomach contents are saved.",
+      "start_char": 4885,
+      "end_char": 5006,
+      "section_title": "TOXICOLOGY"
+    },
+    {
+      "chunk_id": "chunk_11",
+      "text": "SEROLOGY:\n A sample of right pleural blood is submitted in the EDTA tube. Routine toxicologic studies were ordered.",
+      "start_char": 5006,
+      "end_char": 5122,
+      "section_title": "SEROLOGY"
+    },
+    {
+      "chunk_id": "chunk_12",
+      "text": "LABORATORY DATA",
+      "start_char": 5122,
+      "end_char": 5138,
+      "section_title": "LABORATORY DATA"
+    },
+    {
+      "chunk_id": "chunk_13",
+      "text": "CEREBROSPINAL FLUID CULTURE AND SENSITIVITY:\nGram stain: Unremarkable\nCulture: No growth after 72 hours",
+      "start_char": 5138,
+      "end_char": 5242,
+      "section_title": "CEREBROSPINAL FLUID CULTURE AND SENSITIVITY"
+    },
+    {
+      "chunk_id": "chunk_14",
+      "text": "CEREBROSPINAL FLUID BACTERIAL ANTIGENS:\nHemophilus influenza B: Negative\nStreptococcus pneumoniae: Negative\nN. Meningitidis: Negative\nNeiserria meningitidis B/E. Coli K1: Negative \nDrug Screen Results:",
+      "start_char": 5242,
+      "end_char": 5444,
+      "section_title": "CEREBROSPINAL FLUID BACTERIAL ANTIGENS"
+    },
+    {
+      "chunk_id": "chunk_15",
+      "text": "URINE SCREEN {IMMUNOASSAY} WAS NEGATIVE. \nEthanol: 0 gm/dl, Blood (Heart)\nEthanol: 0 gm/dl, Vitreous",
+      "start_char": 5444,
+      "end_char": 5546,
+      "section_title": "URINE SCREEN {IMMUNOASSAY} WAS NEGATIVE."
+    },
+    {
+      "chunk_id": "chunk_16",
+      "text": "EVIDENCE COLLECTED:\n1. One (1) white turtleneck sleeveless shirt, size Small. \n2. One (1) pair navy blue sweatpants, size Small.\n3. Two (2) silver hoop earrings. \n4. One (1) silver bracelet.\n5. Samples of Blood (type O+), Bile, and Tissue (heart, lung, brain, kidney, liver, spleen). \n6. Fifteen (15) swabs from various body locations, to be tested for presence of hypochlorite.\n7. Eleven (11) autopsy photographs. \n8. One postmortem CT scan. \n9. One postmortem MRI.",
+      "start_char": 5546,
+      "end_char": 6014,
+      "section_title": "EVIDENCE COLLECTED"
+    },
+    {
+      "chunk_id": "chunk_17",
+      "text": "OPINION",
+      "start_char": 6014,
+      "end_char": 6022,
+      "section_title": "OPINION"
+    },
+    {
+      "chunk_id": "chunk_18",
+      "text": "TIME OF DEATH:\n Body temperature, rigor and livor mortis, and stomach contents approximate the time of death between 7:30 and 9:30 P.M.\non 5/22/2004.",
+      "start_char": 6022,
+      "end_char": 6173,
+      "section_title": "TIME OF DEATH"
+    },
+    {
+      "chunk_id": "chunk_19",
+      "text": "IMMEDIATE CAUSE OF DEATH:\n Asphyxia due to ligature strangulation (Ligature B). Ligature A is made post-mortem.",
+      "start_char": 6173,
+      "end_char": 6286,
+      "section_title": "IMMEDIATE CAUSE OF DEATH"
+    },
+    {
+      "chunk_id": "chunk_20",
+      "text": "MANNER OF DEATH:\n Homicide",
+      "start_char": 6286,
+      "end_char": 6314,
+      "section_title": "MANNER OF DEATH"
+    },
+    {
+      "chunk_id": "chunk_21",
+      "text": "REMARKS:\n Decedent originally presented to this office as suicide victim. Presence of the post-mortem ligature mark suggests that suicide in this\ncase is highly improbable. YCSD detectives were notified of this finding immediately upon conclusion of examination.",
+      "start_char": 6314,
+      "end_char": 6576,
+      "section_title": "REMARKS"
+    }
+  ]
+}

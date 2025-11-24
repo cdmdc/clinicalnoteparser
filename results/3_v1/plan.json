@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "The patient has chronic sinusitis with severe symptoms and dizziness of uncertain etiology. It is recommended to perform RAST allergy testing to identify any potential allergies contributing to the symptoms.",
+      "source": "RECOMMENDATIONS section, chunk_12:3097-3106",
+      "confidence": 0.8,
+      "hallucination_guard_note": "This recommendation is based on the assessment and may require further clarification."
+    },
+    {
+      "number": 2,
+      "recommendation": "If the patient is currently prescribed cephalosporin antibiotics, they should be stopped as per the recommendations.",
+      "source": "RECOMMENDATIONS section, chunk_12:3109-3124",
+      "confidence": 0.85,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "Prescribe medications for sinusitis as needed to manage the patient's symptoms.",
+      "source": "RECOMMENDATIONS section, chunk_12:3127-3145",
+      "confidence": 0.85,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "Follow-up in 2 weeks or sooner if symptoms worsen to monitor the patient's condition and adjust treatment as necessary.",
+      "source": "RECOMMENDATIONS section, chunk_12:3148-3160",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    }
+  ]
+}

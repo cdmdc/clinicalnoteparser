@@ -1,0 +1,123 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "34-year-old female",
+      "source": "[PATIENT_SNAPSHOT] section, chunk_0:125"
+    },
+    {
+      "text": "BMI of 43",
+      "source": "[PATIENT_SNAPSHOT] section, chunk_0:169-178"
+    },
+    {
+      "text": "5'6\" tall and weighs 267 pounds",
+      "source": "[PATIENT_SNAPSHOT] section, chunk_0:180-204"
+    },
+    {
+      "text": "Motivated to attempt surgical weight loss because she has been overweight for over 20 years and wants to have more energy and improve her self-image.",
+      "source": "[PATIENT_SNAPSHOT] section, chunk_0:236-279"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Overweight for over 20 years",
+      "source": "[PATIENT_SNAPSHOT] section, chunk_0:251-264"
+    },
+    {
+      "text": "Shortness of breath",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:1439-1447"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "History of hypertension",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_1:1450-1462"
+    },
+    {
+      "text": "Tried numerous commercial weight loss programs including Weight Watcher's for four months in 1992 with 15-pound weight loss, RS for two months in 1990 with six-pound weight loss, Slim Fast for six weeks in 2004 with eight-pound weight loss, an exercise program for two months in 2007 with a five-pound weight loss, Atkin's Diet for three months in 2008 with a ten-pound weight loss, and Dexatrim for one month in 2005 with a five-pound weight loss.",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_0:314-679"
+    },
+    {
+      "text": "Tried Redux for nine months with a 100-pound weight loss",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_0:682-705"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Topamax 100 mg twice daily",
+      "source": "[MEDICATIONS] section, chunk_6:1739-1749"
+    },
+    {
+      "text": "Zoloft 100 mg twice daily",
+      "source": "[MEDICATIONS] section, chunk_6:1752-1762"
+    },
+    {
+      "text": "Abilify 5 mg daily",
+      "source": "[MEDICATIONS] section, chunk_6:1765-1773"
+    },
+    {
+      "text": "Motrin 800 mg daily",
+      "source": "[MEDICATIONS] section, chunk_6:1776-1784"
+    },
+    {
+      "text": "Multivitamin",
+      "source": "[MEDICATIONS] section, chunk_6:1787-1792"
+    },
+    {
+      "text": "No known drug allergies",
+      "source": "[ALLERGIES] section, chunk_7:1853-1864"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Pleasant female in no acute distress",
+      "source": "[PHYSICAL EXAM] section, chunk_9:1929-1940"
+    },
+    {
+      "text": "Alert and oriented x 3",
+      "source": "[PHYSICAL EXAM] section, chunk_9:1943-1951"
+    },
+    {
+      "text": "Normocephalic, atraumatic HEENT",
+      "source": "[PHYSICAL EXAM] section, chunk_9:1954-1968"
+    },
+    {
+      "text": "Extraocular muscles intact, nonicteric sclerae",
+      "source": "[PHYSICAL EXAM] section, chunk_9:1971-1983"
+    },
+    {
+      "text": "Chest is clear to auscultation bilaterally",
+      "source": "[PHYSICAL EXAM] section, chunk_9:1986-2001"
+    },
+    {
+      "text": "Cardiovascular is normal sinus rhythm",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2004-2017"
+    },
+    {
+      "text": "Abdomen is obese, soft, nontender and nondistended",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2020-2036"
+    },
+    {
+      "text": "Extremities show no edema, clubbing or cyanosis",
+      "source": "[PHYSICAL EXAM] section, chunk_9:2039-2054"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "Interested in surgical weight loss via the gastric bypass as opposed to Lap-Band",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2283-2324"
+    },
+    {
+      "text": "Will be asking for a letter of medical necessity from Dr. XYZ",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2327-2356"
+    },
+    {
+      "text": "Will also see my nutritionist and social worker",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2359-2374"
+    },
+    {
+      "text": "Will have an upper endoscopy",
+      "source": "[ASSESSMENT/PLAN] section, chunk_10:2377-2386"
+    }
+  ]
+}

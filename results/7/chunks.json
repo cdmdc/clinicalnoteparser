@@ -1,0 +1,186 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAutopsy\n \nSample Name:\nÂ Autopsy - 1\nDescription:\nÂ Autopsy - Homicide - Blunt force cranial trauma \n(Medical Transcription Sample Report)\nEXTERNAL EXAMINATION - SUMMARY\nThe body is presented in a black body bag. At the time of examination, the body is clothed in a long-sleeved red cotton thermal shirt, khaki twill\ncargo pants, and one black shoe.\nThe body is that of a normally developed, well nourished Caucasian female measuring 63 inches in length, weighing 114 pounds, and appearing\ngenerally consistent with the stated age of thirty-five years. The body is cold and unembalmed with declining rigor. Pronounced unblanching lividity\nis present on the posterior of the body in the regions of the feet; the upper thighs, particularly on the right side; the lower back, particularly on the\nright side; the right arm; and the neck.\nThe scalp is covered by long (16 inches) brown hair. The body hair is female and average. The skull is symmetric and evidences extensive trauma\nin the occipital region. The eyes are open and the irises are blue. Pupils are asymmetrically dilated. The teeth are natural and well maintained. The\nanterior chest is of normal contour and is intact. The breasts are female and contain no palpable masses. The abdomen is flat and the pelvis is\nintact. The external genitalia are female and unremarkable. The back is symmetrical and intact. The upper and lower extremities are symmetric,\nnormally developed and intact. The hands and nails are clean and evidence no injury.\nThere are no residual scars, markings or tattoos.\nINTERNAL EXAMINATION - SUMMARY",
+      "start_char": 0,
+      "end_char": 1600,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "CENTRAL NERVOUS SYSTEM: \nThe brain weighs 1,303 grams and is within normal limits.",
+      "start_char": 1600,
+      "end_char": 1684,
+      "section_title": "CENTRAL NERVOUS SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "SKELETAL SYSTEM:\n Subdural hematoma and comminuted fractures of the occipital bone are observed. Numerous bone fragments from the\nfractures penetrated the brain tissue.",
+      "start_char": 1684,
+      "end_char": 1854,
+      "section_title": "SKELETAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "RESPIRATORY SYSTEM--THROAT STRUCTURES: \nThe oral cavity shows no lesions. The mucosa is intact and there are no injuries to\nthe lips, teeth or gums. There is no obstruction of the airway. The mucosa of the epiglottis, glottis, piriform sinuses, trachea and major bronchi are\nanatomic. No injuries are seen and there are no mucosal lesions. The lungs weigh: right, 355 grams; left 362 grams. The lungs are unremarkable.",
+      "start_char": 1854,
+      "end_char": 2274,
+      "section_title": "RESPIRATORY SYSTEM--THROAT STRUCTURES"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "CARDIOVASCULAR SYSTEM:\n The heart weighs 253 grams, and has a normal size and configuration. No evidence of atherosclerosis is\npresent.",
+      "start_char": 2274,
+      "end_char": 2411,
+      "section_title": "CARDIOVASCULAR SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "GASTROINTESTINAL SYSTEM: \nThe mucosa and wall of the esophagus are intact and gray-pink, without lesions or injuries. The gastric\nmucosa is intact and pink without injury. Approximately 125 ml of partially digested semisolid food is found in the stomach. The mucosa of the\nduodenum, jejunum, ileum, colon and rectum are intact.",
+      "start_char": 2411,
+      "end_char": 2740,
+      "section_title": "GASTROINTESTINAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "URINARY SYSTEM:\n The kidneys weigh: left, 115 grams; right, 113 grams. The kidneys are anatomic in size, shape and location and are\nwithout lesions.",
+      "start_char": 2740,
+      "end_char": 2890,
+      "section_title": "URINARY SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "FEMALE GENITAL SYSTEM: \nThe structures are within normal limits. Examination of the pelvic area indicates the victim had not given birth\nand was not pregnant at the time of death. Vaginal fluid samples are removed for analysis.",
+      "start_char": 2890,
+      "end_char": 3119,
+      "section_title": "FEMALE GENITAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "DESCRIPTION OF INJURIES - SUMMARY\nBlunt force traumatic injury with multiple cranial fractures resulting in craniocerebral injury. Wound measures approximately 4 inches high x 5 1/2\ninches wide. Subdural hematoma and comminuted fractures of the occipital bone are observed. Numerous bone fragments from the fractures\npenetrated the brain tissue. Depths of penetration range from 1/2-inch to 3 inches. Injury appears to have resulted from a single blow administered\nto the posterior of the head, delivered at an approximate 90Âº angle to the occipital bone.",
+      "start_char": 3119,
+      "end_char": 3676,
+      "section_title": "DESCRIPTION OF INJURIES - SUMMARY"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "LABORATORY DATA",
+      "start_char": 3676,
+      "end_char": 3692,
+      "section_title": "LABORATORY DATA"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "text": "CEREBROSPINAL FLUID CULTURE AND SENSITIVITY:\nGram stain: Unremarkable\nCulture: No growth after 72 hours",
+      "start_char": 3692,
+      "end_char": 3796,
+      "section_title": "CEREBROSPINAL FLUID CULTURE AND SENSITIVITY"
+    },
+    {
+      "chunk_id": "chunk_11",
+      "text": "CEREBROSPINAL FLUID BACTERIAL ANTIGENS:\nHemophilus influenza B: Negative\nStreptococcus pneumoniae: Negative\nN. Meningitidis: Negative\nNeiserria meningitidis B/E. Coli K1: Negative",
+      "start_char": 3796,
+      "end_char": 3977,
+      "section_title": "CEREBROSPINAL FLUID BACTERIAL ANTIGENS"
+    },
+    {
+      "chunk_id": "chunk_12",
+      "text": "PRELIMINARY TOXICOLOGICAL RESULTS:",
+      "start_char": 3977,
+      "end_char": 4012,
+      "section_title": "PRELIMINARY TOXICOLOGICAL RESULTS"
+    },
+    {
+      "chunk_id": "chunk_13",
+      "text": "BLOOD - ETHANOL - NEG",
+      "start_char": 4012,
+      "end_char": 4035,
+      "section_title": "BLOOD - ETHANOL - NEG"
+    },
+    {
+      "chunk_id": "chunk_14",
+      "text": "BLOOD - CANNABINOIDS-ETS - INC",
+      "start_char": 4035,
+      "end_char": 4066,
+      "section_title": "BLOOD - CANNABINOIDS-ETS - INC"
+    },
+    {
+      "chunk_id": "chunk_15",
+      "text": "BLOOD - COCAINE-ETS - INC",
+      "start_char": 4066,
+      "end_char": 4092,
+      "section_title": "BLOOD - COCAINE-ETS - INC"
+    },
+    {
+      "chunk_id": "chunk_16",
+      "text": "BLOOD - OPIATES-ETS - INC",
+      "start_char": 4092,
+      "end_char": 4118,
+      "section_title": "BLOOD - OPIATES-ETS - INC"
+    },
+    {
+      "chunk_id": "chunk_17",
+      "text": "BLOOD - AMPHETAMINE-ETS - INC\nBLOOD - BARBITURATE -ETS - INC",
+      "start_char": 4118,
+      "end_char": 4179,
+      "section_title": "BLOOD - AMPHETAMINE-ETS - INC"
+    },
+    {
+      "chunk_id": "chunk_18",
+      "text": "BLOOD - BENZODIAZEPINE-ETS - INC",
+      "start_char": 4179,
+      "end_char": 4212,
+      "section_title": "BLOOD - BENZODIAZEPINE-ETS - INC"
+    },
+    {
+      "chunk_id": "chunk_19",
+      "text": "BLOOD - METHADONE-ETS - INC",
+      "start_char": 4212,
+      "end_char": 4240,
+      "section_title": "BLOOD - METHADONE-ETS - INC"
+    },
+    {
+      "chunk_id": "chunk_20",
+      "text": "BLOOD - PCP-ETS - INC\nBLOOD - CARBON MONOXIDE - NEG\nUrine Drugs: Initial test results inconclusive. Further tests pending.",
+      "start_char": 4240,
+      "end_char": 4364,
+      "section_title": "BLOOD - PCP-ETS - INC"
+    },
+    {
+      "chunk_id": "chunk_21",
+      "text": "EVIDENCE COLLECTED\n1. Samples of Blood (type O+), Urine, Bile, and Tissue (heart, lung, brain, kidney, liver, spleen). \n2. Thirteen autopsy photographs. \n3. Two postmortem x-rays. \nClothing transferred to ABC Lab for further analysis.",
+      "start_char": 4364,
+      "end_char": 4600,
+      "section_title": "EVIDENCE COLLECTED"
+    },
+    {
+      "chunk_id": "chunk_22",
+      "text": "OPINION:",
+      "start_char": 4600,
+      "end_char": 4609,
+      "section_title": "OPINION"
+    },
+    {
+      "chunk_id": "chunk_23",
+      "text": "TIME OF DEATH:\n Body temperature, rigor and livor mortis, stomach contents and witness statements approximate the time of death between\n9:30 p.m. on 9/17/05 and 12:00 a.m. on 9/18/05.",
+      "start_char": 4609,
+      "end_char": 4794,
+      "section_title": "TIME OF DEATH"
+    },
+    {
+      "chunk_id": "chunk_24",
+      "text": "CAUSE OF DEATH: \nBlunt force cranial trauma.",
+      "start_char": 4794,
+      "end_char": 4840,
+      "section_title": "CAUSE OF DEATH"
+    },
+    {
+      "chunk_id": "chunk_25",
+      "text": "MANNER OF DEATH:\n Homicide",
+      "start_char": 4840,
+      "end_char": 4866,
+      "section_title": "MANNER OF DEATH"
+    }
+  ]
+}

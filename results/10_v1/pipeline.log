@@ -1,0 +1,911 @@
+2025-11-19 17:51:07 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/pipeline.log, level=DEBUG
+2025-11-19 17:51:07 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/10.pdf
+2025-11-19 17:51:07 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10
+2025-11-19 17:51:07 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 17:51:07 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-19 17:51:07 - app.pipeline - INFO - [STEP 1] Ingesting document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/10.pdf
+2025-11-19 17:51:07 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/10.pdf
+2025-11-19 17:51:07 - app.ingestion - INFO - Ingested document: 19270 characters, 4 pages, note_id: 10
+2025-11-19 17:51:07 - app.pipeline - INFO - ✓ Ingested: 19270 chars, 4 pages, note_id: 10
+2025-11-19 17:51:07 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/canonical_text.txt
+2025-11-19 17:51:07 - app.pipeline - INFO - [STEP 2/6] Detecting sections...
+2025-11-19 17:51:07 - app.sections - INFO - Overview section detected: end=172, title=Overview
+2025-11-19 17:51:07 - app.sections - INFO - Found 40 section headers (after empty lines, all-caps): ['FINAL DIAGNOSIS', 'TOXICOLOGIC STUDIES', 'CLINOCOPATHOLIGICAL CORRELATION', 'EXTERNAL EVIDENCE OF INJURY', 'REMAINDER OF EXTERNAL EXAMINATION', 'INTERNAL EXAM', 'MEDIASTINUM', 'BODY CAVITIES', 'LUNGS', 'HEART', 'AORTA AND VENA CAVA', 'SPLEEN', 'ADRENALS', 'KIDNEYS', 'LIVER', 'PANCREAS', 'BLADDER', 'GENITALIA', 'GALLBLADDER', 'G.I. TRACT', 'LYMPHATIC SYSTEM', 'MUSCULOSKELETAL SYSTEM', 'SKULL AND BRAIN', 'NECK', 'MICROSCOPIC DESCRIPTION', 'MYOCARDIUM', 'LUNGS', 'SPLEEN', 'THYROID', 'THYMUS', 'TRACHEA', 'LIVER', 'PANCREAS', 'KIDNEY', 'BLADDER', 'REPRODUCTIVE ORGANS', 'ADRENAL', 'BRAIN', 'VAGINAL MUCOSA', 'EVIDENCE']
+2025-11-19 17:51:07 - app.sections - INFO - Found 40 potential section headers
+2025-11-19 17:51:07 - app.sections - INFO - Detected 41 sections: ['Overview', 'FINAL DIAGNOSIS', 'TOXICOLOGIC STUDIES', 'CLINOCOPATHOLIGICAL CORRELATION', 'EXTERNAL EVIDENCE OF INJURY', 'REMAINDER OF EXTERNAL EXAMINATION', 'INTERNAL EXAM', 'MEDIASTINUM', 'BODY CAVITIES', 'LUNGS', 'HEART', 'AORTA AND VENA CAVA', 'SPLEEN', 'ADRENALS', 'KIDNEYS', 'LIVER', 'PANCREAS', 'BLADDER', 'GENITALIA', 'GALLBLADDER', 'G.I. TRACT', 'LYMPHATIC SYSTEM', 'MUSCULOSKELETAL SYSTEM', 'SKULL AND BRAIN', 'NECK', 'MICROSCOPIC DESCRIPTION', 'MYOCARDIUM', 'LUNGS', 'SPLEEN', 'THYROID', 'THYMUS', 'TRACHEA', 'LIVER', 'PANCREAS', 'KIDNEY', 'BLADDER', 'REPRODUCTIVE ORGANS', 'ADRENAL', 'BRAIN', 'VAGINAL MUCOSA', 'EVIDENCE']
+2025-11-19 17:51:07 - app.pipeline - INFO - ✓ Detected 41 sections
+2025-11-19 17:51:07 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-172)
+2025-11-19 17:51:07 - app.pipeline - INFO -   2. FINAL DIAGNOSIS (pages 1-1, chars 172-886)
+2025-11-19 17:51:07 - app.pipeline - INFO -   3. TOXICOLOGIC STUDIES (pages 1-1, chars 886-977)
+2025-11-19 17:51:07 - app.pipeline - INFO -   4. CLINOCOPATHOLIGICAL CORRELATION (pages 1-1, chars 977-1730)
+2025-11-19 17:51:07 - app.pipeline - INFO -   5. EXTERNAL EVIDENCE OF INJURY (pages 1-2, chars 1730-6965)
+2025-11-19 17:51:07 - app.pipeline - INFO -   6. REMAINDER OF EXTERNAL EXAMINATION (pages 2-2, chars 6965-8503)
+2025-11-19 17:51:07 - app.pipeline - INFO -   7. INTERNAL EXAM (pages 2-2, chars 8503-8614)
+2025-11-19 17:51:07 - app.pipeline - INFO -   8. MEDIASTINUM (pages 2-2, chars 8614-8894)
+2025-11-19 17:51:07 - app.pipeline - INFO -   9. BODY CAVITIES (pages 2-2, chars 8894-9309)
+2025-11-19 17:51:07 - app.pipeline - INFO -   10. LUNGS (pages 2-2, chars 9309-9744)
+2025-11-19 17:51:07 - app.pipeline - INFO -   11. HEART (pages 2-2, chars 9744-10308)
+2025-11-19 17:51:07 - app.pipeline - INFO -   12. AORTA AND VENA CAVA (pages 2-2, chars 10308-10459)
+2025-11-19 17:51:07 - app.pipeline - INFO -   13. SPLEEN (pages 2-2, chars 10459-10650)
+2025-11-19 17:51:07 - app.pipeline - INFO -   14. ADRENALS (pages 2-3, chars 10650-10820)
+2025-11-19 17:51:07 - app.pipeline - INFO -   15. KIDNEYS (pages 3-3, chars 10820-11198)
+2025-11-19 17:51:07 - app.pipeline - INFO -   16. LIVER (pages 3-3, chars 11198-11393)
+2025-11-19 17:51:07 - app.pipeline - INFO -   17. PANCREAS (pages 3-3, chars 11393-11531)
+2025-11-19 17:51:07 - app.pipeline - INFO -   18. BLADDER (pages 3-3, chars 11531-11671)
+2025-11-19 17:51:07 - app.pipeline - INFO -   19. GENITALIA (pages 3-3, chars 11671-11951)
+2025-11-19 17:51:07 - app.pipeline - INFO -   20. GALLBLADDER (pages 3-3, chars 11951-12194)
+2025-11-19 17:51:07 - app.pipeline - INFO -   21. G.I. TRACT (pages 3-3, chars 12194-12836)
+2025-11-19 17:51:07 - app.pipeline - INFO -   22. LYMPHATIC SYSTEM (pages 3-3, chars 12836-12870)
+2025-11-19 17:51:07 - app.pipeline - INFO -   23. MUSCULOSKELETAL SYSTEM (pages 3-3, chars 12870-12910)
+2025-11-19 17:51:07 - app.pipeline - INFO -   24. SKULL AND BRAIN (pages 3-3, chars 12910-15402)
+2025-11-19 17:51:07 - app.pipeline - INFO -   25. NECK (pages 3-3, chars 15402-16147)
+2025-11-19 17:51:07 - app.pipeline - INFO -   26. MICROSCOPIC DESCRIPTION (pages 3-3, chars 16147-16540)
+2025-11-19 17:51:07 - app.pipeline - INFO -   27. MYOCARDIUM (pages 3-3, chars 16540-16699)
+2025-11-19 17:51:07 - app.pipeline - INFO -   28. LUNGS (pages 3-4, chars 16699-16848)
+2025-11-19 17:51:07 - app.pipeline - INFO -   29. SPLEEN (pages 4-4, chars 16848-16939)
+2025-11-19 17:51:07 - app.pipeline - INFO -   30. THYROID (pages 4-4, chars 16939-17150)
+2025-11-19 17:51:07 - app.pipeline - INFO -   31. THYMUS (pages 4-4, chars 17150-17332)
+2025-11-19 17:51:07 - app.pipeline - INFO -   32. TRACHEA (pages 4-4, chars 17332-17411)
+2025-11-19 17:51:07 - app.pipeline - INFO -   33. LIVER (pages 4-4, chars 17411-17534)
+2025-11-19 17:51:07 - app.pipeline - INFO -   34. PANCREAS (pages 4-4, chars 17534-17614)
+2025-11-19 17:51:07 - app.pipeline - INFO -   35. KIDNEY (pages 4-4, chars 17614-17773)
+2025-11-19 17:51:07 - app.pipeline - INFO -   36. BLADDER (pages 4-4, chars 17773-17890)
+2025-11-19 17:51:07 - app.pipeline - INFO -   37. REPRODUCTIVE ORGANS (pages 4-4, chars 17890-18005)
+2025-11-19 17:51:07 - app.pipeline - INFO -   38. ADRENAL (pages 4-4, chars 18005-18107)
+2025-11-19 17:51:07 - app.pipeline - INFO -   39. BRAIN (pages 4-4, chars 18107-18422)
+2025-11-19 17:51:07 - app.pipeline - INFO -   40. VAGINAL MUCOSA (pages 4-4, chars 18422-18826)
+2025-11-19 17:51:07 - app.pipeline - INFO -   41. EVIDENCE (pages 4-4, chars 18826-19270)
+2025-11-19 17:51:07 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/toc.json with 41 sections
+2025-11-19 17:51:07 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/toc.json
+2025-11-19 17:51:07 - app.pipeline - INFO - [STEP 3/6] Creating chunks...
+2025-11-19 17:51:07 - app.chunks - INFO - Created 42 chunks from 41 sections
+2025-11-19 17:51:07 - app.pipeline - INFO - ✓ Created 42 chunks
+2025-11-19 17:51:07 - app.chunks - INFO - Saved 42 chunks to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/chunks.json
+2025-11-19 17:51:07 - app.pipeline - INFO - ✓ Saved chunks to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/chunks.json
+2025-11-19 17:51:07 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 17:51:07 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 17:51:07 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 17:51:07 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-19 17:51:07 - app.pipeline - INFO -   Processing 42 chunks at once...
+2025-11-19 17:51:07 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:51:07 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+You are a medical documentation assistant. Extract and summarize information from the clinical note below. **Output the actual summary directly - do NOT describe what you will d...
+2025-11-19 17:51:07 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-11-19 17:51:07 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1134995d0>
+2025-11-19 17:51:07 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:51:07 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:51:07 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:51:07 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:51:07 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:51:12 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:51:12 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:51:12 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:51:12 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:51:16 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:51:16 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:51:16 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:51:16 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "diagnostics": null,
+      "therapeutics": null,
+      "risks_benefits": null,
+      "follow_ups": null,
+      "confidence": 0.8,
+      "hallucination_guard_note": "The cause of death and manner of death are explicitly stated, but no specific recommendations for treatment or follow-ups are provided."
+    }
+  ]
+}
+```...
+2025-11-19 17:51:16 - app.planner - INFO - LLM call succeeded (attempt 1, 73.01s)
+2025-11-19 17:51:16 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "diagnostics": null,
+      "therapeutics": null,
+      "risks_benefits": null,
+      "follow_ups": null,
+      "confidence": 0.8,
+      "hallucination_guard_note": "The cause of death and manner of death are explicitly stated, but no specific recommendations for treatment or follow-ups are provided."
+    }
+  ]
+}...
+2025-11-19 17:51:16 - app.pipeline - INFO - ✓ Generated structured plan with 1 prioritized recommendations
+2025-11-19 17:51:16 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/plan.json
+2025-11-19 17:51:16 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/plan.json
+2025-11-19 17:51:16 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-19 17:51:16 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/evaluation.json
+2025-11-19 17:51:16 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/evaluation.json
+2025-11-19 17:51:16 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-19 17:51:16 - app.pipeline - INFO - Citation Coverage:
+2025-11-19 17:51:16 - app.pipeline - INFO -   Summary: 100.0% (12/12)
+2025-11-19 17:51:16 - app.pipeline - INFO -   Plan: 100.0% (1/1)
+2025-11-19 17:51:16 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-19 17:51:16 - app.pipeline - INFO - 
+Citation Validity: 100.0% (12/12)
+2025-11-19 17:51:16 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/13 orphan claims)
+2025-11-19 17:51:16 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.0303 (avg, 66 pairs, range: 0.0000-1.0000)
+2025-11-19 17:51:16 - app.pipeline - INFO - 
+Span Consistency: 100.0% (12/12)
+2025-11-19 17:51:16 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-19 17:51:16 - app.pipeline - INFO -   Total facts: 12
+2025-11-19 17:51:16 - app.pipeline - INFO -   Total recommendations: 1
+2025-11-19 17:51:16 - app.pipeline - INFO -   Average confidence: 0.80
+2025-11-19 17:51:16 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-19 17:51:16 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7
+2025-11-19 17:51:16 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 17:51:16 - app.pipeline - INFO -   - toc.json
+2025-11-19 17:51:16 - app.pipeline - INFO -   - chunks.json
+2025-11-19 17:51:16 - app.pipeline - INFO -   - summary.json
+2025-11-19 17:51:16 - app.pipeline - INFO -   - plan.json
+2025-11-19 17:51:16 - app.pipeline - INFO -   - evaluation.json
+2025-11-19 17:51:16 - app.pipeline - INFO -   - pipeline.log
+2025-11-19 17:51:16 - root - INFO - [8/11] ✓ 7.pdf
+2025-11-19 17:51:30 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:51:30 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:51:30 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:51:30 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:52:04 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:52:04 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:52:04 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:52:04 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "39-year-old white female", "source": "PATIENT INFORMATION section, chunk_1:2-8"}
+  ],
+  "key_problems": [
+    {"text": "Acute combined drug intoxication due to chloral hydrate and other drugs.", "source": "ACUTE COMBINED DRUG INTOXICATION section, chunk_22:13755-14780"},
+    {"text": "Left gluteal panniculitis with abscess formation", "source": "LEFT GLUTEAL PANNICULITIS, WITH ABSCESS FORMATION AND RECENT LINEAR HEMORRHAGE section, chunk_23:14780-1...
+2025-11-19 17:52:04 - app.summarizer - INFO - LLM call succeeded (attempt 1, 105.98s)
+2025-11-19 17:52:04 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "39-year-old white female",
+      "source": "PATIENT INFORMATION section, chunk_1:2-8"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Acute combined drug intoxication due to chloral hydrate and other drugs.",
+      "source": "ACUTE COMBINED DRUG INTOXICATION section, chunk_22:13755-14780"
+    },
+    {
+      "text": "Left gluteal panniculitis with abscess formation",
+      "source": "LEFT GLUTEAL PANNICULITIS, WITH ABSCESS FORMATION AND RECENT LI...
+2025-11-19 17:52:04 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 3 problems, 1 history items, 1 medicines/allergies, 2 findings, 1 labs/imaging, 2 assessment items
+2025-11-19 17:52:04 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8/summary.json
+2025-11-19 17:52:04 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8/summary.json
+2025-11-19 17:52:04 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 17:52:04 - app.pipeline - INFO -   Using structured summary (1989 characters)...
+2025-11-19 17:52:04 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:52:04 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated.
+
+## In...
+2025-11-19 17:52:04 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:52:04 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:52:04 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:52:04 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:52:04 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:52:16 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:52:16 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:52:16 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:52:16 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:52:42 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:52:42 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:52:42 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:52:42 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "None documented", "source": "Overview section, chunk_0:160-160"}
+  ],
+  "key_problems": [
+    {"text": "Asphyxia due to ligature strangulation (Ligature B)", "source": "IMPRESSION section, chunk_17:6014-6022"},
+    {"text": "Post-mortem ligature mark on the neck", "source": "EXTERNAL EXAMINATION section, chunk_1:160-3056"}
+  ],
+  "pertinent_history": [
+    {"text": "None documented", "source": "Pertinent History section, chunk_2:3079-3079"}
+  ],
+  ...
+2025-11-19 17:52:42 - app.summarizer - INFO - LLM call succeeded (attempt 1, 112.07s)
+2025-11-19 17:52:42 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "None documented",
+      "source": "Overview section, chunk_0:160-160"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Asphyxia due to ligature strangulation (Ligature B)",
+      "source": "IMPRESSION section, chunk_17:6014-6022"
+    },
+    {
+      "text": "Post-mortem ligature mark on the neck",
+      "source": "EXTERNAL EXAMINATION section, chunk_1:160-3056"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "None documented",
+      "sourc...
+2025-11-19 17:52:42 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 2 problems, 1 history items, 1 medicines/allergies, 3 findings, 2 labs/imaging, 2 assessment items
+2025-11-19 17:52:42 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/summary.json
+2025-11-19 17:52:42 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/summary.json
+2025-11-19 17:52:42 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 17:52:42 - app.pipeline - INFO -   Using structured summary (1268 characters)...
+2025-11-19 17:52:42 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:52:42 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated.
+
+## In...
+2025-11-19 17:52:42 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:52:42 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:52:42 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:52:42 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:52:42 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:52:56 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:52:56 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:52:56 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:52:56 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:53:27 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:53:27 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:53:27 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:53:27 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "Patient is a prepubescent female.", "source": "PATIENT INFORMATION section, chunk_1:2-35"}
+  ],
+  "key_problems": [
+    {"text": "Severe head trauma with scalp hemorrhage and brain contusions.", "source": "HISTORY OF PRESENT ILLNESS section, chunk_4:608-794"},
+    {"text": "Vaginal and rectal trauma with epithelial erosion and birefringent foreign material.", "source": "HISTORY OF PRESENT ILLNESS section, chunk_5:1232-1376"}
+  ],
+  "pertinent_histo...
+2025-11-19 17:53:27 - app.summarizer - INFO - LLM call succeeded (attempt 1, 139.56s)
+2025-11-19 17:53:27 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "Patient is a prepubescent female.",
+      "source": "PATIENT INFORMATION section, chunk_1:2-35"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Severe head trauma with scalp hemorrhage and brain contusions.",
+      "source": "HISTORY OF PRESENT ILLNESS section, chunk_4:608-794"
+    },
+    {
+      "text": "Vaginal and rectal trauma with epithelial erosion and birefringent foreign material.",
+      "source": "HISTORY OF PRESENT ILLNESS section, ch...
+2025-11-19 17:53:27 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 2 problems, 2 history items, 1 medicines/allergies, 2 findings, 2 labs/imaging, 2 assessment items
+2025-11-19 17:53:27 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/summary.json
+2025-11-19 17:53:27 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/summary.json
+2025-11-19 17:53:27 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 17:53:27 - app.pipeline - INFO -   Using structured summary (1796 characters)...
+2025-11-19 17:53:27 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 17:53:27 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated.
+
+## In...
+2025-11-19 17:53:27 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 17:53:27 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 17:53:27 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 17:53:27 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 17:53:27 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 17:53:34 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:53:34 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:53:34 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:53:34 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:53:41 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:53:41 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:53:41 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:53:41 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "diagnostics": null,
+      "therapeutics": {"content": "endotracheal tube placement, right jugular line placement, cardiac monitoring devices and defibrillator pad placement, bilateral anterior elbow and left anterior wrist venipuncture sites with surrounding ecchymoses.", "source": "STATUS POST MEDICAL INTERVENTION section, chunk_26:14974-15370"},
+      "risks_benefits": null,
+      "follow_ups": null,
+      "confidence": 0.8,
+    ...
+2025-11-19 17:53:41 - app.planner - INFO - LLM call succeeded (attempt 1, 96.87s)
+2025-11-19 17:53:41 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "diagnostics": null,
+      "therapeutics": {
+        "content": "endotracheal tube placement, right jugular line placement, cardiac monitoring devices and defibrillator pad placement, bilateral anterior elbow and left anterior wrist venipuncture sites with surrounding ecchymoses.",
+        "source": "STATUS POST MEDICAL INTERVENTION section, chunk_26:14974-15370"
+      },
+      "risks_benefits": null,
+      "follow_ups": null,
+      "confid...
+2025-11-19 17:53:41 - app.pipeline - INFO - ✓ Generated structured plan with 1 prioritized recommendations
+2025-11-19 17:53:41 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8/plan.json
+2025-11-19 17:53:41 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8/plan.json
+2025-11-19 17:53:41 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-19 17:53:41 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8/evaluation.json
+2025-11-19 17:53:41 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8/evaluation.json
+2025-11-19 17:53:41 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-19 17:53:41 - app.pipeline - INFO - Citation Coverage:
+2025-11-19 17:53:41 - app.pipeline - INFO -   Summary: 100.0% (11/11)
+2025-11-19 17:53:41 - app.pipeline - INFO -   Plan: 100.0% (1/1)
+2025-11-19 17:53:41 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-19 17:53:41 - app.pipeline - INFO - 
+Citation Validity: 100.0% (12/12)
+2025-11-19 17:53:41 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/12 orphan claims)
+2025-11-19 17:53:41 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.1696 (avg, 66 pairs, range: 0.0000-1.0000)
+2025-11-19 17:53:41 - app.pipeline - INFO - 
+Span Consistency: 100.0% (12/12)
+2025-11-19 17:53:41 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-19 17:53:41 - app.pipeline - INFO -   Total facts: 11
+2025-11-19 17:53:41 - app.pipeline - INFO -   Total recommendations: 1
+2025-11-19 17:53:41 - app.pipeline - INFO -   Average confidence: 0.80
+2025-11-19 17:53:41 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-19 17:53:41 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8
+2025-11-19 17:53:41 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 17:53:41 - app.pipeline - INFO -   - toc.json
+2025-11-19 17:53:41 - app.pipeline - INFO -   - chunks.json
+2025-11-19 17:53:41 - app.pipeline - INFO -   - summary.json
+2025-11-19 17:53:41 - app.pipeline - INFO -   - plan.json
+2025-11-19 17:53:41 - app.pipeline - INFO -   - evaluation.json
+2025-11-19 17:53:41 - app.pipeline - INFO -   - pipeline.log
+2025-11-19 17:53:41 - root - INFO - [9/11] ✓ 8.pdf
+2025-11-19 17:53:47 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:53:47 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:53:47 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:53:47 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:53:51 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:53:51 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:53:51 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:53:51 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "diagnostics": null,
+      "therapeutics": null,
+      "risks_benefits": null,
+      "follow_ups": null,
+      "confidence": 0.8,
+      "hallucination_guard_note": "The summary does not provide specific recommendations or follow-ups, but given the nature of the case, it is highly likely that further investigation and documentation are necessary."
+    }
+  ]
+}
+```...
+2025-11-19 17:53:51 - app.planner - INFO - LLM call succeeded (attempt 1, 69.02s)
+2025-11-19 17:53:51 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "diagnostics": null,
+      "therapeutics": null,
+      "risks_benefits": null,
+      "follow_ups": null,
+      "confidence": 0.8,
+      "hallucination_guard_note": "The summary does not provide specific recommendations or follow-ups, but given the nature of the case, it is highly likely that further investigation and documentation are necessary."
+    }
+  ]
+}...
+2025-11-19 17:53:51 - app.pipeline - INFO - ✓ Generated structured plan with 1 prioritized recommendations
+2025-11-19 17:53:51 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/plan.json
+2025-11-19 17:53:51 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/plan.json
+2025-11-19 17:53:51 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-19 17:53:51 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/evaluation.json
+2025-11-19 17:53:51 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/evaluation.json
+2025-11-19 17:53:51 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-19 17:53:51 - app.pipeline - INFO - Citation Coverage:
+2025-11-19 17:53:51 - app.pipeline - INFO -   Summary: 100.0% (12/12)
+2025-11-19 17:53:51 - app.pipeline - INFO -   Plan: 100.0% (1/1)
+2025-11-19 17:53:51 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-19 17:53:51 - app.pipeline - INFO - 
+Citation Validity: 83.3% (10/12)
+2025-11-19 17:53:51 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/13 orphan claims)
+2025-11-19 17:53:51 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.0303 (avg, 66 pairs, range: 0.0000-1.0000)
+2025-11-19 17:53:51 - app.pipeline - INFO - 
+Span Consistency: 100.0% (12/12)
+2025-11-19 17:53:51 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-19 17:53:51 - app.pipeline - INFO -   Total facts: 12
+2025-11-19 17:53:51 - app.pipeline - INFO -   Total recommendations: 1
+2025-11-19 17:53:51 - app.pipeline - INFO -   Average confidence: 0.80
+2025-11-19 17:53:51 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-19 17:53:51 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9
+2025-11-19 17:53:51 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 17:53:51 - app.pipeline - INFO -   - toc.json
+2025-11-19 17:53:51 - app.pipeline - INFO -   - chunks.json
+2025-11-19 17:53:51 - app.pipeline - INFO -   - summary.json
+2025-11-19 17:53:51 - app.pipeline - INFO -   - plan.json
+2025-11-19 17:53:51 - app.pipeline - INFO -   - evaluation.json
+2025-11-19 17:53:51 - app.pipeline - INFO -   - pipeline.log
+2025-11-19 17:53:51 - root - INFO - [10/11] ✓ 9.pdf
+2025-11-19 17:53:58 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Wed, 19 Nov 2025 22:53:58 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 17:53:58 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 17:53:58 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 17:54:05 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 17:54:05 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 17:54:05 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 17:54:05 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "diagnostics": null,
+      "therapeutics": {"content": "hospitalization for close monitoring, surgical evaluation of head injuries if necessary, and treatment of vaginal and rectal trauma", "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922"},
+      "risks_benefits": null,
+      "follow_ups": {"content": "Follow-up with neurology and gynecology specialists", "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922"...
+2025-11-19 17:54:05 - app.planner - INFO - LLM call succeeded (attempt 1, 38.03s)
+2025-11-19 17:54:05 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "diagnostics": null,
+      "therapeutics": {
+        "content": "hospitalization for close monitoring, surgical evaluation of head injuries if necessary, and treatment of vaginal and rectal trauma",
+        "source": "MEDICAL DECISION MAKING section, chunk_11:2192-2922"
+      },
+      "risks_benefits": null,
+      "follow_ups": {
+        "content": "Follow-up with neurology and gynecology specialists",
+        "source": "MEDICAL DECISION MA...
+2025-11-19 17:54:05 - app.pipeline - INFO - ✓ Generated structured plan with 1 prioritized recommendations
+2025-11-19 17:54:05 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/plan.json
+2025-11-19 17:54:05 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/plan.json
+2025-11-19 17:54:05 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-19 17:54:05 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/evaluation.json
+2025-11-19 17:54:05 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/evaluation.json
+2025-11-19 17:54:05 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-19 17:54:05 - app.pipeline - INFO - Citation Coverage:
+2025-11-19 17:54:05 - app.pipeline - INFO -   Summary: 100.0% (12/12)
+2025-11-19 17:54:05 - app.pipeline - INFO -   Plan: 100.0% (1/1)
+2025-11-19 17:54:05 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-19 17:54:05 - app.pipeline - INFO - 
+Citation Validity: 100.0% (13/13)
+2025-11-19 17:54:05 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/13 orphan claims)
+2025-11-19 17:54:05 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.0385 (avg, 78 pairs, range: 0.0000-1.0000)
+2025-11-19 17:54:05 - app.pipeline - INFO - 
+Span Consistency: 100.0% (13/13)
+2025-11-19 17:54:05 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-19 17:54:05 - app.pipeline - INFO -   Total facts: 12
+2025-11-19 17:54:05 - app.pipeline - INFO -   Total recommendations: 1
+2025-11-19 17:54:05 - app.pipeline - INFO -   Average confidence: 0.90
+2025-11-19 17:54:05 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-19 17:54:05 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10
+2025-11-19 17:54:05 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 17:54:05 - app.pipeline - INFO -   - toc.json
+2025-11-19 17:54:05 - app.pipeline - INFO -   - chunks.json
+2025-11-19 17:54:05 - app.pipeline - INFO -   - summary.json
+2025-11-19 17:54:05 - app.pipeline - INFO -   - plan.json
+2025-11-19 17:54:05 - app.pipeline - INFO -   - evaluation.json
+2025-11-19 17:54:05 - app.pipeline - INFO -   - pipeline.log
+2025-11-19 17:54:05 - root - INFO - [11/11] ✓ 10.pdf
+2025-11-19 20:57:06 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/pipeline.log, level=DEBUG
+2025-11-19 20:57:06 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/10.pdf
+2025-11-19 20:57:06 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10
+2025-11-19 20:57:06 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-19 20:57:06 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-19 20:57:06 - app.pipeline - INFO - Found existing chunks.json - attempting to load...
+2025-11-19 20:57:06 - app.chunks - INFO - Loaded 42 chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/chunks.json
+2025-11-19 20:57:06 - app.pipeline - INFO - ✓ Loaded 42 existing chunks from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/chunks.json
+2025-11-19 20:57:06 - app.pipeline - INFO - Skipping ingestion and chunking steps (using cached chunks)
+2025-11-19 20:57:06 - app.ingestion - INFO - Loaded canonical note: 19270 characters, 1 pages
+2025-11-19 20:57:06 - app.pipeline - INFO - ✓ Loaded canonical note from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/canonical_text.txt
+2025-11-19 20:57:06 - app.sections - INFO - Loaded 41 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/toc.json
+2025-11-19 20:57:06 - app.pipeline - INFO - ✓ Loaded 41 sections from /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/toc.json
+2025-11-19 20:57:06 - app.pipeline - INFO - [STEP 1] Skipped (using existing chunks)
+2025-11-19 20:57:06 - app.pipeline - INFO - [STEP 2/6] Skipped (using existing ToC)
+2025-11-19 20:57:06 - app.pipeline - INFO - [STEP 3/6] Skipped (using existing chunks)
+2025-11-19 20:57:06 - app.pipeline - INFO - Initializing LLM client...
+2025-11-19 20:57:06 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-19 20:57:06 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-19 20:57:06 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-19 20:57:06 - app.pipeline - INFO -   Processing 42 chunks at once...
+2025-11-19 20:57:06 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:57:06 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+You are a medical documentation assistant. Extract and summarize information from the clinical note below. **Output the actual summary directly - do NOT describe what you will d...
+2025-11-19 20:57:06 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-11-19 20:57:06 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1169adc90>
+2025-11-19 20:57:06 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:57:06 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:57:06 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:57:06 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:57:06 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:57:19 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:57:19 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:57:19 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:57:19 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:57:41 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:57:41 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:57:41 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:57:41 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "The patient is a female who was originally presented as a suicide victim.", "source": "REMARKS section, chunk_21:6314-6576"}
+  ],
+  "key_problems": [
+    {"text": "Asphyxia due to ligature strangulation (Ligature B).", "source": "IMMEDIATE CAUSE OF DEATH section, chunk_19:6173-6286"},
+    {"text": "Homicide as the manner of death.", "source": "MANNER OF DEATH section, chunk_20:6286-6314"}
+  ],
+  "pertinent_history": [
+    {"text": "The patient was ...
+2025-11-19 20:57:41 - app.summarizer - INFO - LLM call succeeded (attempt 1, 141.28s)
+2025-11-19 20:57:41 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "The patient is a female who was originally presented as a suicide victim.",
+      "source": "REMARKS section, chunk_21:6314-6576"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Asphyxia due to ligature strangulation (Ligature B).",
+      "source": "IMMEDIATE CAUSE OF DEATH section, chunk_19:6173-6286"
+    },
+    {
+      "text": "Homicide as the manner of death.",
+      "source": "MANNER OF DEATH section, chunk_20:6286-6314"
+    }
+  ],
+  "pertin...
+2025-11-19 20:57:41 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 2 problems, 1 history items, 0 medicines/allergies, 2 findings, 1 labs/imaging, 2 assessment items
+2025-11-19 20:57:41 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/summary.json
+2025-11-19 20:57:41 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/summary.json
+2025-11-19 20:57:41 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 20:57:41 - app.pipeline - INFO -   Using structured summary (1307 characters)...
+2025-11-19 20:57:41 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:57:41 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated. **Focu...
+2025-11-19 20:57:41 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:57:41 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:57:41 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:57:41 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:57:41 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:57:47 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:57:47 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:57:47 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:57:47 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:57:51 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:57:51 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:57:51 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:57:51 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Blunt force cranial trauma was the cause of death. Homicide as the manner of death.",
+      "source": "CAUSE OF DEATH section, chunk_24:4794-4840",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}
+```...
+2025-11-19 20:57:51 - app.planner - INFO - LLM call succeeded (attempt 1, 115.55s)
+2025-11-19 20:57:51 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Blunt force cranial trauma was the cause of death. Homicide as the manner of death.",
+      "source": "CAUSE OF DEATH section, chunk_24:4794-4840",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}...
+2025-11-19 20:57:51 - app.pipeline - INFO - ✓ Generated structured plan with 1 prioritized recommendations
+2025-11-19 20:57:51 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/plan.json
+2025-11-19 20:57:51 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/plan.json
+2025-11-19 20:57:51 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-19 20:57:51 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/evaluation.json
+2025-11-19 20:57:51 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/evaluation.json
+2025-11-19 20:57:51 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-19 20:57:51 - app.pipeline - INFO - Citation Coverage:
+2025-11-19 20:57:51 - app.pipeline - INFO -   Summary: 100.0% (11/11)
+2025-11-19 20:57:51 - app.pipeline - INFO -   Plan: 100.0% (1/1)
+2025-11-19 20:57:51 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-19 20:57:51 - app.pipeline - INFO - 
+Citation Validity: 100.0% (12/12)
+2025-11-19 20:57:51 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/12 orphan claims)
+2025-11-19 20:57:51 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.1515 (avg, 66 pairs, range: 0.0000-1.0000)
+2025-11-19 20:57:51 - app.pipeline - INFO - 
+Span Consistency: 100.0% (12/12)
+2025-11-19 20:57:51 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-19 20:57:51 - app.pipeline - INFO -   Total facts: 11
+2025-11-19 20:57:51 - app.pipeline - INFO -   Total recommendations: 1
+2025-11-19 20:57:51 - app.pipeline - INFO -   Average confidence: 1.00
+2025-11-19 20:57:51 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-19 20:57:51 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7
+2025-11-19 20:57:51 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:57:51 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:57:51 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:57:51 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:57:51 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:57:51 - app.pipeline - INFO -   - evaluation.json
+2025-11-19 20:57:51 - app.pipeline - INFO -   - pipeline.log
+2025-11-19 20:57:51 - root - INFO - [8/11] ✓ 7.pdf
+2025-11-19 20:57:58 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:57:58 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:57:58 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:57:58 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:58:03 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:58:03 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:58:03 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:58:03 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "The patient died of acute combined drug intoxication with contributory causes being abscesses of buttocks and viral enteritis. The manner of death was determined to be an accident.",
+      "source": "OPINION section, chunk_28:15414-15632",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}
+```...
+2025-11-19 20:58:03 - app.planner - INFO - LLM call succeeded (attempt 1, 82.06s)
+2025-11-19 20:58:03 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "The patient died of acute combined drug intoxication with contributory causes being abscesses of buttocks and viral enteritis. The manner of death was determined to be an accident.",
+      "source": "OPINION section, chunk_28:15414-15632",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}...
+2025-11-19 20:58:03 - app.pipeline - INFO - ✓ Generated structured plan with 1 prioritized recommendations
+2025-11-19 20:58:03 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8/plan.json
+2025-11-19 20:58:03 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8/plan.json
+2025-11-19 20:58:03 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-19 20:58:03 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8/evaluation.json
+2025-11-19 20:58:03 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8/evaluation.json
+2025-11-19 20:58:03 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-19 20:58:03 - app.pipeline - INFO - Citation Coverage:
+2025-11-19 20:58:03 - app.pipeline - INFO -   Summary: 100.0% (16/16)
+2025-11-19 20:58:03 - app.pipeline - INFO -   Plan: 100.0% (1/1)
+2025-11-19 20:58:03 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-19 20:58:03 - app.pipeline - INFO - 
+Citation Validity: 100.0% (17/17)
+2025-11-19 20:58:03 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/17 orphan claims)
+2025-11-19 20:58:03 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.5735 (avg, 136 pairs, range: 0.0000-1.0000)
+2025-11-19 20:58:03 - app.pipeline - INFO - 
+Span Consistency: 100.0% (17/17)
+2025-11-19 20:58:03 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-19 20:58:03 - app.pipeline - INFO -   Total facts: 16
+2025-11-19 20:58:03 - app.pipeline - INFO -   Total recommendations: 1
+2025-11-19 20:58:03 - app.pipeline - INFO -   Average confidence: 1.00
+2025-11-19 20:58:03 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-19 20:58:03 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/8
+2025-11-19 20:58:03 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:58:03 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:58:03 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:58:03 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:58:03 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:58:03 - app.pipeline - INFO -   - evaluation.json
+2025-11-19 20:58:03 - app.pipeline - INFO -   - pipeline.log
+2025-11-19 20:58:03 - root - INFO - [9/11] ✓ 8.pdf
+2025-11-19 20:58:16 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:58:16 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:58:16 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:58:16 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:58:41 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:58:41 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:58:41 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:58:41 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+{
+  "patient_snapshot": [
+    {"text": "The patient is a 14-year-old female.", "source": "PATIENT SNAPSHOTS section, chunk_0:2-36"}
+  ],
+  "key_problems": [
+    {"text": "Contusions and hemorrhage in the brain.", "source": "IMPRESSION section, chunk_39:18107-18422"},
+    {"text": "Vaginal wall/hymen with epithelial erosion and birefringent foreign material.", "source": "EVIDENCE section, chunk_41:18422-18826"}
+  ],
+  "pertinent_history": [
+    {"text": "Prepubescent age of the patient.",...
+2025-11-19 20:58:41 - app.summarizer - INFO - LLM call succeeded (attempt 1, 94.73s)
+2025-11-19 20:58:41 - app.summarizer - DEBUG - Parsed JSON: {
+  "patient_snapshot": [
+    {
+      "text": "The patient is a 14-year-old female.",
+      "source": "PATIENT SNAPSHOTS section, chunk_0:2-36"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Contusions and hemorrhage in the brain.",
+      "source": "IMPRESSION section, chunk_39:18107-18422"
+    },
+    {
+      "text": "Vaginal wall/hymen with epithelial erosion and birefringent foreign material.",
+      "source": "EVIDENCE section, chunk_41:18422-18826"
+    }
+  ],
+  "pertinent_history": [
+  ...
+2025-11-19 20:58:41 - app.pipeline - INFO - ✓ Generated structured summary with 1 patient snapshot items, 2 problems, 2 history items, 2 medicines/allergies, 2 findings, 1 labs/imaging, 2 assessment items
+2025-11-19 20:58:41 - app.summarizer - INFO - Saved structured summary to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/summary.json
+2025-11-19 20:58:41 - app.pipeline - INFO - ✓ Saved structured summary to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/summary.json
+2025-11-19 20:58:41 - app.pipeline - INFO - [STEP 5/6] Generating treatment plan...
+2025-11-19 20:58:41 - app.pipeline - INFO -   Using structured summary (1371 characters)...
+2025-11-19 20:58:41 - app.planner - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-19 20:58:41 - app.planner - DEBUG - Prompt preview: # Plan Generation Prompt
+
+## Your Task
+Generate a prioritized treatment plan from the clinical summary below. Extract information directly from the summary - use only what is explicitly stated. **Focu...
+2025-11-19 20:58:41 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-19 20:58:41 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-19 20:58:41 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-19 20:58:41 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-19 20:58:41 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-19 20:58:47 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:58:47 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:58:47 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:58:47 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:58:55 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:58:55 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:58:55 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:58:55 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "The patient died due to asphyxia caused by a ligature strangulation (Ligature B). Post-mortem findings suggest homicide. No further treatment or follow-up is required given the nature of the case.",
+      "source": "IMMEDIATE CAUSE OF DEATH section, chunk_19:6173-6286",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Homicide was determined t...
+2025-11-19 20:58:55 - app.planner - INFO - LLM call succeeded (attempt 1, 74.47s)
+2025-11-19 20:58:55 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "The patient died due to asphyxia caused by a ligature strangulation (Ligature B). Post-mortem findings suggest homicide. No further treatment or follow-up is required given the nature of the case.",
+      "source": "IMMEDIATE CAUSE OF DEATH section, chunk_19:6173-6286",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Homicide was determined to be the...
+2025-11-19 20:58:55 - app.pipeline - INFO - ✓ Generated structured plan with 2 prioritized recommendations
+2025-11-19 20:58:55 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/plan.json
+2025-11-19 20:58:55 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/plan.json
+2025-11-19 20:58:55 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-19 20:58:55 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/evaluation.json
+2025-11-19 20:58:55 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9/evaluation.json
+2025-11-19 20:58:55 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-19 20:58:55 - app.pipeline - INFO - Citation Coverage:
+2025-11-19 20:58:55 - app.pipeline - INFO -   Summary: 100.0% (9/9)
+2025-11-19 20:58:55 - app.pipeline - INFO -   Plan: 100.0% (2/2)
+2025-11-19 20:58:55 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-19 20:58:55 - app.pipeline - INFO - 
+Citation Validity: 100.0% (11/11)
+2025-11-19 20:58:55 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/11 orphan claims)
+2025-11-19 20:58:55 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.1455 (avg, 55 pairs, range: 0.0000-1.0000)
+2025-11-19 20:58:55 - app.pipeline - INFO - 
+Span Consistency: 100.0% (11/11)
+2025-11-19 20:58:55 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-19 20:58:55 - app.pipeline - INFO -   Total facts: 9
+2025-11-19 20:58:55 - app.pipeline - INFO -   Total recommendations: 2
+2025-11-19 20:58:55 - app.pipeline - INFO -   Average confidence: 0.90
+2025-11-19 20:58:55 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-19 20:58:55 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/9
+2025-11-19 20:58:55 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:58:55 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:58:55 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:58:55 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:58:55 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:58:55 - app.pipeline - INFO -   - evaluation.json
+2025-11-19 20:58:55 - app.pipeline - INFO -   - pipeline.log
+2025-11-19 20:58:55 - root - INFO - [10/11] ✓ 9.pdf
+2025-11-19 20:59:02 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 20 Nov 2025 01:59:02 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-19 20:59:02 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-19 20:59:02 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-19 20:59:06 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-19 20:59:06 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-19 20:59:06 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-19 20:59:06 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Further evaluation for potential sexual abuse is recommended due to the presence of contusions and hemorrhage in the brain with associated vaginal wall/hymen injuries.",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_42:19270-19565",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}
+```...
+2025-11-19 20:59:06 - app.planner - INFO - LLM call succeeded (attempt 1, 25.91s)
+2025-11-19 20:59:06 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Further evaluation for potential sexual abuse is recommended due to the presence of contusions and hemorrhage in the brain with associated vaginal wall/hymen injuries.",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_42:19270-19565",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}...
+2025-11-19 20:59:06 - app.pipeline - INFO - ✓ Generated structured plan with 1 prioritized recommendations
+2025-11-19 20:59:06 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/plan.json
+2025-11-19 20:59:06 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/plan.json
+2025-11-19 20:59:06 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-19 20:59:06 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/evaluation.json
+2025-11-19 20:59:06 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10/evaluation.json
+2025-11-19 20:59:06 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-19 20:59:06 - app.pipeline - INFO - Citation Coverage:
+2025-11-19 20:59:06 - app.pipeline - INFO -   Summary: 100.0% (12/12)
+2025-11-19 20:59:06 - app.pipeline - INFO -   Plan: 100.0% (1/1)
+2025-11-19 20:59:06 - app.pipeline - INFO -   Overall: 100.0%
+2025-11-19 20:59:06 - app.pipeline - INFO - 
+Citation Validity: 84.6% (11/13)
+2025-11-19 20:59:06 - app.pipeline - INFO - 
+Hallucination Rate: 0.0% (0/13 orphan claims)
+2025-11-19 20:59:06 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.0545 (avg, 55 pairs, range: 0.0000-1.0000)
+2025-11-19 20:59:06 - app.pipeline - INFO - 
+Span Consistency: 100.0% (11/11)
+2025-11-19 20:59:06 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-19 20:59:06 - app.pipeline - INFO -   Total facts: 12
+2025-11-19 20:59:06 - app.pipeline - INFO -   Total recommendations: 1
+2025-11-19 20:59:06 - app.pipeline - INFO -   Average confidence: 1.00
+2025-11-19 20:59:06 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-19 20:59:06 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/10
+2025-11-19 20:59:06 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-19 20:59:06 - app.pipeline - INFO -   - toc.json
+2025-11-19 20:59:06 - app.pipeline - INFO -   - chunks.json
+2025-11-19 20:59:06 - app.pipeline - INFO -   - summary.json
+2025-11-19 20:59:06 - app.pipeline - INFO -   - plan.json
+2025-11-19 20:59:06 - app.pipeline - INFO -   - evaluation.json
+2025-11-19 20:59:06 - app.pipeline - INFO -   - pipeline.log
+2025-11-19 20:59:06 - root - INFO - [11/11] ✓ 10.pdf

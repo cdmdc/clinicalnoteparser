@@ -1,0 +1,63 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "27-year-old woman",
+      "source": "[OVERVIEW] section, chunk_0:0-19"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Morbid obesity. BMI is 51.",
+      "source": "[ADMISSION DIAGNOSIS] section, chunk_1:259-308"
+    },
+    {
+      "text": "Morbid obesity. BMI is 51.",
+      "source": "[DISCHARGE DIAGNOSIS] section, chunk_2:308-357"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Suffered from morbid obesity for many years and made multiple attempts at nonsurgical weight loss without success.",
+      "source": "[HISTORY OF PRESENT ILLNESS] section, chunk_6:448-705"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Lortab Elixir",
+      "source": "[DISCHARGE MEDICATIONS] section, chunk_9:2183-2192"
+    },
+    {
+      "text": "Flexeril",
+      "source": "[DISCHARGE MEDICATIONS] section, chunk_9:2194-2199"
+    },
+    {
+      "text": "ursodiol",
+      "source": "[DISCHARGE MEDICATIONS] section, chunk_9:2201-2207"
+    },
+    {
+      "text": "Colace",
+      "source": "[DISCHARGE MEDICATIONS] section, chunk_9:2209-2213"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Laparoscopic gastric bypass.",
+      "source": "[PROCEDURE] section, chunk_3:357-398"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": [
+    {
+      "text": "Patient is stable for discharge. She may shower. She needs to follow up in my office in 1 week for postoperative evaluation.",
+      "source": "[DISCHARGE INSTRUCTIONS] section, chunk_8:2034-2159"
+    },
+    {
+      "text": "She is instructed to call for any problems of shortness of breath, chest pain, calf pain, temperature greater than 101.5, any redness, swelling, or foul smelling drainage from her wounds, intractable nausea, vomiting, and abdominal pain.",
+      "source": "[DISCHARGE INSTRUCTIONS] section, chunk_8:2161-2349"
+    },
+    {
+      "text": "She is instructed just to resume her discharge medications.",
+      "source": "[DISCHARGE INSTRUCTIONS] section, chunk_8:2351-2370"
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 172,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "FINAL DIAGNOSIS",
+      "start_char": 172,
+      "end_char": 886,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "TOXICOLOGIC STUDIES",
+      "start_char": 886,
+      "end_char": 977,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CLINOCOPATHOLIGICAL CORRELATION",
+      "start_char": 977,
+      "end_char": 1730,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "EXTERNAL EVIDENCE OF INJURY",
+      "start_char": 1730,
+      "end_char": 6965,
+      "start_page": 0,
+      "end_page": 1
+    },
+    {
+      "title": "REMAINDER OF EXTERNAL EXAMINATION",
+      "start_char": 6965,
+      "end_char": 8503,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "INTERNAL EXAM",
+      "start_char": 8503,
+      "end_char": 8614,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "MEDIASTINUM",
+      "start_char": 8614,
+      "end_char": 8894,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "BODY CAVITIES",
+      "start_char": 8894,
+      "end_char": 9309,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "LUNGS",
+      "start_char": 9309,
+      "end_char": 9744,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "HEART",
+      "start_char": 9744,
+      "end_char": 10308,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "AORTA AND VENA CAVA",
+      "start_char": 10308,
+      "end_char": 10459,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "SPLEEN",
+      "start_char": 10459,
+      "end_char": 10650,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "ADRENALS",
+      "start_char": 10650,
+      "end_char": 10820,
+      "start_page": 1,
+      "end_page": 2
+    },
+    {
+      "title": "KIDNEYS",
+      "start_char": 10820,
+      "end_char": 11198,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "LIVER",
+      "start_char": 11198,
+      "end_char": 11393,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "PANCREAS",
+      "start_char": 11393,
+      "end_char": 11531,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "BLADDER",
+      "start_char": 11531,
+      "end_char": 11671,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "GENITALIA",
+      "start_char": 11671,
+      "end_char": 11951,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "GALLBLADDER",
+      "start_char": 11951,
+      "end_char": 12194,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "G.I. TRACT",
+      "start_char": 12194,
+      "end_char": 12836,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "LYMPHATIC SYSTEM",
+      "start_char": 12836,
+      "end_char": 12870,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "MUSCULOSKELETAL SYSTEM",
+      "start_char": 12870,
+      "end_char": 12910,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "SKULL AND BRAIN",
+      "start_char": 12910,
+      "end_char": 15402,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "NECK",
+      "start_char": 15402,
+      "end_char": 16147,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "MICROSCOPIC DESCRIPTION",
+      "start_char": 16147,
+      "end_char": 16540,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "MYOCARDIUM",
+      "start_char": 16540,
+      "end_char": 16699,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "LUNGS",
+      "start_char": 16699,
+      "end_char": 16848,
+      "start_page": 2,
+      "end_page": 3
+    },
+    {
+      "title": "SPLEEN",
+      "start_char": 16848,
+      "end_char": 16939,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "THYROID",
+      "start_char": 16939,
+      "end_char": 17150,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "THYMUS",
+      "start_char": 17150,
+      "end_char": 17332,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "TRACHEA",
+      "start_char": 17332,
+      "end_char": 17411,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "LIVER",
+      "start_char": 17411,
+      "end_char": 17534,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "PANCREAS",
+      "start_char": 17534,
+      "end_char": 17614,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "KIDNEY",
+      "start_char": 17614,
+      "end_char": 17773,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "BLADDER",
+      "start_char": 17773,
+      "end_char": 17890,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "REPRODUCTIVE ORGANS",
+      "start_char": 17890,
+      "end_char": 18005,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "ADRENAL",
+      "start_char": 18005,
+      "end_char": 18107,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "BRAIN",
+      "start_char": 18107,
+      "end_char": 18422,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "VAGINAL MUCOSA",
+      "start_char": 18422,
+      "end_char": 18826,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "EVIDENCE",
+      "start_char": 18826,
+      "end_char": 19270,
+      "start_page": 3,
+      "end_page": 3
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+2025-11-24 15:36:21 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/pipeline.log, level=DEBUG
+2025-11-24 15:36:21 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/7.pdf
+2025-11-24 15:36:21 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7
+2025-11-24 15:36:21 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-24 15:36:21 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-24 15:36:21 - app.pipeline - INFO - [STEP 1] Ingesting document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/7.pdf
+2025-11-24 15:36:21 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/7.pdf
+2025-11-24 15:36:21 - app.ingestion - INFO - Ingested document: 4866 characters, 2 pages, note_id: 7
+2025-11-24 15:36:21 - app.pipeline - INFO - ✓ Ingested: 4866 chars, 2 pages, note_id: 7
+2025-11-24 15:36:21 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/canonical_text.txt
+2025-11-24 15:36:21 - app.pipeline - INFO - [STEP 2/6] Detecting sections...
+2025-11-24 15:36:21 - app.sections - INFO - Overview section detected: end=1600, title=Overview
+2025-11-24 15:36:21 - app.sections - INFO - Found 25 section headers (after empty lines, all-caps): ['CENTRAL NERVOUS SYSTEM', 'SKELETAL SYSTEM', 'RESPIRATORY SYSTEM--THROAT STRUCTURES', 'CARDIOVASCULAR SYSTEM', 'GASTROINTESTINAL SYSTEM', 'URINARY SYSTEM', 'FEMALE GENITAL SYSTEM', 'DESCRIPTION OF INJURIES - SUMMARY', 'LABORATORY DATA', 'CEREBROSPINAL FLUID CULTURE AND SENSITIVITY', 'CEREBROSPINAL FLUID BACTERIAL ANTIGENS', 'PRELIMINARY TOXICOLOGICAL RESULTS', 'BLOOD - ETHANOL - NEG', 'BLOOD - CANNABINOIDS-ETS - INC', 'BLOOD - COCAINE-ETS - INC', 'BLOOD - OPIATES-ETS - INC', 'BLOOD - AMPHETAMINE-ETS - INC', 'BLOOD - BENZODIAZEPINE-ETS - INC', 'BLOOD - METHADONE-ETS - INC', 'BLOOD - PCP-ETS - INC', 'EVIDENCE COLLECTED', 'OPINION', 'TIME OF DEATH', 'CAUSE OF DEATH', 'MANNER OF DEATH']
+2025-11-24 15:36:21 - app.sections - INFO - Found 25 potential section headers
+2025-11-24 15:36:21 - app.sections - INFO - Detected 26 sections: ['Overview', 'CENTRAL NERVOUS SYSTEM', 'SKELETAL SYSTEM', 'RESPIRATORY SYSTEM--THROAT STRUCTURES', 'CARDIOVASCULAR SYSTEM', 'GASTROINTESTINAL SYSTEM', 'URINARY SYSTEM', 'FEMALE GENITAL SYSTEM', 'DESCRIPTION OF INJURIES - SUMMARY', 'LABORATORY DATA', 'CEREBROSPINAL FLUID CULTURE AND SENSITIVITY', 'CEREBROSPINAL FLUID BACTERIAL ANTIGENS', 'PRELIMINARY TOXICOLOGICAL RESULTS', 'BLOOD - ETHANOL - NEG', 'BLOOD - CANNABINOIDS-ETS - INC', 'BLOOD - COCAINE-ETS - INC', 'BLOOD - OPIATES-ETS - INC', 'BLOOD - AMPHETAMINE-ETS - INC', 'BLOOD - BENZODIAZEPINE-ETS - INC', 'BLOOD - METHADONE-ETS - INC', 'BLOOD - PCP-ETS - INC', 'EVIDENCE COLLECTED', 'OPINION', 'TIME OF DEATH', 'CAUSE OF DEATH', 'MANNER OF DEATH']
+2025-11-24 15:36:21 - app.pipeline - INFO - ✓ Detected 26 sections
+2025-11-24 15:36:21 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-1600)
+2025-11-24 15:36:21 - app.pipeline - INFO -   2. CENTRAL NERVOUS SYSTEM (pages 1-1, chars 1600-1684)
+2025-11-24 15:36:21 - app.pipeline - INFO -   3. SKELETAL SYSTEM (pages 1-1, chars 1684-1854)
+2025-11-24 15:36:21 - app.pipeline - INFO -   4. RESPIRATORY SYSTEM--THROAT STRUCTURES (pages 1-1, chars 1854-2274)
+2025-11-24 15:36:21 - app.pipeline - INFO -   5. CARDIOVASCULAR SYSTEM (pages 1-1, chars 2274-2411)
+2025-11-24 15:36:21 - app.pipeline - INFO -   6. GASTROINTESTINAL SYSTEM (pages 1-1, chars 2411-2740)
+2025-11-24 15:36:21 - app.pipeline - INFO -   7. URINARY SYSTEM (pages 1-1, chars 2740-2890)
+2025-11-24 15:36:21 - app.pipeline - INFO -   8. FEMALE GENITAL SYSTEM (pages 1-1, chars 2890-3119)
+2025-11-24 15:36:21 - app.pipeline - INFO -   9. DESCRIPTION OF INJURIES - SUMMARY (pages 1-1, chars 3119-3676)
+2025-11-24 15:36:21 - app.pipeline - INFO -   10. LABORATORY DATA (pages 1-1, chars 3676-3692)
+2025-11-24 15:36:21 - app.pipeline - INFO -   11. CEREBROSPINAL FLUID CULTURE AND SENSITIVITY (pages 1-1, chars 3692-3796)
+2025-11-24 15:36:21 - app.pipeline - INFO -   12. CEREBROSPINAL FLUID BACTERIAL ANTIGENS (pages 1-1, chars 3796-3977)
+2025-11-24 15:36:21 - app.pipeline - INFO -   13. PRELIMINARY TOXICOLOGICAL RESULTS (pages 1-2, chars 3977-4012)
+2025-11-24 15:36:21 - app.pipeline - INFO -   14. BLOOD - ETHANOL - NEG (pages 2-2, chars 4012-4035)
+2025-11-24 15:36:21 - app.pipeline - INFO -   15. BLOOD - CANNABINOIDS-ETS - INC (pages 2-2, chars 4035-4066)
+2025-11-24 15:36:21 - app.pipeline - INFO -   16. BLOOD - COCAINE-ETS - INC (pages 2-2, chars 4066-4092)
+2025-11-24 15:36:21 - app.pipeline - INFO -   17. BLOOD - OPIATES-ETS - INC (pages 2-2, chars 4092-4118)
+2025-11-24 15:36:21 - app.pipeline - INFO -   18. BLOOD - AMPHETAMINE-ETS - INC (pages 2-2, chars 4118-4179)
+2025-11-24 15:36:21 - app.pipeline - INFO -   19. BLOOD - BENZODIAZEPINE-ETS - INC (pages 2-2, chars 4179-4212)
+2025-11-24 15:36:21 - app.pipeline - INFO -   20. BLOOD - METHADONE-ETS - INC (pages 2-2, chars 4212-4240)
+2025-11-24 15:36:21 - app.pipeline - INFO -   21. BLOOD - PCP-ETS - INC (pages 2-2, chars 4240-4364)
+2025-11-24 15:36:21 - app.pipeline - INFO -   22. EVIDENCE COLLECTED (pages 2-2, chars 4364-4600)
+2025-11-24 15:36:21 - app.pipeline - INFO -   23. OPINION (pages 2-2, chars 4600-4609)
+2025-11-24 15:36:21 - app.pipeline - INFO -   24. TIME OF DEATH (pages 2-2, chars 4609-4794)
+2025-11-24 15:36:21 - app.pipeline - INFO -   25. CAUSE OF DEATH (pages 2-2, chars 4794-4840)
+2025-11-24 15:36:21 - app.pipeline - INFO -   26. MANNER OF DEATH (pages 2-2, chars 4840-4866)
+2025-11-24 15:36:21 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/toc.json with 26 sections
+2025-11-24 15:36:21 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/toc.json
+2025-11-24 15:36:21 - app.pipeline - INFO - [STEP 3/6] Creating chunks...
+2025-11-24 15:36:21 - app.chunks - INFO - Created 26 chunks from 26 sections
+2025-11-24 15:36:21 - app.pipeline - INFO - ✓ Created 26 chunks
+2025-11-24 15:36:21 - app.chunks - INFO - Saved 26 chunks to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/chunks.json
+2025-11-24 15:36:21 - app.pipeline - INFO - ✓ Saved chunks to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/7/chunks.json
+2025-11-24 15:36:21 - app.pipeline - INFO - Initializing LLM client...
+2025-11-24 15:36:21 - app.llm - INFO - ✓ Apple Silicon detected - MPS environment variables set for Ollama
+2025-11-24 15:36:21 - app.llm - DEBUG - Note: Install PyTorch for MPS availability verification
+2025-11-24 15:36:21 - app.llm - INFO - LLM client configured for GPU acceleration (MPS)
+2025-11-24 15:36:21 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-24 15:36:21 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-24 15:36:21 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-24 15:36:21 - app.pipeline - INFO -   Processing 26 chunks at once...
+2025-11-24 15:36:21 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-24 15:36:21 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+## SYSTEM ROLE
+
+You are a medical documentation extraction assistant.
+
+Your job is to extract only information that is explicitly present in the provided chunks of a clinical no...
+2025-11-24 15:36:21 - httpcore.connection - DEBUG - connect_tcp.started host='localhost' port=11434 local_address=None timeout=None socket_options=None
+2025-11-24 15:36:21 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10f635f10>
+2025-11-24 15:36:21 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-24 15:36:21 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-24 15:36:21 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-24 15:36:21 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-24 15:36:21 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-24 15:36:23 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Mon, 24 Nov 2025 20:36:23 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-24 15:36:23 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-24 15:36:23 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-24 15:36:37 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-24 15:36:37 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-24 15:36:37 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-24 15:36:37 - app.planner - DEBUG - LLM response (attempt 1): ```json
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "He will be followed by his primary doctor in 2 to 3 days.",
+      "source": "[DISCHARGE ACTIVITIES] section, chunk_4:1407-1438",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Cardiology for echo followup in 4 to 6 weeks.",
+      "source": "[DISCHARGE ACTIVITIES] section, chunk_4:1407-1438",
+      "confidence": 1.0,
+      "hallucination_guar...
+2025-11-24 15:36:37 - app.planner - INFO - LLM call succeeded (attempt 1, 72.89s)
+2025-11-24 15:36:37 - app.planner - DEBUG - Parsed JSON: {
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "He will be followed by his primary doctor in 2 to 3 days.",
+      "source": "[DISCHARGE ACTIVITIES] section, chunk_4:1407-1438",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Cardiology for echo followup in 4 to 6 weeks.",
+      "source": "[DISCHARGE ACTIVITIES] section, chunk_4:1407-1438",
+      "confidence": 1.0,
+      "hallucination_guard_note":...
+2025-11-24 15:36:37 - app.pipeline - INFO - ✓ Generated structured plan with 4 prioritized recommendations
+2025-11-24 15:36:37 - app.planner - INFO - Saved structured plan to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/6/plan.json
+2025-11-24 15:36:37 - app.pipeline - INFO - ✓ Saved plan to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/6/plan.json
+2025-11-24 15:36:37 - app.pipeline - INFO - [STEP 6/6] Evaluating results...
+2025-11-24 15:36:37 - app.evaluation - INFO - Evaluating semantic accuracy of plan recommendations using Ollama embeddings...
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:36:37 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:36:38 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:36:38 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:36:38 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:36:38 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:11434
+2025-11-24 15:36:38 - urllib3.connectionpool - DEBUG - http://127.0.0.1:11434 "POST /api/embeddings HTTP/1.1" 200 None
+2025-11-24 15:36:38 - app.evaluation - INFO - Saved evaluation report to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/6/evaluation.json
+2025-11-24 15:36:38 - app.pipeline - INFO - ✓ Saved evaluation to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/6/evaluation.json
+2025-11-24 15:36:38 - app.pipeline - INFO - 
+[EVALUATION METRICS]
+2025-11-24 15:36:38 - app.pipeline - INFO - Citation Coverage:
+2025-11-24 15:36:38 - app.pipeline - INFO -   Summary: 77.8% (7/9)
+2025-11-24 15:36:38 - app.pipeline - INFO -   Plan: 100.0% (4/4)
+2025-11-24 15:36:38 - app.pipeline - INFO -   Overall: 84.6%
+2025-11-24 15:36:38 - app.pipeline - INFO - 
+Citation Validity: 100.0% (11/11)
+2025-11-24 15:36:38 - app.pipeline - INFO - 
+Hallucination Rate: 15.4% (2/13 orphan claims)
+2025-11-24 15:36:38 - app.pipeline - INFO - 
+Citation Overlap Jaccard: 0.1818 (avg, 55 pairs, range: 0.0000-1.0000)
+2025-11-24 15:36:38 - app.pipeline - INFO - 
+Span Consistency: 100.0% (11/11)
+2025-11-24 15:36:38 - app.pipeline - INFO - 
+Summary Statistics:
+2025-11-24 15:36:38 - app.pipeline - INFO -   Total facts: 9
+2025-11-24 15:36:38 - app.pipeline - INFO -   Total recommendations: 4
+2025-11-24 15:36:38 - app.pipeline - INFO -   Average confidence: 1.00
+2025-11-24 15:36:38 - app.pipeline - INFO - 
+✓ Pipeline completed successfully!
+2025-11-24 15:36:38 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/6
+2025-11-24 15:36:38 - app.pipeline - INFO -   - canonical_text.txt
+2025-11-24 15:36:38 - app.pipeline - INFO -   - toc.json
+2025-11-24 15:36:38 - app.pipeline - INFO -   - chunks.json
+2025-11-24 15:36:38 - app.pipeline - INFO -   - summary.json
+2025-11-24 15:36:38 - app.pipeline - INFO -   - plan.json
+2025-11-24 15:36:38 - app.pipeline - INFO -   - evaluation.json
+2025-11-24 15:36:38 - app.pipeline - INFO -   - pipeline.log
+2025-11-24 15:36:38 - root - INFO - [7/21] ✓ 6.pdf
+2025-11-24 15:36:38 - app.pipeline - INFO - Checking Ollama availability...
+2025-11-24 15:36:38 - app.pipeline - INFO - ✓ Ollama is available

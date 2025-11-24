@@ -1,0 +1,71 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "ABC was a 39-year-old white female.",
+      "source": "PATIENT SNAPSHOTS"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "ACUTE COMBINED DRUG INTOXICATION",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_22, chars 13755-14780)"
+    },
+    {
+      "text": "LEFT GLUTEAL PANNICULITIS, WITH ABSCESS FORMATION AND RECENT LINEAR HEMORRHAGE.",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_22, chars 13755-14780)"
+    },
+    {
+      "text": "FIBROSIS WITH FAT NECROSIS (CHRONIC REPEATED INJECTIONS OF VARIOUS MEDICATIONS IN BUTTOCKS) OF Dermal and Subcutaneous Tissues, Bilateral Gluteal Regions and Anterior Right Thigh.",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_22, chars 13755-14780)"
+    },
+    {
+      "text": "GASTROENTERITIS, MILD, OF PROBABLE VIRAL ETIOLOGY.",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_22, chars 13755-14780)"
+    },
+    {
+      "text": "DEPRESSION FOLLOWING RECENT DELIVERY OF TERM INFANT AND RECENT DEATH OF ADULT SON (SEPTEMBER 2006).",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_22, chars 13755-14780)"
+    },
+    {
+      "text": "MODERATE CONGESTIVE HEPATOMEGALY (2550 GRAMS).",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_22, chars 13755-14780)"
+    },
+    {
+      "text": "FIBROUS PLEURAL ADHESIONS.",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_23, chars 14780-14812)"
+    },
+    {
+      "text": "CHRONIC THYROIDITIS (HASHIMOTO THYROIDITIS).",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_24, chars 14812-14927)"
+    },
+    {
+      "text": "WELL HEALED SUPRAPUBIC SCAR (STATUS POST CESAREAN SECTION).",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_25, chars 14927-14974)"
+    },
+    {
+      "text": "MINIMAL, INSIGNIFICANT MYOCARDIAL FIBROSIS.",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_26, chars 14974-14974)"
+    },
+    {
+      "text": "STATUS POST MEDICAL INTERVENTION.",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_27, chars 15370-15414)"
+    },
+    {
+      "text": "STATUS POST BILATERAL BREAST IMPLANTS WITH SCARRING, LEFT AREOLA.",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_28, chars 15370-15414)"
+    },
+    {
+      "text": "MICRO-INFARCT OF BRAIN, LEFT OCCIPITAL WHITE MATTER.",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_29, chars 15414-15632)"
+    },
+    {
+      "text": "MINOR CONTUSIONS, POSTERIOR SHOULDERS.",
+      "source": "FINAL PATHOLOGICAL DIAGNOSES (chunk_30, chars 15632-15676)"
+    }
+  ],
+  "pertinent_history": [],
+  "medicines_allergies": [],
+  "objective_findings": [],
+  "labs_imaging": [],
+  "assessment": []
+}

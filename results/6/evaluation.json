@@ -1,0 +1,95 @@
+{
+  "citation_coverage": {
+    "summary_facts_with_citations": 7,
+    "summary_total_facts": 9,
+    "summary_coverage_percentage": 77.78,
+    "plan_recommendations_with_citations": 4,
+    "plan_total_recommendations": 4,
+    "plan_coverage_percentage": 100.0,
+    "overall_coverage_percentage": 84.62
+  },
+  "citation_validity": {
+    "total_citations_checked": 11,
+    "invalid_citations": 0,
+    "validity_percentage": 100.0
+  },
+  "section_name_mismatches": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "span_out_of_chunk_bounds": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "orphan_claims": {
+    "summary_orphans": 2,
+    "plan_orphans": 0,
+    "total_orphans": 2,
+    "total_claims": 13,
+    "hallucination_rate_percentage": 15.38
+  },
+  "citation_overlap_jaccard": {
+    "total_citation_pairs": 55,
+    "average_jaccard_similarity": 0.1818,
+    "min_jaccard": 0.0,
+    "max_jaccard": 1.0
+  },
+  "span_consistency": {
+    "checks_performed": 11,
+    "checks_passed": 11,
+    "consistency_percentage": 100.0
+  },
+  "summary_statistics": {
+    "total_facts_extracted": 9,
+    "total_recommendations_generated": 4,
+    "average_citations_per_fact": 0.78,
+    "average_citations_per_recommendation": 1.0,
+    "confidence_score_distribution": {
+      "count": 4,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    }
+  },
+  "semantic_accuracy": {
+    "average_similarity": 0.4035,
+    "well_supported": 0,
+    "poorly_supported": 4,
+    "total_recommendations": 4,
+    "support_rate": 0.0,
+    "similarity_threshold": 0.7,
+    "per_recommendation": [
+      {
+        "number": 1,
+        "similarity_score": 0.394,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_4",
+        "cited_text_preview": "DISCHARGE ACTIVITIES:\n Ad-lib."
+      },
+      {
+        "number": 2,
+        "similarity_score": 0.4051,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_4",
+        "cited_text_preview": "DISCHARGE ACTIVITIES:\n Ad-lib."
+      },
+      {
+        "number": 3,
+        "similarity_score": 0.4313,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_4",
+        "cited_text_preview": "DISCHARGE ACTIVITIES:\n Ad-lib."
+      },
+      {
+        "number": 4,
+        "similarity_score": 0.3838,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_4",
+        "cited_text_preview": "DISCHARGE ACTIVITIES:\n Ad-lib."
+      }
+    ]
+  }
+}

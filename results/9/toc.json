@@ -1,0 +1,158 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 160,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "EXTERNAL EXAMINATION",
+      "start_char": 160,
+      "end_char": 3056,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "INTERNAL EXAMINATION",
+      "start_char": 3056,
+      "end_char": 3079,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "HEAD--CENTRAL NERVOUS SYSTEM",
+      "start_char": 3079,
+      "end_char": 3296,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SKELETAL SYSTEM",
+      "start_char": 3296,
+      "end_char": 3344,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "RESPIRATORY SYSTEM--THROAT STRUCTURES",
+      "start_char": 3344,
+      "end_char": 3939,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CARDIOVASCULAR SYSTEM",
+      "start_char": 3939,
+      "end_char": 4076,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "GASTROINTESTINAL SYSTEM",
+      "start_char": 4076,
+      "end_char": 4405,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "URINARY SYSTEM",
+      "start_char": 4405,
+      "end_char": 4555,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "FEMALE GENITAL SYSTEM",
+      "start_char": 4555,
+      "end_char": 4885,
+      "start_page": 0,
+      "end_page": 1
+    },
+    {
+      "title": "TOXICOLOGY",
+      "start_char": 4885,
+      "end_char": 5006,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "SEROLOGY",
+      "start_char": 5006,
+      "end_char": 5122,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "LABORATORY DATA",
+      "start_char": 5122,
+      "end_char": 5138,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "CEREBROSPINAL FLUID CULTURE AND SENSITIVITY",
+      "start_char": 5138,
+      "end_char": 5242,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "CEREBROSPINAL FLUID BACTERIAL ANTIGENS",
+      "start_char": 5242,
+      "end_char": 5444,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "URINE SCREEN {IMMUNOASSAY} WAS NEGATIVE.",
+      "start_char": 5444,
+      "end_char": 5546,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "EVIDENCE COLLECTED",
+      "start_char": 5546,
+      "end_char": 6014,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "OPINION",
+      "start_char": 6014,
+      "end_char": 6022,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "TIME OF DEATH",
+      "start_char": 6022,
+      "end_char": 6173,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "IMMEDIATE CAUSE OF DEATH",
+      "start_char": 6173,
+      "end_char": 6286,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "MANNER OF DEATH",
+      "start_char": 6286,
+      "end_char": 6314,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "REMARKS",
+      "start_char": 6314,
+      "end_char": 6576,
+      "start_page": 1,
+      "end_page": 1
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 259,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "ADMISSION DIAGNOSIS",
+      "start_char": 259,
+      "end_char": 308,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "DISCHARGE DIAGNOSIS",
+      "start_char": 308,
+      "end_char": 357,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "PROCEDURE",
+      "start_char": 357,
+      "end_char": 398,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SERVICE",
+      "start_char": 398,
+      "end_char": 417,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CONSULT",
+      "start_char": 417,
+      "end_char": 448,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "HISTORY OF PRESENT ILLNESS",
+      "start_char": 448,
+      "end_char": 775,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "HOSPITAL COURSE",
+      "start_char": 775,
+      "end_char": 1411,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "DISCHARGE INSTRUCTIONS",
+      "start_char": 1411,
+      "end_char": 2183,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "DISCHARGE MEDICATIONS",
+      "start_char": 2183,
+      "end_char": 2281,
+      "start_page": 0,
+      "end_page": 0
+    }
+  ]
+}

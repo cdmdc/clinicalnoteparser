@@ -1,0 +1,88 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAllergy / Immunology\n \nSample Name:\nÂ Asthma in a 5-year-old\nDescription:\nÂ Mother states he has been wheezing and coughing. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 183,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "CHIEF COMPLAINT: \nThis 5-year-old male presents to Children's Hospital Emergency Department by the mother with \"have asthma.\" Mother\nstates he has been wheezing and coughing. They saw their primary medical doctor. He was evaluated at the clinic, given the breathing treatment\nand discharged home, was not having asthma, prescribed prednisone and an antibiotic. They told to go to the ER if he got worse. He has had\nsome vomiting and some abdominal pain. His peak flows on the morning are normal at 150, but in the morning, they were down to 100 and\nsubsequently decreased to 75 over the course of the day.",
+      "start_char": 183,
+      "end_char": 789,
+      "section_title": "CHIEF COMPLAINT"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "PAST MEDICAL HISTORY:\n Asthma with his last admission in 07/2007. Also inclusive of frequent pneumonia by report.",
+      "start_char": 789,
+      "end_char": 903,
+      "section_title": "PAST MEDICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "IMMUNIZATIONS: \nUp-to-date.",
+      "start_char": 903,
+      "end_char": 931,
+      "section_title": "IMMUNIZATIONS"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "ALLERGIES: \nDenied.",
+      "start_char": 931,
+      "end_char": 951,
+      "section_title": "ALLERGIES"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "MEDICATIONS: \nAdvair, Nasonex, Xopenex, Zicam, Zithromax, prednisone, and albuterol.",
+      "start_char": 951,
+      "end_char": 1036,
+      "section_title": "MEDICATIONS"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "PAST SURGICAL HISTORY: \nDenied.",
+      "start_char": 1036,
+      "end_char": 1068,
+      "section_title": "PAST SURGICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "SOCIAL HISTORY: \nLives at home, here in the ED with the mother and there is no smoking in the home.",
+      "start_char": 1068,
+      "end_char": 1168,
+      "section_title": "SOCIAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "FAMILY HISTORY: \nNo noted exposures.",
+      "start_char": 1168,
+      "end_char": 1205,
+      "section_title": "FAMILY HISTORY"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "REVIEW OF SYSTEMS: \nDocumented on the template. Systems reviewed on the template.",
+      "start_char": 1205,
+      "end_char": 1287,
+      "section_title": "REVIEW OF SYSTEMS"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "text": "PHYSICAL EXAMINATION:\nVITAL SIGNS: Temperature 98.7, pulse 105, respiration is 28, blood pressure 112/65, and weight of 16.5 kg. Oxygen saturation low at 91% on\nroom air.\nGENERAL: This is a well-developed male who is cooperative, alert, active with oxygen by facemask.\nHEENT: Head is atraumatic and normocephalic. Pupils are equal, round, and reactive to light. Extraocular motions are intact and conjugate. Clear\nTMs, nose, and oropharynx.\nNECK: Supple. Full painless nontender range of motion.\nCHEST: Tight wheezing and retractions heard bilaterally.\nHEART: Regular without rubs or murmurs.\nABDOMEN: Soft, nontender. No masses. No hepatosplenomegaly.\nGENITALIA: Male genitalia is present on a visual examination.\nSKIN: No significant bruising, lesions or rash.\nEXTREMITIES: Moves all extremities without difficulty, nontender. No deformity.\nNEUROLOGIC: Symmetric face, cooperative, and age appropriate.",
+      "start_char": 1287,
+      "end_char": 2192,
+      "section_title": "PHYSICAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_11",
+      "text": "MEDICAL DECISION MAKING:\n The differential entertained on this patient includes reactive airways disease, viral syndrome, and foreign\nbody pneumonia. He is evaluated in the emergency department with continuous high-dose albuterol, Decadron by mouth, pulse oximetry, and\nclose observation. Chest x-ray reveals bronchial thickening, otherwise no definite infiltrate. She is further treated in the emergency department with\ncontinued breathing treatments. At 0048 hours, he has continued tight wheezes with saturations 99%, but ED sats are 92% with coughing spells.\nBased on the above, the hospitalist was consulted and accepts this patient for admission to the hospital with the working diagnosis of respiratory\ndistress and asthma.",
+      "start_char": 2192,
+      "end_char": 2922,
+      "section_title": "MEDICAL DECISION MAKING"
+    }
+  ]
+}

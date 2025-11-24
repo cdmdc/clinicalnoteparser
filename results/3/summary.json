@@ -1,0 +1,128 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "50-year-old female",
+      "source": "[OVERVIEW] section, chunk_0:12-23"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Chronic sinusitis",
+      "source": "[HISTORY] section, chunk_1:49-67"
+    },
+    {
+      "text": "Severe sinusitis with facial discomfort, nasal congestion, eye pain, and postnasal drip symptoms",
+      "source": "[HISTORY] section, chunk_1:28-53"
+    },
+    {
+      "text": "Subjective dizziness",
+      "source": "[IMPRESSION] section, chunk_10:46-52"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Seasonal allergies, possible food allergies, chronic sinusitis, hypertension and history of weight change",
+      "source": "[PAST MEDICAL HISTORY] section, chunk_2:19-83"
+    },
+    {
+      "text": "Lower extremity vein stripping, tonsillectomy and adenoidectomy",
+      "source": "[PAST SURGICAL HISTORY] section, chunk_3:20-54"
+    },
+    {
+      "text": "Strong family history for heart disease and alcoholism",
+      "source": "[FAMILY HISTORY] section, chunk_4:21-67"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "Egg-based products cause hives",
+      "source": "[ALLERGIES] section, chunk_6:23-50"
+    },
+    {
+      "text": "DynaCirc",
+      "source": "[CURRENT MEDICATIONS] section, chunk_5:24-31"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Turbinate hypertrophy and nasal septum deviation to the left, more significant posteriorly",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:4079-4125"
+    },
+    {
+      "text": "Normocephalic. No masses or lesions noted",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:3069-3088"
+    },
+    {
+      "text": "No facial tenderness or asymmetry noted",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:3127-3145"
+    },
+    {
+      "text": "Pupils are equal, round and reactive to light and accommodation bilaterally. Extraocular movements are intact bilaterally. No nystagmus",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:3207-3245"
+    },
+    {
+      "text": "Tympanic membranes were noted to be intact. No signs of middle ear effusion or ear canal inflammation",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:3619-3646"
+    },
+    {
+      "text": "The patient appears congested",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_8:3572-3580"
+    }
+  ],
+  "labs_imaging": [
+    {
+      "text": "CT of paranasal sinuses identifying mild mucosal thickening of right paranasal sinuses with occlusion of the ostiomeatal complex on the right and turbinate hypertrophy was noted",
+      "source": "[HISTORY] section, chunk_1:68-142"
+    },
+    {
+      "text": "Audiogram demonstrated mild high frequency sensorineural hearing loss, normal tympanometry, and normal speech discrimination",
+      "source": "[HISTORY] section, chunk_1:153-190"
+    }
+  ],
+  "assessment": [
+    {
+      "text": "Probable increasing problems with allergic rhinitis and chronic sinusitis, both contributing to the patient's symptoms",
+      "source": "[IMPRESSION] section, chunk_10:46-72"
+    },
+    {
+      "text": "Subjective dizziness, etiology uncertain; however, consider positional vertigo versus vestibular neuronitis as possible ear causes of dizziness, cannot rule out systemic, central or medication or causes at this time",
+      "source": "[IMPRESSION] section, chunk_10:73-165"
+    },
+    {
+      "text": "Inferior turbinate hypertrophy",
+      "source": "[IMPRESSION] section, chunk_10:166-182"
+    },
+    {
+      "text": "Nasal septum deformity",
+      "source": "[IMPRESSION] section, chunk_10:183-195"
+    },
+    {
+      "text": "An ENG was ordered to evaluate vestibular function",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4652-4670"
+    },
+    {
+      "text": "She was placed on Veramyst nasal spray two sprays each nostril daily and even twice daily if symptoms are worsening",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4683-4729"
+    },
+    {
+      "text": "A Medrol Dosepak was prescribed as directed",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4730-4750"
+    },
+    {
+      "text": "The patient was given instruction on use of nasal saline irrigation to be used twice daily and Clarinex 5 mg daily was recommended",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4762-4803"
+    },
+    {
+      "text": "After the patients' ENG examination, we will see the patient back for further evaluation and treatment recommendations",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4804-4859"
+    },
+    {
+      "text": "In light of the patient's atypical dizziness symptoms, I cannot rule out other pathology at this time",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4860-4879"
+    },
+    {
+      "text": "If there are any acute changes or problems with regards to her balance or any other acute changes, which she attributes associated with her dizziness, she most likely should pursue an emergent visit to the emergency room",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4880-5267"
+    }
+  ]
+}

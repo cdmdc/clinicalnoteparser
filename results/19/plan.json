@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Patient is stable for discharge. She may shower.",
+      "source": "[DISCHARGE INSTRUCTIONS] section, chunk_8:2034-2159",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "She needs to follow up in my office in 1 week for postoperative evaluation.",
+      "source": "[DISCHARGE INSTRUCTIONS] section, chunk_8:2034-2159",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "She is instructed to call for any problems of shortness of breath, chest pain, calf pain, temperature greater than 101.5, any redness, swelling, or foul smelling drainage from her wounds, intractable nausea, vomiting, and abdominal pain.",
+      "source": "[DISCHARGE INSTRUCTIONS] section, chunk_8:2161-2349",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "She is instructed just to resume her discharge medications.",
+      "source": "[DISCHARGE INSTRUCTIONS] section, chunk_8:2351-2370",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}

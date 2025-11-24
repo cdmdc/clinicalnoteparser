@@ -1,0 +1,58 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "Autopsy - Asphyxia due to ligature strangulation.",
+      "source": "[DESCRIPTION] section, chunk_0:160-235"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Asphyxia due to ligature strangulation (Ligature B).",
+      "source": "[IMMEDIATE CAUSE OF DEATH] section, chunk_19:6173-6286"
+    },
+    {
+      "text": "Post-mortem ligature mark on the neck.",
+      "source": "[EXTERNAL EXAMINATION] section, chunk_1:160-3056"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Victim is a normally developed white female measuring 67 inches and weighing 118 pounds, and appearing generally consistent with the stated age of twenty-six years.",
+      "source": "[EXTERNAL EXAMINATION] section, chunk_1:160-3056"
+    },
+    {
+      "text": "Victim had not given birth and was not pregnant at the time of death.",
+      "source": "[FEMALE GENITAL SYSTEM] section, chunk_9:4555-4885"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "No known drug allergies.",
+      "source": "[MEDICATIONS ALLERGIES] section, chunk_0:160-3056"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Victim is wearing a white sleeveless turtleneck shirt and navy blue sweatpants.",
+      "source": "[EXTERNAL EXAMINATION] section, chunk_1:160-3056"
+    },
+    {
+      "text": "Ligature A on the neck below the mandible.",
+      "source": "[EXTERNAL EXAMINATION] section, chunk_1:160-3056"
+    },
+    {
+      "text": "Ligature B penetrates the skin and subdermal tissues of the neck.",
+      "source": "[HEAD--CENTRAL NERVOUS SYSTEM] section, chunk_3:3079-3296"
+    },
+    {
+      "text": "Fractured hyoid bone.",
+      "source": "[SKELETAL SYSTEM] section, chunk_4:3296-3344"
+    },
+    {
+      "text": "Fractured hyoid bone, thyroid, and cricoid cartilages.",
+      "source": "[RESPIRATORY SYSTEM--THROAT STRUCTURES] section, chunk_5:3344-3939"
+    }
+  ],
+  "labs_imaging": [],
+  "assessment": []
+}

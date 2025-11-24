@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "We will have her undergo routine nutritional and psychosocial assessment.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_8:1850-1892",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "We suspect that we can significantly improve the situation with her insulin and oral hypoglycemia, as well as hypertension, with significant weight loss.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_8:1894-1965",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "She is otherwise at increased risk for future complications given her history, and weight loss will be a good option.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_8:1967-2033",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "We will see her back in the office once she completes her preliminary workup and submit her for approval to the insurance company.",
+      "source": "[ASSESSMENT/PLAN] section, chunk_8:2035-2329",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}

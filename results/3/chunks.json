@@ -1,0 +1,88 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAllergy / Immunology\n \nSample Name:\nÂ Chronic Sinusitis\nDescription:\nÂ Patient having severe sinusitis about two to three months ago with facial discomfort, nasal congestion, eye pain, and\npostnasal drip symptoms. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 272,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "HISTORY:\n I had the pleasure of meeting and evaluating the patient referred today for evaluation and treatment of chronic sinusitis. As you are\nwell aware, she is a pleasant 50-year-old female who states she started having severe sinusitis about two to three months ago with facial\ndiscomfort, nasal congestion, eye pain, and postnasal drip symptoms. She states she really has sinus problems, but this infection has been rather\nsevere and she notes she has not had much improvement with antibiotics. She had a CT of her paranasal sinuses identifying mild mucosal\nthickening of right paranasal sinuses with occlusion of the ostiomeatal complex on the right and turbinate hypertrophy was also noted when I\nreviewed the films and there is some minimal nasal septum deviation to the left. She currently is not taking any medication for her sinuses. She also\nhas noted that she is having some problems with her balance and possible hearing loss or at least ear popping and fullness. Her audiogram today\ndemonstrated mild high frequency sensorineural hearing loss, normal tympanometry, and normal speech discrimination. She has tried topical nasal\ncorticosteroid therapy without much improvement. She tried Allegra without much improvement and she believes the Allegra may have caused\nproblems with balance to worsen. She notes her dizziness to be much worse if she does quick positional changes such as head turning or sudden\nmovements, no ear fullness, pressure, humming, buzzing or roaring noted in her ears. She denies any previous history of sinus surgery or nasal\ninjury. She believes she has some degree of allergy symptoms.",
+      "start_char": 272,
+      "end_char": 1898,
+      "section_title": "HISTORY"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "PAST MEDICAL HISTORY: \nSeasonal allergies, possible food allergies, chronic sinusitis, hypertension and history of weight change. She is\ncurrently 180 pounds.",
+      "start_char": 1898,
+      "end_char": 2057,
+      "section_title": "PAST MEDICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "PAST SURGICAL HISTORY:\n Lower extremity vein stripping, tonsillectomy and adenoidectomy.",
+      "start_char": 2057,
+      "end_char": 2146,
+      "section_title": "PAST SURGICAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "FAMILY HISTORY: \nStrong for heart disease and alcoholism.",
+      "start_char": 2146,
+      "end_char": 2204,
+      "section_title": "FAMILY HISTORY"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "CURRENT MEDICATIONS: \nDynaCirc.",
+      "start_char": 2204,
+      "end_char": 2236,
+      "section_title": "CURRENT MEDICATIONS"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "ALLERGIES: \nEgg-based products cause hives.",
+      "start_char": 2236,
+      "end_char": 2280,
+      "section_title": "ALLERGIES"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "SOCIAL HISTORY: \nThe patient used to smoke cigarettes for about 20 years, one-half pack a day. She currently does not, which was\nencouraged to continue. She rarely drinks any alcohol-containing beverages.",
+      "start_char": 2280,
+      "end_char": 2485,
+      "section_title": "SOCIAL HISTORY"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "PHYSICAL EXAMINATION: \nVITAL SIGNS: Age 50, blood pressure is 136/74, pulse 84, temperature is 98.4, weight is 180 pounds, and height is 5 feet 3 inches.\nGENERAL: The patient is healthy appearing; alert and oriented to person, place and time; responds appropriately; in no acute distress.\nHEAD: Normocephalic. No masses or lesions noted.\nFACE: No facial tenderness or asymmetry noted.\nEYES: Pupils are equal, round and reactive to light and accommodation bilaterally. Extraocular movements are intact bilaterally. No nystagmus.\nEARS: During Hallpike examination, the patient did not become dizzy until she would be placed back into sitting in the upright position. No\nnystagmus was appreciated; however, the patient did subjectively report dizziness, which was repeated twice. No evidence of any orthostatic\nhypotension was noted during the exam. Tympanic membranes were noted to be intact. No signs of middle ear effusion or ear canal inflammation.\nNOSE: The patient appears congested. Turbinate hypertrophy is noted. There are no signs of any acute sinusitis. Septum is midline, slightly\ndeviated to the left.\nTHROAT: There is clear postnasal drip. Oral hygiene is good. No masses or lesions noted. Both vocal cords move well to midline.\nNECK: The neck is supple with no adenopathy or masses palpated. The trachea is midline. The thyroid gland is of normal size with no nodules.\nLUNGS: Clear to auscultation bilaterally. No wheeze noted.\nHEART: Regular rate and rhythm. No murmur noted.\nNEUROLOGIC: Facial nerve is intact bilaterally. The remaining cranial nerves are intact without focal deficit.",
+      "start_char": 2485,
+      "end_char": 4085,
+      "section_title": "PHYSICAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "PROCEDURE: \nFiberoptic nasopharyngoscopy identifying turbinate hypertrophy and nasal septum deviation to the left, more significant\nposteriorly.",
+      "start_char": 4085,
+      "end_char": 4230,
+      "section_title": "PROCEDURE"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "text": "IMPRESSION: \n1. Probable increasing problems with allergic rhinitis and chronic sinusitis, both contributing to the patient's symptoms.\n2. Subjective dizziness, etiology uncertain; however, consider positional vertigo versus vestibular neuronitis as possible ear causes of dizziness,\ncannot rule out systemic, central or medication or causes at this time.\n3. Inferior turbinate hypertrophy.\n4. Nasal septum deformity.",
+      "start_char": 4230,
+      "end_char": 4648,
+      "section_title": "IMPRESSION"
+    },
+    {
+      "chunk_id": "chunk_11",
+      "text": "RECOMMENDATIONS:\n An ENG was ordered to evaluate vestibular function. She was placed on Veramyst nasal spray two sprays each\nnostril daily and even twice daily if symptoms are worsening. A Medrol Dosepak was prescribed as directed. The patient was given instruction on\nuse of nasal saline irrigation to be used twice daily and Clarinex 5 mg daily was recommended. After the patients' ENG examination, we will see\nthe patient back for further evaluation and treatment recommendations. In light of the patient's atypical dizziness symptoms, I cannot rule out other\npathology at this time, and I informed her if there are any acute changes or problems with regards to her balance or any other acute changes, which\nshe attributes associated with her dizziness, she most likely should pursue an emergent visit to the emergency room.\nThank you for allowing me to participate with the care of your patient.",
+      "start_char": 4648,
+      "end_char": 5547,
+      "section_title": "RECOMMENDATIONS"
+    }
+  ]
+}

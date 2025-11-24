@@ -1,0 +1,39 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Stop any further use of cephalosporin antibiotics, which may be the cause of his allergic reaction, and consider this an allergy.",
+      "source": "chunk_10:3652-3789",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "If there is any specific food or inhalant allergen that is found to be quite high on the sensitivity scale, recommend the patient to avoid the offending agent to hold off on any further reactions.",
+      "source": "chunk_10:3529-3648",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "Prescribe an EpiPen in the event of acute angioedema or allergic reaction or sensation of impending allergic reaction and instruct the patient to proceed directly to the emergency room for further evaluation and treatment recommendations after administration of an EpiPen.",
+      "source": "chunk_10:3900-4528",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "Stop the use of heparin due to causing thrombocytopenia.",
+      "source": "chunk_6:1876-1884",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 5,
+      "recommendation": "Continue atenolol for blood pressure control, despite the patient having a more difficult time treating acute anaphylaxis.",
+      "source": "chunk_10:3792-3896",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    }
+  ]
+}

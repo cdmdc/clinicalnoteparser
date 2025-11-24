@@ -1,0 +1,95 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "We will add Flovent 44 mcg two puffs p.o. b.i.d.",
+      "source": "chunk_8:3441-3457",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "May need to increase the dose.",
+      "source": "chunk_8:3460-3469",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "She did get some vaginal irritation with Advair in the past but she is willing to retry that if it is necessary.",
+      "source": "chunk_8:3471-3502",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "May also need to consider Singulair.",
+      "source": "chunk_8:3504-3516",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 5,
+      "recommendation": "She is to call me if she is not improving.",
+      "source": "chunk_8:3518-3527",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 6,
+      "recommendation": "If her shortness of breath worsens she is to call me or go into the emergency department.",
+      "source": "chunk_8:3529-3546",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 7,
+      "recommendation": "We will plan on following up for reevaluation in one month.",
+      "source": "chunk_8:3548-3561",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 8,
+      "recommendation": "We will plan on restarting Allegra and Flonase daily for the time being.",
+      "source": "chunk_8:3563-3590",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 9,
+      "recommendation": "We will start her on fluoxetine 20 mg one tablet p.o. q.d.",
+      "source": "chunk_8:3616-3631",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 10,
+      "recommendation": "We will repeat a urinalysis to document clearing of hematuria.",
+      "source": "chunk_8:3633-3659",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 11,
+      "recommendation": "We will notify the patient of results for cervical dysplasia.",
+      "source": "chunk_8:3676-3692",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 12,
+      "recommendation": "She is scheduled for a screening mammogram and instructed on monthly self-breast exam techniques.",
+      "source": "chunk_8:3707-3725",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 13,
+      "recommendation": "Recommend she get 1200 mg of calcium and 400 U of vitamin D a day.",
+      "source": "chunk_8:3727-3740",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    }
+  ]
+}

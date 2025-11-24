@@ -1,0 +1,125 @@
+2025-11-24 15:42:00 - app.pipeline - INFO - Logging configured: file=/Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/pipeline.log, level=DEBUG
+2025-11-24 15:42:00 - app.pipeline - INFO - Processing document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/13.pdf
+2025-11-24 15:42:00 - app.pipeline - INFO - Output directory: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13
+2025-11-24 15:42:00 - app.pipeline - INFO - Configuration: model=qwen2.5:7b, temperature=0.1
+2025-11-24 15:42:00 - app.pipeline - INFO - Execution mode: toc_only=False, summary_only=False, plan_only=False, no_evaluation=False
+2025-11-24 15:42:00 - app.pipeline - INFO - [STEP 1] Ingesting document: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/13.pdf
+2025-11-24 15:42:00 - app.ingestion - INFO - Loading PDF: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/data/archive/mtsamples_pdf/mtsamples_pdf/13.pdf
+2025-11-24 15:42:00 - app.ingestion - INFO - Ingested document: 12172 characters, 3 pages, note_id: 13
+2025-11-24 15:42:00 - app.pipeline - INFO - ✓ Ingested: 12172 chars, 3 pages, note_id: 13
+2025-11-24 15:42:00 - app.pipeline - INFO - Saved canonical text to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/canonical_text.txt
+2025-11-24 15:42:00 - app.pipeline - INFO - [STEP 2/6] Detecting sections...
+2025-11-24 15:42:00 - app.sections - INFO - Overview section detected: end=149, title=Overview
+2025-11-24 15:42:00 - app.sections - INFO - Found 17 section headers (after empty lines, all-caps): ['EXTERNAL EXAMINATION', 'RADIOGRAPHS', 'INTERNAL EXAMINATION', 'CARDIOVASCULAR SYSTEM', 'RESPIRATORY SYSTEM', 'HEMOLYMPHATIC SYSTEM', 'GENITOURINARY SYSTEM', 'GASTROINTESTINAL SYSTEM', 'HEPATOBILIARY SYSTEM', 'ENDOCRINE SYSTEM', 'MUSCULOSKELETAL SYSTEM', 'NECK', 'CENTRAL NERVOUS SYSTEM', 'MICROSCOPIC EXAMINATION', 'AUTOPSY FINDINGS', 'CAUSE OF DEATH', 'MANNER OF DEATH']
+2025-11-24 15:42:00 - app.sections - INFO - Found 17 potential section headers
+2025-11-24 15:42:00 - app.sections - INFO - Detected 18 sections: ['Overview', 'EXTERNAL EXAMINATION', 'RADIOGRAPHS', 'INTERNAL EXAMINATION', 'CARDIOVASCULAR SYSTEM', 'RESPIRATORY SYSTEM', 'HEMOLYMPHATIC SYSTEM', 'GENITOURINARY SYSTEM', 'GASTROINTESTINAL SYSTEM', 'HEPATOBILIARY SYSTEM', 'ENDOCRINE SYSTEM', 'MUSCULOSKELETAL SYSTEM', 'NECK', 'CENTRAL NERVOUS SYSTEM', 'MICROSCOPIC EXAMINATION', 'AUTOPSY FINDINGS', 'CAUSE OF DEATH', 'MANNER OF DEATH']
+2025-11-24 15:42:00 - app.pipeline - INFO - ✓ Detected 18 sections
+2025-11-24 15:42:00 - app.pipeline - INFO -   1. Overview (pages 1-1, chars 0-149)
+2025-11-24 15:42:00 - app.pipeline - INFO -   2. EXTERNAL EXAMINATION (pages 1-1, chars 149-2392)
+2025-11-24 15:42:00 - app.pipeline - INFO -   3. RADIOGRAPHS (pages 1-1, chars 2392-2994)
+2025-11-24 15:42:00 - app.pipeline - INFO -   4. INTERNAL EXAMINATION (pages 1-1, chars 2994-4231)
+2025-11-24 15:42:00 - app.pipeline - INFO -   5. CARDIOVASCULAR SYSTEM (pages 1-1, chars 4231-4523)
+2025-11-24 15:42:00 - app.pipeline - INFO -   6. RESPIRATORY SYSTEM (pages 1-1, chars 4523-5321)
+2025-11-24 15:42:00 - app.pipeline - INFO -   7. HEMOLYMPHATIC SYSTEM (pages 1-1, chars 5321-5709)
+2025-11-24 15:42:00 - app.pipeline - INFO -   8. GENITOURINARY SYSTEM (pages 1-2, chars 5709-6977)
+2025-11-24 15:42:00 - app.pipeline - INFO -   9. GASTROINTESTINAL SYSTEM (pages 2-2, chars 6977-7757)
+2025-11-24 15:42:00 - app.pipeline - INFO -   10. HEPATOBILIARY SYSTEM (pages 2-2, chars 7757-8283)
+2025-11-24 15:42:00 - app.pipeline - INFO -   11. ENDOCRINE SYSTEM (pages 2-2, chars 8283-8414)
+2025-11-24 15:42:00 - app.pipeline - INFO -   12. MUSCULOSKELETAL SYSTEM (pages 2-2, chars 8414-8873)
+2025-11-24 15:42:00 - app.pipeline - INFO -   13. NECK (pages 2-2, chars 8873-9790)
+2025-11-24 15:42:00 - app.pipeline - INFO -   14. CENTRAL NERVOUS SYSTEM (pages 2-2, chars 9790-9841)
+2025-11-24 15:42:00 - app.pipeline - INFO -   15. MICROSCOPIC EXAMINATION (pages 2-3, chars 9841-11038)
+2025-11-24 15:42:00 - app.pipeline - INFO -   16. AUTOPSY FINDINGS (pages 3-3, chars 11038-12084)
+2025-11-24 15:42:00 - app.pipeline - INFO -   17. CAUSE OF DEATH (pages 3-3, chars 12084-12141)
+2025-11-24 15:42:00 - app.pipeline - INFO -   18. MANNER OF DEATH (pages 3-3, chars 12141-12172)
+2025-11-24 15:42:00 - app.sections - INFO - Saved ToC to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/toc.json with 18 sections
+2025-11-24 15:42:00 - app.pipeline - INFO - ✓ Saved ToC to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/toc.json
+2025-11-24 15:42:00 - app.pipeline - INFO - [STEP 3/6] Creating chunks...
+2025-11-24 15:42:00 - app.chunks - INFO - Created 18 chunks from 18 sections
+2025-11-24 15:42:00 - app.pipeline - INFO - ✓ Created 18 chunks
+2025-11-24 15:42:00 - app.chunks - INFO - Saved 18 chunks to /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/chunks.json
+2025-11-24 15:42:00 - app.pipeline - INFO - ✓ Saved chunks to: /Users/davidavinci/Documents/GitHub/clinicalnoteparser/results/13/chunks.json
+2025-11-24 15:42:00 - app.pipeline - INFO - Initializing LLM client...
+2025-11-24 15:42:00 - app.llm - INFO - ✓ Apple Silicon detected - MPS environment variables set for Ollama
+2025-11-24 15:42:00 - app.llm - DEBUG - Note: Install PyTorch for MPS availability verification
+2025-11-24 15:42:00 - app.llm - INFO - LLM client configured for GPU acceleration (MPS)
+2025-11-24 15:42:00 - app.llm - INFO - Initialized LLM client with model: qwen2.5:7b, temperature: 0.1
+2025-11-24 15:42:00 - app.pipeline - INFO - ✓ LLM client initialized (model: qwen2.5:7b)
+2025-11-24 15:42:00 - app.pipeline - INFO - [STEP 4/6] Generating summary...
+2025-11-24 15:42:00 - app.pipeline - INFO -   Processing 18 chunks at once...
+2025-11-24 15:42:00 - app.summarizer - INFO - Calling LLM (model: qwen2.5:7b, temperature: 0.1)
+2025-11-24 15:42:00 - app.summarizer - DEBUG - Prompt preview: # Text Summary Prompt
+
+## SYSTEM ROLE
+
+You are a medical documentation extraction assistant.
+
+Your job is to extract only information that is explicitly present in the provided chunks of a clinical no...
+2025-11-24 15:42:00 - httpcore.connection - DEBUG - connect_tcp.started host='localhost' port=11434 local_address=None timeout=None socket_options=None
+2025-11-24 15:42:00 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10f6c2d10>
+2025-11-24 15:42:00 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-11-24 15:42:00 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-11-24 15:42:00 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-11-24 15:42:00 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-11-24 15:42:00 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-11-24 15:42:13 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Mon, 24 Nov 2025 20:42:13 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-11-24 15:42:13 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-11-24 15:42:13 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-11-24 15:42:32 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-11-24 15:42:32 - httpcore.http11 - DEBUG - response_closed.started
+2025-11-24 15:42:32 - httpcore.http11 - DEBUG - response_closed.complete
+2025-11-24 15:42:32 - app.summarizer - DEBUG - LLM response (attempt 1): ```json
+[
+    {
+        "text": "The decedent sustained multiple sharp force injuries, including multiple stab wounds involving the chest and abdomen; multiple incised-stab wounds of the neck; and multiple incised or cutting wounds.",
+        "source": "OPINION"
+    },
+    {
+        "text": "Fatal wounds were identified involving the neck where there was transection of the left internal jugular vein and stab wounds of the chest and abdomen causing intrathoracic and intraabdominal hemorrhage.",
+ ...
+2025-11-24 15:42:32 - app.summarizer - ERROR - All 1 attempts failed
+2025-11-24 15:42:32 - app.pipeline - ERROR - ✗ Error: LLM call failed after 1 attempts: Failed to parse JSON from response: ```json
+[
+    {
+        "text": "The decedent sustained multiple sharp force injuries, including multiple stab wounds involving the chest and abdomen; multiple incised-stab wounds of the neck; and multiple incised or cutting wounds.",
+        "source": "OPINION"
+    },
+    {
+        "text": "Fatal wounds were identified involving the neck where there was transection of the left internal jugular vein and stab wounds of the chest and abdomen causing intrathoracic and intraabdominal hemorrhage.",
+ 
+Traceback (most recent call last):
+  File "/Users/davidavinci/Documents/GitHub/clinicalnoteparser/src/app/llm.py", line 349, in call
+    raise ValueError(f"Failed to parse JSON from response: {response_text[:500]}")
+ValueError: Failed to parse JSON from response: ```json
+[
+    {
+        "text": "The decedent sustained multiple sharp force injuries, including multiple stab wounds involving the chest and abdomen; multiple incised-stab wounds of the neck; and multiple incised or cutting wounds.",
+        "source": "OPINION"
+    },
+    {
+        "text": "Fatal wounds were identified involving the neck where there was transection of the left internal jugular vein and stab wounds of the chest and abdomen causing intrathoracic and intraabdominal hemorrhage.",
+ 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/davidavinci/Documents/GitHub/clinicalnoteparser/src/app/pipeline.py", line 376, in run_pipeline
+    structured_summary = create_structured_summary_from_chunks(chunks, llm_client)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidavinci/Documents/GitHub/clinicalnoteparser/src/app/summarizer.py", line 840, in create_structured_summary_from_chunks
+    response = llm_client.call(current_prompt, logger_instance=logger, return_text=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidavinci/Documents/GitHub/clinicalnoteparser/src/app/llm.py", line 366, in call
+    raise LLMError(f"LLM call failed after {self.max_retries} attempts: {last_error}") from last_error
+app.llm.LLMError: LLM call failed after 1 attempts: Failed to parse JSON from response: ```json
+[
+    {
+        "text": "The decedent sustained multiple sharp force injuries, including multiple stab wounds involving the chest and abdomen; multiple incised-stab wounds of the neck; and multiple incised or cutting wounds.",
+        "source": "OPINION"
+    },
+    {
+        "text": "Fatal wounds were identified involving the neck where there was transection of the left internal jugular vein and stab wounds of the chest and abdomen causing intrathoracic and intraabdominal hemorrhage.",
+ 
+2025-11-24 15:42:32 - root - INFO - [13/21] ✗ 12.pdf
+2025-11-24 15:42:32 - app.pipeline - INFO - Checking Ollama availability...
+2025-11-24 15:42:32 - app.pipeline - INFO - ✓ Ollama is available

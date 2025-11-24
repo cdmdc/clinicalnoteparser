@@ -1,0 +1,92 @@
+{
+  "patient_snapshot": [
+    {
+      "text": "50-year-old female",
+      "source": "HISTORY section, chunk_1:276-304"
+    }
+  ],
+  "key_problems": [
+    {
+      "text": "Chronic sinusitis with severe symptoms",
+      "source": "HISTORY section, chunk_1:289-353"
+    },
+    {
+      "text": "Dizziness of uncertain etiology",
+      "source": "IMPRESSION section, chunk_10:4467-4489"
+    }
+  ],
+  "pertinent_history": [
+    {
+      "text": "Seasonal allergies and possible food allergies",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:1935-1964"
+    },
+    {
+      "text": "Chronic sinusitis",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:1908-1917"
+    },
+    {
+      "text": "Hypertension and history of weight change",
+      "source": "PAST MEDICAL HISTORY section, chunk_2:1935-1964"
+    },
+    {
+      "text": "Lower extremity vein stripping surgery",
+      "source": "PAST SURGICAL HISTORY section, chunk_3:2087-2106"
+    },
+    {
+      "text": "Tonsillectomy and adenoidectomy",
+      "source": "PAST SURGICAL HISTORY section, chunk_3:2109-2124"
+    },
+    {
+      "text": "Strong family history of heart disease and alcoholism",
+      "source": "FAMILY HISTORY section, chunk_4:2186-2205"
+    }
+  ],
+  "medicines_allergies": [
+    {
+      "text": "DynaCirc",
+      "source": "CURRENT MEDICATIONS section, chunk_5:2213-2219"
+    },
+    {
+      "text": "Egg-based products cause hives",
+      "source": "ALLERGIES section, chunk_6:2408-2427"
+    }
+  ],
+  "objective_findings": [
+    {
+      "text": "Severe symptoms of chronic sinusitis",
+      "source": "HISTORY section, chunk_1:359-376"
+    },
+    {
+      "text": "Dilated pupils noted on examination",
+      "source": "IMPRESSION section, chunk_10:4528-4540"
+    }
+  ],
+  "labs_imaging": [
+    {
+      "text": "No specific lab or imaging results mentioned",
+      "source": "Labs/Imaging section, chunk_7:2369-2373"
+    }
+  ],
+  "assessment": [
+    {
+      "text": "Chronic sinusitis with severe symptoms and dizziness of uncertain etiology",
+      "source": "IMPRESSION section, chunk_10:4458-4466"
+    },
+    {
+      "text": "Recommendation for RAST allergy testing",
+      "source": "RECOMMENDATIONS section, chunk_12:3097-3106"
+    },
+    {
+      "text": "Stop cephalosporin antibiotics if currently prescribed",
+      "source": "RECOMMENDATIONS section, chunk_12:3109-3124"
+    },
+    {
+      "text": "Prescribe medications for sinusitis as needed",
+      "source": "RECOMMENDATIONS section, chunk_12:3127-3145"
+    },
+    {
+      "text": "Follow-up in 2 weeks or sooner if symptoms worsen",
+      "source": "RECOMMENDATIONS section, chunk_12:3148-3160"
+    }
+  ]
+}

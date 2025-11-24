@@ -297,7 +297,7 @@ Order recommendations by clinical urgency, evidence strength, and logical sequen
     # Call LLM with validation retry wrapper
     # Try with existing cleaning function first, retry with feedback on validation errors
     current_prompt = prompt
-    max_validation_retries = 1  # Limit validation retries to avoid token waste
+    max_validation_retries = 2  # Limit validation retries to avoid token waste
     
     for validation_attempt in range(1, max_validation_retries + 1):
         try:

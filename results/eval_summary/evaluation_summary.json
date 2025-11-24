@@ -1,0 +1,5133 @@
+{
+  "total_documents": 501,
+  "valid_documents": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "48",
+    "49",
+    "60",
+    "61",
+    "62",
+    "74",
+    "75",
+    "76",
+    "89",
+    "148",
+    "149",
+    "160",
+    "161",
+    "163",
+    "174",
+    "175",
+    "177",
+    "188",
+    "201",
+    "202",
+    "203",
+    "215",
+    "216",
+    "217",
+    "229",
+    "348",
+    "349",
+    "360",
+    "362",
+    "363",
+    "375",
+    "376",
+    "377",
+    "388",
+    "389",
+    "404",
+    "405",
+    "406",
+    "407",
+    "410",
+    "411",
+    "412",
+    "413",
+    "438",
+    "439",
+    "558",
+    "559",
+    "564",
+    "565",
+    "570",
+    "571",
+    "573",
+    "598",
+    "605",
+    "606",
+    "607",
+    "611",
+    "612",
+    "613",
+    "639",
+    "759",
+    "765",
+    "766",
+    "767",
+    "771",
+    "772",
+    "773",
+    "798",
+    "799",
+    "808",
+    "809",
+    "820",
+    "821",
+    "822",
+    "834",
+    "835",
+    "836",
+    "940",
+    "941",
+    "942",
+    "954",
+    "955",
+    "956",
+    "968",
+    "969",
+    "981",
+    "982",
+    "983",
+    "995",
+    "996",
+    "997",
+    "1018",
+    "1024",
+    "1026",
+    "1027",
+    "1030",
+    "1032",
+    "1033",
+    "1144",
+    "1145",
+    "1146",
+    "1147",
+    "1150",
+    "1151",
+    "1152",
+    "1153",
+    "1178",
+    "1179",
+    "1184",
+    "1185",
+    "1187",
+    "1190",
+    "1191",
+    "1192",
+    "1193",
+    "1218",
+    "1219",
+    "1224",
+    "1225",
+    "1226",
+    "1230",
+    "1231",
+    "1232",
+    "1344",
+    "1345",
+    "1346",
+    "1350",
+    "1351",
+    "1352",
+    "1378",
+    "1379",
+    "1385",
+    "1386",
+    "1387",
+    "1391",
+    "1392",
+    "1393",
+    "1408",
+    "1420",
+    "1422",
+    "1423",
+    "1434",
+    "1436",
+    "1437",
+    "1540",
+    "1542",
+    "1543",
+    "1554",
+    "1556",
+    "1557",
+    "1568",
+    "1580",
+    "1581",
+    "1583",
+    "1594",
+    "1595",
+    "1597",
+    "1608",
+    "1609",
+    "1620",
+    "1621",
+    "1622",
+    "1623",
+    "1634",
+    "1635",
+    "1636",
+    "1637",
+    "1740",
+    "1741",
+    "1754",
+    "1755",
+    "1756",
+    "1768",
+    "1769",
+    "1781",
+    "1782",
+    "1783",
+    "1795",
+    "1796",
+    "1797",
+    "1804",
+    "1805",
+    "1806",
+    "1807",
+    "1810",
+    "1811",
+    "1812",
+    "1813",
+    "1839",
+    "1959",
+    "1965",
+    "1966",
+    "1967",
+    "1971",
+    "1972",
+    "1973",
+    "1998",
+    "1999",
+    "2049",
+    "2061",
+    "2062",
+    "2063",
+    "2075",
+    "2076",
+    "2077",
+    "2088",
+    "2089",
+    "2101",
+    "2102",
+    "2103",
+    "2115",
+    "2116",
+    "2117",
+    "2129",
+    "2248",
+    "2249",
+    "2260",
+    "2261",
+    "2263",
+    "2274",
+    "2275",
+    "2277",
+    "2288",
+    "2300",
+    "2301",
+    "2302",
+    "2303",
+    "2314",
+    "2315",
+    "2316",
+    "2317",
+    "2328",
+    "2329",
+    "2458",
+    "2459",
+    "2464",
+    "2465",
+    "2466",
+    "2467",
+    "2470",
+    "2471",
+    "2472",
+    "2473",
+    "2498",
+    "2499",
+    "2505",
+    "2506",
+    "2507",
+    "2511",
+    "2512",
+    "2513",
+    "2539",
+    "2658",
+    "2659",
+    "2664",
+    "2665",
+    "2667",
+    "2670",
+    "2671",
+    "2673",
+    "2698",
+    "2704",
+    "2705",
+    "2707",
+    "2710",
+    "2711",
+    "2713",
+    "2738",
+    "2739",
+    "2840",
+    "2842",
+    "2843",
+    "2854",
+    "2856",
+    "2857",
+    "2868",
+    "2881",
+    "2883",
+    "2894",
+    "2895",
+    "2897",
+    "2908",
+    "2920",
+    "2922",
+    "2923",
+    "2934",
+    "2936",
+    "2937",
+    "3008",
+    "3009",
+    "3020",
+    "3021",
+    "3022",
+    "3023",
+    "3034",
+    "3035",
+    "3036",
+    "3037",
+    "3141",
+    "3142",
+    "3143",
+    "3155",
+    "3156",
+    "3157",
+    "3169",
+    "3181",
+    "3182",
+    "3194",
+    "3195",
+    "3196",
+    "3208",
+    "3209",
+    "3220",
+    "3221",
+    "3223",
+    "3234",
+    "3235",
+    "3237",
+    "3340",
+    "3341",
+    "3343",
+    "3354",
+    "3355",
+    "3357",
+    "3368",
+    "3369",
+    "3380",
+    "3382",
+    "3383",
+    "3394",
+    "3396",
+    "3397",
+    "3419",
+    "3425",
+    "3426",
+    "3427",
+    "3431",
+    "3432",
+    "3433",
+    "3545",
+    "3546",
+    "3551",
+    "3552",
+    "3553",
+    "3579",
+    "3584",
+    "3585",
+    "3586",
+    "3590",
+    "3591",
+    "3592",
+    "3618",
+    "3619",
+    "3625",
+    "3627",
+    "3630",
+    "3631",
+    "3633",
+    "3744",
+    "3745",
+    "3746",
+    "3747",
+    "3750",
+    "3751",
+    "3752",
+    "3753",
+    "3778",
+    "3779",
+    "3784",
+    "3785",
+    "3786",
+    "3787",
+    "3790",
+    "3791",
+    "3792",
+    "3793",
+    "3800",
+    "3802",
+    "3803",
+    "3814",
+    "3816",
+    "3817",
+    "3828",
+    "3948",
+    "3949",
+    "3960",
+    "3961",
+    "3962",
+    "3963",
+    "3974",
+    "3975",
+    "3976",
+    "3977",
+    "3988",
+    "3989",
+    "4000",
+    "4001",
+    "4002",
+    "4003",
+    "4014",
+    "4015",
+    "4016",
+    "4017",
+    "4028",
+    "4029",
+    "4148",
+    "4160",
+    "4162",
+    "4163",
+    "4174",
+    "4176",
+    "4177",
+    "4188",
+    "4189",
+    "4200",
+    "4201",
+    "4202",
+    "4214",
+    "4215",
+    "4216",
+    "4228",
+    "4229",
+    "4348",
+    "4349",
+    "4360",
+    "4361",
+    "4362",
+    "4374",
+    "4375",
+    "4376",
+    "4389",
+    "4404",
+    "4406",
+    "4407",
+    "4410",
+    "4412",
+    "4413",
+    "4438",
+    "4558",
+    "4564",
+    "4566",
+    "4567",
+    "4570",
+    "4572",
+    "4573",
+    "4598",
+    "4599",
+    "4604",
+    "4605",
+    "4606",
+    "4610",
+    "4611",
+    "4612",
+    "4638",
+    "4639",
+    "4758",
+    "4759",
+    "4764",
+    "4765",
+    "4766",
+    "4767",
+    "4770",
+    "4771",
+    "4772",
+    "4773",
+    "4809",
+    "4821",
+    "4822",
+    "4823",
+    "4835",
+    "4836",
+    "4837",
+    "4941",
+    "4942",
+    "4943",
+    "4954",
+    "4955",
+    "4956",
+    "4957",
+    "4968",
+    "4969",
+    "4980",
+    "4981",
+    "4982",
+    "4983",
+    "4994",
+    "4995",
+    "4996",
+    "4997"
+  ],
+  "citation_coverage": {
+    "summary": {
+      "mean": 99.16,
+      "median": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "std_dev": 8.9533,
+      "q25": 100.0,
+      "q75": 100.0,
+      "count": 501
+    },
+    "plan": {
+      "mean": 94.6108,
+      "median": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "std_dev": 22.6031,
+      "q25": 100.0,
+      "q75": 100.0,
+      "count": 501
+    },
+    "overall": {
+      "mean": 99.1617,
+      "median": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "std_dev": 8.9496,
+      "q25": 100.0,
+      "q75": 100.0,
+      "count": 501
+    }
+  },
+  "citation_validity": {
+    "mean": 79.3944,
+    "median": 90.0,
+    "min": 0.0,
+    "max": 100.0,
+    "std_dev": 27.5065,
+    "q25": 70.0,
+    "q75": 100.0,
+    "count": 501
+  },
+  "hallucination_rate": {
+    "mean": 0.0399,
+    "median": 0.0,
+    "min": 0.0,
+    "max": 20.0,
+    "std_dev": 0.8935,
+    "q25": 0.0,
+    "q75": 0.0,
+    "count": 501
+  },
+  "span_consistency": {
+    "mean": 99.2016,
+    "median": 100.0,
+    "min": 0.0,
+    "max": 100.0,
+    "std_dev": 8.9085,
+    "q25": 100.0,
+    "q75": 100.0,
+    "count": 501
+  },
+  "citation_overlap_jaccard": {
+    "mean": 0.1348,
+    "median": 0.0615,
+    "min": 0.0,
+    "max": 1.0,
+    "std_dev": 0.1762,
+    "q25": 0.0222,
+    "q75": 0.1778,
+    "count": 501
+  },
+  "confidence_scores": {
+    "mean": 0.8832,
+    "median": 0.9,
+    "min": 0.0,
+    "max": 1.0,
+    "std_dev": 0.2198,
+    "q25": 0.9,
+    "q75": 1.0,
+    "count": 501
+  },
+  "semantic_accuracy": {
+    "mean": 0.684,
+    "median": 0.7078,
+    "min": 0.341,
+    "max": 0.9627,
+    "std_dev": 0.1471,
+    "q25": 0.5737,
+    "q75": 0.8051,
+    "count": 438
+  },
+  "section_name_mismatches": {
+    "total": {
+      "mean": 1.2415,
+      "median": 0,
+      "min": 0,
+      "max": 22,
+      "std_dev": 3.0092,
+      "q25": 0,
+      "q75": 1,
+      "count": 501
+    }
+  },
+  "span_out_of_chunk_bounds": {
+    "total": {
+      "mean": 2.2794,
+      "median": 0,
+      "min": 0,
+      "max": 26,
+      "std_dev": 3.9051,
+      "q25": 0,
+      "q75": 3,
+      "count": 501
+    }
+  },
+  "per_document": [
+    {
+      "doc_id": "0",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8008,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.85
+    },
+    {
+      "doc_id": "4",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "5",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.875
+    },
+    {
+      "doc_id": "6",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9333333333333332
+    },
+    {
+      "doc_id": "7",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "8",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "9",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "10",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 84.62,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "11",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "48",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 66.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8571,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "49",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 57.14,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8051,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "60",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7125,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "61",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 86.36,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7229,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "62",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 84.62,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8214,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "74",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 73.68,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6617,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "75",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8858,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "76",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.31,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.677,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "89",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "148",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 55.56,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4163,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "149",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.603,
+      "confidence": 0.8666666666666667
+    },
+    {
+      "doc_id": "160",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "161",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 93.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6401,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "163",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 60.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7104,
+      "confidence": 0.95
+    },
+    {
+      "doc_id": "174",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9396,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "175",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 51.72,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7154,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "177",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5915,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "188",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 85.71,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8266,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "201",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 30.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9285,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "202",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 81.82,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7224,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "203",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 33.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8246,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "215",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5726,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "216",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.91,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.799,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "217",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 75.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8911,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "229",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7302,
+      "confidence": 0.9333333333333332
+    },
+    {
+      "doc_id": "348",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6771,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "349",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5686,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "360",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8902,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "362",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.95,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3737,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "363",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 6.25,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "375",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8415,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "376",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 82.35,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4901,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "377",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6617,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "388",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7908,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "389",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.817,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "404",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 75.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.859,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "405",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 38.46,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5771,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "406",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 26.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "407",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 91.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8487,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "410",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 87.88,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "411",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 66.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5934,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "412",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9079,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "413",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 68.75,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8376,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "438",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 42.86,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5629,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "439",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7676,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "558",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.91,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6212,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "559",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.818,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "564",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 50.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7611,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "565",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 89.47,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5479,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "570",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 68.42,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6939,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "571",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 53.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7065,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "573",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 78.57,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7619,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "598",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 93.94,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4014,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "605",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5127,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "606",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.59,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4888,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "607",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 64.71,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6399,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "611",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7446,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "612",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.417,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "613",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 61.54,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7297,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "639",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 79.17,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3883,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "759",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6209,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "765",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 12.5,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8447,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "766",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5904,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "767",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 75.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.498,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "771",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 33.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "772",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 46.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "773",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 27.27,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "798",
+      "summary_coverage": 0.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "799",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 38.1,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "808",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 55.56,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "809",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3949,
+      "confidence": 0.9333333333333332
+    },
+    {
+      "doc_id": "820",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4568,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "821",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 60.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.507,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "822",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 73.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8739,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "834",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5603,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "835",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 81.82,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6705,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "836",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 33.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7259,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "940",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7931,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "941",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 71.43,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5651,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "942",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6653,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "954",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 81.82,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6708,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "955",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 33.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8884,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "956",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7056,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "968",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 31.58,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7544,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "969",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6163,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "981",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 57.14,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7147,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "982",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.772,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "983",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7673,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "995",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7174,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "996",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6352,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "997",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7417,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1018",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 82.35,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.449,
+      "confidence": 0.875
+    },
+    {
+      "doc_id": "1024",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4586,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1026",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 62.5,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7424,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1027",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 84.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6703,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1030",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8614,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1032",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6545,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1033",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 64.29,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7531,
+      "confidence": 0.875
+    },
+    {
+      "doc_id": "1144",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6755,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1145",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7372,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1146",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7669,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "1147",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3867,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1150",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 70.83,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1151",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 66.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6617,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1152",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8074,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1153",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 93.94,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4932,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1178",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4696,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1179",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 66.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4823,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1184",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 84.62,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6225,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1185",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6849,
+      "confidence": 0.95
+    },
+    {
+      "doc_id": "1187",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 96.15,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4972,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1190",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 76.47,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8471,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1191",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 77.27,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1192",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6929,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1193",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.48,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4862,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1218",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.46,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7013,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1219",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 85.71,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.534,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1224",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7731,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1225",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 75.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7465,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "1226",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8338,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1230",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3882,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1231",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5923,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1232",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7794,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "1344",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5339,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1345",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8072,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1346",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 93.75,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7816,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1350",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 27.27,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7495,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1351",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 72.73,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4066,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1352",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 50.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5482,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1378",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 82.61,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6162,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1379",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7162,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1385",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 82.61,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7697,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1386",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 71.43,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8858,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1387",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "1391",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 40.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "1392",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6937,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1393",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7864,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1408",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 56.25,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7098,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1420",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 81.25,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7358,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1422",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 28.57,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6047,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1423",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 42.11,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4832,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1434",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7727,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1436",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 50.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5159,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "1437",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5876,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1540",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 95.65,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7639,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1542",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.89,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9127,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1543",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5614,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1554",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.48,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.623,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1556",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6482,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1557",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4611,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1568",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 30.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.805,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1580",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 50.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7037,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1581",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 75.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4874,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1583",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 7.14,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.512,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1594",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 30.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4541,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1595",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 89.29,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5185,
+      "confidence": 0.95
+    },
+    {
+      "doc_id": "1597",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.86,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9124,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1608",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 75.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4258,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1609",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7268,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1620",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 79.31,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1621",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 85.19,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.341,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "1622",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7335,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1623",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 95.24,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3494,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1634",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "1635",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 70.59,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3822,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1636",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 94.44,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4845,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1637",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.91,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8954,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1740",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 58.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4673,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1741",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 84.62,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7038,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1754",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 96.15,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "1755",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 33.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "1756",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 27.27,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "1768",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "1769",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 92.86,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "1781",
+      "summary_coverage": 0.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "1782",
+      "summary_coverage": 0.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "1783",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 35.29,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4645,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1795",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1796",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.77,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3605,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1797",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7651,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1804",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 58.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6002,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1805",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 85.71,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8631,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1806",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6321,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1807",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 77.27,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4204,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1810",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8102,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1811",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 55.56,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4049,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1812",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 41.38,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6142,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1813",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 95.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7876,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1839",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 6.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4242,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1959",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 76.92,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4199,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1965",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6793,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1966",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 55.17,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6698,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1967",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 33.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7893,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1971",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 58.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7292,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1972",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 74.07,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6292,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "1973",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5184,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1998",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6043,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "1999",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7483,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2049",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 86.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4028,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2061",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 64.71,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6808,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2062",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 76.19,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5889,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2063",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 89.47,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "2075",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 93.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6553,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2076",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.91,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7817,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2077",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 62.5,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8248,
+      "confidence": 0.95
+    },
+    {
+      "doc_id": "2088",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 85.71,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.451,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2089",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6768,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2101",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 87.5,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6026,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2102",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 79.31,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6832,
+      "confidence": 0.7833333333333332
+    },
+    {
+      "doc_id": "2103",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5935,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2115",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 44.44,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9136,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2116",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "2117",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "2129",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.89,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6204,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "2248",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4448,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2249",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8217,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2260",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5059,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "2261",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "2263",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 76.92,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4814,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2274",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 72.73,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8162,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2275",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8035,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "2277",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 84.62,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6907,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2288",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8586,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2300",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.89,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5163,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "2301",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 77.78,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7963,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2302",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8966,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2303",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.765,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "2314",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 64.29,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.831,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2315",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7386,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "2316",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.663,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2317",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8118,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2328",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7606,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2329",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 69.23,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.886,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2458",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7965,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2459",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.672,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "2464",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.95,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6146,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2465",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "2466",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7259,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2467",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 38.46,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6697,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2470",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 75.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7098,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2471",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.846,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2472",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8031,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2473",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6475,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2498",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9363,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2499",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 46.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7231,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2505",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6578,
+      "confidence": 0.875
+    },
+    {
+      "doc_id": "2506",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 86.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7801,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2507",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 87.88,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6962,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2511",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 81.48,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6741,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2512",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.31,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8691,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2513",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4338,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2539",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 11.11,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "2658",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 94.44,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7544,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2659",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8166,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2664",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8122,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2665",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8416,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2667",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.669,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2670",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7908,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2671",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.895,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2673",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8016,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "2698",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7071,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2704",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.89,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2705",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7395,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2707",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5572,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2710",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3989,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2711",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8307,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "2713",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5634,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2738",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 91.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6533,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2739",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8049,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2840",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 94.74,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4771,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2842",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 50.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7799,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2843",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8431,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2854",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 53.85,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8805,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2856",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7777,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2857",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 30.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6786,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2868",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 94.12,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "2881",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 96.15,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8079,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2883",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.46,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6058,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "2894",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.89,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5745,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2895",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.91,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8385,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2897",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 70.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6961,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2908",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 81.82,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8576,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2920",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5816,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2922",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 72.22,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "2923",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.531,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2934",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6344,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "2936",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 75.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7596,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "2937",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 64.29,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8836,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3008",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.89,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7638,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3009",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 66.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "3020",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.855,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3021",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 85.71,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8596,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3022",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6576,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3023",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.812,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3034",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7441,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "3035",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 77.78,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7009,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3036",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8209,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3037",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8872,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3141",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 96.3,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6844,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3142",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 93.1,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4562,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3143",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 94.12,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8261,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3155",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 85.71,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8021,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "3156",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 71.43,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4607,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3157",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 52.63,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6555,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3169",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6326,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3181",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.48,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7803,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3182",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 66.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5796,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3194",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 57.14,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9139,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "3195",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7405,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3196",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.89,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8136,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3208",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 71.43,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "3209",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "3220",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 95.83,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5509,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3221",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7318,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3223",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 28.57,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4152,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3234",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8432,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3235",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 68.75,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6472,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3237",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 58.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8431,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3340",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7181,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3341",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8135,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3343",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.95,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6361,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3354",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7422,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3355",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 4.35,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5112,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3357",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 70.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4355,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3368",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 50.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7133,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3369",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5446,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3380",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 87.5,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8308,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3382",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 32.14,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3383",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8435,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "3394",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5906,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "3396",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8474,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3397",
+      "summary_coverage": 0.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "3419",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 86.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8792,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3425",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 80.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5476,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3426",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 81.82,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5277,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3427",
+      "summary_coverage": 79.17,
+      "plan_coverage": 100.0,
+      "validity": 70.0,
+      "hallucination_rate": 20.0,
+      "semantic_similarity": 0.5705,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "3431",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 42.86,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7085,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3432",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 87.5,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4065,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3433",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.31,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7109,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3545",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 68.42,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.662,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3546",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 93.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5876,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3551",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9627,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3552",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9503,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3553",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8136,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "3579",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 6.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4743,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "3584",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 11.11,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7093,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3585",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8948,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3586",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4121,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3590",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 86.11,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4934,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3591",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.87,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4887,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3592",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 62.96,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.573,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3618",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.734,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3619",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7397,
+      "confidence": 0.8333333333333334
+    },
+    {
+      "doc_id": "3625",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.31,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5722,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3627",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 85.71,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5316,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3630",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 97.14,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4428,
+      "confidence": 0.8800000000000001
+    },
+    {
+      "doc_id": "3631",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 59.26,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5285,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3633",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 96.97,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3761,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3744",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.86,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5911,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3745",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7868,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3746",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7688,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3747",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7642,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3750",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7852,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3751",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8559,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3752",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7785,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3753",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7069,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3778",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 55.56,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8004,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3779",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8047,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3784",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 50.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7947,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3785",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 93.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5984,
+      "confidence": 0.95
+    },
+    {
+      "doc_id": "3786",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6622,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3787",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.86,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5735,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3790",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.749,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "3791",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 85.71,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8635,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3792",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 56.25,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5345,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3793",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 7.69,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7721,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3800",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4187,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3802",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.89,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4734,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3803",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.576,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3814",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.735,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3816",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8778,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3817",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 73.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7301,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "3828",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 72.73,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8175,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3948",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 64.29,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6162,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "3949",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.85,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3960",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4385,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3961",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5427,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "3962",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3704,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3963",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6203,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "3974",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8248,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3975",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7006,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3976",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 73.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7493,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3977",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7691,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3988",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 5.88,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "3989",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 64.29,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6573,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4000",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4899,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4001",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8213,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4002",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 16.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8023,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4003",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 69.23,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6089,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "4014",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 69.23,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5743,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4015",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 61.54,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8845,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4016",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8606,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4017",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 81.25,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8261,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4028",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 87.5,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8731,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4029",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8249,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4148",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 5.26,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4160",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5072,
+      "confidence": 0.7999999999999999
+    },
+    {
+      "doc_id": "4162",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.86,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7261,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4163",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7723,
+      "confidence": 0.875
+    },
+    {
+      "doc_id": "4174",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 87.5,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8646,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4176",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7918,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4177",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5737,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4188",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5691,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4189",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "4200",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 76.47,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "4201",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.793,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "4202",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8581,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4214",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8571,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4215",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7332,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4216",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8071,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4228",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "4229",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.48,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8348,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4348",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 5.56,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4349",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 93.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7745,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4360",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8358,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4361",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 50.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5827,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4362",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 7.69,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6498,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4374",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8239,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4375",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 5.26,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4376",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4389",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7674,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4404",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6039,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4406",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5236,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4407",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 62.5,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.843,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4410",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 66.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4818,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4412",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5116,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4413",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4797,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4438",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.86,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7031,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "4558",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6525,
+      "confidence": 0.95
+    },
+    {
+      "doc_id": "4564",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4566",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.691,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4567",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 88.24,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7229,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "4570",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8228,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4572",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5391,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4573",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8401,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4598",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 50.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6905,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4599",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 77.78,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6206,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4604",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3739,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4605",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.86,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8027,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "4606",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.811,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4610",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6122,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4611",
+      "summary_coverage": 100.0,
+      "plan_coverage": 0.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.0
+    },
+    {
+      "doc_id": "4612",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8649,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4638",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7436,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4639",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6858,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4758",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 0.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6103,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4759",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 5.88,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4764",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8389,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4765",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4766",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6872,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4767",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4770",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 14.29,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4182,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4771",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 87.5,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5764,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4772",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 57.14,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7485,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "4773",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5116,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4809",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 92.86,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6139,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4821",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8287,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4822",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7359,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4823",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.517,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4835",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9553,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4836",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8792,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4837",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8677,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4941",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.858,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4942",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.841,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4943",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 86.67,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": null,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4954",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 61.76,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8223,
+      "confidence": 0.8
+    },
+    {
+      "doc_id": "4955",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 47.06,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6818,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4956",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8023,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4957",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 6.25,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5565,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4968",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 75.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5557,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4969",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.9235,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4980",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 81.82,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.4254,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4981",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 90.91,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.6643,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4982",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 72.22,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.7861,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4983",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.5063,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4994",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 94.74,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8569,
+      "confidence": 0.8500000000000001
+    },
+    {
+      "doc_id": "4995",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 93.75,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8138,
+      "confidence": 0.9
+    },
+    {
+      "doc_id": "4996",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 83.33,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.3682,
+      "confidence": 1.0
+    },
+    {
+      "doc_id": "4997",
+      "summary_coverage": 100.0,
+      "plan_coverage": 100.0,
+      "validity": 100.0,
+      "hallucination_rate": 0.0,
+      "semantic_similarity": 0.8434,
+      "confidence": 1.0
+    }
+  ]
+}

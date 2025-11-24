@@ -1,0 +1,32 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nBariatrics\n \nSample Name:\nÂ Gastric Bypass - Preop Eval\nDescription:\nÂ Preop evaluation regarding gastric bypass surgery. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 180,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "REASON FOR VISIT:\n Preop evaluation regarding gastric bypass surgery.\nThe patient has gone through the evaluation process and has been cleared from psychological, nutritional, and cardiac standpoint, also had great\nsuccess on the preop Medifast diet.",
+      "start_char": 180,
+      "end_char": 431,
+      "section_title": "REASON FOR VISIT"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "PHYSICAL EXAMINATION: \nThe patient is alert and oriented x3. Temperature of 97.9, pulse of 76, blood pressure of 114/74, weight of\n247.4 pounds. Abdomen: Soft, nontender, and nondistended.",
+      "start_char": 431,
+      "end_char": 620,
+      "section_title": "PHYSICAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "ASSESSMENT AND PLAN:\n The patient is currently in stable condition with morbid obesity, scheduled for gastric bypass surgery in less than\ntwo weeks. Risks and benefits of the procedure were reiterated with the patient and significant other and mother, which included but not limited to\ndeath, pulmonary embolism, anastomotic leak, reoperation, prolonged hospitalization, stricture, small bowel obstruction, bleeding, and infection.\nQuestions regarding hospital course and recovery were addressed. We will continue on the Medifast diet until the time of surgery and cleared for\nsurgery.",
+      "start_char": 620,
+      "end_char": 1205,
+      "section_title": "ASSESSMENT AND PLAN"
+    }
+  ]
+}

@@ -832,7 +832,7 @@ Each item must include "text" and "source" fields. Source should use format: "[s
     # Call LLM with validation retry wrapper
     # Try with existing cleaning function first, retry with feedback on validation errors
     current_prompt = prompt
-    max_validation_retries = 1  # Limit validation retries to avoid token waste
+    max_validation_retries = 2  # Limit validation retries to avoid token waste
     
     for validation_attempt in range(1, max_validation_retries + 1):
         try:

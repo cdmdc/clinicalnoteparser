@@ -1,0 +1,95 @@
+{
+  "citation_coverage": {
+    "summary_facts_with_citations": 27,
+    "summary_total_facts": 27,
+    "summary_coverage_percentage": 100.0,
+    "plan_recommendations_with_citations": 4,
+    "plan_total_recommendations": 4,
+    "plan_coverage_percentage": 100.0,
+    "overall_coverage_percentage": 100.0
+  },
+  "citation_validity": {
+    "total_citations_checked": 31,
+    "invalid_citations": 0,
+    "validity_percentage": 100.0
+  },
+  "section_name_mismatches": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "span_out_of_chunk_bounds": {
+    "summary": 0,
+    "plan": 0,
+    "total": 0
+  },
+  "orphan_claims": {
+    "summary_orphans": 0,
+    "plan_orphans": 0,
+    "total_orphans": 0,
+    "total_claims": 31,
+    "hallucination_rate_percentage": 0.0
+  },
+  "citation_overlap_jaccard": {
+    "total_citation_pairs": 465,
+    "average_jaccard_similarity": 0.01,
+    "min_jaccard": 0.0,
+    "max_jaccard": 1.0
+  },
+  "span_consistency": {
+    "checks_performed": 31,
+    "checks_passed": 31,
+    "consistency_percentage": 100.0
+  },
+  "summary_statistics": {
+    "total_facts_extracted": 27,
+    "total_recommendations_generated": 4,
+    "average_citations_per_fact": 1.0,
+    "average_citations_per_recommendation": 1.0,
+    "confidence_score_distribution": {
+      "count": 4,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    }
+  },
+  "semantic_accuracy": {
+    "average_similarity": 0.4324,
+    "well_supported": 0,
+    "poorly_supported": 4,
+    "total_recommendations": 4,
+    "support_rate": 0.0,
+    "similarity_threshold": 0.7,
+    "per_recommendation": [
+      {
+        "number": 1,
+        "similarity_score": 0.4587,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": " via the "
+      },
+      {
+        "number": 2,
+        "similarity_score": 0.4435,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": "h a BMI of 43 who is interest"
+      },
+      {
+        "number": 3,
+        "similarity_score": 0.3842,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": "in surgical wei"
+      },
+      {
+        "number": 4,
+        "similarity_score": 0.443,
+        "is_supported": false,
+        "cited_chunk_id": "chunk_10",
+        "cited_text_preview": "MENT/PLAN: \nThis is a 34-year-old female "
+      }
+    ]
+  }
+}

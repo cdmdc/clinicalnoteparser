@@ -1,0 +1,207 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "chunk_0",
+      "text": "Medical Specialty:\nAutopsy\n \nSample Name:\nÂ Autopsy - 2\nDescription:\nÂ Autopsy of a white female who died of acute combined drug intoxication. \n(Medical Transcription Sample Report)",
+      "start_char": 0,
+      "end_char": 182,
+      "section_title": "Overview"
+    },
+    {
+      "chunk_id": "chunk_1",
+      "text": "CLOTHING: \nThe body is clad in a light green hospital gown, which is intact, dry and clean. There is no jewelry present.",
+      "start_char": 182,
+      "end_char": 303,
+      "section_title": "CLOTHING"
+    },
+    {
+      "chunk_id": "chunk_2",
+      "text": "EXTERNAL EXAMINATION:\n The body is that of a well-developed, well-nourished white woman appearing the offered age of 39 years. The\nbody measures 71 inches and weighs 178 pounds.\nThe unembalmed body is well preserved and cool to touch due to refrigeration. Rigor mortis is fully developed in the major muscle groups. Livor\nmortis is fixed and purple posteriorly except over pressure points. However, during initial examination in the emergency room, there was no rigor\nand lividity was at a minimum and unfixed. The skin is intact and shows no evidence of trauma except for medical intervention. The scalp hair is\nblond and measures up to 5 inches in length in the frontal area and up to 19 inches in length in the back and on top of the head. There are multiple\nblonde hair extensions including several pink strands attached to the natural hair, which shows light brown roots. The irides are hazel and the pupils\nare equal, each measuring 0.5 centimeter in diameter. The corneae are clear and the sclerae and conjunctivae are free of petechiae. The nasal\nbones are intact by palpation. The nares are patent and contain no foreign matter. There is a 3-millimeter raised nodule on the right side of the\nnose. The natural teeth are in good condition. The frenula are intact. The oral mucosa and tongue are free of injuries. The external ears have no\ninjuries. There are bilateral earlobe piercings; no earring or jewelry were present. There are no earlobe creases.\nThe neck is symmetrical and shows no masses or injuries. The trachea is in the midline. The shoulders are symmetrical and are free of scars.\nThe chest is symmetrical and shows no evidence of injury. There were bilateral breasts with asymmetry of the left breast due to scarring. The flat\nabdomen has no injuries. There are piercings above and below the umbilicus. The back is symmetrical. The buttocks have inconspicuous small\nscars, bilaterally. There is a flat, round scar on the lower aspect of the left buttock approximately 1/2 inch in diameter.\nThe genitalia are those of a normally developed adult woman. There is no evidence of injury. The anus is unremarkable.\nThe upper extremities are symmetrical and have no injuries. The fingernails are long and clean. There is a linear 1/2 inch scar on the anterior right\nforearm. Two parallel linear scars measuring 1 inch and 2 inches are on the anterior surface of the left forearm. The lower extremities are\nsymmetrical. The toenails are short and clean. There is no edema of the legs or ankles. There is no abnormal motion of the neck, the shoulders, the\nelbows, the wrists, the fingers, the hips and ankles. There is no bony crepitus or cutaneous crepitus present.",
+      "start_char": 303,
+      "end_char": 2984,
+      "section_title": "EXTERNAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_3",
+      "text": "EVIDENCE OF INJURY: \nA dissection of the posterior neck and upper back show a 2-1/4 x 2-3/4 inch reddish, recent contusion of the\nsubcutaneous and superficial muscle layer of the left posterior shoulder. A recent, reddish, 1-3/4 x 1-1/2 inch reddish contusion is present on the\nright posterior shoulder involving the superficial muscular layer.",
+      "start_char": 2984,
+      "end_char": 3329,
+      "section_title": "EVIDENCE OF INJURY"
+    },
+    {
+      "chunk_id": "chunk_4",
+      "text": "EVIDENCE OF RECENT MEDICAL TREATMENT: \nA properly positioned size 8 endotracheal tube retained by a Thomas clamp is\npresent at the mouth with the marker 22 at the anterior teeth. \nElectrocardiogram pads are on the anterior chest in the following order: two on the right anterior shoulder, two on the left anterior shoulder, one on\nthe upper anterior left arm, one each on the anterior side, one each on the anterior leg.\nTwo defibrillator pads are present: one to the right of the midline, above the right breast, and one to the left of the midline, below the left breast.\nThere is intravenous line placement at the right anterior neck with hemorrhage into the anterior strap muscles of the neck. One recent needle\npuncture mark is in the right antecubital fossa and two recent needle puncture marks are at the anterior left elbow with surrounding ecchymoses.\nThere is one recent needle puncture into the medial one-third of the left anterior forearm with surrounding ecchymosis. A recent needle puncture\nmark is at the left anterior wrist with surrounding reddish ecchymosis, 1 inch in diameter.",
+      "start_char": 3329,
+      "end_char": 4426,
+      "section_title": "EVIDENCE OF RECENT MEDICAL TREATMENT"
+    },
+    {
+      "chunk_id": "chunk_5",
+      "text": "OTHER IDENTIFYING FEATURES: \nThere are multiple scars and tattoos on the body.",
+      "start_char": 4426,
+      "end_char": 4505,
+      "section_title": "OTHER IDENTIFYING FEATURES"
+    },
+    {
+      "chunk_id": "chunk_6",
+      "text": "SCARS:\n A 3/4 x 1/2 inch flat scar is on the upper inner aspect of the right breast quadrant. A 1/2 x 3/8-inch scar is on the medial aspect of the\nleft nipple. There are circular scars adjacent to both areolae. The right inframammary skin has a linear transverse 3/4 inch remote \"chest tube\" scar.\nThere were bilateral inframammary and transverse linear 3-3/4 inch scars compatible with left and right mammoplasty with breast implants. There\nare circular scars surrounding piercings above and below the umbilicus. A flat 3/8 inch in diameter scar is present on the middle third of the anterior\nsurface of the right thigh. Lateral to this scar is a 1/2 inch in diameter flat scar. There are several scattered small inconspicuous scars on both\nbuttocks. There is a cluster of multiple, parallel, linear, well-healed scars on the anterior and lateral aspects of the right leg covered by a tattoo.",
+      "start_char": 4505,
+      "end_char": 5399,
+      "section_title": "SCARS"
+    },
+    {
+      "chunk_id": "chunk_7",
+      "text": "TATTOOS: \nThere is a pair of red lips in the right lower abdominal quadrant.\nTwo red cherries are on the right mid pelvis.\nA \"Playboy Bunny\" is on the left anterior mid pelvis.\nThe words \"Daniel\" and \"Papas\" are on the mid anterior pelvis region.\nA mixed tattoo on the right lower leg and ankle represents: Christ's head; Our Lady of\nGuadalupe; the Holy Bible; the naked torso of a woman; the smiling face of Marilyn Monroe; a\ncross; a heart and shooting flames.\nA mermaid on a flower bed with a pair of lips underneath it laying across the lower back.",
+      "start_char": 5399,
+      "end_char": 5952,
+      "section_title": "TATTOOS"
+    },
+    {
+      "chunk_id": "chunk_8",
+      "text": "INTERNAL EXAMINATION: \nThe body was opened with the usual Y incision. The breast tissues, when incised, revealed bilateral implants,\neach containing 700ml of clear fluid. The implants were surrounded by a thick connective tissue capsule with a thick yellow fluid. The content of\neach capsule was collected for bacteriological cultures.",
+      "start_char": 5952,
+      "end_char": 6288,
+      "section_title": "INTERNAL EXAMINATION"
+    },
+    {
+      "chunk_id": "chunk_9",
+      "text": "BODY CAVITIES: \nThe muscles of the chest and abdominal wall are normal in color and consistency. The lungs are neither hyperinflated nor\natelectatic when the pleural cavities are opened. The right lung shows adherence to the parietal pleura and to the diaphragm interiorly. The ribs,\nsternum and spine exhibit no fractures. The right and left pleural cavities have no free fluid. There are extensive right pleural fibrous adhesions. The\nmediastinum is in the midline. The pericardial sac has a normal amount of clear yellow fluid. The diaphragm has no abnormality. The subcutaneous\nabdominal fat measures 3 centimeters in thickness at the umbilicus. The abdominal cavity is lined with glistening serosa and has no collections of\nfree fluid. The organs are normally situated. The mesentery and omentum are unremarkable.",
+      "start_char": 6288,
+      "end_char": 7107,
+      "section_title": "BODY CAVITIES"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "text": "NECK: \nThe soft tissues and the strap muscles of the neck, aside from the previously described focal hemorrhages, exhibit no abnormalities. The\nhyoid bone and the cartilages of the larynx and thyroid are intact and show no evidence of injury. The larynx and trachea are lined by smooth pink-\ntan mucosa, are patent and contain no foreign matter. There is a focal area of reddish hyperemia at the carina associated with the endotracheal\ntube. The epiglottis and vocal cords are unremarkable. The cervical vertebral column is intact. The carotid arteries and jugular veins are\nunremarkable.",
+      "start_char": 7107,
+      "end_char": 7696,
+      "section_title": "NECK"
+    },
+    {
+      "chunk_id": "chunk_11",
+      "text": "CARDIOVASCULAR SYSTEM: \nThe heart and great vessels contain dark red liquid blood and little postmortem clots. The heart weighs 305\ngrams. The epicardial surface has a normal amount of glistening, yellow adipose tissue. The coronary arteries are free of atherosclerosis. The cut\nsurfaces of the brown myocardium show no evidence of hemorrhage or necrosis.\nThe pulmonary trunk and arteries are opened in situ and there is no evidence of thromboemboli. The intimal surface of the aorta is smooth with a\nfew scattered yellow atheromata. The ostia of the major branches are of normal distribution and dimension. The inferior vena cava and tributaries\nhave no antemortem clots (See attached cardiopathology report for additional details).",
+      "start_char": 7696,
+      "end_char": 8430,
+      "section_title": "CARDIOVASCULAR SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_12",
+      "text": "RESPIRATORY SYSTEM: \nThe lungs weigh 550 grams and 500 grams, right and left, respectively. There is a small amount of subpleural\nanthracotic pigment within all the lobes. The pleural surfaces are free of exudates; right-sided pleural adhesions have been described above. The\ntrachea and bronchi have smooth tan epithelium. The cut surfaces of the lungs are red-pink and have mild edema. The lung parenchyma is of the\nusual consistency and shows no evidence of neoplasm, consolidation, thromboemboli, fibrosis or calcification.",
+      "start_char": 8430,
+      "end_char": 8958,
+      "section_title": "RESPIRATORY SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_13",
+      "text": "HEPATOBILIARY SYSTEM: \nThe liver weighs 2550 grams. The liver edge is somewhat blunted. The capsule is intact. The cut surfaces are\nred-brown and of normal consistency. There are no focal lesions. The gallbladder contains 15 milliliters of dark green bile. There are no stones.\nThe mucosa is unremarkable. The large bile ducts are patent and non-dilated.",
+      "start_char": 8958,
+      "end_char": 9313,
+      "section_title": "HEPATOBILIARY SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_14",
+      "text": "HEMOLYMPHATIC SYSTEM: \nThe thymus is not identified. The spleen weighs 310 grams. The capsule is shiny, smooth and intact. The cut\nsurfaces are firm and moderately congested. The lymphoid tissue in the spleen is within a normal range. The lymph nodes throughout the body are\nnot enlarged.",
+      "start_char": 9313,
+      "end_char": 9602,
+      "section_title": "HEMOLYMPHATIC SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_15",
+      "text": "GASTROINTESTINAL SYSTEM: \nThe tongue shows a small focus of submucosal hemorrhage near the tip. The esophagus is empty and the\nmucosa is unremarkable. The stomach contains an estimated 30 milliliters of thick sanguinous fluid. The gastric mucosa shows no evidence or\nulceration. There is a mild flattening of the rugal pattern within the antrum with intense hyperemia. The duodenum contains bile-stained thick tan\nfluid. The jejunum, ileum, and the colon contain yellowish fluid with a thick, cloudy, particulate matter. There is no major alteration to internal and\nexternal inspection and palpation except for a yellowish/white shiny discoloration of the mucosa. The vermiform appendix is identified. The\npancreas is tan, lobulated and shows no neoplasia, calcification or hemorrhage.\nThere are no intraluminal masses or pseudomenbrane.",
+      "start_char": 9602,
+      "end_char": 10440,
+      "section_title": "GASTROINTESTINAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_16",
+      "text": "UROGENITAL SYSTEM: \nThe kidneys are of similar size and shape and weigh 160 grams and 190 grams, right and left, respectively. The\ncapsules are intact and strip with ease. The cortical surfaces are purplish, congested and mildly granular. The cut surfaces reveal a well-defined\ncorticomedullary junction. There are no structural abnormalities of the medullae, calyces or pelves. The ureters are slender and patent. The urinary\nbladder has approximately 0.5 milliliters of cloudy yellow urine. The mucosa is unremarkable. The vagina is normally wrinkled and contains no\nforeign matter. The uterus shows a reddish endometrial lining with no evidence of intra-uterine pregnancy. The fallopian tubes and ovaries are\nwithin normal limits.",
+      "start_char": 10440,
+      "end_char": 11174,
+      "section_title": "UROGENITAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_17",
+      "text": "ENDOCRINE SYSTEM:\n The adrenal glands have a normal configuration with the golden yellow cortices well demarcated from the underlying\nmedullae and there is no evidence of hemorrhage. The thyroid gland is mildly fibrotic and has focally pale gray parenchyma on sectioning. The\npituitary gland is within normal limits.",
+      "start_char": 11174,
+      "end_char": 11492,
+      "section_title": "ENDOCRINE SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_18",
+      "text": "MUSCULOSKELETAL SYSTEM: \nPostmortem radiographs of the body show no acute, healed or healing fractures of the head, the neck, the\nappendicular skeleton or the axial skeleton. The muscles are normally formed. \nDissection of the right anterior thigh in the aforementioned areas of scarring revealed subcutaneous fibrosis and multiple small cysts containing\nturbid, yellow fluid. The cyst-like structures range in sizes from 0.5 centimeters to 1.2 centimeters in diameter. The cyst associated with the most\nmedial scar is 8 millimeter in diameter and has a calcified wall and the cyst associated with the more lateral scar measures 1 centimeter in diameter.\nDissection of the buttocks reveals diffuse subcutaneous scarring and fat necrosis of the adipose tissue bilaterally with three subcutaneous cystic\nstructures containing light yellow, clear, thick liquid within the left buttock. The right buttock contains similar cysts with similar content, with at least\none cyst wall being calcified.\nThe left and right buttocks have foci of recent, hemorrhagic tracts within the subcutaneous adipose tissue and the superficial and deep muscular\nlayers extending from the skin surface.\nThere is a deep-seated 3 x 2.5 x 2 centimeter abscess within the musculature of the left buttock with a creamy, yellow-green pus on sectioning. A\nrecent, hemorrhagic, needle tract extends into the abscess wall from the skin surface.",
+      "start_char": 11492,
+      "end_char": 12901,
+      "section_title": "MUSCULOSKELETAL SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_19",
+      "text": "CENTRAL NERVOUS SYSTEM: \nThe scalp has no hemorrhage or contusions. The calvarium is intact. There is no epidural, subdural or\nsubarachnoid hemorrhage. The brain has a normal convolutional pattern and weighs 1300 grams. The meninges are clear. The cortical surfaces of\nthe brain have mild to moderate flattening of the gyri with narrowing of the sulci. The brain is cut after formalin fixation and a separate\nneuropathology report is attached.",
+      "start_char": 12901,
+      "end_char": 13345,
+      "section_title": "CENTRAL NERVOUS SYSTEM"
+    },
+    {
+      "chunk_id": "chunk_20",
+      "text": "SPECIAL PROCEDURES: \nLayer by layer anterior and posterior neck dissections were conducted. Dissection of the entire back including both\ngluteal regions was conducted. A biological trace evidence was collected. Multiple hairs were pulled from various parts of the head. The nails of\nthe left hand were cut and preserved. Additional blood and tissue samples for DNA was collected.",
+      "start_char": 13345,
+      "end_char": 13725,
+      "section_title": "SPECIAL PROCEDURES"
+    },
+    {
+      "chunk_id": "chunk_21",
+      "text": "FINAL PATHOLOGICAL DIAGNOSES:",
+      "start_char": 13725,
+      "end_char": 13755,
+      "section_title": "FINAL PATHOLOGICAL DIAGNOSES"
+    },
+    {
+      "chunk_id": "chunk_22",
+      "text": "I. ACUTE COMBINED DRUG INTOXICATION\nA. Toxic/lethal drug:\nChloral Hydrate (Noctec).\n1.Trichloroethanol (TCE) 75ug/mL (active metabolite).\n2.Trichloroacetic acid ( TCA) 85ug/mL (inactive metabolite).\nB. Therapeutic drugs:\n1. Diphenhydramine (Bendaryl) 0.11 mg/L.\n2. Clonazepam (Klonopin) 0.04 mg/L.\n3. Diazepam (Valium) 0.21 mg/L.\n4. Nordiazepam (metabolite) 0.38 mg/L.\n5 Temazepam (metabolite) 0.09 mg/L.\n6. Oxazepam 0.09 mg/L.\n7. Lorazepam 22.0 ng/mL.\nC. Other non-contributory drugs present (atropine, topiramate, ciprofloxacin, acetaminophen).\nII. LEFT GLUTEAL PANNICULITIS, WITH ABSCESS FORMATION AND RECENT LINEAR HEMORRHAGE.\nIII. FIBROSIS WITH FAT NECROSIS (CHRONIC REPEATED INJECTIONS OF VARIOUS MEDICATIONS IN BUTTOCKS) OF\nDERMAL AND SUBCUTANEOUS TISSUES, BILATERAL GLUTEAL REGIONS AND ANTERIOR RIGHT THIGH.\nIV. GASTROENTERITIS, MILD, OF PROBABLE VIRAL ETIOLOGY.\nV. DEPRESSION FOLLOWING RECENT DELIVERY OF TERM INFANT AND RECENT DEATH OF ADULT SON (SEPTEMBER\n2006).\nVI. MODERATE CONGESTIVE HEPATOMEGALY (2550 GRAMS).",
+      "start_char": 13755,
+      "end_char": 14780,
+      "section_title": "I. ACUTE COMBINED DRUG INTOXICATION"
+    },
+    {
+      "chunk_id": "chunk_23",
+      "text": "VII. FIBROUS PLEURAL ADHESIONS.",
+      "start_char": 14780,
+      "end_char": 14812,
+      "section_title": "VII. FIBROUS PLEURAL ADHESIONS."
+    },
+    {
+      "chunk_id": "chunk_24",
+      "text": "VIII. CHRONIC THYROIDITIS (HASHIMOTO THYROIDITIS).\nIX. WELL HEALED SUPRAPUBIC SCAR (STATUS POST CESAREAN SECTION).",
+      "start_char": 14812,
+      "end_char": 14927,
+      "section_title": "VIII. CHRONIC THYROIDITIS (HASHIMOTO THYROIDITIS)."
+    },
+    {
+      "chunk_id": "chunk_25",
+      "text": "X. MINIMAL, INSIGNIFICANT MYOCARDIAL FIBROSIS.",
+      "start_char": 14927,
+      "end_char": 14974,
+      "section_title": "X. MINIMAL, INSIGNIFICANT MYOCARDIAL FIBROSIS."
+    },
+    {
+      "chunk_id": "chunk_26",
+      "text": "XI. STATUS POST MEDICAL INTERVENTION.\nA. Endotracheal tube placement.\nB. Right jugular line placement.\nC. Cardiac Monitoring devices and defibrillator pad placement.\nD. Bilateral anterior elbow and left anterior wrist venipuncture sites with surrounding ecchymoses.\nXII. STATUS POST BILATERAL BREAST IMPLANTS WITH SCARRING, LEFT AREOLA.\nXIII. MICRO-INFARCT OF BRAIN, LEFT OCCIPITAL WHITE MATTER.",
+      "start_char": 14974,
+      "end_char": 15370,
+      "section_title": "XI. STATUS POST MEDICAL INTERVENTION."
+    },
+    {
+      "chunk_id": "chunk_27",
+      "text": "XIV. MINOR CONTUSIONS, POSTERIOR SHOULDERS.",
+      "start_char": 15370,
+      "end_char": 15414,
+      "section_title": "XIV. MINOR CONTUSIONS, POSTERIOR SHOULDERS."
+    },
+    {
+      "chunk_id": "chunk_28",
+      "text": "OPINION:\n ABC was a 39-year-old white female who died of acute combined drug intoxication. Abscesses of buttocks, and viral enteritis were\ncontributory causes of death.\nTHE MANNER OF DEATH IS DETERMINED TO BE: ACCIDENT",
+      "start_char": 15414,
+      "end_char": 15632,
+      "section_title": "OPINION"
+    }
+  ]
+}

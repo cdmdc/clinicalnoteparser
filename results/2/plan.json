@@ -1,0 +1,39 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Monitor oxygen saturation and ensure it remains above 95%.",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_10:1287-2192",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Administer albuterol as needed for symptom relief.",
+      "source": "[PHYSICAL EXAMINATION] section, chunk_10:1287-2192",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "Consider a chest x-ray to evaluate for bronchial thickening and other findings.",
+      "source": "[MEDICAL DECISION MAKING] section, chunk_11:2192-2922",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "Evaluate for foreign body pneumonia given the history of frequent pneumonia.",
+      "source": "[MEDICAL DECISION MAKING] section, chunk_11:2192-2922",
+      "confidence": 0.8,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 5,
+      "recommendation": "Continue asthma management with Advair and Nasonex.",
+      "source": "[MEDICATIONS] section, chunk_5:951-1036",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    }
+  ]
+}

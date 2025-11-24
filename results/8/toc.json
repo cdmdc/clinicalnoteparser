@@ -1,0 +1,207 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "start_char": 0,
+      "end_char": 182,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "CLOTHING",
+      "start_char": 182,
+      "end_char": 303,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "EXTERNAL EXAMINATION",
+      "start_char": 303,
+      "end_char": 2984,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "EVIDENCE OF INJURY",
+      "start_char": 2984,
+      "end_char": 3329,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "EVIDENCE OF RECENT MEDICAL TREATMENT",
+      "start_char": 3329,
+      "end_char": 4426,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "OTHER IDENTIFYING FEATURES",
+      "start_char": 4426,
+      "end_char": 4505,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "SCARS",
+      "start_char": 4505,
+      "end_char": 5399,
+      "start_page": 0,
+      "end_page": 0
+    },
+    {
+      "title": "TATTOOS",
+      "start_char": 5399,
+      "end_char": 5952,
+      "start_page": 0,
+      "end_page": 1
+    },
+    {
+      "title": "INTERNAL EXAMINATION",
+      "start_char": 5952,
+      "end_char": 6288,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "BODY CAVITIES",
+      "start_char": 6288,
+      "end_char": 7107,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "NECK",
+      "start_char": 7107,
+      "end_char": 7696,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "CARDIOVASCULAR SYSTEM",
+      "start_char": 7696,
+      "end_char": 8430,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "RESPIRATORY SYSTEM",
+      "start_char": 8430,
+      "end_char": 8958,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "HEPATOBILIARY SYSTEM",
+      "start_char": 8958,
+      "end_char": 9313,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "HEMOLYMPHATIC SYSTEM",
+      "start_char": 9313,
+      "end_char": 9602,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "GASTROINTESTINAL SYSTEM",
+      "start_char": 9602,
+      "end_char": 10440,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "UROGENITAL SYSTEM",
+      "start_char": 10440,
+      "end_char": 11174,
+      "start_page": 1,
+      "end_page": 1
+    },
+    {
+      "title": "ENDOCRINE SYSTEM",
+      "start_char": 11174,
+      "end_char": 11492,
+      "start_page": 1,
+      "end_page": 2
+    },
+    {
+      "title": "MUSCULOSKELETAL SYSTEM",
+      "start_char": 11492,
+      "end_char": 12901,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "CENTRAL NERVOUS SYSTEM",
+      "start_char": 12901,
+      "end_char": 13345,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "SPECIAL PROCEDURES",
+      "start_char": 13345,
+      "end_char": 13725,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "FINAL PATHOLOGICAL DIAGNOSES",
+      "start_char": 13725,
+      "end_char": 13755,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "I. ACUTE COMBINED DRUG INTOXICATION",
+      "start_char": 13755,
+      "end_char": 14780,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "VII. FIBROUS PLEURAL ADHESIONS.",
+      "start_char": 14780,
+      "end_char": 14812,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "VIII. CHRONIC THYROIDITIS (HASHIMOTO THYROIDITIS).",
+      "start_char": 14812,
+      "end_char": 14927,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "X. MINIMAL, INSIGNIFICANT MYOCARDIAL FIBROSIS.",
+      "start_char": 14927,
+      "end_char": 14974,
+      "start_page": 2,
+      "end_page": 2
+    },
+    {
+      "title": "XI. STATUS POST MEDICAL INTERVENTION.",
+      "start_char": 14974,
+      "end_char": 15370,
+      "start_page": 2,
+      "end_page": 3
+    },
+    {
+      "title": "XIV. MINOR CONTUSIONS, POSTERIOR SHOULDERS.",
+      "start_char": 15370,
+      "end_char": 15414,
+      "start_page": 3,
+      "end_page": 3
+    },
+    {
+      "title": "OPINION",
+      "start_char": 15414,
+      "end_char": 15632,
+      "start_page": 3,
+      "end_page": 3
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "She was placed on Veramyst nasal spray two sprays each nostril daily and even twice daily if symptoms are worsening",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4683-4729",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "A Medrol Dosepak was prescribed as directed",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4730-4750",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "The patient was given instruction on use of nasal saline irrigation to be used twice daily and Clarinex 5 mg daily was recommended",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4762-4803",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "An ENG was ordered to evaluate vestibular function",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4652-4670",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 5,
+      "recommendation": "After the patients' ENG examination, we will see the patient back for further evaluation and treatment recommendations",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4804-4859",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 6,
+      "recommendation": "In light of the patient's atypical dizziness symptoms, I cannot rule out other pathology at this time",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4860-4879",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 7,
+      "recommendation": "If there are any acute changes or problems with regards to her balance or any other acute changes, which she attributes associated with her dizziness, she most likely should pursue an emergent visit to the emergency room",
+      "source": "[RECOMMENDATIONS] section, chunk_11:4880-5267",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    }
+  ]
+}

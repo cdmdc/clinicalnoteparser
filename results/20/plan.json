@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "We will continue on the Medifast diet until the time of surgery and cleared for surgery.",
+      "source": "[ASSESSMENT AND PLAN] section, chunk_3:620-1205",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Risks and benefits of the procedure were reiterated with the patient and significant other and mother, which included but not limited to death, pulmonary embolism, anastomotic leak, reoperation, prolonged hospitalization, stricture, small bowel obstruction, bleeding, and infection.",
+      "source": "[ASSESSMENT AND PLAN] section, chunk_3:620-759",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}

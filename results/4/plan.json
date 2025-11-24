@@ -1,0 +1,25 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "RAST allergy testing was ordered for food allergy evaluation.",
+      "source": "[RECOMMENDATIONS] section, chunk_3:996-1124",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "The patient will follow up after RAST allergy testing for further treatment recommendations.",
+      "source": "[RECOMMENDATIONS] section, chunk_3:1125-1270",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "No changes in her medication were prescribed until her followup visit.",
+      "source": "[RECOMMENDATIONS] section, chunk_3:1271-1354",
+      "confidence": 0.9,
+      "hallucination_guard_note": null
+    }
+  ]
+}

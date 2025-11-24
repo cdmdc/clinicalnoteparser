@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    {
+      "number": 1,
+      "recommendation": "Stop cephalosporin antibiotics due to acute allergic reaction to Keflex. This is necessary to prevent further allergic reactions and manage the current condition.",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_10:3467-3472",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 2,
+      "recommendation": "Refer to the emergency room if symptoms worsen. This is important for immediate medical attention and management of potential complications.",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_10:3467-3472",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 3,
+      "recommendation": "Prescribe EpiPen for emergency use to manage potential allergic reactions. This is crucial for the patient's safety and should be used as directed.",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_10:3467-3472",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    },
+    {
+      "number": 4,
+      "recommendation": "Recommend RAST allergy testing to identify specific allergens contributing to the allergic reaction. This will help in managing future reactions and avoiding triggers.",
+      "source": "RECOMMENDATIONS/PLAN section, chunk_10:3467-3472",
+      "confidence": 1.0,
+      "hallucination_guard_note": null
+    }
+  ]
+}
